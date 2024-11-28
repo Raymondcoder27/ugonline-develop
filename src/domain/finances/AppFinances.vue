@@ -82,7 +82,7 @@ function copy(trackingNumber: string) {
   <div class="w-full shadow-lg bg-white rounded-lg p-6">
     <div class="flex justify-between items-center py-3">
       <div class="text-primary-700 flex items-center">
-        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"></i>
+        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-money-bill"></i>
         <label class="text-xl mx-2 font-semibold">Transactions</label>
       </div>
       <!-- Add Transaction button -->

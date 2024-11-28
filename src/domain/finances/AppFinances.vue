@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { ref, Ref } from 'vue';
+import { ref, Ref, watch } from 'vue';
 import moment from 'moment';
 import CreateTransaction from "@/domain/finances/components/CreateTransaction.vue"
 
@@ -74,8 +74,8 @@ const openAddTransactionModal: Ref<boolean> = ref(false)
 
   function close() {
   openAddTransactionModal.value = false;
-  editTransactionModal.value = false;
-  specTransactionModal.value = false;
+  // editTransactionModal.value = false;
+  // specTransactionModal.value = false;
 }
 
 function viewDetails(transaction: Transaction) {
@@ -85,6 +85,17 @@ function viewDetails(transaction: Transaction) {
 function copy(trackingNumber: string) {
   navigator.clipboard.writeText(trackingNumber);
 }
+
+
+// watch state of the modal
+watch(
+  () => openAddTransactionModal.value,
+  (isOpen: boolean) => {
+    if (!isOpen) {
+      // do something if that's something you're interested in
+    }
+  },
+);
 </script>
 
 

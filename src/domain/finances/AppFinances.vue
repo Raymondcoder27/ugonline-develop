@@ -1,3 +1,42 @@
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+interface Transaction {
+  trackingNumber: string
+  prn: string
+  service: string
+  amount: number
+  status: string
+  date: string
+}
+
+const transactions = ref<Transaction[]>([
+  { trackingNumber: 'M241128-0002', prn: '2250000039829', service: 'SPECIAL LICENSE', amount: 50000, status: 'SUCCESS', date: '2024-11-28 10:17:00' },
+  { trackingNumber: 'M241127-0008', prn: '2250000039915', service: 'MARRIAGE', amount: 50000, status: 'SUCCESS', date: '2024-11-28 10:09:00' },
+  { trackingNumber: 'M241127-0016', prn: '2250000040081', service: 'MARRIAGE RETURNS', amount: 2000000, status: 'SUCCESS', date: '2024-11-27 16:20:00' },
+  // Add more dummy data as needed
+])
+
+function getStatusClass(status: string) {
+  return status === 'SUCCESS'
+    ? 'text-green-600 bg-green-50 p-1 rounded'
+    : status === 'FAILED'
+    ? 'text-red-600 bg-red-50 p-1 rounded'
+    : 'text-yellow-600 bg-yellow-50 p-1 rounded'
+}
+</script>
+
+<style scoped>
+.action-btn {
+  @apply p-2 text-sm bg-blue-500 text-white rounded shadow hover:bg-blue-600;
+}
+.form-element {
+  @apply w-full p-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
+</style>
+
+
 <template>
   <div class="flex p-4 bg-white h-full">
     <div class="w-full">
@@ -56,40 +95,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-
-interface Transaction {
-  trackingNumber: string
-  prn: string
-  service: string
-  amount: number
-  status: string
-  date: string
-}
-
-const transactions = ref<Transaction[]>([
-  { trackingNumber: 'M241128-0002', prn: '2250000039829', service: 'SPECIAL LICENSE', amount: 50000, status: 'SUCCESS', date: '2024-11-28 10:17:00' },
-  { trackingNumber: 'M241127-0008', prn: '2250000039915', service: 'MARRIAGE', amount: 50000, status: 'SUCCESS', date: '2024-11-28 10:09:00' },
-  { trackingNumber: 'M241127-0016', prn: '2250000040081', service: 'MARRIAGE RETURNS', amount: 2000000, status: 'SUCCESS', date: '2024-11-27 16:20:00' },
-  // Add more dummy data as needed
-])
-
-function getStatusClass(status: string) {
-  return status === 'SUCCESS'
-    ? 'text-green-600 bg-green-50 p-1 rounded'
-    : status === 'FAILED'
-    ? 'text-red-600 bg-red-50 p-1 rounded'
-    : 'text-yellow-600 bg-yellow-50 p-1 rounded'
-}
-</script>
-
-<style scoped>
-.action-btn {
-  @apply p-2 text-sm bg-blue-500 text-white rounded shadow hover:bg-blue-600;
-}
-.form-element {
-  @apply w-full p-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400;
-}
-</style>

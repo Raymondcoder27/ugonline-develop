@@ -74,8 +74,8 @@ function submit() {
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Services Offered</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
-            <option value="admin">Administrator</option>
-            <option value="public">Public User</option>
+            <option value="admin"></option>
+            <option value="public"></option>
           </select>
         </div>
       </div>

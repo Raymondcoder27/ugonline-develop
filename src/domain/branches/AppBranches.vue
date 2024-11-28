@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, type Ref, ref, watch } from "vue";
-import CreateService from "@/domain/services/components/CreateService.vue";
+// import CreateService from "@/domain/services/components/CreateService.vue";
+import CreateBranch from @/domain/branches/components/CreateBranch.vue
 import { useServicesStore } from "@/domain/services/stores";
 import type { Service } from "@/domain/services/types";
 import EditService from "@/domain/services/components/EditService.vue";
@@ -223,7 +224,7 @@ watch(
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <CreateService @cancel="close" />
+    <CreateBranch @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 

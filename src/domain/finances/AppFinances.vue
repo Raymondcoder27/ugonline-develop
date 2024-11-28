@@ -1,5 +1,6 @@
 
 <script setup lang="ts">
+import AppModal from "@/components/AppModal.vue";
 import { ref, Ref } from 'vue';
 import moment from 'moment';
 import CreateTransaction from "@/domain/finances/components/CreateTransaction.vue"

@@ -89,8 +89,9 @@ watch(
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Transaction Type</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
-            <option value="admin">Administrator</option>
-            <option value="public">Public User</option>
+            <option value="admin">Float Allocation</option>
+            <option value="public">Service Fee</option>
+            <option value="public">Refund</option>
           </select>
         </div>
       </div>

@@ -1,7 +1,8 @@
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, Ref } from 'vue';
 import moment from 'moment';
+import CreateTransaction from "@/domain/finances/components/CreateTransaction.vue"
 
 interface Transaction {
   id: number;
@@ -64,8 +65,16 @@ function next() {
 }
 
 // Add Transaction modal logic
-function openAddTransactionModal() {
-  console.log('Opening Add Transaction Modal');
+// function openAddTransactionModal() {
+//   console.log('Opening Add Transaction Modal');
+// }
+
+const openAddTransactionModal: Ref<boolean> = ref(false) 
+
+  function close() {
+  openAddTransactionModal.value = false;
+  editTransactionModal.value = false;
+  specTransactionModal.value = false;
 }
 
 function viewDetails(transaction: Transaction) {
@@ -164,6 +173,16 @@ function copy(trackingNumber: string) {
       </button>
     </div>
   </div>
+
+
+
+    <!-- Modal -->
+    <AppModal v-model="openAddTransactionModal" xl2>
+    <!-- Put here whatever makes you smile -->
+    <!-- Chances are high that you're starting with a form -->
+    <CreateTransaction @cancel="close" />
+    <!-- That's also okay -->
+  </AppModal>
 </template>
 
 

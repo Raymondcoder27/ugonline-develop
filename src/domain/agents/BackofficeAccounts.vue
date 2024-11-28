@@ -139,6 +139,7 @@ watch(
           <tr class="header-tr">
 <!--            <th class="t-header">#</th>-->
             <th class="t-header" width="30%">Names</th>
+            <th class="t-header">Branch</th>
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
             <th class="text-center">Role</th>

@@ -19,6 +19,7 @@ import AppDashboard from "../domain/dashboard/AppDashboard.vue";
 import AppAgents from "../domain/agents/AppAgents.vue";
 import AppGateway from "../domain/gateway/AppGateway.vue";
 import AppFinances from "../domain/finances/AppFinances.vue";
+import Accounts2 from "../domain/servicesdetails/Accounts2.vue";
 
 declare module "vue-router" {
   interface RouteMeta {
@@ -72,6 +73,11 @@ const appRoutes: RouteRecordRaw[] = [
         name: "app-reports",
         path: "/home/data-analytics",
         component: DataAnalytics
+      },
+      {
+        name: "app-services-details",
+        path: "/home/services-details",
+        component: Accounts2
       },
       {
         name: "app-finances",

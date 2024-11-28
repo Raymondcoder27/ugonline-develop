@@ -34,7 +34,7 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">13,400,000</p>
-        <p class="text-xs">Available Float Balance</p>
+        <p class="text-xs">Available Float Balance (UGX)</p>
       </div>
     </div>
   </div>

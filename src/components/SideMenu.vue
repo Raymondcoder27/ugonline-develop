@@ -52,7 +52,7 @@ const sideMenu: SideMenuLink[] = [
     iconClass: "fa-solid fa-chart-line"
   },
   {
-    name: "app-service-details",
+    name: "app-services-details",
     label: "Services Details",
     iconClass: "fa-solid fa-list"
   },

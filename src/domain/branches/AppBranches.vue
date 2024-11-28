@@ -147,7 +147,7 @@ watch(
           <tr class="header-tr">
             <th class="t-header">#</th>
             <th class="t-header">Name</th>
-            <th class="t-header">Provider</th>
+            <th class="t-header">Supervisor</th>
             <th class="text-center">Access Tier</th>
             <th class="text-center">Availability</th>
             <th class="text-center">Status</th>

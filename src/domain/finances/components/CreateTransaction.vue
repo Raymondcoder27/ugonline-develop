@@ -107,10 +107,9 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Supervisor</label>
-          <select v-model="form.providerId" class="noFocus form-element e-input w-full">
-            <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
-          </select>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount</label>
+          <input autocomplete="off" type="text" v-model="form.name" class="noFocus form-element e-input w-full"
+            required />
         </div>
       </div>
 

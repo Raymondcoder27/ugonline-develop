@@ -3,6 +3,7 @@ import AppModal from "@/components/AppModal.vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive } from "vue";
 import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
+import AddAgent from "@/domain/agents/components/AddAgent.vue"
 import moment from "moment";
 import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"

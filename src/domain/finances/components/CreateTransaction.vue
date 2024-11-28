@@ -127,6 +127,14 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Transaction Date</label>
+          <input autocomplete="off" type="text" v-model="form.name" class="noFocus form-element e-input w-full"
+            required />
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Payment Method</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
             <option value="admin">Bank Transfer</option>

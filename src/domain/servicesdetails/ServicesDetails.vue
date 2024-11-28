@@ -1,14 +1,24 @@
 <script setup lang="ts">
-import { ref, type Ref } from "vue";
-import BackofficeAccounts from "@/domain/accounts/BackofficeAccounts.vue";
-import UserAccounts from "@/domain/accounts/UserAccounts.vue";
-
-const activeTab: Ref<string> = ref("backoffice");
-
-function select(tab: string) {
-  activeTab.value = tab;
+interface TableItem {
+  name: string;
+  type: string;
+  amount: string;
 }
+
+const tableData: TableItem[] = [
+  { name: 'Data Update', type: 'All Businesses', amount: 'Free' },
+  { name: 'Name Reservation/Business Name Registration fees', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Change of Particulars for Business Name', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Search Fees for Business Name', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Certification fees for Particulars of a Business Name', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Certification fees for a Certificate of Registration for a Business Name', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Fees for Cancellation of an Entry', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Fees for Change of Address', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Rectification Fees of a Register', type: 'Business Names', amount: 'UGX. 35,000' },
+  { name: 'Fees for Notice of Cessation', type: 'Business Names', amount: 'UGX. 35,000' },
+];
 </script>
+
 
 <template>
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">

@@ -1,89 +1,3 @@
-<template>
-  <div class="w-full shadow-lg bg-white rounded p-4">
-    <div class="flex justify-between items-center py-2">
-      <div class="text-primary-700 flex items-center">
-        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"></i>
-        <label class="text-lg mx-2">Transactions</label>
-      </div>
-      <!-- Add Transaction button -->
-      <button class="button btn-sm" @click="openAddTransactionModal">
-        <i class="fa-solid fa-plus-circle"></i> Add Transaction
-      </button>
-    </div>
-
-    <div class="flex justify-between mb-4">
-      <div class="grid grid-cols-4 gap-2 w-3/4">
-        <input class="filter-element e-input" type="text" placeholder="Search by Tracking Number" v-model="filters.search" />
-        <select class="filter-element e-select" v-model="filters.status">
-          <option value="">- Select Status -</option>
-          <option value="PENDING">Pending</option>
-          <option value="SUCCESS">Success</option>
-          <option value="FAILED">Failed</option>
-        </select>
-        <input type="date" class="filter-element e-input" v-model="filters.startDate" />
-        <input type="date" class="filter-element e-input" v-model="filters.endDate" />
-      </div>
-      <div>
-        <button class="button btn-sm" @click="clearFilters">
-          <i class="fa-solid fa-filter-circle-xmark"></i> Clear Filters
-        </button>
-      </div>
-    </div>
-
-    <div>
-      <table class="table">
-        <thead>
-          <tr class="header-tr">
-            <th class="t-header">#</th>
-            <th class="t-header">Tracking Number</th>
-            <th class="t-header">PRN</th>
-            <th class="t-header">Service</th>
-            <th class="t-header text-right">Amount (UGX)</th>
-            <th class="t-header text-center">Status</th>
-            <th class="t-header">Date</th>
-            <th class="t-header">Actions</th>
-          </tr>
-        </thead>
-        <thead v-if="loading">
-          <tr>
-            <th colspan="8" style="padding: 0">
-              <div class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"></div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(transaction, index) in filteredTransactions" :key="transaction.id" class="body-tr">
-            <td>{{ index + 1 }}.</td>
-            <td>
-              <span class="hover:underline text-blue-600 cursor-pointer">{{ transaction.trackingNumber }}</span>
-            </td>
-            <td>{{ transaction.prn }}</td>
-            <td>{{ transaction.service }}</td>
-            <td class="text-right">{{ formatAmount(transaction.amount) }}</td>
-            <td :class="statusClass(transaction.status)" class="text-center">
-              {{ transaction.status }}
-            </td>
-            <td>{{ convertDateTime(transaction.date) }}</td>
-            <td class="text-center">
-              <i class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700" @click="viewDetails(transaction)"></i>
-              <i class="fa-solid fa-copy p-1 mx-1 text-gray-600 bg-gray-50 border border-gray-200 hover:text-primary-700" @click="copy(transaction.trackingNumber)"></i>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- <div class="flex justify-between items-center mt-4">
-      <button class="pagination-button" @click="previous" :disabled="page === 1">
-        <i class="fa-solid fa-arrow-left"></i> Previous
-      </button>
-      <label class="text-white bg-primary-700 px-3 py-1 rounded">{{ page }}</label>
-      <button class="pagination-button" @click="next" :disabled="filteredTransactions.length < limit">
-        Next <i class="fa-solid fa-arrow-right"></i>
-      </button>
-    </div> -->
-  </div>
-</template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -168,3 +82,87 @@ function copy(trackingNumber: string) {
 @import "@/assets/styles/button.css";
 @import "@/assets/styles/table.css";
 </style>
+
+
+<template>
+  <div class="w-full shadow-lg bg-white rounded-lg p-6">
+    <div class="flex justify-between items-center py-3">
+      <div class="text-primary-700 flex items-center">
+        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"></i>
+        <label class="text-xl mx-2 font-semibold">Transactions</label>
+      </div>
+      <!-- Add Transaction button -->
+      <button class="button btn-sm w-auto px-4 py-2 rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors" @click="openAddTransactionModal">
+        <i class="fa-solid fa-plus-circle mr-2"></i> Add Transaction
+      </button>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="flex justify-between mb-6">
+      <div class="grid grid-cols-4 gap-4 w-full max-w-xl">
+        <input class="filter-element e-input w-full py-2 px-4 rounded-md border border-gray-300" type="text" placeholder="Search by Tracking Number" v-model="filters.search" />
+        <select class="filter-element e-select w-full py-2 px-4 rounded-md border border-gray-300" v-model="filters.status">
+          <option value="">- Select Status -</option>
+          <option value="PENDING">Pending</option>
+          <option value="SUCCESS">Success</option>
+          <option value="FAILED">Failed</option>
+        </select>
+        <input type="date" class="filter-element e-input w-full py-2 px-4 rounded-md border border-gray-300" v-model="filters.startDate" />
+        <input type="date" class="filter-element e-input w-full py-2 px-4 rounded-md border border-gray-300" v-model="filters.endDate" />
+      </div>
+      <div class="flex items-center">
+        <button class="button btn-sm w-auto px-4 py-2 rounded-md text-white bg-secondary-500 hover:bg-secondary-600 transition-colors" @click="clearFilters">
+          <i class="fa-solid fa-filter-circle-xmark mr-2"></i> Clear Filters
+        </button>
+      </div>
+    </div>
+
+    <!-- Transactions Table -->
+    <div>
+      <table class="min-w-full table-auto border-separate border-spacing-0">
+        <thead>
+          <tr class="bg-gray-100">
+            <th class="t-header text-left py-3 px-4 border-b">#</th>
+            <th class="t-header text-left py-3 px-4 border-b">Tracking Number</th>
+            <th class="t-header text-left py-3 px-4 border-b">PRN</th>
+            <th class="t-header text-left py-3 px-4 border-b">Service</th>
+            <th class="t-header text-right py-3 px-4 border-b">Amount (UGX)</th>
+            <th class="t-header text-center py-3 px-4 border-b">Status</th>
+            <th class="t-header text-left py-3 px-4 border-b">Date</th>
+            <th class="t-header text-center py-3 px-4 border-b">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(transaction, index) in filteredTransactions" :key="transaction.id" class="bg-white border-b hover:bg-gray-50">
+            <td class="py-2 px-4">{{ index + 1 }}.</td>
+            <td class="py-2 px-4">
+              <span class="hover:underline text-blue-600 cursor-pointer">{{ transaction.trackingNumber }}</span>
+            </td>
+            <td class="py-2 px-4">{{ transaction.prn }}</td>
+            <td class="py-2 px-4">{{ transaction.service }}</td>
+            <td class="py-2 px-4 text-right">{{ formatAmount(transaction.amount) }}</td>
+            <td :class="statusClass(transaction.status)" class="py-2 px-4 text-center">
+              {{ transaction.status }}
+            </td>
+            <td class="py-2 px-4">{{ convertDateTime(transaction.date) }}</td>
+            <td class="py-2 px-4 text-center">
+              <i class="fa-solid fa-eye p-2 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 rounded cursor-pointer" @click="viewDetails(transaction)"></i>
+              <i class="fa-solid fa-copy p-2 mx-1 text-gray-600 bg-gray-50 border border-gray-200 hover:text-primary-700 rounded cursor-pointer" @click="copy(transaction.trackingNumber)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-between items-center mt-6">
+      <button class="pagination-button px-4 py-2 text-white bg-primary-600 hover:bg-primary-700 rounded-md transition-colors" @click="previous" :disabled="page === 1">
+        <i class="fa-solid fa-arrow-left"></i> Previous
+      </button>
+      <label class="text-white bg-primary-700 px-3 py-2 rounded-md">{{ page }}</label>
+      <button class="pagination-button px-4 py-2 text-white bg-primary-600 hover:bg-primary-700 rounded-md transition-colors" @click="next" :disabled="filteredTransactions.length < limit">
+        Next <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</template>

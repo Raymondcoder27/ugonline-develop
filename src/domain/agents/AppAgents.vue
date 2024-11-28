@@ -8,7 +8,6 @@ const activeTab: Ref<string> = ref("backoffice")
 function select(tab: string) {
   activeTab.value = tab
 }
-
 </script>
 
 <template>

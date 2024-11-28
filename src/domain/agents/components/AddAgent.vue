@@ -34,7 +34,7 @@ function submit() {
 <template>
   <div class="bg-white py-5">
     <p class="text-xl font-bold"> Add Agent</p>
-    <p class="text-sm text-gray-500">Administrators who will manage this portal and handle providers and services</p>
+    <p class="text-sm text-gray-500">Authorized individuals or businesses registered under a Super Agent to provide services to the public on behalf of MDAs.</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">

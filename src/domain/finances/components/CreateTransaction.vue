@@ -82,8 +82,8 @@ watch(
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Create a Branch</p>
-    <p class="text-sm text-gray-500">A designated location managed by a Super Agent to provide services to agents and the public.</p>
+    <p class="text-xl font-bold"> Create Transaction</p>
+    <p class="text-sm text-gray-500">Record and track financial transactions related to service fees, float allocation, and refunds between agents, branches, and the platform.</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">

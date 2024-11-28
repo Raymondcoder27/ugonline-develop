@@ -132,7 +132,7 @@ watch(
       <div class="flex my-5">
         <div class="w-full">
           <div class="flex">
-            <p class="font-bold px-1">Basic User Requirements</p>
+            <p class="font-bold px-1">Basic Branch Requirements</p>
           </div>
           <div class="flex">
             <div class="w-9/12" v-if="form.requirements.length > 0">

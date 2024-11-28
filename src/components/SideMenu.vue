@@ -26,11 +26,11 @@ const sideMenu: SideMenuLink[] = [
     label: "Dashboard",
     iconClass: "fa-solid fa-gauge",
   },
-  {
-    name: "app-entities",
-    label: "Entities",
-    iconClass: "fa-solid fa-landmark",
-  },
+  // {
+  //   name: "app-entities",
+  //   label: "Entities",
+  //   iconClass: "fa-solid fa-landmark",
+  // },
   {
     name: "app-agents",
     label: "Agents",
@@ -38,7 +38,7 @@ const sideMenu: SideMenuLink[] = [
   },
   {
     name: "app-services",
-    label: "Services",
+    label: "Branches",
     iconClass: "fa-solid fa-list",
   },
   {
@@ -50,6 +50,11 @@ const sideMenu: SideMenuLink[] = [
     name: "app-reports",
     label: "Reports",
     iconClass: "fa-solid fa-chart-line"
+  },
+  {
+    name: "app-service-details",
+    label: "Services Details",
+    iconClass: "fa-solid fa-list"
   },
   {
     name: "app-accounts",

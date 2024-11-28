@@ -86,7 +86,7 @@ function copy(trackingNumber: string) {
         <label class="text-xl mx-2 font-semibold">Transactions</label>
       </div>
       <!-- Add Transaction button -->
-      <button class="button btn-sm px-4 py-2 rounded-md text-white bg-secondary-500 hover:bg-secondary-600 transition-colors" @click="openAddTransactionModal">
+      <button class="button btn-sm ml-96 pl-96 px-4 py-2 rounded-md text-white bg-secondary-500 hover:bg-secondary-600 transition-colors" @click="openAddTransactionModal">
         <i class="fa-solid fa-plus-circle mr-2"></i> Add Transaction
       </button>
     </div>
@@ -149,7 +149,7 @@ function copy(trackingNumber: string) {
     </div>
 
     <!-- Pagination -->
-    <div class="flex justify-between items-center mt-6">
+    <div v-if="page > 1" class="flex justify-between items-center mt-6">
       <button class="pagination-button px-4 py-2 text-white bg-primary-600 hover:bg-primary-700 rounded-md transition-colors" @click="previous" :disabled="page === 1">
         <i class="fa-solid fa-arrow-left"></i> Previous
       </button>

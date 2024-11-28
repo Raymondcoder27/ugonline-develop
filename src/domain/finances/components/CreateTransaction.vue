@@ -98,7 +98,7 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Location</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch / Agent</label>
           <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
           </select>

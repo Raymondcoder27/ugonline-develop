@@ -216,7 +216,7 @@ watch(
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <CreateAccount @cancel="close" />
+    <AddAgent @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>

@@ -6,7 +6,7 @@ interface TableItem {
 }
 
 const tableData: TableItem[] = [
-  { name: 'Data Update', type: 'Government', amount: 'Free' },
+  { name: 'Data Update', type: 'Government', amount: 'Fee' },
   { name: 'Name Reservation/Business Name Registration fees', type: 'Government', amount: 'UGX. 35,000' },
   { name: 'Change of Particulars for Business Name', type: 'Government', amount: 'UGX. 35,000' },
   { name: 'Search Fees for Business Name', type: 'Private', amount: 'UGX. 35,000' },

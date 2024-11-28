@@ -79,10 +79,11 @@ function submit() {
             required />
         </div>
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Status</label>
-          <input autocomplete="off" type="tel" v-model="form.phone" class="noFocus form-element e-input w-full"
-            required />
-        </div>
+        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Status</label>
+          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
+            <option value="admin">Active</option>
+            <option value="public">Inactive</option>
+          </select>
       </div>
 
       <!-- <div class="flex">

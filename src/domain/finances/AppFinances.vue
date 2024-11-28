@@ -144,7 +144,9 @@ watch(
           <tr class="bg-gray-100">
             <th class="t-header text-left py-3 px-4 border-b">#</th>
             <th class="t-header text-left py-3 px-4 border-b">Tracking Number</th>
-            <th class="t-header text-left py-3 px-4 border-b">PRN</th>
+            <th class="t-header text-left py-3 px-4 border-b">TN (Transaction Number)</th>
+            <th class="t-header text-left py-3 px-4 border-b">Agent</th>
+            <th class="t-header text-left py-3 px-4 border-b">Branch</th>
             <th class="t-header text-left py-3 px-4 border-b">Service</th>
             <th class="t-header text-right py-3 px-4 border-b">Amount (UGX)</th>
             <th class="t-header text-center py-3 px-4 border-b">Status</th>

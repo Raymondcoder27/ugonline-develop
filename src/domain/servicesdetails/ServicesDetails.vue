@@ -16,13 +16,7 @@ function select(tab: string) {
     <div class="flex">
       <div class="w-full py-1">
         <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-users"></i>
-        <label class="text-lg mx-1">System Accounts</label>
-      </div>
-    </div>
-    <div class="flex pt-5">
-      <div :class="(activeTab == 'backoffice') ? 'w-1/12 tab-active' : 'w-1/12 tab'" @click="select('backoffice')">
-        Backoffice</div>
-      <div :class="(activeTab == 'users') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('users')">Public Users
+        <label class="text-lg mx-1">Services We Provide</label>
       </div>
     </div>
     <div class="flex flex-grow">

@@ -38,7 +38,7 @@ const appRoutes: RouteRecordRaw[] = [
     path: "/home",
     name: "app-home",
     component: MainLayout,
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: false },
     children: [
       {
         name: "app-dashboard",

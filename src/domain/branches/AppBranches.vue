@@ -113,7 +113,7 @@ watch(
   <div class="w-full shadow-lg bg-white rounded p-2">
     <div class="flex">
       <div class="w-full py-1 text-primary-700">
-        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"></i>
+        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-code-branch"></i>
         <label class="text-lg mx-1">Branches</label>
       </div>
     </div>

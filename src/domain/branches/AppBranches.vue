@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, type Ref, ref, watch } from "vue";
 // import CreateService from "@/domain/services/components/CreateService.vue";
-import CreateBranch from @/domain/branches/components/CreateBranch.vue
+import CreateBranch from "@/domain/branches/components/CreateBranch.vue"
 import { useServicesStore } from "@/domain/services/stores";
 import type { Service } from "@/domain/services/types";
 import EditService from "@/domain/services/components/EditService.vue";

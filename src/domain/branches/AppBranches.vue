@@ -114,7 +114,7 @@ watch(
     <div class="flex">
       <div class="w-full py-1 text-primary-700">
         <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"></i>
-        <label class="text-lg mx-1">Services</label>
+        <label class="text-lg mx-1">Branches</label>
       </div>
     </div>
     <div class="flex justify-between my-1">

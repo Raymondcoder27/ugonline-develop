@@ -37,7 +37,7 @@ const sideMenu: SideMenuLink[] = [
     iconClass: "fa-solid fa-people-group",
   },
   {
-    name: "app-services",
+    name: "app-branches",
     label: "Branches",
     iconClass: "fa-solid fa-list",
   },

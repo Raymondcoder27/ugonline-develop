@@ -146,7 +146,7 @@ watch(
             <th class="text-center">Current Float</th>
             <th class="text-center">Status</th>
             <th class="text-center">Last Activity</th>
-            <th class="text-center">Date</th>
+            <th class="text-center">Date Registered</th>
             <th class="t-header"></th>
           </tr>
         </thead>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
@@ -12,42 +11,62 @@ let form: CreateAccount = reactive({
   role: "admin",
   username: "",
   phone: "",
-})
-const notify = useNotificationsStore()
+});
+const notify = useNotificationsStore();
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel'])
-const store = useAccounts()
+const emit = defineEmits(["cancel"]);
+const store = useAccounts();
 function submit() {
-  loading.value = true
-  store.createAccount(form)
+  loading.value = true;
+  store
+    .createAccount(form)
     .then(() => {
-      loading.value = false
-      notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
-      emit("cancel")
+      loading.value = false;
+      notify.success(
+        `An account verification email has been sent to ${form.username.toLowerCase()}.`
+      );
+      emit("cancel");
     })
     .catch(() => {
-      loading.value = false
-    })
+      loading.value = false;
+    });
 }
 </script>
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Add Agent</p>
-    <p class="text-sm text-gray-500">Authorized individuals or businesses registered under a Super Agent to provide services to the public on behalf of MDAs.</p>
+    <p class="text-xl font-bold">Add Agent</p>
+    <p class="text-sm text-gray-500">
+      Authorized individuals or businesses registered under a Super Agent to
+      provide services to the public on behalf of MDAs.
+    </p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">First Name</label>
-          <input autocomplete="off" type="text" v-model="form.firstName" class="noFocus form-element e-input w-full"
-            required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >First Name</label
+          >
+          <input
+            autocomplete="off"
+            type="text"
+            v-model="form.firstName"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Last Name</label>
-          <input autocomplete="off" type="text" v-model="form.lastName" class="noFocus form-element e-input w-full"
-            required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Last Name</label
+          >
+          <input
+            autocomplete="off"
+            type="text"
+            v-model="form.lastName"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
       <!-- <div class="flex">
@@ -59,31 +78,57 @@ function submit() {
 
       <div class="flex">
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Email Address</label>
-          <input autocomplete="off" type="email" v-model="form.username" class="noFocus form-element e-input w-full"
-            required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Email Address</label
+          >
+          <input
+            autocomplete="off"
+            type="email"
+            v-model="form.username"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Phone Number</label>
-          <input autocomplete="off" type="tel" v-model="form.phone" class="noFocus form-element e-input w-full"
-            required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Phone Number</label
+          >
+          <input
+            autocomplete="off"
+            type="tel"
+            v-model="form.phone"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
 
-     
-
       <div class="flex">
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Current Float</label>
-          <input autocomplete="off" type="email" v-model="form.username" class="noFocus form-element e-input w-full"
-            required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Current Float</label
+          >
+          <input
+            autocomplete="off"
+            type="email"
+            v-model="form.username"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
         <div class="cell">
-        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Status</label>
-          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Status</label
+          >
+          <select
+            autocomplete="off"
+            v-model="form.role"
+            class="noFocus form-element e-input w-full"
+          >
             <option value="admin">Active</option>
             <option value="public">Inactive</option>
           </select>
+        </div>
       </div>
 
       <!-- <div class="flex">
@@ -98,8 +143,14 @@ function submit() {
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Services Offered</label>
-          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Services Offered</label
+          >
+          <select
+            autocomplete="off"
+            v-model="form.role"
+            class="noFocus form-element e-input w-full"
+          >
             <option value="admin"></option>
             <option value="public"></option>
           </select>
@@ -122,7 +173,6 @@ function submit() {
               <div></div>
               <div></div>
             </span>
-
           </button>
         </div>
       </div>

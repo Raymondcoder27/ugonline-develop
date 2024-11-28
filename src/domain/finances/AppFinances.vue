@@ -5,8 +5,9 @@
         <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"></i>
         <label class="text-lg mx-2">Transactions</label>
       </div>
-      <button class="button btn-sm" @click="refreshTable">
-        <i class="fa-solid fa-rotate"></i> Refresh
+      <!-- Add Transaction button -->
+      <button class="button btn-sm" @click="openAddTransactionModal">
+        <i class="fa-solid fa-plus-circle"></i> Add Transaction
       </button>
     </div>
 
@@ -72,7 +73,7 @@
       </table>
     </div>
 
-    <div class="flex justify-between items-center mt-4">
+    <!-- <div class="flex justify-between items-center mt-4">
       <button class="pagination-button" @click="previous" :disabled="page === 1">
         <i class="fa-solid fa-arrow-left"></i> Previous
       </button>
@@ -80,7 +81,7 @@
       <button class="pagination-button" @click="next" :disabled="filteredTransactions.length < limit">
         Next <i class="fa-solid fa-arrow-right"></i>
       </button>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -101,6 +102,7 @@ interface Transaction {
 const transactions = ref<Transaction[]>([
   { id: 1, trackingNumber: 'M241128-0002', prn: '2250000039829', service: 'SPECIAL LICENSE', amount: 50000, status: 'SUCCESS', date: '2024-11-28T10:17:00' },
   { id: 2, trackingNumber: 'M241127-0008', prn: '2250000039915', service: 'MARRIAGE', amount: 50000, status: 'FAILED', date: '2024-11-28T10:09:00' },
+  { id: 3, trackingNumber: 'M241126-0005', prn: '2250000039921', service: 'LICENSE RENEWAL', amount: 100000, status: 'PENDING', date: '2024-11-27T14:25:00' }
 ]);
 
 const filters = ref({ search: '', status: '', startDate: '', endDate: '' });
@@ -147,9 +149,9 @@ function next() {
   page.value++;
 }
 
-function refreshTable() {
-  loading.value = true;
-  setTimeout(() => (loading.value = false), 1000);
+// Add Transaction modal logic
+function openAddTransactionModal() {
+  console.log('Opening Add Transaction Modal');
 }
 
 function viewDetails(transaction: Transaction) {

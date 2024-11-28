@@ -16,16 +16,10 @@ function select(tab: string) {
     <div class="flex">
       <div class="w-full py-1">
         <!-- <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-list"></i> -->
-        <label class="text-lg mx-1 font-semibold">Services We Provide</label>
-        <p>Detailing all the services we offer with small notes on each but also the price for all</p>
+        <label class="text-xl mx-1 font-semibold">Services We Provide</label>
+        <p class="ml-1">Detailing all the services we offer with small notes on each but also the price for all</p>
       </div>
     </div>
-    <!-- <div class="flex flex-grow">
-      <div class="w-full">
-        <BackofficeAccounts v-if="activeTab == 'backoffice'" />
-        <UserAccounts v-if="activeTab == 'users'" />
-      </div>
-    </div> -->
   </div>
 </template>
 

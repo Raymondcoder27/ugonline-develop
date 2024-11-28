@@ -15,16 +15,16 @@ function select(tab: string) {
   <div class="flex flex-col w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex">
       <div class="w-full py-1">
-        <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-users"></i>
+        <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-list"></i>
         <label class="text-lg mx-1">Services We Provide</label>
       </div>
     </div>
-    <div class="flex flex-grow">
+    <!-- <div class="flex flex-grow">
       <div class="w-full">
         <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <UserAccounts v-if="activeTab == 'users'" />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

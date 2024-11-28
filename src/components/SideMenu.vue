@@ -42,6 +42,11 @@ const sideMenu: SideMenuLink[] = [
     iconClass: "fa-solid fa-list",
   },
   {
+    name: "app-services",
+    label: "Services",
+    iconClass: "fa-solid fa-list",
+  },
+  {
     name: "app-finances",
     label: "Finances Vault",
     iconClass: "fa-solid fa-money-bill",

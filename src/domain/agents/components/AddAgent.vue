@@ -106,7 +106,7 @@ function submit() {
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Current Float</label
+            >Assign Float (UGX)</label
           >
           <input
             autocomplete="off"

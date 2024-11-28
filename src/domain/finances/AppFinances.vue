@@ -67,7 +67,7 @@ function getStatusClass(status: string) {
           <tr>
             <th class="border border-gray-300 p-2">#</th>
             <th class="border border-gray-300 p-2">Tracking Number</th>
-            <th class="border border-gray-300 p-2">PRN</th>
+            <th class="border border-gray-300 p-2">TN</th>
             <th class="border border-gray-300 p-2">Service</th>
             <th class="border border-gray-300 p-2">Amount (UGX)</th>
             <th class="border border-gray-300 p-2">Status</th>

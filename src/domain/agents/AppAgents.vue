@@ -16,7 +16,7 @@ function select(tab: string) {
     <div class="flex">
       <div class="w-full py-1">
         <i class="bg-primary-700 border border-primary-800 text-white p-2 rounded-full fa-solid fa-users"></i>
-        <label class="text-lg mx-1">System Accounts</label>
+        <label class="text-lg mx-1">System Agents</label>
       </div>
     </div>
     <div class="flex pt-5">

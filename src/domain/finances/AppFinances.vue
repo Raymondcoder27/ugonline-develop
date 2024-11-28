@@ -90,9 +90,9 @@ function copy(trackingNumber: string) {
         <i class="fa-solid fa-plus-circle mr-2"></i> Add Transaction
       </button> -->
       <div class="flex items-center">
-        <button class="button btn-sm w-auto px-4 py-2 rounded-md text-white bg-secondary-500 hover:bg-secondary-600 transition-colors" @click="clearFilters">
-          <i class="fa-solid fa-filter-circle-xmark mr-2"></i> Clear Filters
-        </button>
+      <button class="button btn-sm ml-96 pl-96 px-4 py-2 rounded-md text-white bg-secondary-500 hover:bg-secondary-600 transition-colors" @click="openAddTransactionModal">
+        <i class="fa-solid fa-plus-circle mr-2"></i> Add Transaction
+      </button>
       </div>
     </div>
 

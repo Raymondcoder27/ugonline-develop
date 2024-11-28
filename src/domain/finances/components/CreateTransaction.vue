@@ -85,6 +85,18 @@ watch(
     <p class="text-xl font-bold"> Create Transaction</p>
     <p class="text-sm text-gray-500">Record and track financial transactions related to service fees, float allocation, and refunds between agents, branches, and the platform.</p>
     <form @submit.prevent="submit" class="pt-5">
+
+
+      <div class="flex">
+        <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Authorised By</label>
+          <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
+            <!-- <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option> -->
+          </select>
+        </div>
+      </div>
+
+
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Transaction Type</label>
@@ -115,12 +127,15 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Accessibility Tier</label>
-          <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
-            <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Payment Method</label>
+          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
+            <option value="admin">Bank Transfer</option>
+            <option value="public">Mobile Money</option>
+            <option value="public">Cash</option>
           </select>
         </div>
       </div>
+
 
       <div class="flex">
         <div class="cell-full">

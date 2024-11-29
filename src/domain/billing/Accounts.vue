@@ -5,7 +5,7 @@ import { ref, type Ref } from "vue";
 
 import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
 import FloatManagement from "@/domain/billing/FloatManagement.vue";
-import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
+import Transactions from "@/domain/billing/Transactions.vue";
 
 const activeTab: Ref<string> = ref("transactions")
 

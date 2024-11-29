@@ -110,6 +110,7 @@ watch(
 </script>
 
 <template>
+ <div class="flex">
   <div class="w-full shadow-lg bg-white rounded p-2">
     <div class="flex">
       <div class="w-full py-1 text-primary-700">
@@ -224,6 +225,7 @@ watch(
         <p class="text-xs">Total Agents</p>
       </div>
     </div>
+ </div>
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>

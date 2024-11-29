@@ -102,14 +102,14 @@ watch(
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Supervisor</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Manager</label>
           <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="flex">
         <div class="cell-full">
@@ -129,7 +129,7 @@ watch(
       </div> -->
 
 
-      <div class="flex my-5">
+      <!-- <div class="flex my-5">
         <div class="w-full">
           <div class="flex">
             <p class="font-bold px-1">Basic Branch Requirements</p>
@@ -151,7 +151,7 @@ watch(
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">

@@ -143,8 +143,8 @@ watch(
             <th class="t-header">Branch</th>
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
-            <th class="text-center">Services Offered</th>
-            <th class="text-center">Current Float</th>
+            <!-- <th class="text-center">Services Offered</th> -->
+            <!-- <th class="text-center">Current Float</th> -->
             <th class="text-center">Status</th>
             <th class="text-center">Last Activity</th>
             <th class="text-center">Date Registered</th>

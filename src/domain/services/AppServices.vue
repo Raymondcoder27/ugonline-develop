@@ -221,27 +221,39 @@ watch(
   </div>
  <div class="block w-4/12">
   <div class="pb-2">
-      <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">Status: ON</p>
-        <p class="text-xs">Company Incorporation</p>
+    <div class="w-12/12 count">
+        <p class="text-xl">Company Incorporation</p>
+       <div class="flex justify-around">
+        <p class="font-bold w-1/3 bg-green-300 text-green-700 rounded-md text-xs">Status: DISCONNECTED</p>
+        <p class="font-bold w-1/3 pt-2 bg-red-300 text-red-700 rounded-md text-xs">CONNECT</p>
+       </div>
       </div>
     </div>
     <div class="pb-2">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">Status: OFF</p>
-        <p class="text-xs">Name Reservation</p>
+        <p class="text-xl">Name Reservation</p>
+       <div class="flex justify-around">
+        <p class="font-bold w-1/3 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p>
+        <p class="font-bold w-1/3 pt-2 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p>
+       </div>
       </div>
     </div>
     <div class="pb-2">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">Status: ON</p>
-        <p class="text-xs">Company Insolvency</p>
+        <p class="text-xl">Company Insolvency</p>
+       <div class="flex justify-around">
+        <p class="font-bold w-1/3 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p>
+        <p class="font-bold w-1/3 pt-2 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p>
+       </div>
       </div>
     </div>
     <div class="pb-2">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">Status: ON</p>
-        <p class="text-xs">File Resolution</p>
+        <p class="text-xl">File Resolution</p>
+       <div class="flex justify-around">
+        <p class="font-bold w-1/3 bg-green-300 text-green-700 rounded-md text-xs">Status: CONNECTED</p>
+        <p class="font-bold w-1/3 pt-2 bg-red-300 text-red-700 rounded-md text-xs">DISCONNECT</p>
+       </div>
       </div>
     </div>
  </div>

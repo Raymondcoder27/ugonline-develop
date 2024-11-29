@@ -123,12 +123,6 @@ watch(
             class="filter-element e-input" type="text" placeholder="Email Address" />
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Phone Number" />
-          <!-- <select class="filter-element e-select">
-            <option :value="null">- Select Status -</option>
-            <option value="pending">Pending</option>
-            <option value="active">Active</option>
-            <option value="blocked">Blocked</option>
-          </select> -->
         </div>
       </div>
       <div class="flex">

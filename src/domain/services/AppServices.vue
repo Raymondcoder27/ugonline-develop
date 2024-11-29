@@ -220,27 +220,27 @@ watch(
     </div>
   </div>
  <div class="block w-4/12">
-  <div class="">
+  <div class="pb-2">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">13</p>
+        <p class="text-xl font-bold py-2">Status: ON</p>
         <p class="text-xs">Company Incorporation</p>
       </div>
     </div>
-    <div class="">
+    <div class="pb-2">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">13</p>
+        <p class="text-xl font-bold py-2">Status: OFF</p>
         <p class="text-xs">Name Reservation</p>
       </div>
     </div>
-    <div class="">
+    <div class="pb-2">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">13</p>
+        <p class="text-xl font-bold py-2">Status: ON</p>
         <p class="text-xs">Company Insolvency</p>
       </div>
     </div>
-    <div class="">
+    <div class="pb-2">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">13</p>
+        <p class="text-xl font-bold py-2">Status: ON</p>
         <p class="text-xs">File Resolution</p>
       </div>
     </div>

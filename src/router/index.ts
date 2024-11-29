@@ -19,7 +19,7 @@ import AppDashboard from "../domain/dashboard/AppDashboard.vue";
 import AppAgents from "../domain/agents/AppAgents.vue";
 import AppGateway from "../domain/gateway/AppGateway.vue";
 // import AppFinances from "../domain/finances/AppFinances.vue";
-import Billing from "../domain/billing/Billing.vue";
+import Billing from "../domain/billing/Accounts.vue";
 import ServicesDetails from "../domain/servicesdetails/ServicesDetails.vue";
 import Branches from "../domain/branches/AppBranches.vue";
 

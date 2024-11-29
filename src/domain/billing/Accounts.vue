@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { ref, type Ref } from "vue";
-import BackofficeAccounts from "@/domain/accounts/BackofficeAccounts.vue";
-import UserAccounts from "@/domain/accounts/UserAccounts.vue";
+// import BackofficeAccounts from "@/domain/accounts/BackofficeAccounts.vue";
+// import UserAccounts from "@/domain/accounts/UserAccounts.vue";
 
-const activeTab: Ref<string> = ref("backoffice")
+import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
+import FloatManagement from "@/domain/billing/FloatManagement.vue";
+import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
+
+const activeTab: Ref<string> = ref("transactions")
 
 function select(tab: string) {
   activeTab.value = tab

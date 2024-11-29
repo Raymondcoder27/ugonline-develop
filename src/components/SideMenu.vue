@@ -43,7 +43,7 @@ const sideMenu: SideMenuLink[] = [
   },
   {
     name: "app-services",
-    label: "Services",
+    label: "Service Subscriptions",
     iconClass: "fa-solid fa-list",
   },
   {

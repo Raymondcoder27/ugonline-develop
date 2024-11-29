@@ -111,7 +111,7 @@ watch(
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Accessibility Tier</label>
           <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
@@ -126,7 +126,7 @@ watch(
           <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
                  required />
         </div>
-      </div>
+      </div> -->
 
 
       <div class="flex my-5">

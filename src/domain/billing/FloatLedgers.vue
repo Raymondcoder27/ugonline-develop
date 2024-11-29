@@ -113,98 +113,62 @@ watch(
 </script>
 
 <template>
-  <div class="w-full shadow-lg bg-white rounded p-2 h-full">
-    <div class="flex space-x-2 my-1 pt-1 pb-3">
-      <div class="flex-grow">
-        <div class="grid grid-cols-4 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Name" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Email Address" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Phone Number" />
-        </div>
-      </div>
-      <div class="flex">
+<!-- <div class="min-h-screen bg-gray-100 p-2"> -->
+<div class="bg-gray-100 p-2">
 
+  
+  <!-- Header -->
+  <div class="max-w-7xl mx-auto bg-white p-2 rounded-lg shadow">
+    <div class="flex items-center justify-between border-b pb-4 mb-4">
+      <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1>
+      <div>
+        <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
+        <input
+          type="date"
+          id="date-range"
+          class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
       </div>
     </div>
-    <div class="flex my-1">
-      <table class="table">
+
+    <!-- Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-200 text-left">
         <thead>
-          <tr class="header-tr">
-<!--            <th class="t-header">#</th>-->
-            <th class="t-header" width="30%">Names</th>
-            <th class="t-header">Email</th>
-            <th class="t-header">Phone</th>
-            <th class="text-center">Status</th>
-            <th class="text-center">Activation</th>
-            <th class="text-center">Date</th>
-            <th class="t-header"></th>
+          <tr class="bg-gray-100">
+            <th class="border border-gray-200 px-4 py-2 text-gray-600">Date</th>
+            <th class="border border-gray-200 px-4 py-2 text-gray-600">Description</th>
+            <th class="border border-gray-200 px-4 py-2 text-gray-600 text-right">Amount</th>
+            <th class="border border-gray-200 px-4 py-2 text-gray-600 text-right">Balance</th>
           </tr>
         </thead>
-        <tbody>
-          <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'" v-for="(account, idx) in store.userAccounts"
-            :key="idx">
-<!--            <td width="10px">{{ idx + 1 }}.</td>-->
-            <td>
-              <label class="font-bold py-1">{{ account.firstName }} {{ account.lastName }}
-                {{ account.middleNames }}</label>
-              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
-            </td>
-            <td>
-              <a class="underline" :href="'smtp:' + account.username">
-                {{ account.username }}
-              </a>
-              <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
-            </td>
-            <td>
-              {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
-                v-if="!account.phoneVerified"></i>
-            </td>
-            <td class="text-center">
-              <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
-              <label v-else class="text-green-600 font-bold">ACTIVE</label>
-            </td>
-            <td class="text-center">
-              <i v-if="account.activatedAt" class="fa-solid fa-check-square text-green-600"></i>
-              <i v-else class="fa-solid fa-times-square text-red-600"></i>
-            </td>
-            <td class="text-center">{{ convertDate(account.createdAt) }}</td>
-            <td class="text-center">
-              <div class="flex flex-row space-x-2 w-full justify-center" v-if="!account.blockedAt">
-                <i class="text-gray-600 fa-solid fa-reply px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="open()"></i>
-                <i v-if="!account.emailVerified && !account.blockedAt"
-                  class="text-gray-600 fa-solid fa-at px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="resend('email', account.username)" title="Resend Email Code"></i>
-                <i v-if="!account.phoneVerified && !account.blockedAt"
-                  class="text-gray-600 fa-solid fa-phone-flip px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="resend('phone', account.username)" title="Resend Phone Code"></i>
-                <i v-if="account.phoneVerified && !account.activatedAt"
-                  class="text-gray-600 fa-solid fa-unlock-keyhole px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="resend('change-password', account.username)" title="Change Password"></i>
-              </div>
-            </td>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="px-4 py-2 text-gray-700">2024-11-28</td>
+            <td class="px-4 py-2 text-gray-700">Opening Balance</td>
+            <td class="px-4 py-2 text-right text-green-600">+ 1,000</td>
+            <td class="px-4 py-2 text-right text-gray-800">1,000</td>
           </tr>
+          <tr>
+            <td class="px-4 py-2 text-gray-700">2024-11-29</td>
+            <td class="px-4 py-2 text-gray-700">Purchase Supplies</td>
+            <td class="px-4 py-2 text-right text-red-600">- 300</td>
+            <td class="px-4 py-2 text-right text-gray-800">700</td>
+          </tr>
+          <!-- Repeat rows as necessary -->
         </tbody>
+        <tfoot>
+          <tr class="bg-gray-50">
+            <td colspan="2" class="px-4 py-2 text-right font-bold text-gray-600">Totals:</td>
+            <td class="px-4 py-2 text-right font-bold text-gray-800">+ 700</td>
+            <td class="px-4 py-2 text-right font-bold text-gray-800">700</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
-    <div class="flex">
-      <div class="w-full">
-        <div class="flex" v-if="limit == store.userAccounts?.length || page > 1">
-          <button v-if="page > 1" class="pagination-button" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
-          <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{page}}</label>
-          </div>
-          <button v-if="limit == store.userAccounts?.length - 1 || limit > store.userAccounts?.length" class="pagination-button-inert">
-            <i class="fa-solid fa-arrow-right"></i></button>
-          <button v-else class="pagination-button" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-      </div>
-    </div>
   </div>
+</div>
+
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>

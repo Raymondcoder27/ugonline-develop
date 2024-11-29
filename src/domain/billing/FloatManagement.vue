@@ -128,7 +128,7 @@ watch(
             <option value="blocked">Blocked</option>
           </select> -->
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-            <i class="px-1 fa-solid fa-plus"></i> Add Account
+            <i class="px-1 fa-solid fa-plus"></i> Assign Float
           </button>
         </div>
       </div>

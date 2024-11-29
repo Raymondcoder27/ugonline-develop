@@ -218,6 +218,12 @@ watch(
       </div>
     </div>
   </div>
+  <div class="w-full">
+      <div class="w-12/12 count">
+        <p class="text-xl font-bold py-2">13</p>
+        <p class="text-xs">Total Agents</p>
+      </div>
+    </div>
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
@@ -253,4 +259,7 @@ watch(
 @import "@/assets/styles/button.css";
 @import "@/assets/styles/table.css";
 @import "@/assets/styles/widgets.css";
+.count {
+  @apply py-2 text-center border border-gray-100 rounded bg-white mx-1 shadow;
+}
 </style>

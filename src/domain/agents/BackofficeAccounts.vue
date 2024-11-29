@@ -141,7 +141,7 @@ watch(
 <!--            <th class="t-header">#</th>-->
             <th class="t-header" width="25%">Names</th>
             <th class="t-header">Branch</th>
-            <!-- <th class="t-header">Email</th> -->
+            <th class="t-header">Till Number</th>
             <!-- <th class="t-header">Phone</th> -->
             <!-- <th class="text-center">Services Offered</th> -->
             <!-- <th class="text-center">Current Float</th> -->

@@ -27,8 +27,11 @@ function select(tab: string) {
     </div>
     <div class="flex flex-grow">
       <div class="w-full">
-        <BackofficeAccounts v-if="activeTab == 'backoffice'" />
-        <UserAccounts v-if="activeTab == 'users'" />
+        <!-- <BackofficeAccounts v-if="activeTab == 'backoffice'" />
+        <UserAccounts v-if="activeTab == 'users'" /> -->
+        <Transactions v-if="activeTab == 'transactions'" />
+        <FloatManagement v-if="activeTab == 'floatmanagement'" />
+        <FloatLedgers v-if="activeTab == 'floatledgers'" />
       </div>
     </div>
   </div>

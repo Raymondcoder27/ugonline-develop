@@ -35,7 +35,7 @@ function submit() {
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold">Add Agent</p>
+    <p class="text-xl font-bold">Add Till</p>
     <p class="text-sm text-gray-500">
       Authorized individuals or businesses registered under a Super Agent to
       provide services to the public on behalf of MDAs.

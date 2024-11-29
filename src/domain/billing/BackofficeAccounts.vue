@@ -3,7 +3,6 @@ import AppModal from "@/components/AppModal.vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive } from "vue";
 import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
-import AddAgent from "@/domain/agents/components/AddAgent.vue"
 import moment from "moment";
 import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
@@ -129,7 +128,7 @@ watch(
             <option value="blocked">Blocked</option>
           </select> -->
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-            <i class="px-1 fa-solid fa-plus"></i> Add Till
+            <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button>
         </div>
       </div>
@@ -139,15 +138,13 @@ watch(
         <thead>
           <tr class="header-tr">
 <!--            <th class="t-header">#</th>-->
-            <th class="t-header" width="25%">Names</th>
-            <th class="t-header">Branch</th>
-            <!-- <th class="t-header">Email</th> -->
-            <!-- <th class="t-header">Phone</th> -->
-            <!-- <th class="text-center">Services Offered</th> -->
-            <!-- <th class="text-center">Current Float</th> -->
+            <th class="t-header" width="30%">Names</th>
+            <th class="t-header">Email</th>
+            <th class="t-header">Phone</th>
+            <th class="text-center">Role</th>
             <th class="text-center">Status</th>
-            <th class="text-center">Last Activity</th>
-            <th class="text-center">Date Registered</th>
+            <th class="text-center">Activation</th>
+            <th class="text-center">Date</th>
             <th class="t-header"></th>
           </tr>
         </thead>
@@ -217,7 +214,7 @@ watch(
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <AddAgent @cancel="close" />
+    <CreateAccount @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>

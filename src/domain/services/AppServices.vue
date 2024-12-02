@@ -110,7 +110,6 @@ watch(
   }
 );
 
-
 interface Service {
   id: number;
   service: string;
@@ -124,57 +123,57 @@ interface Service {
 const services = ref<Service[]>([
   {
     id: 1,
-    service: 'Post Office Account',
-    name: 'Posta Uganda',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@ugapost.co.ug',
-    phone: '+256784944479',
-    address: 'Plot 35 Kampala Road, Kampala',
+    service: "Post Office Account",
+    name: "Posta Uganda",
+    thumbnail: "/assets/coa-19c4edfc.png",
+    email: "info@ugapost.co.ug",
+    phone: "+256784944479",
+    address: "Plot 35 Kampala Road, Kampala",
   },
   {
     id: 2,
-    service: 'Agricultural Research',
-    name: 'National Agricultural Research Organization',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@naro.go.ug',
-    phone: '+256-41-320512',
-    address: 'Plot 11-13, Lugard Avenue, Entebbe',
+    service: "Agricultural Research",
+    name: "National Agricultural Research Organization",
+    thumbnail: "/assets/coa-19c4edfc.png",
+    email: "info@naro.go.ug",
+    phone: "+256-41-320512",
+    address: "Plot 11-13, Lugard Avenue, Entebbe",
   },
   {
     id: 3,
-    service: 'National ID Registration',
-    name: 'National Identification & Registration Authority',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@nira.com',
-    phone: '0800211700',
-    address: 'National Independence Grounds, Kololo Airstrip',
+    service: "National ID Registration",
+    name: "National Identification & Registration Authority",
+    thumbnail: "/assets/coa-19c4edfc.png",
+    email: "info@nira.com",
+    phone: "0800211700",
+    address: "National Independence Grounds, Kololo Airstrip",
   },
   {
     id: 4,
-    service: 'Land Title Registration',
-    name: 'Ministry of Lands and Urban Development',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@mlhud.go.ug',
-    phone: '0414355355',
-    address: 'Dewinton Road',
+    service: "Land Title Registration",
+    name: "Ministry of Lands and Urban Development",
+    thumbnail: "/assets/coa-19c4edfc.png",
+    email: "info@mlhud.go.ug",
+    phone: "0414355355",
+    address: "Dewinton Road",
   },
   {
     id: 5,
-    service: 'Name Reservation',
-    name: 'URSB',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'ursb@ursb.go.ug',
-    phone: '0312211211',
-    address: 'Plot 1 Baskerville Avenue',
+    service: "Name Reservation",
+    name: "URSB",
+    thumbnail: "/assets/coa-19c4edfc.png",
+    email: "ursb@ursb.go.ug",
+    phone: "0312211211",
+    address: "Plot 1 Baskerville Avenue",
   },
   {
     id: 9,
-    service: 'Passport Application',
-    name: 'Ministry of Internal Affairs',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@moia.go.ug',
-    phone: '0312123123',
-    address: '',
+    service: "Passport Application",
+    name: "Ministry of Internal Affairs",
+    thumbnail: "/assets/coa-19c4edfc.png",
+    email: "info@moia.go.ug",
+    phone: "0312123123",
+    address: "",
   },
 ]);
 </script>
@@ -336,40 +335,53 @@ const services = ref<Service[]>([
         </div>
       </div>
     </div> -->
-  
-    <div class="grid grid-cols-4 gap-4 p-4">
-    <div v-for="service in services" :key="service.id" class="service service-active p-4 bg-white shadow rounded">
-      <div class="flex justify-between items-center">
-        <!-- <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover"> -->
-        <img  class="w-10 h-10 object-cover">
-        <i class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"></i>
+
+    <div class="grid grid-cols-4 gap-4 p-4 flex">
+      <div
+        v-for="service in services"
+        :key="service.id"
+        class="service service-active p-4 bg-white shadow rounded"
+      >
+        <div class="flex justify-between items-center">
+          <!-- <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover"> -->
+          <img class="w-10 h-10 object-cover" />
+          <i
+            class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"
+          ></i>
+        </div>
+        <hr class="my-2" />
+        <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+        <table class="text-sm text-gray-600">
+          <tbody>
+            <tr>
+              <td class="font-semibold">Provider:</td>
+              <td class="px-2">{{ service.name }}</td>
+            </tr>
+            <tr>
+              <td class="font-semibold">Email:</td>
+              <td class="px-2">{{ service.email }}</td>
+            </tr>
+            <tr>
+              <td class="font-semibold">Phone:</td>
+              <td class="px-2">{{ service.phone }}</td>
+            </tr>
+            <tr>
+              <td class="font-semibold">Address:</td>
+              <td class="px-2">{{ service.address }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <hr class="my-2">
-      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
-      <table class="text-sm text-gray-600">
-        <tbody>
-          <tr>
-            <td class="font-semibold">Provider:</td>
-            <td class="px-2">{{ service.name }}</td>
-          </tr>
-          <tr>
-            <td class="font-semibold">Email:</td>
-            <td class="px-2">{{ service.email }}</td>
-          </tr>
-          <tr>
-            <td class="font-semibold">Phone:</td>
-            <td class="px-2">{{ service.phone }}</td>
-          </tr>
-          <tr>
-            <td class="font-semibold">Address:</td>
-            <td class="px-2">{{ service.address }}</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
-  </div>
 
+  <div class="bg-white text-xs rounded-md">
+    <!-- all services -->
+    <div class="count">Total Services: {{ services.length }}</div>
+    <div class="count">Active Services: {{ services.length }}</div>
+    <div class="count">Inactive Services: 0</div>
+
+  </div>
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->

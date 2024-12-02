@@ -24,10 +24,10 @@ function select(tab: string) {
       </div>
     </div>
     <div class="flex pt-5">
-      <div :class="(activeTab == 'transactions') ? 'w-1/12 tab-active' : 'w-1/12 tab'" @click="select('transactions')">
-        Transactions</div>
       <div :class="(activeTab == 'floatmanagement') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatmanagement')">Float Management
       </div>
+      <div :class="(activeTab == 'transactions') ? 'w-1/12 tab-active' : 'w-1/12 tab'" @click="select('transactions')">
+        Transactions</div>
       <div :class="(activeTab == 'floatledgers') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatledgers')">Float Ledger
       </div>
     </div>

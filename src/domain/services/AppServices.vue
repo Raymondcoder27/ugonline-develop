@@ -433,7 +433,7 @@ watch(
       <div class="count">Inactive Services: 0</div> -->
 
       <!-- drop down of MDAs -->
-      <select class="filter-element e-select text-xs">
+      <select class="filter-element text-xs">
         <option :value="null">- NIRA</option>
         <!-- services offered by NIRA -->
         <option value="pending">National ID Registration</option>
@@ -442,7 +442,7 @@ watch(
       </select>
 
       <!-- drop down of other MDAs -->
-      <select class="filter-element e-select text-xs">
+      <select class="filter-element text-xs">
         <option :value="null">- URSB</option>
         <!-- services offered by URSB -->
         <option value="pending">Name Reservation</option>
@@ -451,7 +451,7 @@ watch(
       </select>
 
       <!-- drop down of other MDAs -->
-      <select class="filter-element e-select text-xs">
+      <select class="filter-element text-xs">
         <option :value="null">- NITA</option>
         <!-- services offered by NITA -->
         <option value="pending">e-Government Services</option>

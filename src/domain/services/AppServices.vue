@@ -176,6 +176,44 @@ const services = ref<Service[]>([
     address: "",
   },
 ]);
+
+
+// filter
+const filter: IGoFilter = reactive({
+  limit: 100,
+  offset: 0,
+  page:0,
+  sort: [
+    {
+      field: "firstname",
+      order: "ASC"
+    }
+  ],
+  filter: [
+    {
+      field: "firstname",
+      operand: "",
+      operator: "CONTAINS"
+    },
+    {
+      field: "username",
+      operand: "",
+      operator: "CONTAINS"
+    },
+    {
+      field: "phone",
+      operand: "",
+      operator: "CONTAINS"
+    },
+  ]
+})
+
+// watch for changes in the filter object
+watch(
+  () => filter,
+  () => updateFilter(),
+  { deep: true }
+)
 </script>
 
 <template>

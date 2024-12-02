@@ -223,38 +223,31 @@ watch(
   <div class="pb-2">
     <div class="w-12/12 count">
         <p class="text-xl">Company Incorporation</p>
-       <div class="flex justify-around">
+       <!-- <div class="flex justify-around"> -->
         <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
         <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
         <p class="fa-solid fa-toggle-off"></p>
-       </div>
+       <!-- </div> -->
       </div>
     </div>
     <div class="pb-2">
       <div class="w-12/12 count">
         <p class="text-xl">Name Reservation</p>
-       <div class="flex justify-around">
-        <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p>
-        <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p>
-       </div>
+        <p class="fa-solid fa-toggle-on"></p>
+
       </div>
     </div>
     <div class="pb-2">
       <div class="w-12/12 count">
         <p class="text-xl">Company Insolvency</p>
-       <div class="flex justify-around">
-        <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p>
-        <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p>
-       </div>
+        <p class="fa-solid fa-toggle-off"></p>
       </div>
     </div>
     <div class="pb-2">
       <div class="w-12/12 count">
         <p class="text-xl">File Resolution</p>
-       <div class="flex justify-around">
-        <p class="font-bold w-3/5 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">Status: CONNECTED</p>
-        <p class="font-bold w-1/3 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">DISCONNECT</p>
-       </div>
+        <p class="fa-solid fa-toggle-on"></p>
+
       </div>
     </div>
  </div>

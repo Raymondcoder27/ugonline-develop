@@ -336,7 +336,7 @@ const services = ref<Service[]>([
       </div>
     </div> -->
 
-    <div class="grid grid-cols-4 gap-4 p-4">
+    <div class="grid grid-cols-3 gap-4 p-2">
       <div
         v-for="service in services"
         :key="service.id"
@@ -374,7 +374,7 @@ const services = ref<Service[]>([
       </div>
     </div>
 
-    <div class="bg-white text-xs rounded-md">
+    <div class="bg-white text-xs rounded-md w-1/3">
       <!-- all services -->
       <div class="count">Total Services: {{ services.length }}</div>
       <div class="count">Active Services: {{ services.length }}</div>

@@ -149,7 +149,7 @@ watch(
             <th class="t-header">Name</th>
             <th class="t-header">Provider</th>
             <th class="text-center">Access Tier</th>
-            <th class="text-center">Availability</th>
+            <!-- <th class="text-center">Availability</th> -->
             <th class="text-center">Status</th>
             <th class="text-center">Date</th>
             <th class="t-header"></th>
@@ -221,34 +221,47 @@ watch(
   </div>
  <div class="block w-4/12">
   <div class="pb-2">
-    <div class="w-12/12 count">
-        <p class="text-xl">Company Incorporation</p>
+    <div class="w-12/12 count flex">
+        <p class="text-lg">Company Incorporation</p>
        <!-- <div class="flex justify-around"> -->
         <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
         <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
-        <p class="fa-solid fa-toggle-off"></p>
+        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
        <!-- </div> -->
       </div>
     </div>
     <div class="pb-2">
-      <div class="w-12/12 count">
-        <p class="text-xl">Name Reservation</p>
-        <p class="fa-solid fa-toggle-on"></p>
-
+      <div class="w-12/12 count flex">
+        <p class="text-lg">Name Reservation</p>
+       <!-- <div class="flex justify-around"> -->
+        <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
+        <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
+        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
+       <!-- </div> -->
       </div>
     </div>
     <div class="pb-2">
-      <div class="w-12/12 count">
-        <p class="text-xl">Company Insolvency</p>
-        <p class="fa-solid fa-toggle-off"></p>
+      <div class="w-12/12 count flex">
+        <p class="text-lg">Company Insolvency</p>
+       <!-- <div class="flex justify-around"> -->
+        <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
+        <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
+        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
+       <!-- </div> -->
       </div>
     </div>
     <div class="pb-2">
-      <div class="w-12/12 count">
-        <p class="text-xl">File Resolution</p>
-        <p class="fa-solid fa-toggle-on"></p>
+      <div class="w-12/12 count block">
+      <p class="font-bold w-1/5 pt-0.5 bg-blue-300 text-blue-700 rounded-md text-xs">URSB</p>
+<div class="flex">
+  <p class="text-lg">File Resolution</p>
+        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
 
+</div>
+
+       <!-- </div> -->
       </div>
+
     </div>
  </div>
  </div>

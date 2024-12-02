@@ -133,7 +133,8 @@ watch(
           <tr class="header-tr">
 <!--            <th class="t-header">#</th>-->
             <th class="text-center">Name</th>
-            <th class="text-center">Till Number</th>
+            <!-- <th class="text-center">Till Number</th> -->
+            <th class="text-center">Branch</th>
             <!-- <th class="text-center">Activation</th> -->
             <th class="text-center">Date</th>
             <th class="t-header"></th>

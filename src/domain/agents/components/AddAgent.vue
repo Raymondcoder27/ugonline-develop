@@ -41,6 +41,25 @@ function submit() {
       provide services to the public on behalf of MDAs.
     </p>
     <form @submit.prevent="submit" class="pt-5">
+
+
+      <div class="flex">
+        <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Branch</label
+          >
+          <select
+            autocomplete="off"
+            v-model="form.role"
+            class="noFocus form-element e-input w-full"
+          >
+            <option value="admin"></option>
+            <option value="public"></option>
+          </select>
+        </div>
+      </div>
+
+      
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
@@ -76,6 +95,8 @@ function submit() {
         </div>
       </div> -->
 
+
+
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
@@ -102,45 +123,7 @@ function submit() {
           />
         </div>
       </div>
-
-      <!-- <div class="flex">
-        <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Assign Float (UGX)</label
-          >
-          <input
-            autocomplete="off"
-            type="email"
-            v-model="form.username"
-            class="noFocus form-element e-input w-full"
-            required
-          />
-        </div>
-        <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Status</label
-          >
-          <select
-            autocomplete="off"
-            v-model="form.role"
-            class="noFocus form-element e-input w-full"
-          >
-            <option value="admin">Active</option>
-            <option value="public">Inactive</option>
-          </select>
-        </div>
-      </div> -->
-
-      <!-- <div class="flex">
-        <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Role</label>
-          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
-            <option value="admin">Administrator</option>
-            <option value="public">Public User</option>
-          </select>
-        </div>
-      </div> -->
-
+<!-- 
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
@@ -155,7 +138,7 @@ function submit() {
             <option value="public"></option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">

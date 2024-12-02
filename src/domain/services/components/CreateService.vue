@@ -1,88 +1,85 @@
 <script setup lang="ts">
+import { onMounted, reactive, ref, type Ref, watch } from "vue";
+import { useServicesStore } from "@/domain/services/stores";
+import { useProviderStore } from "@/domain/entities/stores";
+import { useSettingsStore } from "@/domain/settings/stores";
+import { useNotificationsStore } from "@/stores/notifications";
+import type { ApiError } from "@/types";
 
-import {onMounted, reactive, ref, type Ref, watch} from "vue";
-import {useServicesStore} from "@/domain/services/stores";
-import {useProviderStore} from "@/domain/entities/stores";
-import {useSettingsStore} from "@/domain/settings/stores";
-import {useNotificationsStore} from "@/stores/notifications";
-import type {ApiError} from "@/types";
-
-const store = useServicesStore()
-const providerStore = useProviderStore()
-const settingsStore = useSettingsStore()
-const loading: Ref<boolean> = ref(false)
-const notify = useNotificationsStore()
+const store = useServicesStore();
+const providerStore = useProviderStore();
+const settingsStore = useSettingsStore();
+const loading: Ref<boolean> = ref(false);
+const notify = useNotificationsStore();
 
 type ServiceForm = {
-  id:string,
-  name: string,
-  description: string,
-  requirements: string[],
-  providerId: string,
-  accessibilityTier: string,
-}
+  id: string;
+  name: string;
+  description: string;
+  requirements: string[];
+  providerId: string;
+  accessibilityTier: string;
+};
 
-let form:ServiceForm = reactive({
-  id:"",
+let form: ServiceForm = reactive({
+  id: "",
   name: "",
   description: "",
   requirements: [],
   providerId: "",
   accessibilityTier: "REGISTERED_USER",
-})
-const emit = defineEmits(['cancel'])
+});
+const emit = defineEmits(["cancel"]);
 
 onMounted(() => {
-  loading.value = true
-  providerStore.fetchProviders(1, 40)
-      .then(() => (loading.value = false))
-      .catch(() => {
-        loading.value = false
-      })
-})
+  loading.value = true;
+  providerStore
+    .fetchProviders(1, 40)
+    .then(() => (loading.value = false))
+    .catch(() => {
+      loading.value = false;
+    });
+});
 
-function submit(){
-
+function submit() {
   let payload = {
-    name:form.name,
-    description:form.description,
-    requirements:form.requirements,
-    accessibility_tier:form.accessibilityTier,
-    provider_id:form.providerId,
+    name: form.name,
+    description: form.description,
+    requirements: form.requirements,
+    accessibility_tier: form.accessibilityTier,
+    provider_id: form.providerId,
+  };
+  store
+    .createService(payload)
+    .then(() => {
+      loading.value = false;
+      window.location.reload();
+      notify.success("Created");
+    })
+    .catch((error: ApiError) => {
+      loading.value = false;
+      notify.error(error.response.data.message);
+    });
+}
+
+function addRequirement() {
+  form.requirements.push("");
+}
+
+function removeRequirement(idx: number) {
+  form.requirements.splice(idx, 1);
+}
+
+watch(store.createServiceResponse, (data: any) => {
+  if (data.success) {
+    window.location.reload();
   }
-  store.createService(payload)
-      .then(() => {
-        loading.value = false
-        window.location.reload()
-        notify.success("Created")
-      })
-      .catch((error:ApiError) => {
-        loading.value = false
-        notify.error(error.response.data.message)
-      })
-}
-
-function addRequirement(){
-  form.requirements.push("")
-}
-
-function  removeRequirement(idx:number){
-  form.requirements.splice(idx, 1)
-}
-
-watch(
-    store.createServiceResponse,
-    (data:any) =>{
-      if(data.success){
-        window.location.reload()
-      }
-    }
-)
+});
 </script>
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Add Service</p>
+    <p class="text-xl font-bold">Add Service</p>
     <p class="text-sm text-gray-500">A public good consumed and/or paid for.</p>
     <form @submit.prevent="submit" class="pt-5">
       <!-- <div class="flex">
@@ -95,27 +92,26 @@ watch(
       </div> -->
 
       <!-- <div class="cell"> -->
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Choose Service Provider</label
-          >
-          <select
-            autocomplete="off"
-            v-model="form.providerId"
-            class="noFocus form-element e-input w-full"
-          >
-            <option value="URSB">URSB</option>
-            <option value="URA">URA</option>
-          </select>
-        <!-- </div> -->
+      <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+        >Choose Service Provider</label
+      >
+      <select
+        autocomplete="off"
+        v-model="form.providerId"
+        class="noFocus form-element e-input w-full"
+      >
+        <option value="URSB">URSB</option>
+        <option value="URA">URA</option>
+      </select>
+      <!-- </div> -->
 
-    
-        <div v-if="form.providerId === 'URSB'">
-          <p>URSB was chosen</p>
-        </div>
+      <div v-if="form.providerId === 'URSB'">
+        <p>URSB was chosen</p>
+      </div>
 
-        <div v-else-if="form.providerId === 'URA'">
-          <p>URA was chosen</p>
-</div>
+      <div v-else-if="form.providerId === 'URA'">
+        <p>URA was chosen</p>
+      </div>
 
       <!-- <div class="flex my-5">
         <div class="w-full">

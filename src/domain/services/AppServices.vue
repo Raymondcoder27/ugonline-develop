@@ -374,7 +374,7 @@ const services = ref<Service[]>([
       </div>
     </div>
 
-    <div class="bg-white text-xs rounded-md w-1/3">
+    <div class="bg-white text-xs rounded-md w-1/3 pt-4">
       <!-- all services -->
       <div class="count">Total Services: {{ services.length }}</div>
       <div class="count">Active Services: {{ services.length }}</div>

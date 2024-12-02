@@ -21,57 +21,59 @@ const specModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(16);
-const loading: Ref<boolean> = ref(false)
-const selectedService: Ref<string> = ref("")
-let providerId = ref("")
-let status = ref("")
-const notify = useNotificationsStore()
+const loading: Ref<boolean> = ref(false);
+const selectedService: Ref<string> = ref("");
+let providerId = ref("");
+let status = ref("");
+const notify = useNotificationsStore();
 
-const providerStore = useProviderStore()
+const providerStore = useProviderStore();
 onMounted(() => {
-  loading.value = true
-  fetch()
+  loading.value = true;
+  fetch();
   if (providerStore.providers == undefined) {
-    providerStore.fetchProviders(1, 35)
+    providerStore
+      .fetchProviders(1, 35)
       .then(() => (loading.value = false))
       .catch(() => {
-        loading.value = false
-      })
+        loading.value = false;
+      });
   }
-})
+});
 
 function fetch() {
-  store.fetchServices(page.value, limit.value)
+  store
+    .fetchServices(page.value, limit.value)
     .then(() => (loading.value = false))
     .catch((error: ApiError) => {
-      loading.value = false
-      notify.error(error.response.data.message)
-    })
+      loading.value = false;
+      notify.error(error.response.data.message);
+    });
 }
 
 function edit(service: Service) {
-  localStorage.setItem("service", JSON.stringify(service))
+  localStorage.setItem("service", JSON.stringify(service));
   editModalOpen.value = true;
 }
 
 function spec(service: Service) {
-  selectedService.value = service.id
-  localStorage.clear()
-  localStorage.setItem("service", JSON.stringify(service))
+  selectedService.value = service.id;
+  localStorage.clear();
+  localStorage.setItem("service", JSON.stringify(service));
   specModalOpen.value = true;
 }
 
 function open(service: Service) {
-  router.push({ name: "service-details", params: { id: service.id } })
+  router.push({ name: "service-details", params: { id: service.id } });
 }
 
 function tag(service: Service) {
-  selectedService.value = service.id
-  categoryModalOpen.value = true
+  selectedService.value = service.id;
+  categoryModalOpen.value = true;
 }
 
 function convertDateTime(date: string) {
-  return moment(date).format("DD-MM-YYYY HH:mm:ss")
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
 function close() {
@@ -81,19 +83,19 @@ function close() {
 }
 
 function next() {
-  page.value += 1
-  fetch()
+  page.value += 1;
+  fetch();
 }
 
 function previous() {
-  page.value -= 1
-  fetch()
+  page.value -= 1;
+  fetch();
 }
 
 watch(
   () => providerId.value,
   (id: any) => {
-    console.log(id)
+    console.log(id);
   },
   { deep: true }
 );
@@ -105,166 +107,216 @@ watch(
     if (!isOpen) {
       // do something if that's something you're interested in
     }
-  },
+  }
 );
 </script>
 
 <template>
- <div class="flex">
-  <div class="w-full shadow-lg bg-white rounded p-2">
-    <div class="flex">
-      <div class="w-full py-1 text-primary-700">
-        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"></i>
-        <label class="text-lg mx-1">Services</label>
-      </div>
-    </div>
-    <div class="flex justify-between my-1">
-      <div class="flex flex-col">
-        <div class="grid grid-cols-5">
-          <input class="filter-element e-input" type="text" placeholder="Search by Name" />
-          <select class="filter-element e-select" v-model="providerId">
-            <option :value="null">- Select Provider -</option>
-            <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{ provider.name
-              }}
-            </option>
-          </select>
-          <select class="filter-element e-select" v-model="status">
-            <option :value="null">- Select Status -</option>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-          </select>
+  <div class="flex">
+    <div class="w-full shadow-lg bg-white rounded p-2">
+      <div class="flex">
+        <div class="w-full py-1 text-primary-700">
+          <i
+            class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-list"
+          ></i>
+          <label class="text-lg mx-1">Services</label>
         </div>
       </div>
+      <div class="flex justify-between my-1">
+        <div class="flex flex-col">
+          <div class="grid grid-cols-5">
+            <input
+              class="filter-element e-input"
+              type="text"
+              placeholder="Search by Name"
+            />
+            <select class="filter-element e-select" v-model="providerId">
+              <option :value="null">- Select Provider -</option>
+              <option
+                v-for="(provider, idx) in providerStore.providers"
+                :key="idx"
+                :value="provider.id"
+              >
+                {{ provider.name }}
+              </option>
+            </select>
+            <select class="filter-element e-select" v-model="status">
+              <option :value="null">- Select Status -</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex">
+          <button
+            @click="modalOpen = true"
+            class="button btn-sm my-auto"
+            type="button"
+          >
+            <i class="px-1 fa-solid fa-plus"></i> Add Service
+          </button>
+        </div>
+      </div>
+      <div class="flex my-1">
+        <table class="table">
+          <thead>
+            <tr class="header-tr">
+              <th class="t-header">#</th>
+              <th class="t-header">Name</th>
+              <th class="t-header">Provider</th>
+              <th class="text-center">Access Tier</th>
+              <!-- <th class="text-center">Availability</th> -->
+              <th class="text-center">Status</th>
+              <th class="text-center">Date</th>
+              <th class="t-header"></th>
+            </tr>
+          </thead>
+          <thead v-if="loading">
+            <tr>
+              <th colspan="12" style="padding: 0">
+                <div
+                  class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"
+                ></div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="body-tr"
+              v-for="(service, idx) in store.services"
+              :key="idx"
+            >
+              <td width="10px">{{ idx + 1 }}.</td>
+              <td>
+                <label
+                  class="cursor-pointer font-bold hover:text-primary-700 mx-2"
+                >
+                  <span class="hover:underline" @click="open(service)">
+                    {{ service.name }}
+                  </span>
+                  <i
+                    class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
+                    @click="tag(service)"
+                  ></i>
+                </label>
+              </td>
+              <td>
+                <label>{{ service.providerName }}</label>
+              </td>
+              <td>
+                <label>{{ service.accessibilityTier }}</label>
+              </td>
+              <td class="text-center">
+                <i
+                  :class="
+                    service.currentVersionId
+                      ? 'text-green-600 fa-solid fa-check'
+                      : 'text-red-600 fa-solid fa-times'
+                  "
+                ></i>
+              </td>
+              <td class="text-center">
+                <span>{{ service.status }}</span>
+              </td>
+              <td class="text-center">
+                <span class="text-xs">{{
+                  convertDateTime(service.createdAt.Time)
+                }}</span>
+              </td>
+              <td class="text-center">
+                <i
+                  class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+                  @click="open(service)"
+                ></i>
+                <i
+                  class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
+                  @click="edit(service)"
+                ></i>
+                <i
+                  class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
+                  @click="spec(service)"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div class="flex">
-        <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-          <i class="px-1 fa-solid fa-plus"></i> Add Service
-        </button>
+        <div class="w-full">
+          <div class="flex" v-if="limit == store.services?.length || page > 1">
+            <button v-if="page > 1" class="pagination-button" @click="previous">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button v-else class="pagination-button-inert">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="w-1/12 text-center my-auto">
+              <label class="rounded text-white bg-primary-700 px-3 py-1">{{
+                page
+              }}</label>
+            </div>
+            <button
+              v-if="limit == store.services?.length ?? 1 - 1"
+              class="pagination-button"
+              @click="next"
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button v-else class="pagination-button-inert">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="flex my-1">
-      <table class="table">
-        <thead>
-          <tr class="header-tr">
-            <th class="t-header">#</th>
-            <th class="t-header">Name</th>
-            <th class="t-header">Provider</th>
-            <th class="text-center">Access Tier</th>
-            <!-- <th class="text-center">Availability</th> -->
-            <th class="text-center">Status</th>
-            <th class="text-center">Date</th>
-            <th class="t-header"></th>
-          </tr>
-        </thead>
-        <thead v-if="loading">
-          <tr>
-            <th colspan="12" style="padding: 0">
-              <div class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"></div>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="body-tr" v-for="(service, idx) in store.services" :key="idx">
-            <td width="10px">{{ idx + 1 }}.</td>
-            <td>
-              <label class=" cursor-pointer font-bold hover:text-primary-700 mx-2">
-                <span class="hover:underline" @click="open(service)">
-                  {{ service.name }}
-                </span>
-                <i class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
-                  @click="tag(service)"></i>
-              </label>
-            </td>
-            <td>
-              <label>{{ service.providerName }}</label>
-            </td>
-            <td>
-              <label>{{ service.accessibilityTier }}</label>
-            </td>
-            <td class="text-center">
-              <i :class="service.currentVersionId
-            ? 'text-green-600 fa-solid fa-check'
-            : 'text-red-600 fa-solid fa-times'"></i>
-            </td>
-            <td class="text-center">
-              <span>{{ service.status }}</span>
-            </td>
-            <td class="text-center">
-              <span class="text-xs">{{ convertDateTime(service.createdAt.Time) }}</span>
-            </td>
-            <td class="text-center">
-              <i class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200  hover:text-blue-700"
-                @click="open(service)"></i>
-              <i class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
-                @click="edit(service)"></i>
-              <i class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
-                @click="spec(service)"></i>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="flex">
-      <div class="w-full">
-        <div class="flex" v-if="limit == store.services?.length || page > 1">
-          <button v-if="page > 1" class="pagination-button" @click="previous"> <i
-              class="fa-solid fa-arrow-left"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
-          <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{ page }}</label>
+    <div class="block w-4/12">
+      <div class="pb-2">
+        <div class="w-12/12 count flex">
+          <p class="text-lg">Company Incorporation</p>
+          <!-- <div class="flex justify-around"> -->
+          <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
+          <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
+          <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="pb-2">
+        <div class="w-12/12 count flex">
+          <p class="text-lg">Name Reservation</p>
+          <!-- <div class="flex justify-around"> -->
+          <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
+          <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
+          <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="pb-2">
+        <div class="w-12/12 count flex">
+          <p class="text-lg">Company Insolvency</p>
+          <!-- <div class="flex justify-around"> -->
+          <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
+          <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
+          <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="pb-2">
+        <div class="w-12/12 count block">
+          <p
+            class="font-bold w-1/5 pt-0.5 bg-blue-300 text-blue-700 rounded-md text-xs"
+          >
+            URSB
+          </p>
+          <div class="flex">
+            <p class="text-lg">File Resolution</p>
+            <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
           </div>
-          <button v-if="limit == store.services?.length ?? 1 - 1" class="pagination-button" @click="next"><i
-              class="fa-solid fa-arrow-right"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-right"></i></button>
+
+          <!-- </div> -->
         </div>
       </div>
     </div>
   </div>
- <div class="block w-4/12">
-  <div class="pb-2">
-    <div class="w-12/12 count flex">
-        <p class="text-lg">Company Incorporation</p>
-       <!-- <div class="flex justify-around"> -->
-        <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
-        <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
-        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-       <!-- </div> -->
-      </div>
-    </div>
-    <div class="pb-2">
-      <div class="w-12/12 count flex">
-        <p class="text-lg">Name Reservation</p>
-       <!-- <div class="flex justify-around"> -->
-        <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
-        <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
-        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-       <!-- </div> -->
-      </div>
-    </div>
-    <div class="pb-2">
-      <div class="w-12/12 count flex">
-        <p class="text-lg">Company Insolvency</p>
-       <!-- <div class="flex justify-around"> -->
-        <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
-        <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
-        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-       <!-- </div> -->
-      </div>
-    </div>
-    <div class="pb-2">
-      <div class="w-12/12 count block">
-      <p class="font-bold w-1/5 pt-0.5 bg-blue-300 text-blue-700 rounded-md text-xs">URSB</p>
-<div class="flex">
-  <p class="text-lg">File Resolution</p>
-        <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-
-</div>
-
-       <!-- </div> -->
-      </div>
-
-    </div>
- </div>
- </div>
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>

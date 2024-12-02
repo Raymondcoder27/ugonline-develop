@@ -6,6 +6,7 @@ import { ref, type Ref } from "vue";
 import FloatLedgers from "@/domain/billing/FloatLedgers.vue";
 import FloatManagement from "@/domain/billing/FloatManagement.vue";
 import Transactions from "@/domain/billing/Transactions.vue";
+import FloatRequests from "@/domain/billing/FloatRequests.vue";
 
 const activeTab: Ref<string> = ref("transactions")
 
@@ -30,7 +31,7 @@ function select(tab: string) {
         Transactions</div>
       <div :class="(activeTab == 'floatledgers') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatledgers')">Float Ledger
       </div>
-      <div :class="(activeTab == 'floatledgers') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatledgers')">Float Requests
+      <div :class="(activeTab == 'floatrequests') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatledgers')">Float Requests
       </div>
     </div>
     <div class="flex flex-grow">
@@ -40,6 +41,7 @@ function select(tab: string) {
         <Transactions v-if="activeTab == 'transactions'" />
         <FloatManagement v-if="activeTab == 'floatmanagement'" />
         <FloatLedgers v-if="activeTab == 'floatledgers'" />
+        <FloatRequests v-if="activeTab == 'floatrequests'" />
       </div>
     </div>
   </div>

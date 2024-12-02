@@ -129,7 +129,7 @@ watch(
             <option value="blocked">Blocked</option>
           </select> -->
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-            <i class="px-1 fa-solid fa-plus"></i> Add Till
+            <i class="px-1 fa-solid fa-plus"></i> Add Agent
           </button>
         </div>
       </div>
@@ -142,11 +142,7 @@ watch(
             <th class="t-header" width="25%">Names</th>
             <th class="t-header">Branch</th>
             <th class="t-header">Till Number</th>
-            <!-- <th class="t-header">Phone</th> -->
-            <!-- <th class="text-center">Services Offered</th> -->
-            <!-- <th class="text-center">Current Float</th> -->
             <th class="text-center">Status</th>
-            <!-- <th class="text-center">Last Activity</th> -->
             <th class="text-center">Date Registered</th>
             <th class="t-header"></th>
           </tr>

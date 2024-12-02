@@ -85,14 +85,28 @@ watch(
     <p class="text-xl font-bold"> Add Service</p>
     <p class="text-sm text-gray-500">A public good consumed and/or paid for.</p>
     <form @submit.prevent="submit" class="pt-5">
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Provider</label>
           <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
           </select>
         </div>
-      </div>
+      </div> -->
+
+      <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Status</label
+          >
+          <select
+            autocomplete="off"
+            v-model="form.providerId"
+            class="noFocus form-element e-input w-full"
+          >
+            <option value="admin">URSB</option>
+            <option value="public">URA</option>
+          </select>
+        </div>
 
     
 

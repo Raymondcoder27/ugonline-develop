@@ -375,6 +375,9 @@ const services = ref<Service[]>([
     </div>
 
     <div class="bg-white text-xs rounded-md w-1/3 pt-4">
+
+      <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Search By Till Number" />
       <!-- all services -->
       <div class="count">Total Services: {{ services.length }}</div>
       <div class="count">Active Services: {{ services.length }}</div>

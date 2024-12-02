@@ -106,11 +106,11 @@ watch(store.createServiceResponse, (data: any) => {
       <!-- </div> -->
 
       <div v-if="form.providerId === 'URSB'">
-        <p>URSB was chosen</p>
+        <p class="p-3">URSB SERVICES</p>
       </div>
 
       <div v-else-if="form.providerId === 'URA'">
-        <p>URA was chosen</p>
+        <p class="p-3">URA SERVICES</p>
       </div>
 
       <!-- <div class="flex my-5">

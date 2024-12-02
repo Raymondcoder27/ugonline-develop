@@ -427,7 +427,7 @@ watch(
       <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Search By MDA or Service Name" />
       <!-- all services -->
-      <div class="pt-1">
+      <div class="pt-2 p-3">
         <div class="count">Total Services: {{ services.length }}</div>
       <div class="count">Active Services: {{ services.length }}</div>
       <div class="count">Inactive Services: 0</div>

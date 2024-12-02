@@ -87,14 +87,6 @@ watch(
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
-          <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
-                 required />
-        </div>
-      </div>
-
-      <div class="flex">
-        <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Provider</label>
           <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
@@ -102,25 +94,10 @@ watch(
         </div>
       </div>
 
-      <div class="flex">
-        <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Accessibility Tier</label>
-          <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
-            <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="flex">
-        <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Description</label>
-          <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
-                 required />
-        </div>
-      </div>
+    
 
 
-      <div class="flex my-5">
+      <!-- <div class="flex my-5">
         <div class="w-full">
           <div class="flex">
             <p class="font-bold px-1">Basic User Requirements</p>
@@ -142,7 +119,7 @@ watch(
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">

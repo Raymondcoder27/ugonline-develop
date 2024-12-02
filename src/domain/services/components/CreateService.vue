@@ -111,6 +111,69 @@ watch(store.createServiceResponse, (data: any) => {
 
       <div v-else-if="form.providerId === 'URA'">
         <p class="p-3">URA SERVICES</p>
+        <div class="bg-gray-100 rounded-md">
+          <!-- list of services for URA with check boxes manually -->
+          <div class="flex items-center justify-between p-2">
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 1</label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 2</label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 1</label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 2</label>
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-2">
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 1</label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 2</label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 1</label>
+            </div>
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600"
+              />
+              <label class="ml-2 text-gray-700 text-xs">Service 2</label>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- <div class="flex my-5">

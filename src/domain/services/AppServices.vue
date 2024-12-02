@@ -113,7 +113,7 @@ watch(
 
 <template>
   <div class="flex">
-    <div class="w-full shadow-lg bg-white rounded p-2">
+    <!-- <div class="w-full shadow-lg bg-white rounded p-2">
       <div class="flex">
         <div class="w-full py-1 text-primary-700">
           <i
@@ -165,7 +165,6 @@ watch(
               <th class="t-header">Name</th>
               <th class="t-header">Provider</th>
               <th class="text-center">Access Tier</th>
-              <!-- <th class="text-center">Availability</th> -->
               <th class="text-center">Status</th>
               <th class="text-center">Date</th>
               <th class="t-header"></th>
@@ -268,41 +267,39 @@ watch(
           </div>
         </div>
       </div>
-    </div>
-    <!-- <div class="block w-4/12">
-      <div class="pb-2">
-        <div class="w-12/12 count flex">
-          <p class="text-lg">Company Incorporation</p>
-          <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-        </div>
-      </div>
-      <div class="pb-2">
-        <div class="w-12/12 count flex">
-          <p class="text-lg">Name Reservation</p>
-          <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-        </div>
-      </div>
-      <div class="pb-2">
-        <div class="w-12/12 count flex">
-          <p class="text-lg">Company Insolvency</p>
-          <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-        </div>
-      </div>
-      <div class="pb-2">
-        <div class="w-12/12 count block">
-          <p
-            class="font-bold w-1/5 pt-0.5 bg-blue-300 text-blue-700 rounded-md text-xs"
-          >
-            URSB
-          </p>
-          <div class="flex">
-            <p class="text-lg">File Resolution</p>
-            <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-          </div>
-
-        </div>
-      </div>
     </div> -->
+  
+    <div class="grid grid-cols-4 gap-4 p-4">
+    <div v-for="service in services" :key="service.id" class="service service-active p-4 bg-white shadow rounded">
+      <div class="flex justify-between items-center">
+        <!-- <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover"> -->
+        <img  class="w-10 h-10 object-cover">
+        <i class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"></i>
+      </div>
+      <hr class="my-2">
+      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+      <table class="text-sm text-gray-600">
+        <tbody>
+          <tr>
+            <td class="font-semibold">Provider:</td>
+            <td class="px-2">{{ service.name }}</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Email:</td>
+            <td class="px-2">{{ service.email }}</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Phone:</td>
+            <td class="px-2">{{ service.phone }}</td>
+          </tr>
+          <tr>
+            <td class="font-semibold">Address:</td>
+            <td class="px-2">{{ service.address }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   </div>
 
   <!-- Modal -->

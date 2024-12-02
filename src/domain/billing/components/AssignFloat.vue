@@ -62,7 +62,8 @@ function submit() {
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select Branch</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
-            <option value="public">Branch</option>
+            <option value="public">Branch 001</option>
+            <option value="public">Branch 002</option>
             <!-- <option value="public">Agent</option> -->
           </select>
         </div>

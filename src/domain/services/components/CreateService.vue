@@ -110,9 +110,12 @@ watch(
 
     
         <div v-if="form.providerId === 'URSB'">
-
+          <p>URSB was chosen</p>
         </div>
 
+        <div v-else-if="form.providerId === 'URA'">
+          <p>URA was chosen</p>
+</div>
 
       <!-- <div class="flex my-5">
         <div class="w-full">

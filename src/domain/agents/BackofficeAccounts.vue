@@ -121,7 +121,7 @@ watch(
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
             class="filter-element e-input" type="text" placeholder="Branch" /> -->
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Till Number" />
+            class="filter-element e-input" type="text" placeholder="Search By Till Number" />
           <!-- <select class="filter-element e-select">
             <option :value="null">- Select Status -</option>
             <option value="pending">Pending</option>

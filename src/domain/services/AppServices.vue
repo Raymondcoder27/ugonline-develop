@@ -283,21 +283,13 @@ watch(
       <div class="pb-2">
         <div class="w-12/12 count flex">
           <p class="text-lg">Name Reservation</p>
-          <!-- <div class="flex justify-around"> -->
-          <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
-          <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
           <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-          <!-- </div> -->
         </div>
       </div>
       <div class="pb-2">
         <div class="w-12/12 count flex">
           <p class="text-lg">Company Insolvency</p>
-          <!-- <div class="flex justify-around"> -->
-          <!-- <p class="font-bold w-3/5 pt-0.5 bg-red-300 text-red-700 rounded-md text-xs">Status: DISCONNECTED</p> -->
-          <!-- <p class="font-bold w-1/3 pt-0.5 bg-green-300 text-green-700 rounded-md text-xs">CONNECT</p> -->
           <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
-          <!-- </div> -->
         </div>
       </div>
       <div class="pb-2">

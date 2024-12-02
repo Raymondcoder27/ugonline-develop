@@ -13,6 +13,8 @@ import CategorySelector from "@/domain/settings/components/CategorySelector.vue"
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
+import { useDebounceFn } from "@vueuse/core"
+
 
 const store = useServicesStore();
 const modalOpen: Ref<boolean> = ref(false);
@@ -207,6 +209,14 @@ const filter: IGoFilter = reactive({
     },
   ]
 })
+
+const updateFilter = useDebounceFn(
+  () => {
+    fetch()
+  },
+  300,
+  { maxWait: 5000 }
+)
 
 // watch for changes in the filter object
 watch(

@@ -114,11 +114,11 @@ watch(
 
 <template>
 <!-- <div class="min-h-screen bg-gray-100 p-2"> -->
-<div class="bg-gray-100 p-2">
+<div class="">
 
   
   <!-- Header -->
-  <div class="max-w-7xl mx-auto bg-white p-2 rounded-lg shadow">
+  <div class="max-w-7xl mx-auto bg-white  shadow">
     <div class="flex items-center justify-between border-b pb-4 mb-4">
       <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1>
       <div>

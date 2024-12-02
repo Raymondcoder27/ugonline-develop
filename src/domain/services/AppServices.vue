@@ -428,9 +428,18 @@ watch(
             class="filter-element e-input text-xs" type="text" placeholder="Search By MDA or Service Name" />
       <!-- all services -->
       <div class="pt-2 p-3">
-        <div class="count">Total Services: {{ services.length }}</div>
+        <!-- <div class="count">Total Services: {{ services.length }}</div>
       <div class="count">Active Services: {{ services.length }}</div>
-      <div class="count">Inactive Services: 0</div>
+      <div class="count">Inactive Services: 0</div> -->
+
+      <!-- drop down of MDAs -->
+      <select class="filter-element e-select text-xs">
+        <option :value="null">- NIRA</option>
+        <!-- services offered by NIRA -->
+        <option value="pending">National ID Registration</option>
+        <option value="active">Passport Application</option>
+        <option value="blocked">Name Reservation</option>
+      </select>
       </div>
     </div>
   </div>

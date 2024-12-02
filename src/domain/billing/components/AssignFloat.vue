@@ -36,9 +36,15 @@ function submit() {
     <p class="text-xl font-bold">Assign Float</p>
     <p class="text-sm text-gray-500">Administrators who will manage this portal and handle providers and services</p>
     <form @submit.prevent="submit" class="pt-5">
-    
+      
+      <div class="flex">
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Float Amount (UGX)</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Email Address</label>
+          <input autocomplete="off" type="email" v-model="form.username" class="noFocus form-element e-input w-full"
+            required />
+        </div>
+        <div class="cell">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Phone Number</label>
           <input autocomplete="off" type="tel" v-model="form.phone" class="noFocus form-element e-input w-full"
             required />
         </div>
@@ -46,10 +52,11 @@ function submit() {
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Role</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select Specification</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
             <option value="admin">Administrator</option>
-            <option value="public">Public User</option>
+            <option value="public">Branch Manager</option>
+            <option value="public">Agent</option>
           </select>
         </div>
       </div>

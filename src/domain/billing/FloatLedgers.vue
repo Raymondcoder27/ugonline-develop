@@ -132,7 +132,7 @@ watch(
     </div>
 
     <!-- Table -->
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto  p-2">
       <table class="w-full border-collapse border border-gray-200 text-left">
         <thead>
           <tr class="bg-gray-100">

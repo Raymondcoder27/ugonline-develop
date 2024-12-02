@@ -103,7 +103,7 @@ function submit() {
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
             >Assign Float (UGX)</label
@@ -129,7 +129,7 @@ function submit() {
             <option value="public">Inactive</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="flex">
         <div class="cell-full">

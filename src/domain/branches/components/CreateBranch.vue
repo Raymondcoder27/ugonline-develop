@@ -93,14 +93,14 @@ watch(
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Location</label>
           <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <!-- <div class="flex">
         <div class="cell-full">
@@ -127,6 +127,11 @@ watch(
                  required />
         </div>
       </div> -->
+      <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Description</label>
+          <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
+                 required />
+        </div>
 
 
       <!-- <div class="flex my-5">

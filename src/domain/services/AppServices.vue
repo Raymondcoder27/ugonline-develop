@@ -269,7 +269,7 @@ watch(
         </div>
       </div>
     </div>
-    <div class="block w-4/12">
+    <!-- <div class="block w-4/12">
       <div class="pb-2">
         <div class="w-12/12 count flex">
           <p class="text-lg">Company Incorporation</p>
@@ -300,10 +300,9 @@ watch(
             <p class="fa-solid fa-toggle-off pt-1 pl-3 text-xl"></p>
           </div>
 
-          <!-- </div> -->
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <!-- Modal -->

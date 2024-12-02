@@ -129,7 +129,7 @@ watch(
             <option value="blocked">Blocked</option>
           </select> -->
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-            <i class="px-1 fa-solid fa-plus"></i> Assign Float
+            <i class="px-1 fa-solid fa-plus"></i> Allocate Float
           </button>
         </div>
       </div>

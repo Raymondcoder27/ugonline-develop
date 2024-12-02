@@ -46,11 +46,11 @@ function submit() {
       </div>
       
       <div class="flex">
-        <div class="cell">
+        <!-- <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Email Address</label>
           <input autocomplete="off" type="email" v-model="form.username" class="noFocus form-element e-input w-full"
             required />
-        </div>
+        </div> -->
         <!-- <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Phone Number</label>
           <input autocomplete="off" type="tel" v-model="form.phone" class="noFocus form-element e-input w-full"

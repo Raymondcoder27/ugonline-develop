@@ -103,12 +103,15 @@ watch(
             v-model="form.providerId"
             class="noFocus form-element e-input w-full"
           >
-            <option value="admin">URSB</option>
-            <option value="public">URA</option>
+            <option value="URSB">URSB</option>
+            <option value="URA">URA</option>
           </select>
         <!-- </div> -->
 
     
+        <div v-if="form.providerId === 'URSB'">
+
+        </div>
 
 
       <!-- <div class="flex my-5">

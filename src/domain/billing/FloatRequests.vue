@@ -132,9 +132,6 @@ watch(
         <thead>
           <tr class="header-tr">
 <!--            <th class="t-header">#</th>-->
-            <th class="t-header" width="30%">Branch Name</th>
-            <!-- <th class="t-header">Manager</th> -->
-            <!-- <th class="t-header">Phone</th> -->
             <th class="text-center">Name</th>
             <th class="text-center">Till Number</th>
             <!-- <th class="text-center">Activation</th> -->

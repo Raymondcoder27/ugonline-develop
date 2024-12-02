@@ -336,7 +336,7 @@ const services = ref<Service[]>([
       </div>
     </div> -->
 
-    <div class="grid grid-cols-4 gap-4 p-4 flex">
+    <div class="grid grid-cols-4 gap-4 p-4">
       <div
         v-for="service in services"
         :key="service.id"
@@ -373,15 +373,15 @@ const services = ref<Service[]>([
         </table>
       </div>
     </div>
+
+    <div class="bg-white text-xs rounded-md">
+      <!-- all services -->
+      <div class="count">Total Services: {{ services.length }}</div>
+      <div class="count">Active Services: {{ services.length }}</div>
+      <div class="count">Inactive Services: 0</div>
+    </div>
   </div>
 
-  <div class="bg-white text-xs rounded-md">
-    <!-- all services -->
-    <div class="count">Total Services: {{ services.length }}</div>
-    <div class="count">Active Services: {{ services.length }}</div>
-    <div class="count">Inactive Services: 0</div>
-
-  </div>
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->

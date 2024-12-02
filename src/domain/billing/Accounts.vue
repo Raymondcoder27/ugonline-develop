@@ -31,7 +31,7 @@ function select(tab: string) {
         Transactions</div>
       <div :class="(activeTab == 'floatledgers') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatledgers')">Float Ledger
       </div>
-      <div :class="(activeTab == 'floatrequests') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatledgers')">Float Requests
+      <div :class="(activeTab == 'floatrequests') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('floatrequests')">Float Requests
       </div>
     </div>
     <div class="flex flex-grow">

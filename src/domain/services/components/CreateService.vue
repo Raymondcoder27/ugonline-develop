@@ -94,9 +94,9 @@ watch(
         </div>
       </div> -->
 
-      <div class="cell">
+      <!-- <div class="cell"> -->
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-            >Status</label
+            >Choose Service Provider</label
           >
           <select
             autocomplete="off"
@@ -106,7 +106,7 @@ watch(
             <option value="admin">URSB</option>
             <option value="public">URA</option>
           </select>
-        </div>
+        <!-- </div> -->
 
     
 

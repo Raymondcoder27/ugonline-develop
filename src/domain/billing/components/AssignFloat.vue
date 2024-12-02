@@ -34,7 +34,7 @@ function submit() {
 <template>
   <div class="bg-white py-5">
     <p class="text-xl font-bold">Assign Float</p>
-    <p class="text-sm text-gray-500">Administrators who will manage this portal and handle providers and services</p>
+    <!-- <p class="text-sm text-gray-500">Administrators who will manage this portal and handle providers and services</p> -->
     <form @submit.prevent="submit" class="pt-5">
 
       <div class="flex">
@@ -62,8 +62,8 @@ function submit() {
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select Branch</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
-            <option value="public">Branch 001</option>
-            <option value="public">Branch 002</option>
+            <option value="public">Branch T001</option>
+            <option value="public">Branch T002</option>
             <!-- <option value="public">Agent</option> -->
           </select>
         </div>

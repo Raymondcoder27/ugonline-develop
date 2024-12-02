@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { onMounted, type Ref, ref, watch } from "vue";
+import { onMounted, type Ref, ref, watch, reactive } from "vue";
 import CreateService from "@/domain/services/components/CreateService.vue";
 import { useServicesStore } from "@/domain/services/stores";
 import type { Service } from "@/domain/services/types";
@@ -425,7 +425,7 @@ watch(
     <div class="bg-white text-xs rounded-md w-1/3 pt-4">
 
       <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Search By Till Number" />
+            class="filter-element e-input" type="text" placeholder="Search By MDA or Service Name" />
       <!-- all services -->
       <div class="count">Total Services: {{ services.length }}</div>
       <div class="count">Active Services: {{ services.length }}</div>

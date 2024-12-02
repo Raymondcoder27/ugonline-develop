@@ -36,28 +36,9 @@ function submit() {
     <p class="text-xl font-bold">Assign Float</p>
     <p class="text-sm text-gray-500">Administrators who will manage this portal and handle providers and services</p>
     <form @submit.prevent="submit" class="pt-5">
-      <div class="flex">
-        <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Last Name</label>
-          <input autocomplete="off" type="text" v-model="form.lastName" class="noFocus form-element e-input w-full"
-            required />
-        </div>
-      </div>
-      <div class="flex">
-        <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Middle Name</label>
-          <input autocomplete="off" type="text" v-model="form.middleName" class="noFocus form-element e-input w-full" />
-        </div>
-      </div>
-
-      <div class="flex">
+    
         <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Email Address</label>
-          <input autocomplete="off" type="email" v-model="form.username" class="noFocus form-element e-input w-full"
-            required />
-        </div>
-        <div class="cell">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Phone Number</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Float Amount (UGX)</label>
           <input autocomplete="off" type="tel" v-model="form.phone" class="noFocus form-element e-input w-full"
             required />
         </div>

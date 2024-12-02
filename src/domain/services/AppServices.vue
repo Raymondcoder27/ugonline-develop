@@ -440,6 +440,24 @@ watch(
         <option value="active">Passport Application</option>
         <option value="blocked">Name Reservation</option>
       </select>
+
+      <!-- drop down of other MDAs -->
+      <select class="filter-element e-select text-xs">
+        <option :value="null">- URSB</option>
+        <!-- services offered by URSB -->
+        <option value="pending">Name Reservation</option>
+        <option value="active">Business Registration</option>
+        <option value="blocked">Company Registration</option>
+      </select>
+
+      <!-- drop down of other MDAs -->
+      <select class="filter-element e-select text-xs">
+        <option :value="null">- NITA</option>
+        <!-- services offered by NITA -->
+        <option value="pending">e-Government Services</option>
+        <option value="active">e-Procurement</option>
+        <option value="blocked">e-Visa</option>
+      </select>
       </div>
     </div>
   </div>

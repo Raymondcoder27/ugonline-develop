@@ -137,11 +137,11 @@ watch(
             <!-- <th class="t-header">Phone</th> -->
             <th class="text-center">Transaction type</th>
             <th class="text-center">Status</th>
-            <th class="text-center">Activation</th>
+            <!-- <th class="text-center">Activation</th> -->
             <th class="text-center">Date</th>
             <th class="t-header"></th>
           </tr>
-        </thead>
+        </thead> 
         <tbody>
           <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in store.backofficeAccounts" :key="idx">

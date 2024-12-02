@@ -38,13 +38,6 @@ function submit() {
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">First Name</label>
-          <input autocomplete="off" type="text" v-model="form.firstName" class="noFocus form-element e-input w-full"
-            required />
-        </div>
-      </div>
-      <div class="flex">
-        <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Last Name</label>
           <input autocomplete="off" type="text" v-model="form.lastName" class="noFocus form-element e-input w-full"
             required />

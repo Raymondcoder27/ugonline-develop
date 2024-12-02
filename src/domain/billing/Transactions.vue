@@ -113,7 +113,7 @@ watch(
 <template>
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
-      <div class="flex-grow">
+      <div class="flex-grow"></div><!-- <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
             class="filter-element e-input" type="text" placeholder="Search by Name" />
@@ -121,27 +121,21 @@ watch(
             class="filter-element e-input" type="text" placeholder="Email Address" />
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Phone Number" />
-          <!-- <select class="filter-element e-select">
-            <option :value="null">- Select Status -</option>
-            <option value="pending">Pending</option>
-            <option value="active">Active</option>
-            <option value="blocked">Blocked</option>
-          </select> -->
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="flex my-1">
       <table class="table">
         <thead>
           <tr class="header-tr">
 <!--            <th class="t-header">#</th>-->
-            <th class="t-header" width="30%">Names</th>
-            <th class="t-header">Email</th>
-            <th class="t-header">Phone</th>
-            <th class="text-center">Role</th>
+            <th class="t-header" width="30%">Branch Name</th>
+            <th class="t-header">Manager</th>
+            <!-- <th class="t-header">Phone</th> -->
+            <th class="text-center">Transaction type</th>
             <th class="text-center">Status</th>
             <th class="text-center">Activation</th>
             <th class="text-center">Date</th>

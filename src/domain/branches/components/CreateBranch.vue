@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, type Ref } from "vue";
-import { useBranchStore } from "@/domain/branches/stores"; // Adjust the store path if necessary
+import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 
-const store = useBranchStore(); // Changed from `useServicesStore` to `useBranchStore`
+const store = useBranchStore();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
 
@@ -13,37 +13,36 @@ type BranchForm = {
   name: string;
 };
 
-let form: BranchForm = reactive({
+const form = reactive({
   id: "",
   name: "",
 });
 
-const emit = defineEmits(["cancel"]);
+const emit = defineEmits(["cancel", "created"]);
 
 onMounted(() => {
   loading.value = true;
   store
-    .fetchBranches() // Adjust this method if different for branches
-    .then(() => (loading.value = false))
-    .catch(() => {
-      loading.value = false;
-    });
+    .fetchBranches()
+    .finally(() => (loading.value = false));
 });
 
 function submit() {
   let payload = {
     name: form.name,
   };
+  loading.value = true;
   store
-    .addBranch(payload)
+    .createBranch(payload)
     .then(() => {
-      loading.value = false;
-      window.location.reload();
       notify.success("Branch Created");
+      emit("created");
     })
     .catch((error: ApiError) => {
-      loading.value = false;
       notify.error(error.response.data.message);
+    })
+    .finally(() => {
+      loading.value = false;
     });
 }
 </script>
@@ -57,7 +56,7 @@ function submit() {
     <form @submit.prevent="submit" class="pt-5">
       <div class="cell-full">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
-        <input type="text" v-model="form.name" class="noFocus form-element e-input w-full" required />
+        <input v-model="form.name" class="form-input" required />
       </div>
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
@@ -66,8 +65,9 @@ function submit() {
           </button>
         </div>
         <div class="w-6/12 px-1">
-          <button class="button" type="submit">
-            <i class="fa-solid fa-hand-pointer"></i> Submit
+          <button class="form-button" type="submit" :disabled="loading">
+            <i v-if="loading" class="fa-spin fa-solid fa-spinner"></i>
+            <i v-else class="fa-solid fa-hand-pointer"></i> Submit
           </button>
         </div>
       </div>
@@ -80,6 +80,7 @@ function submit() {
 @import "@/assets/styles/forms.css";
 @import "@/assets/styles/ring.css";
 @import "@/assets/styles/ripple.css";
+
 
 .cell {
   @apply w-6/12 px-1 my-2;

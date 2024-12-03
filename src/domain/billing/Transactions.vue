@@ -102,6 +102,7 @@ onMounted(() => fetch());
       <table class="table">
         <thead>
           <tr class="text-left">
+            <th>#</th>
             <th>Branch Name</th>
             <th>Manager</th>
             <th>Transaction Type</th>
@@ -118,6 +119,7 @@ onMounted(() => fetch());
             :key="idx"
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
+            <td>{{ idx + 1 }}</td>
             <td>{{ transaction.branchName }}</td>
             <td>{{ transaction.manager }}</td>
             <td class="text-left">{{ transaction.transactionType }}</td>

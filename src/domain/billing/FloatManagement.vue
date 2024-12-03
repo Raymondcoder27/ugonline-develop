@@ -206,7 +206,7 @@ watch(
   </div>
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <AllocateFloat @cancel="close" />
+    <AllocateFloat @floatAllocated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>

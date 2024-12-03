@@ -118,10 +118,10 @@ import type { Branch } from "@/domain/branches/types"; // Assuming you have a Br
 import moment from "moment/moment";
 import router from "@/router";
 import { useProviderStore } from "@/domain/entities/stores";
-import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
+// import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
-import TableLoader from "@/components/TableLoader.vue";
+// import TableLoader from "@/components/TableLoader.vue";
 
 const branchStore = useBranchStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);

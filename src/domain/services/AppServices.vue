@@ -419,13 +419,14 @@ watch(
             </tr>
           </tbody>
         </table>
+        <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>
       </div>
     </div>
 
-    <div class="bg-white text-xs rounded-md w-1/3 pt-4 text-center">
+    <div class="bg-white text-xs rounded-md w-1/3 mt-2 text-center">
 
       <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input text-xs" type="text" placeholder="Search By MDA or Service Name" />
+            class="filter-element e-input text-xs mt-3" type="text" placeholder="Search By MDA or Service Name" />
       <!-- all services -->
       <div class="pt-2 p-3">
         <!-- <div class="count">Total Services: {{ services.length }}</div>
@@ -436,7 +437,10 @@ watch(
       <select class="filter-element text-xs w-full">
         <option :value="null">- NIRA</option>
         <!-- services offered by NIRA -->
-        <option value="pending">National ID Registration</option>
+        <option value="pending">National ID Registration
+          <!-- add a reactive toggle but set it to off -->
+          <i class="fa-solid fa-toggle-off text-red-600"></i>
+        </option>
         <option value="active">Passport Application</option>
         <option value="blocked">Name Reservation</option>
       </select>

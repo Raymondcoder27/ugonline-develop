@@ -144,7 +144,7 @@ watch(
             <th class="t-header">Phone</th>
             <!-- <th class="text-center">Role</th> -->
             <th class="text-center">Status</th>
-            <th class="text-center">Activation</th>
+            <!-- <th class="text-center">Activation</th> -->
             <th class="text-center">Date</th>
             <th class="t-header"></th>
           </tr>
@@ -177,10 +177,10 @@ watch(
               <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
               <label v-else class="text-green-600 font-bold">ACTIVE</label>
             </td>
-            <td class="text-center">
+            <!-- <td class="text-center">
               <i v-if="account.activatedAt" class="fa-solid fa-check-square text-green-600"></i>
               <i v-else class="fa-solid fa-times-square text-red-600"></i>
-            </td>
+            </td> -->
             <td class="text-center">{{ convertDate(account.createdAt) }}</td>
             <td class="text-center">
               <div class="flex flex-row space-x-2 w-full justify-center" v-if="!account.blockedAt">

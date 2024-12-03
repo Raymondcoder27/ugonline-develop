@@ -4,6 +4,8 @@ import { onMounted, ref, reactive, watch } from "vue";
 import { useBilling } from "@/domain/billing/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import type { Transaction, FloatLedger, FloatRequest, FloatManagement } from "./types"; // Import billing types
+import moment from "moment/moment";
+
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
@@ -69,6 +71,10 @@ function close() {
   modalOpen.value = false;
 }
 
+function convertDateTime(date: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
+}
+
 // Debounced filter update function
 const updateFilter = useDebounceFn(() => {
   fetchTransactions();
@@ -121,7 +127,10 @@ watch(() => filter, () => updateFilter(), { deep: true });
     </thead>
     <tbody>
       <tr v-for="(transaction, idx) in store.transactions" :key="transaction.id" class="body-tr">
-        <td>{{ idx + 1 }}</td>
+        <!-- <td>{{ idx + 1 }}</td> -->
+        <td class="text-center">
+  <span class="text-xs">{{ convertDateTime(branch.createdAt) }}</span>
+</td>
         <td>
           <label class="cursor-pointer font-bold hover:text-primary-700 mx-2">
             <span class="hover:underline">{{ transaction.description }}</span>

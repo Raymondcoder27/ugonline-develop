@@ -55,5 +55,6 @@ export const useBranchStore = defineStore("branches", () => {
     branch,
     fetchBranches,
     addBranch,
+    deleteBranch,
   };
 });

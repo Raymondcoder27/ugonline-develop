@@ -115,8 +115,8 @@ watch(() => filter, () => updateFilter(), { deep: true });
         <th class="t-header">#</th>
         <th class="t-header">Date</th>
         <th class="t-header">Description</th>
-        <th class="text-right t-header">Amount</th>
-        <th class="text-right t-header">Balance</th>
+        <th class="text-left t-header">Amount</th>
+        <th class="text-left t-header">Balance</th>
       </tr>
     </thead>
     <thead v-if="loading">
@@ -148,8 +148,8 @@ watch(() => filter, () => updateFilter(), { deep: true });
     <tfoot>
       <tr class="bg-gray-50">
         <td colspan="2" class="text-right font-bold text-gray-600">Totals:</td>
-        <td class="text-right font-bold text-gray-800">{{ store.totalAmount }}</td>
-        <td class="text-right font-bold text-gray-800">{{ store.totalBalance }}</td>
+        <td class="text-left font-bold text-gray-800">{{ store.totalAmount }}</td>
+        <td class="text-left font-bold text-gray-800">{{ store.totalBalance }}</td>
       </tr>
     </tfoot>
   </table>

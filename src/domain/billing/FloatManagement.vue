@@ -153,26 +153,26 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(manager, idx) in billingStore.floatAssignment" :key="idx">
+          <tr v-for="(assignment, idx) in billingStore.floatAssignments" :key="idx">
             <td>{{ idx + 1 }}</td>
             <!-- <td>
               <label class="font-bold py-1">{{
                 manager.fullName
               }}</label>
             </td> -->
-            <td class="text-left">{{ manager.branch }}</td>
-            <td class="text-left">{{ manager.amount }}</td>
-            <td class="text-left">{{ manager.dateAssigned }}</td>
+            <td class="text-left">{{ assignment.branch }}</td>
+            <td class="text-left">{{ assignment.amount }}</td>
+            <td class="text-left">{{ assignment.dateAssigned }}</td>
 
 
             <td class="text-left">
               <i
                 class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
-                @click="open(manager)"
+                @click="open(assignment)"
               ></i>
               <i
                 class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
-                @click="edit(manager)"
+                @click="edit(assignment)"
               ></i>
               <!-- <i
     class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"

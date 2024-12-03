@@ -108,7 +108,8 @@ watch(() => filter, () => updateFilter(), { deep: true });
       </div>
 
       <!-- Table -->
-      <div class="flex my-1">
+     <!-- Table -->
+     <div class="flex my-1">
         <table class="table w-full">
           <thead>
             <tr class="header-tr">

@@ -1,106 +1,114 @@
 <script setup lang="ts">
+import { onMounted, reactive, ref, type Ref, watch } from "vue";
+import { useServicesStore } from "@/domain/services/stores";
+import { useProviderStore } from "@/domain/entities/stores";
+import { useSettingsStore } from "@/domain/settings/stores";
+import { useNotificationsStore } from "@/stores/notifications";
+import type { ApiError } from "@/types";
 
-import {onMounted, reactive, ref, type Ref, watch} from "vue";
-import {useServicesStore} from "@/domain/services/stores";
-import {useProviderStore} from "@/domain/entities/stores";
-import {useSettingsStore} from "@/domain/settings/stores";
-import {useNotificationsStore} from "@/stores/notifications";
-import type {ApiError} from "@/types";
-
-const store = useServicesStore()
-const providerStore = useProviderStore()
-const settingsStore = useSettingsStore()
-const loading: Ref<boolean> = ref(false)
-const notify = useNotificationsStore()
+const store = useServicesStore();
+const providerStore = useProviderStore();
+const settingsStore = useSettingsStore();
+const loading: Ref<boolean> = ref(false);
+const notify = useNotificationsStore();
 
 type ServiceForm = {
-  id:string,
-  name: string,
-  description: string,
-  requirements: string[],
-  providerId: string,
-  accessibilityTier: string,
-}
+  id: string;
+  name: string;
+  description: string;
+  requirements: string[];
+  providerId: string;
+  accessibilityTier: string;
+};
 
-let form:ServiceForm = reactive({
-  id:"",
+let form: ServiceForm = reactive({
+  id: "",
   name: "",
   description: "",
   requirements: [],
   providerId: "",
   accessibilityTier: "REGISTERED_USER",
-})
-const emit = defineEmits(['cancel'])
+});
+const emit = defineEmits(["cancel"]);
 
 onMounted(() => {
-  loading.value = true
-  providerStore.fetchProviders(1, 40)
-      .then(() => (loading.value = false))
-      .catch(() => {
-        loading.value = false
-      })
-})
+  loading.value = true;
+  providerStore
+    .fetchProviders(1, 40)
+    .then(() => (loading.value = false))
+    .catch(() => {
+      loading.value = false;
+    });
+});
 
-function submit(){
-
+function submit() {
   let payload = {
-    name:form.name,
-    description:form.description,
-    requirements:form.requirements,
-    accessibility_tier:form.accessibilityTier,
-    provider_id:form.providerId,
+    name: form.name,
+    description: form.description,
+    requirements: form.requirements,
+    accessibility_tier: form.accessibilityTier,
+    provider_id: form.providerId,
+  };
+  store
+    .createService(payload)
+    .then(() => {
+      loading.value = false;
+      window.location.reload();
+      notify.success("Created");
+    })
+    .catch((error: ApiError) => {
+      loading.value = false;
+      notify.error(error.response.data.message);
+    });
+}
+
+function addRequirement() {
+  form.requirements.push("");
+}
+
+function removeRequirement(idx: number) {
+  form.requirements.splice(idx, 1);
+}
+
+watch(store.createServiceResponse, (data: any) => {
+  if (data.success) {
+    window.location.reload();
   }
-  store.createService(payload)
-      .then(() => {
-        loading.value = false
-        window.location.reload()
-        notify.success("Created")
-      })
-      .catch((error:ApiError) => {
-        loading.value = false
-        notify.error(error.response.data.message)
-      })
-}
-
-function addRequirement(){
-  form.requirements.push("")
-}
-
-function  removeRequirement(idx:number){
-  form.requirements.splice(idx, 1)
-}
-
-watch(
-    store.createServiceResponse,
-    (data:any) =>{
-      if(data.success){
-        window.location.reload()
-      }
-    }
-)
+});
 </script>
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Create Transaction</p>
-    <p class="text-sm text-gray-500">Record and track financial transactions related to service fees, float allocation, and refunds between agents, branches, and the platform.</p>
+    <p class="text-xl font-bold">Create Transaction</p>
+    <p class="text-sm text-gray-500">
+      Record and track financial transactions related to service fees, float
+      allocation, and refunds between agents, branches, and the platform.
+    </p>
     <form @submit.prevent="submit" class="pt-5">
-
-
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Authorised By</label>
-          <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Authorised By</label
+          >
+          <select
+            v-model="form.accessibilityTier"
+            class="noFocus form-element e-input w-full"
+          >
             <!-- <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option> -->
           </select>
         </div>
       </div>
 
-
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Transaction Type</label>
-          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Transaction Type</label
+          >
+          <select
+            autocomplete="off"
+            v-model="form.role"
+            class="noFocus form-element e-input w-full"
+          >
             <option value="admin">Float Allocation</option>
             <option value="public">Service Fee</option>
             <option value="public">Refund</option>
@@ -110,18 +118,36 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Branch / Agent</label>
-          <select v-model="form.providerId" class="noFocus form-element e-input w-full">
-            <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Branch / Agent</label
+          >
+          <select
+            v-model="form.providerId"
+            class="noFocus form-element e-input w-full"
+          >
+            <option
+              v-for="(provider, idx) in providerStore.providers"
+              :key="idx"
+              :value="provider.id"
+            >
+              {{ provider.name }}
+            </option>
           </select>
         </div>
       </div>
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount</label>
-          <input autocomplete="off" type="text" v-model="form.name" class="noFocus form-element e-input w-full"
-            required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Amount</label
+          >
+          <input
+            autocomplete="off"
+            type="text"
+            v-model="form.name"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
 
@@ -135,8 +161,14 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Payment Method</label>
-          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Payment Method</label
+          >
+          <select
+            autocomplete="off"
+            v-model="form.role"
+            class="noFocus form-element e-input w-full"
+          >
             <option value="admin">Bank Transfer</option>
             <option value="public">Mobile Money</option>
             <option value="public">Cash</option>
@@ -144,15 +176,19 @@ watch(
         </div>
       </div>
 
-
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Description</label>
-          <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
-                 required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Description</label
+          >
+          <textarea
+            rows="4"
+            v-model="form.description"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
-
 
       <!-- <div class="flex my-5">
         <div class="w-full">

@@ -142,11 +142,14 @@ watch(
       <table class="table">
         <thead>
           <tr class="header-tr">
+            <th class="t-header">S/N</th>
             <th class="t-header" width="30%">Names</th>
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
-            <th class="text-center">Date Assigned</th>
+            <th class="text-left">Date Assigned</th>
+            <th class="t-header">Actions</th>
             <th class="t-header"></th>
+
           </tr>
         </thead>
         <tbody>
@@ -154,11 +157,11 @@ watch(
             <td>{{ idx + 1 }}</td>
             <td>
               <label class="font-bold py-1">{{
-                manager.description
+                manager.fullName
               }}</label>
             </td>
-            <td class="text-left">{{ manager.branchName }}</td>
-            <td class="text-left">{{ manager.date }}</td>
+            <td class="text-left">{{ manager.branch }}</td>
+            <td class="text-left">{{ manager.amount }}</td>
 
             <td class="text-left">
               <i

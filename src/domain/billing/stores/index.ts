@@ -85,6 +85,34 @@ export const useBilling = defineStore("billing", () => {
     floatAllocations.value = dummyFloatAllocations;
   }
 
+  // function submit() {
+  //   let payload = {
+  //     amount: form.firstName,
+  //     branchId: form.branchId,
+  //   };
+  //   loading.value = true;
+  //   store
+  //     .allocateFloat(payload)
+  //     .then(() => {
+  //       loading.value = false;
+  //       notify.success(`Float assigned to ${form.branchId}.`);
+  //       emit("cancel");
+  //     })
+  //     .catch(() => {
+  //       loading.value = false;
+  //     });
+  // }
+
+  // allocate float function, push to the float allocation array
+  function allocateFloat(payload: AllocateFloat) {
+    floatAllocations.value.push({
+      id: floatAllocations.value.length + 1,
+      dateAssigned: new Date().toISOString(),
+      amount: payload.amount,
+      status: "Assigned",
+      branch: payload.branchId,
+    });
+
   return {
     transactions,
     totalAmount,

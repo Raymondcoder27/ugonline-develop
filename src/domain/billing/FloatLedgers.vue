@@ -209,7 +209,7 @@ watch(
               </td>
             </tr>
           </tbody>
-          <tfoot>
+          <!-- <tfoot>
             <tr class="bg-gray-50">
               <td colspan="3" class="text-left font-bold text-gray-600">
                 Totals:
@@ -221,7 +221,7 @@ watch(
                 {{ store.totalBalance }}
               </td>
             </tr>
-          </tfoot>
+          </tfoot> -->
         </table>
       </div>
     </div>

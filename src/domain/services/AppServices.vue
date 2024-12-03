@@ -438,7 +438,7 @@ watch(
         <option :value="null">- NIRA</option>
         <!-- services offered by NIRA -->
         <option value="pending">National ID Registration
-          <!-- add a reactive toggle but set it to off -->
+          <!-- add a toggle but set it to off -->
           <i class="fa-solid fa-toggle-off text-red-600"></i>
         </option>
         <option value="active">Passport Application</option>

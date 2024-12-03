@@ -11,6 +11,7 @@ export interface Transaction {
   description: string;
   amount: number;
   balance: number;
+  createdAt: string; 
 }
 
 export interface FloatLedger {
@@ -19,6 +20,7 @@ export interface FloatLedger {
   description: string;
   amount: number;
   balance: number;
+  createdAt: string; 
 }
 
 export interface FloatRequest {
@@ -28,6 +30,7 @@ export interface FloatRequest {
   status: string;
   requesterName: string;
   approvedBy: string | null;
+  createdAt: string; 
 }
 
 export interface FloatManagement {

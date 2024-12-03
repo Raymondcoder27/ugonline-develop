@@ -149,9 +149,6 @@ watch(
             <th class="t-header">Name</th>
             <!-- <th class="t-header">Location</th> -->
             <th class="t-header">Manager</th>
-            <!-- <th class="text-center">Access Tier</th> -->
-            <!-- <th class="text-center">Availability</th> -->
-            <!-- <th class="text-center">Status</th> -->
             <th class="text-center">Date</th>
             <th class="t-header"></th>
           </tr>

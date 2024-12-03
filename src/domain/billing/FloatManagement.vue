@@ -10,11 +10,6 @@ import type { IResendVerificationPayload, TAccountVerificationType } from "./typ
 import { useBilling } from "@/domain/billing/stores";
 const billingStore = useBilling();
 
-onMounted(() => {
-  billingStore.fetchTransactions(); // Fetch transactions when the component mounts
-  billingStore.fetchFloatLedgers(); // Fetch float ledgers
-});
-
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
@@ -115,6 +110,11 @@ watch(
   () => updateFilter(),
   { deep: true }
 )
+
+onMounted(() => {
+  billingStore.fetchTransactions(); // Fetch transactions when the component mounts
+  billingStore.fetchFloatLedgers(); // Fetch float ledgers
+});
 </script>
 
 <template>

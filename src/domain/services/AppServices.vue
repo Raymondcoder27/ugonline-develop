@@ -384,7 +384,7 @@ watch(
       </div>
     </div> -->
 
-    <div class="grid grid-cols-3 gap-4 p-2">
+    <div class="grid grid-cols-3 gap-3">
       <div
         v-for="service in services"
         :key="service.id"
@@ -423,12 +423,12 @@ watch(
       </div>
     </div>
 
-    <div class="bg-white text-xs rounded-md w-1/3 mt-2 text-center">
+    <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
 
       <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input text-xs mt-3" type="text" placeholder="Search By MDA or Service Name" />
       <!-- all services -->
-      <div class="pt-2 p-3">
+      <div class="pt-2">
         <!-- <div class="count">Total Services: {{ services.length }}</div>
       <div class="count">Active Services: {{ services.length }}</div>
       <div class="count">Inactive Services: 0</div> -->

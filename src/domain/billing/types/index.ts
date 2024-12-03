@@ -85,6 +85,7 @@ export interface BackofficeUser {
     role: string;
     branch: string;
     status: string;
+    dateAssigned: string;
   }
 
 export type TAccountVerificationType = (typeof AccountVerificationTypes)[number];

@@ -144,6 +144,7 @@ watch(
         <tbody>
           <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in billingStore.backOfficeUsers" :key="idx">
+
             <td>
               <label class="font-bold py-1">
                 {{ account.fullName }} 
@@ -153,18 +154,22 @@ watch(
               <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
             </td>
             <td>
-              <a class="underline" :href="'smtp:' + account.username">
-                {{ account.username }}
-              </a>
-              <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
+              <label class="font-bold py-1">
+                {{ account.branch }} 
+                <!-- {{ account.lastName }} -->
+                <!-- {{ account.middleNames }} -->
+              </label>
+              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
             </td>
             <td>
-              {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
-                v-if="!account.phoneVerified"></i>
+              <label class="font-bold py-1">
+                {{ account.createdAt }} 
+                <!-- {{ account.lastName }} -->
+                <!-- {{ account.middleNames }} -->
+              </label>
+              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
             </td>
-            <td class="text-center">
-              {{ account.role }}
-            </td>
+           
             <td class="text-center">
               <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
               <label v-else class="text-green-600 font-bold">ACTIVE</label>

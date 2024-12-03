@@ -45,14 +45,12 @@ export interface CreateAccount {
   phone: string;
 }
 
-// const form: AddManager = reactive({
-//   firstName: "",
-//   lastName: "",
-//   email: "",
-//   phone: "",
-//   role: "admin",
-//   branchId: null, 
-// })
+// // allocate float interface
+export interface AllocateFloat {
+  firstName: string;
+  branchId: string | null;
+}
+
 
 // AddManager
 export interface AddManager {

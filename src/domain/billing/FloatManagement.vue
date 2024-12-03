@@ -143,7 +143,7 @@ watch(
         <thead>
           <tr class="header-tr">
             <th class="t-header">S/N</th>
-            <th class="t-header" width="30%">Names</th>
+            <!-- <th class="t-header" width="30%">Names</th> -->
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
             <th class="text-left">Date Assigned</th>
@@ -155,11 +155,11 @@ watch(
         <tbody>
           <tr v-for="(manager, idx) in billingStore.branchManagers" :key="idx">
             <td>{{ idx + 1 }}</td>
-            <td>
+            <!-- <td>
               <label class="font-bold py-1">{{
                 manager.fullName
               }}</label>
-            </td>
+            </td> -->
             <td class="text-left">{{ manager.branch }}</td>
             <td class="text-left">{{ manager.amount }}</td>
 

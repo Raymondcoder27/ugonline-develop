@@ -59,6 +59,17 @@ export interface FloatRequest {
   createdAt: string; 
 }
 
+//float assignment
+export interface FloatAssignment {
+  id: string;
+  dateAssigned: string;
+  amount: number;
+  status: string;
+  assignedTo: string;
+  assignedBy: string;
+  createdAt: string; 
+}
+
 export interface FloatManagement {
   id: string;
   totalAmount: number;

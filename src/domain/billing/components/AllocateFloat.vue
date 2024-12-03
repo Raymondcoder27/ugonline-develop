@@ -41,7 +41,7 @@ function submit() {
   };
   loading.value = true;
   store
-    .assignFloat(payload)
+    .allocateFloat(payload)
     .then(() => {
       loading.value = false;
       notify.success(`Float assigned to ${form.branchId}.`);

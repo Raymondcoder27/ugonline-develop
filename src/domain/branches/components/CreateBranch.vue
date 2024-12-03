@@ -69,7 +69,7 @@ const form = reactive({
   name: "",
 });
 
-const emit = defineEmits(["cancel", "created"]);
+const emit = defineEmits(["cancel", "branchCreated"]);
 
 onMounted(() => {
   loading.value = true;
@@ -104,7 +104,7 @@ function submit() {
   loading.value = true;
   store.addBranch(payload); // Simply add the branch
   notify.success("Branch Created");
-  emit("created");
+  emit("branchCreated");
   loading.value = false;
 }
 

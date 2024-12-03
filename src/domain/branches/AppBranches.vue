@@ -275,17 +275,17 @@ watch(
                 <span class="hover:underline" @click="open(branch)">
                   {{ branch.name }}
                 </span>
-                <i
+                <!-- <i
                   class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
                   @click="tag(branch)"
-                ></i>
+                ></i> -->
               </label>
             </td>
             <!-- <td>
               <label>{{ branch.id }}</label>
             </td> -->
             <td>
-              <label>{{ branch.name }}</label>
+              <label>{{ branch.manager }}</label>
             </td>
             <!-- <td class="text-center">
               <i
@@ -358,7 +358,7 @@ watch(
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <CreateBranch  @cancel="close" />
+    <CreateBranch @branchAdded="close"  @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 

@@ -78,6 +78,15 @@ export interface AccountsData {
   pages: number;
 }
 
+interface BackofficeUser {
+    id: number;
+    username: string;
+    fullName: string;
+    role: string;
+    branch: string;
+    status: string;
+  }
+
 export type TAccountVerificationType = (typeof AccountVerificationTypes)[number];
 
 export interface IResendVerificationPayload {

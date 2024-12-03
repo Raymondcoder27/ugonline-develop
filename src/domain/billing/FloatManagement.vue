@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { useAccounts } from "@/domain/accounts/stores";
-import { onMounted, type Ref, ref, watch, reactive } from "vue";
-import AssignFloat from "@/domain/billing/components/AssignFloat.vue";
-import moment from "moment";
-import type { IGoFilter } from "@/types"
-import { useDebounceFn } from "@vueuse/core"
-import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
 import { useBilling } from "@/domain/billing/stores";
+import { onMounted, type Ref, ref, reactive, watch } from "vue";
+import AssignFloat from "@/domain/billing/components/AssignFloat.vue";
+import { useDebounceFn } from "@vueuse/core";
+import type { IGoFilter } from "@/types";
+import moment from "moment";
+import type { IResendVerificationPayload, TAccountVerificationType } from "./types";
+
 const billingStore = useBilling();
 
-const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(15);
+
 // filter
 const filter: IGoFilter = reactive({
   limit: 100,
   offset: 0,
-  page:0,
+  page: 0,
   sort: [
     {
       field: "firstname",
@@ -42,17 +42,20 @@ const filter: IGoFilter = reactive({
       operator: "CONTAINS"
     },
   ]
-})
+});
 
 onMounted(() => {
-  fetch()
-})
+  fetch();
+  billingStore.fetchTransactions(); // Fetch transactions when the component mounts
+  billingStore.fetchFloatLedgers(); // Fetch float ledgers
+});
 
 function fetch() {
-  filter.limit = limit.value
-  filter.page = page.value
-  store.fetchBackofficeAccounts(filter)
+  filter.limit = limit.value;
+  filter.page = page.value;
+  billingStore.fetchBackofficeAccounts(filter);
 }
+
 function open() {
   modalOpen.value = true;
 }
@@ -64,34 +67,35 @@ function close() {
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
   username: ""
-})
+});
+
 const resend = (purpose: TAccountVerificationType, username: string) => {
-  if (username.length === 0) return
-  reVerifyForm.purpose = purpose
-  reVerifyForm.username = username
-  store.resendAccountVerification(reVerifyForm)
-}
+  if (username.length === 0) return;
+  reVerifyForm.purpose = purpose;
+  reVerifyForm.username = username;
+  billingStore.resendAccountVerification(reVerifyForm);
+};
 
 const updateFilter = useDebounceFn(
   () => {
-    fetch()
+    fetch();
   },
   300,
   { maxWait: 5000 }
-)
+);
 
 function convertDate(date: string) {
-  return moment(date).format("DD-MM-YYYY")
+  return moment(date).format("DD-MM-YYYY");
 }
 
-function next(){
-  page.value += 1
-  fetch()
+function next() {
+  page.value += 1;
+  fetch();
 }
 
-function previous(){
-  page.value -= 1
-  fetch()
+function previous() {
+  page.value -= 1;
+  fetch();
 }
 
 // watch state of the modal
@@ -99,9 +103,9 @@ watch(
   () => modalOpen.value,
   (isOpen: boolean) => {
     if (!isOpen) {
-      fetch()
+      fetch();
     }
-  },
+  }
 );
 
 // watch for changes in the filter object
@@ -109,12 +113,7 @@ watch(
   () => filter,
   () => updateFilter(),
   { deep: true }
-)
-
-onMounted(() => {
-  billingStore.fetchTransactions(); // Fetch transactions when the component mounts
-  billingStore.fetchFloatLedgers(); // Fetch float ledgers
-});
+);
 </script>
 
 <template>
@@ -126,14 +125,6 @@ onMounted(() => {
             class="filter-element e-input" type="text" placeholder="Search by Name" />
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
             class="filter-element e-input" type="text" placeholder="Search by Branch" />
-          <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Phone Number" /> -->
-          <!-- <select class="filter-element e-select">
-            <option :value="null">- Select Status -</option>
-            <option value="pending">Pending</option>
-            <option value="active">Active</option>
-            <option value="blocked">Blocked</option>
-          </select> -->
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Allocate Float
           </button>
@@ -144,7 +135,6 @@ onMounted(() => {
       <table class="table">
         <thead>
           <tr class="header-tr">
-<!--            <th class="t-header">#</th>-->
             <th class="t-header" width="30%">Names</th>
             <th class="t-header">Branch</th>
             <th class="text-center">Date Assigned</th>
@@ -153,8 +143,7 @@ onMounted(() => {
         </thead>
         <tbody>
           <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in store.backofficeAccounts" :key="idx">
-<!--            <td width="10px">{{ idx + 1 }}.</td>-->
+            v-for="(account, idx) in billingStore.backofficeAccounts" :key="idx">
             <td>
               <label class="font-bold py-1">
                 {{ account.firstName }} {{ account.lastName }}
@@ -201,20 +190,19 @@ onMounted(() => {
     </div>
     <div class="flex">
       <div class="w-full">
-        <div class="flex" v-if="limit == store.backofficeAccounts?.length || page > 1">
+        <div class="flex" v-if="limit == billingStore.backofficeAccounts?.length || page > 1">
           <button v-if="page > 1" class="pagination-button" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
           <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
           <div class="w-1/12 text-center my-auto">
             <label class="rounded text-white bg-primary-700 px-3 py-1">{{page}}</label>
           </div>
-          <button v-if="limit == store.backofficeAccounts?.length - 1 || limit > store.backofficeAccounts?.length" class="pagination-button-inert">
+          <button v-if="limit == billingStore.backofficeAccounts?.length - 1 || limit > billingStore.backofficeAccounts?.length" class="pagination-button-inert">
             <i class="fa-solid fa-arrow-right"></i></button>
           <button v-else class="pagination-button" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
     <AssignFloat @cancel="close" />

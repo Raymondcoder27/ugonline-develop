@@ -2,7 +2,7 @@
 import AppModal from "@/components/AppModal.vue";
 import { useBilling } from "@/domain/billing/stores";
 import { onMounted, type Ref, ref, reactive, watch } from "vue";
-import AssignFloat from "@/domain/billing/components/AssignFloat.vue";
+import AllocateFloat from "@/domain/billing/components/AllocateFloat.vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 import moment from "moment";
@@ -206,7 +206,7 @@ watch(
   </div>
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <AssignFloat @cancel="close" />
+    <AllocateFloat @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>

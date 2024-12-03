@@ -5,17 +5,17 @@ import { type Ref, ref, reactive, onMounted } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { useBranchStore } from "@/domain/branches/stores"; 
+import type { AllocateFloat } from "@/types";
 
 const branchStore = useBranchStore();
 
-let form: CreateAccount = reactive({
+// allocate float form
+const form: AllocateFloat = reactive({
   firstName: "",
-  lastName: "",
-  middleName: "",
-  role: "admin",
-  username: "",
-  phone: "",
+  branchId: null, 
 })
+
+
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(['cancel'])

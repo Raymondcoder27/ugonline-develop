@@ -35,7 +35,7 @@ function submit() {
     name: form.name,
   };
   store
-    .createBranch(payload)
+    .addBranch(payload)
     .then(() => {
       loading.value = false;
       window.location.reload();

@@ -4,6 +4,9 @@ import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
+import { useBranchStore } from "@/domain/branches/stores"; 
+
+const branchStore = useBranchStore();
 
 let form: CreateAccount = reactive({
   firstName: "",
@@ -78,6 +81,25 @@ function submit() {
             <option value="public">Branch Masaka</option>
           </select>
         </div>
+      </div>
+
+      <div class="w-6/12 mr-1">
+        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+          >Service Provider</label
+        >
+        <select
+          v-model="form.providerId"
+          class="noFocus form-element e-input w-full"
+        >
+          <option :value="null">-- Select Provider --</option>
+          <option
+            v-for="(branch, idx) in branchStore.branches"
+            :key="idx"
+            :value="branch.id"
+          >
+            {{ branch.name }}
+          </option>
+        </select>
       </div>
 
       <div class="flex my-2 py-5">

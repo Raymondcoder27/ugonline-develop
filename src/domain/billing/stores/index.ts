@@ -29,6 +29,7 @@ export const useBilling = defineStore("billing", () => {
   const totalAmount = ref(600); // Set a test value
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
+  const backofficeUsers = ref<BackofficeUser[]>(dummyBackofficeUsers);
 
   // Actions to fetch data
   async function fetchTransactions(filter: any) {

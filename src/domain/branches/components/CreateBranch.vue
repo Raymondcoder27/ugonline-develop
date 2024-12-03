@@ -107,7 +107,6 @@ function submit() {
   emit("branchCreated");
   loading.value = false;
 }
-
 </script>
 
 <template>

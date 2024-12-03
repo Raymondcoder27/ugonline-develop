@@ -2,7 +2,7 @@
 
 // import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive, onMounted } from "vue";
-import { useAccounts } from "@/domain/accounts/stores";
+import { useBilling } from "@/domain/billing/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { useBranchStore } from "@/domain/branches/stores"; 
 import type { AllocateFloat } from "@/types";
@@ -18,8 +18,8 @@ const form: AllocateFloat = reactive({
 
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel'])
-const store = useAccounts()
+const emit = defineEmits(['cancel', 'floatAllocated'])
+const store = useBilling()
 // function submit() {
 //   loading.value = true
 //   store.createAccount(form)
@@ -34,22 +34,35 @@ const store = useAccounts()
 // }
 
 // submit function to assign float
+// function submit() {
+//   let payload = {
+//     amount: form.firstName,
+//     branchId: form.branchId,
+//   };
+//   loading.value = true;
+//   store
+//     .allocateFloat(payload)
+//     .then(() => {
+//       loading.value = false;
+//       notify.success(`Float assigned to ${form.branchId}.`);
+//       emit("cancel");
+//     })
+//     .catch(() => {
+//       loading.value = false;
+//     });
+// }
+
+
 function submit() {
-  let payload = {
+ let payload = {
     amount: form.firstName,
     branchId: form.branchId,
   };
   loading.value = true;
-  store
-    .allocateFloat(payload)
-    .then(() => {
-      loading.value = false;
-      notify.success(`Float assigned to ${form.branchId}.`);
-      emit("cancel");
-    })
-    .catch(() => {
-      loading.value = false;
-    });
+  store.allocateFloat(payload) // Simply add the branch
+   notify.success(`Float assigned to ${form.branchId}.`)
+  emit("floatAllocated");
+  loading.value = false;
 }
 
 onMounted(() => {

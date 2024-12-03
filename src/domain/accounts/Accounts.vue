@@ -25,14 +25,14 @@ function select(tab: string) {
         Backoffice</div>
         <div :class="(activeTab == 'branchmanagers') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('branchmanagers')">
           Branch Managers</div>
-      <div :class="(activeTab == 'users') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('users')">Public Users
-      </div>
+      <!-- <div :class="(activeTab == 'users') ? 'w-2/12 tab-active' : 'w-2/12 tab'" @click="select('users')">Public Users
+      </div> -->
     </div>
     <div class="flex flex-grow">
       <div class="w-full">
         <BackofficeAccounts v-if="activeTab == 'backoffice'" />
         <BranchManagers v-if="activeTab == 'branchmanagers'" />
-        <UserAccounts v-if="activeTab == 'users'" />
+        <!-- <UserAccounts v-if="activeTab == 'users'" /> -->
       </div>
     </div>
   </div>

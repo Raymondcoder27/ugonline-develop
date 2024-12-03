@@ -78,24 +78,36 @@ onMounted(() => {
     .finally(() => (loading.value = false));
 });
 
+// function submit() {
+//   let payload = {
+//     name: form.name,
+//   };
+//   loading.value = true;
+//   store
+//     .addBranch(payload)
+//     .then(() => {
+//       notify.success("Branch Created");
+//       emit("created");
+//     })
+//     .catch((error: ApiError) => {
+//       notify.error(error.response.data.message);
+//     })
+//     .finally(() => {
+//       loading.value = false;
+//     });
+// }
+
 function submit() {
   let payload = {
     name: form.name,
   };
   loading.value = true;
-  store
-    .addBranch(payload)
-    .then(() => {
-      notify.success("Branch Created");
-      emit("created");
-    })
-    .catch((error: ApiError) => {
-      notify.error(error.response.data.message);
-    })
-    .finally(() => {
-      loading.value = false;
-    });
+  store.addBranch(payload); // Simply add the branch
+  notify.success("Branch Created");
+  emit("created");
+  loading.value = false;
 }
+
 </script>
 
 <template>

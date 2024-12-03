@@ -6,7 +6,6 @@ import { useDebounceFn } from "@vueuse/core";
 import type { Transaction, FloatLedger, FloatRequest, FloatManagement } from "./types"; // Import billing types
 import moment from "moment/moment";
 
-
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
 const page = ref(1);
@@ -39,7 +38,9 @@ const filter = reactive({
       operand: "",
       operator: "GREATER_THAN"
     },
-  ]
+  ],
+  fromDate: "", // Add fromDate
+  toDate: "" // Add toDate
 });
 
 // Fetch billing data (transactions, float ledgers)
@@ -50,6 +51,16 @@ onMounted(() => {
 function fetchTransactions() {
   filter.limit = limit.value;
   filter.page = page.value;
+
+  // Add date filter if both dates are provided
+  if (filter.fromDate && filter.toDate) {
+    filter.filter.push({
+      field: "date",
+      operator: "BETWEEN",
+      operand: [filter.fromDate, filter.toDate]
+    });
+  }
+
   store.fetchTransactions(filter); // Fetch transactions based on filter
 }
 
@@ -90,6 +101,7 @@ watch(() => modalOpen.value, (isOpen) => {
 // Watch for changes in the filter object
 watch(() => filter, () => updateFilter(), { deep: true });
 </script>
+
 
 <template>
   <div class="">

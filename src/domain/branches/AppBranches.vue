@@ -280,7 +280,7 @@ function previous() {
               ></i>
             </td>
 
-            <td class="text-center">
+            <!-- <td class="text-center">
               <span>{{ service.status }}</span>
             </td>
             <td class="text-center">
@@ -301,7 +301,29 @@ function previous() {
                 class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
                 @click="spec(service)"
               ></i>
-            </td>
+            </td> -->
+
+            <td class="text-center">
+  <span>{{ branch.status }}</span>
+</td>
+<td class="text-center">
+  <span class="text-xs">{{ convertDateTime(branch.createdAt) }}</span>
+</td>
+<td class="text-center">
+  <i
+    class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+    @click="open(branch)"
+  ></i>
+  <i
+    class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
+    @click="edit(branch)"
+  ></i>
+  <i
+    class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
+    @click="configure(branch)"
+  ></i>
+</td>
+
           </tr>
         </tbody>
       </table>
@@ -321,7 +343,7 @@ function previous() {
             }}</label>
           </div>
           <button
-            v-if="limit == store.services?.length ?? 1 - 1"
+            v-if="limit == branchStore.branches.length ?? 1 - 1"
             class="pagination-button"
             @click="next"
           >

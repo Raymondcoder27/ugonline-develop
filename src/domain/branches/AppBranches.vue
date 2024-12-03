@@ -131,7 +131,7 @@ const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(16);
 const loading: Ref<boolean> = ref(false);
 const selectedBranch: Ref<string> = ref("");
-let providerId = ref("");
+// let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
@@ -185,6 +185,15 @@ function previous() {
   page.value -= 1;
   fetchBranches();
 }
+
+
+watch(
+  () => modalOpen.value,
+  (isOpen: boolean) => {
+    if (!isOpen) {
+    }
+  },
+);
 </script>
 
 <template>

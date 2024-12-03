@@ -46,7 +46,7 @@ const filter: IGoFilter = reactive({
 
 onMounted(() => {
   fetch();
-  billingStore.fetchFloatAssignments(); // Fetch transactions when the component mounts
+  billingStore.fetchFloatAllocations(); // Fetch transactions when the component mounts
   // billingStore.fetchFloatLedgers(); // Fetch float ledgers
 });
 
@@ -153,7 +153,7 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(assignment, idx) in billingStore.floatAssignments" :key="idx">
+          <tr v-for="(assignment, idx) in billingStore.floatAllocations" :key="idx">
             <td>{{ idx + 1 }}</td>
             <!-- <td>
               <label class="font-bold py-1">{{

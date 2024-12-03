@@ -2,12 +2,18 @@
 import AppModal from "@/components/AppModal.vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive } from "vue";
-import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
 import AssignFloat from "@/domain/billing/components/AssignFloat.vue";
 import moment from "moment";
 import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
 import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
+import { useBilling } from "@/domain/billing/stores";
+const billingStore = useBilling();
+
+onMounted(() => {
+  billingStore.fetchTransactions(); // Fetch transactions when the component mounts
+  billingStore.fetchFloatLedgers(); // Fetch float ledgers
+});
 
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);

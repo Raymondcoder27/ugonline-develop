@@ -101,3 +101,13 @@ export type IGoFilter = {
     }>;
   };
 
+
+  // types/resendVerification.ts
+export interface IResendVerificationPayload {
+    purpose: string;
+    username: string;
+  }
+  
+  export type TAccountVerificationType = "change-password" | "email-verification";
+  
+

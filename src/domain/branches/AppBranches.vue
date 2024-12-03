@@ -249,6 +249,7 @@ watch(
             <th class="t-header">Name</th>
             <th class="t-header">Manager</th>
             <th class="text-center">Date</th>
+            <th class="text-center">Actions</th>
             <th class="t-header"></th>
           </tr>
         </thead>

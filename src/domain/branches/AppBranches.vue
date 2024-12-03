@@ -154,6 +154,19 @@ function open(branch: Branch) {
   router.push({ name: "branch-details", params: { id: branch.id } });
 }
 
+
+// edit branch
+function edit(branch: Branch) {
+  localStorage.setItem("branch", JSON.stringify(branch));
+  editModalOpen.value = true;
+}
+
+//configure branch
+function configure(branch: Branch) {
+  localStorage.setItem("branch", JSON.stringify(branch));
+  router.push({ name: "branch-configuration", params: { id: branch.id } });
+}
+
 function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }

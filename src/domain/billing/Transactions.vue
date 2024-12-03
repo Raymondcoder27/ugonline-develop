@@ -126,12 +126,12 @@ onMounted(() => fetch());
         </div>
       </div>
     <div class="flex my-1">
-      <table class="table">
+      <table class="table tr">
         <thead>
           <tr class="text-left">
-            <th>#</th>
+            <!-- <th>#</th> -->
             <th>Branch Name</th>
-            <th>Manager</th>
+            <th>Tracking Number</th>
             <th>Transaction Type</th>
             <th>Amount</th>
             <th>Status</th>
@@ -146,9 +146,9 @@ onMounted(() => fetch());
             :key="idx"
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
-            <td>{{ idx + 1 }}</td>
+            <!-- <td>{{ idx + 1 }}</td> -->
             <td>{{ transaction.branchName }}</td>
-            <td>{{ transaction.manager }}</td>
+            <td>{{ transaction.trackingNumber }}</td>
             <td class="text-left">{{ transaction.transactionType }}</td>
             <td class="text-left">{{ transaction.amount }}</td>
             <td class="text-left">{{ transaction.status }}</td>

@@ -44,8 +44,8 @@ const previous = () => {
             <td>
               <label class="font-bold py-1">{{ transaction.description }}</label>
             </td>
-            <td class="text-center">{{ transaction.branchName }}</td>
-            <td class="text-center">{{ transaction.date }}</td>
+            <td class="text-left">{{ transaction.branchName }}</td>
+            <td class="text-left">{{ transaction.date }}</td>
           </tr>
         </tbody>
       </table>

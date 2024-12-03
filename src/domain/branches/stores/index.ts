@@ -1,101 +1,29 @@
-
-import {ref, type Ref} from "vue";
-import {defineStore} from "pinia";
+import { ref, type Ref } from "vue";
+import { defineStore } from "pinia";
 import api from "@/config/api";
-import type {Service, ServiceResponseInterface, ServiceSpecification} from "@/domain/services/types";
+import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
 
-export const useServicesStore = defineStore("services", () => {
-  const services: Ref<Service[] | undefined> = ref()
-  const service: Ref<Service | undefined> = ref()
-  const serviceSpecification: Ref<ServiceSpecification | undefined> = ref()
-  const serviceSpecifications: Ref<ServiceSpecification[] | undefined> = ref()
-  const createServiceResponse: Ref<ServiceResponseInterface | undefined> = ref()
-  const updateServiceResponse: Ref<ServiceResponseInterface | undefined> = ref()
-  const statusUpdateResponse: Ref<ServiceResponseInterface | undefined> = ref()
-  const createSpecificationResponse: Ref<ServiceResponseInterface | undefined> = ref()
+export const useBranchStore = defineStore("branches", () => {
+  const branches: Ref<Branch[] | undefined> = ref();
+  const branch: Ref<Branch | undefined> = ref();
+  const isLoading: Ref<boolean> = ref(false);
 
-  const createService = async (payload:any) => {
-    return api.post<ServiceResponseInterface>("/registry/v1/create", payload)
-        .then((response:any) => {
-          createServiceResponse.value = response.data
-    })
-  }
-
-  const createServiceSpec = async (payload:any) => {
-    return api.post<ServiceResponseInterface>("/registry/v1/specs/create", payload)
-        .then((response:any) => {
-          createSpecificationResponse.value = response.data
-        })
-  }
-
-  const updateServiceSpec = async (payload:any) => {
-    return api.put<ServiceResponseInterface>("/registry/v1/specs/update", payload)
-        .then((response:any) => {
-          createSpecificationResponse.value = response.data
-        })
-  }
-
-  const editService = async (id:string, payload:any) => {
-    return api.put<ServiceResponseInterface>("/registry/v1/update/"+id, payload)
-        .then((response:any) => {
-          updateServiceResponse.value = response.data
-        })
-  }
-
-  const fetchServices = async (page:number, limit:number) => {
-    return api.get("/registry/v1?page="+page+"&limit="+limit).then((response:any) => {
-      services.value = response.data.data
-    })
-  }
-
-  const fetchServicesByProvider = async (id:string, page:number) => {
-    return api.get("/registry/v1/provider/"+id+"?limit=15&page="+page).then((response:any) => {
-      services.value = response.data.data
-    })
-  }
-
-  const findServiceSpecById = async (id:any) => {
-    return api.get("/registry/v1/specs/"+id+"/list").then((response:any) => {
-      serviceSpecifications.value = response.data.data
-    })
-  }
-
-  const findService = async (id:any) => {
-    return api.get("/registry/v1/"+id).then((response:any) => {
-      service.value = response.data.data
-    })
-  }
-
-  const findServiceSpec = async (id:string) => {
-    return api.get("/registry/v1/specs/"+id).then((response:any) => {
-      serviceSpecification.value = response.data.data
-    })
-  }
-
-  const updateServiceSpecificationStatus = async (payload:any) => {
-    return api.put<ServiceResponseInterface>("/registry/v1/specs/update/status", payload)
-        .then((response:any) => {
-          statusUpdateResponse.value = response.data
-        })
+  async function fetchBranches(page: number, limit: number) {
+    isLoading.value = true;
+    try {
+      const { data } = await api.get(`/branches?page=${page}&limit=${limit}`);
+      branches.value = data;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    } finally {
+      isLoading.value = false;
+    }
   }
 
   return {
-    services,
-    service,
-    createServiceResponse,
-    updateServiceResponse,
-    createSpecificationResponse,
-    serviceSpecification,
-    serviceSpecifications,
-    createService,
-    createServiceSpec,
-    updateServiceSpec,
-    editService,
-    fetchServices,
-    findService,
-    fetchServicesByProvider,
-    findServiceSpec,
-    findServiceSpecById,
-    updateServiceSpecificationStatus
+    branches,
+    branch,
+    fetchBranches,
   };
-})
+});

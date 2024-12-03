@@ -129,7 +129,7 @@ watch(() => filter, () => updateFilter(), { deep: true });
       <tr v-for="(transaction, idx) in store.transactions" :key="transaction.id" class="body-tr">
         <!-- <td>{{ idx + 1 }}</td> -->
         <td class="text-center">
-  <span class="text-xs">{{ convertDateTime(branch.createdAt) }}</span>
+  <span class="text-xs">{{ convertDateTime(transaction.createdAt) }}</span>
 </td>
         <td>
           <label class="cursor-pointer font-bold hover:text-primary-700 mx-2">

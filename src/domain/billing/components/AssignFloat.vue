@@ -74,7 +74,6 @@ onMounted(() => {
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
             <option value="public">Branch</option>
             <option value="public">Branch</option>
-            <!-- <option value="public">Agent</option> -->
           </select>
         </div>
       </div> -->

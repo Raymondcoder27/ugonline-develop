@@ -60,7 +60,7 @@ export interface FloatRequest {
 }
 
 //float assignment
-export interface FloatAssignment {
+export interface FloatAllocation {
   id: string;
   dateAssigned: string;
   amount: number;

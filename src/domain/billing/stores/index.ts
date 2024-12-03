@@ -2,7 +2,7 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { Transaction, FloatLedger, BackofficeUser, BranchManager, FloatAssignment } from "@/domain/billing/types";
+import type { Transaction, FloatLedger, BackofficeUser, BranchManager, FloatAllocation } from "@/domain/billing/types";
 
 export const useBilling = defineStore("billing", () => {
   // Dummy data for testing
@@ -32,7 +32,7 @@ export const useBilling = defineStore("billing", () => {
   ];
 
   // dummy float assignment data
-  const dummyFloatAllocations: FloatAssignment[] = [
+  const dummyFloatAllocations: FloatAllocation[] = [
     { id: 1, dateAssigned: "2021-09-01", amount: 100, status: "Assigned", branch: "Branch 1" },
     { id: 2, dateAssigned: "2021-09-02", amount: 200, status: "Assigned", branch: "Branch 2" },
     { id: 3, dateAssigned: "2021-09-03", amount: 300, status: "Assigned", branch: "Branch 3" },
@@ -46,7 +46,7 @@ export const useBilling = defineStore("billing", () => {
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
   const backofficeUsers = ref<BackofficeUser[]>(dummyBackofficeUsers);
   const branchManagers = ref<BranchManager[]>(dummyBranchManagers);
-  const floatAllocations = ref<FloatAssignment[]>(dummyFloatAllocations);
+  const floatAllocations = ref<FloatAllocation[]>(dummyFloatAllocations);
 
   // Actions to fetch data
   async function fetchTransactions(filter: any) {

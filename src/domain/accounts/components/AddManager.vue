@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import type { AddManager } from "@/types";
-import { type Ref, ref, reactive } from "vue";
+import { type Ref, ref, reactive, onMounted } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { useBranchStore } from "@/domain/branches/stores"; 
@@ -42,6 +42,14 @@ function submit() {
       loading.value = false
     })
 }
+
+// onMounted fetch branches
+onMounted(() => {
+  // loading.value = true;
+  branchStore
+    .fetchBranches()
+    // .finally(() => (loading.value = false));
+});
 </script>
 
 <template>

@@ -124,7 +124,13 @@ onMounted(() => {
             <td class="text-left">{{ transaction.date }}</td>
 
             <td class="text-left">
-              <i
+              <!-- approve or reject -->
+              <i class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+                @click="open(transaction)"></i>
+               
+
+
+              <!-- <i
                 class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
                 @click="open(transaction)"
               ></i>
@@ -132,16 +138,10 @@ onMounted(() => {
                 class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
                 @click="edit(transaction)"
               ></i>
-              <!-- <i
-    class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
-    @click="configure(branch)"
-  ></i> -->
-
-              <!-- delete branch -->
               <i
                 class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
                 @click="deleteRequest(transaction)"
-              ></i>
+              ></i> -->
             </td>
           </tr>
         </tbody>

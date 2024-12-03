@@ -205,7 +205,7 @@ function previous() {
             type="text"
             placeholder="Search by Name"
           />
-          <select class="filter-element e-select" v-model="providerId">
+          <!-- <select class="filter-element e-select" v-model="providerId">
             <option :value="null">- Select Provider -</option>
             <option
               v-for="(provider, idx) in providerStore.providers"
@@ -214,7 +214,7 @@ function previous() {
             >
               {{ provider.name }}
             </option>
-          </select>
+          </select> -->
           <select class="filter-element e-select" v-model="status">
             <option :value="null">- Select Status -</option>
             <option value="active">Active</option>

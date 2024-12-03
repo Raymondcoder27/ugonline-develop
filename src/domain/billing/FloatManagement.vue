@@ -162,6 +162,8 @@ watch(
             </td> -->
             <td class="text-left">{{ manager.branch }}</td>
             <td class="text-left">{{ manager.amount }}</td>
+            <td class="text-left">{{ manager.dateAssigned }}</td>
+
 
             <td class="text-left">
               <i

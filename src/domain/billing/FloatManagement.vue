@@ -146,11 +146,11 @@ watch(
       <table class="table">
         <thead>
           <tr class="header-tr">
-            <th class="t-header">#</th>
+            <!-- <th class="t-header">#</th> -->
             <!-- <th class="t-header" width="30%">Names</th> -->
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
-            <th class="text-left">Date Assigned</th>
+            <th class="text-left">Date of Allocation</th>
             <!-- <th class="t-header">Actions</th> -->
             <th class="t-header"></th>
 
@@ -158,7 +158,7 @@ watch(
         </thead>
         <tbody>
           <tr v-for="(assignment, idx) in billingStore.floatAllocations" :key="idx">
-            <td>{{ idx + 1 }}</td>
+            <!-- <td>{{ idx + 1 }}</td> -->
             <!-- <td>
               <label class="font-bold py-1">{{
                 manager.fullName

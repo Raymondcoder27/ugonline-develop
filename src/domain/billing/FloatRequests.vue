@@ -105,7 +105,7 @@ onMounted(() => {
       <table class="table">
         <thead>
           <tr class="header-tr">
-            <th class="text-left">#</th>
+            <!-- <th class="text-left">#</th> -->
             <th class="text-left">Name</th>
             <th class="text-left">Branch</th>
             <th class="text-left">Date</th>
@@ -114,7 +114,7 @@ onMounted(() => {
         </thead>
         <tbody>
           <tr v-for="(transaction, idx) in store.transactions" :key="idx">
-            <td>{{ idx + 1 }}</td>
+            <!-- <td>{{ idx + 1 }}</td> -->
             <td>
               <label class="font-bold py-1">{{
                 transaction.description

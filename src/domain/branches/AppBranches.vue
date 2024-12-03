@@ -266,7 +266,7 @@ watch(
       <table class="table">
         <thead>
           <tr class="header-tr">
-            <th class="t-header">#</th>
+            <!-- <th class="t-header">#</th> -->
             <th class="t-header">Name</th>
             <th class="t-header">Manager</th>
             <th class="text-center">Date</th>
@@ -289,7 +289,7 @@ watch(
             v-for="(branch, idx) in branchStore.branches"
             :key="idx"
           >
-            <td width="10px">{{ idx + 1 }}.</td>
+            <!-- <td width="10px">{{ idx + 1 }}.</td> -->
             <td>
               <label
                 class="cursor-pointer font-bold hover:text-primary-700 mx-2"

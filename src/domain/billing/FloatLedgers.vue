@@ -164,7 +164,7 @@ watch(
         <table class="table w-full">
           <thead>
             <tr class="header-tr">
-              <th class="t-header">#</th>
+              <!-- <th class="t-header">#</th> -->
               <th class="t-header">Date</th>
               <th class="t-header">Description</th>
               <th class="text-right t-header">Amount</th>
@@ -186,7 +186,7 @@ watch(
               :key="transaction.id"
               class="body-tr"
             >
-              <td class="text-left">{{ idx + 1 }}</td>
+              <!-- <td class="text-left">{{ idx + 1 }}</td> -->
               <td class="text-left">
                 <span class="text-xs">{{
                   convertDateTime(transaction.createdAt)

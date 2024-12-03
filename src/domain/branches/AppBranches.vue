@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, type Ref, ref, watch } from "vue";
 import CreateBranch from "@/domain/branches/components/CreateBranch.vue"
@@ -105,7 +105,7 @@ watch(
     }
   },
 );
-</script>
+</script> -->
 
 
 

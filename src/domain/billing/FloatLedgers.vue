@@ -102,33 +102,49 @@ watch(() => filter, () => updateFilter(), { deep: true });
       </div>
 
       <!-- Table -->
-      <div class="overflow-x-auto  p-2">
-        <table class="w-full border-collapse border text-left">
-          <thead>
-            <tr class="bg-gray-100">
-              <th class="border border-gray-200 px-4 py-2 text-gray-600">Date</th>
-              <th class="border border-gray-200 px-4 py-2 text-gray-600">Description</th>
-              <th class="border border-gray-200 px-4 py-2 text-gray-600 text-right">Amount</th>
-              <th class="border border-gray-200 px-4 py-2 text-gray-600 text-right">Balance</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr v-for="(transaction, idx) in store.transactions" :key="transaction.id">
-              <td class="px-4 py-2">{{ transaction.date }}</td>
-              <td class="px-4 py-2">{{ transaction.description }}</td>
-              <td class="px-4 py-2 text-right text-green-600">{{ transaction.amount }}</td>
-              <td class="px-4 py-2 text-right text-gray-800">{{ transaction.balance }}</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr class="bg-gray-50">
-              <td colspan="2" class="px-4 py-2 text-right font-bold text-gray-600">Totals:</td>
-              <td class="px-4 py-2 text-right font-bold text-gray-800">{{ store.totalAmount }}</td>
-              <td class="px-4 py-2 text-right font-bold text-gray-800">{{ store.totalBalance }}</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
+      <div class="flex my-1">
+  <table class="table w-full">
+    <thead>
+      <tr class="header-tr">
+        <th class="t-header">Date</th>
+        <th class="t-header">Description</th>
+        <th class="text-right t-header">Amount</th>
+        <th class="text-right t-header">Balance</th>
+      </tr>
+    </thead>
+    <thead v-if="loading">
+      <tr>
+        <th colspan="12" style="padding: 0">
+          <div class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"></div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(transaction, idx) in store.transactions" :key="transaction.id" class="body-tr">
+        <td>{{ idx + 1 }}</td>
+        <td>
+          <label class="cursor-pointer font-bold hover:text-primary-700 mx-2">
+            <span class="hover:underline">{{ transaction.description }}</span>
+          </label>
+        </td>
+        <td class="text-right text-green-600">
+          <span>{{ transaction.amount }}</span>
+        </td>
+        <td class="text-right text-gray-800">
+          <span>{{ transaction.balance }}</span>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="bg-gray-50">
+        <td colspan="2" class="text-right font-bold text-gray-600">Totals:</td>
+        <td class="text-right font-bold text-gray-800">{{ store.totalAmount }}</td>
+        <td class="text-right font-bold text-gray-800">{{ store.totalBalance }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
     </div>
 
     <!-- Modal -->

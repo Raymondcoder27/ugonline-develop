@@ -85,7 +85,7 @@ function submit() {
 
       <div class="w-6/12 mr-1">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-          >Service Provider</label
+          >Select Branch 2</label
         >
         <select
           v-model="form.providerId"

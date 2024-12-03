@@ -97,7 +97,7 @@ onMounted(() => fetch());
     <div class="flex my-1">
       <table class="table">
         <thead>
-          <tr>
+          <tr class="text-left">
             <th>Branch Name</th>
             <th>Manager</th>
             <th>Transaction Type</th>
@@ -108,16 +108,17 @@ onMounted(() => fetch());
         </thead>
         <tbody>
           <tr
+          class="text-left"
             v-for="(transaction, idx) in billingStore.transactions"
             :key="idx"
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
             <td>{{ transaction.branchName }}</td>
             <td>{{ transaction.manager }}</td>
-            <td class="text-center">{{ transaction.transactionType }}</td>
-            <td class="text-center">{{ transaction.status }}</td>
-            <td class="text-center">{{ convertDate(transaction.date) }}</td>
-            <td class="text-center">
+            <td class="text-left">{{ transaction.transactionType }}</td>
+            <td class="text-left">{{ transaction.status }}</td>
+            <td class="text-left">{{ convertDate(transaction.date) }}</td>
+            <td class="text-left">
               <button @click="openTransaction(transaction)">Edit</button>
             </td>
           </tr>

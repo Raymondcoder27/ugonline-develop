@@ -166,7 +166,7 @@ watch(
             </td> -->
             <td class="text-left">{{ assignment.branch }}</td>
             <td class="text-left">{{ assignment.amount }}</td>
-            <td class="text-left">{{ convertDateTime(transaction.createdAt) }}</td>
+            <td class="text-left">{{ convertDateTime(assignment.createdAt) }}</td>
 
 
             <td class="text-left">

@@ -177,11 +177,20 @@ function convertDateTime(date: string) {
 //   fetchBranches();
 // }
 
+// function deleteBranch(branch: Branch) {
+//     branchStore.deleteBranch(branch.id);
+//     fetchBranches();  // Refetch the branches after deleting
+//     notify.success("Branch Deleted");
+//   }
+
+
 function deleteBranch(branch: Branch) {
-    branchStore.deleteBranch(branch.id);
-    fetchBranches();  // Refetch the branches after deleting
-    notify.success("Branch Deleted");
-  }
+  branchStore.deleteBranch(branch.id); // Assuming this is a mutation to remove the branch
+  branchStore.branches = branchStore.branches.filter(b => b.id !== branch.id); // Manually update the store
+  fetchBranches();  // Refetch the branches after deleting, if needed
+  notify.success("Branch Deleted");
+}
+
 
 function close() {
   modalOpen.value = false;

@@ -26,9 +26,12 @@ export const useBranchStore = defineStore("branches", () => {
   };
 
   // delete branch
-  const deleteBranch = (branchId: number) => {
-    branches.value = branches.value.filter((branch) => branch.id !== branchId);
-  };
+  function deleteBranch(branch: Branch) {
+    branchStore.deleteBranch(branch.id);
+    fetchBranches();  // Refetch the branches after deleting
+    notify.success("Branch Deleted");
+  }
+  
   
 
   async function fetchBranches(page: number, limit: number) {

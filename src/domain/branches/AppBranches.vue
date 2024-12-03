@@ -223,22 +223,22 @@ function previous() {
           </tr>
         </thead>
         <tbody>
-          <tr class="body-tr" v-for="(service, idx) in store.services" :key="idx">
+          <tr class="body-tr" v-for="(branch, idx) in branchStore.branches" :key="idx">
             <td width="10px">{{ idx + 1 }}.</td>
             <td>
               <label class=" cursor-pointer font-bold hover:text-primary-700 mx-2">
-                <span class="hover:underline" @click="open(service)">
-                  {{ service.name }}
+                <span class="hover:underline" @click="open(branch)">
+                  {{ branch.name }}
                 </span>
                 <i class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
-                  @click="tag(service)"></i>
+                  @click="tag(branch)"></i>
               </label>
             </td>
             <td>
-              <label>{{ service.providerName }}</label>
+              <label>{{ branch.id }}</label>
             </td>
             <td>
-              <label>{{ service.accessibilityTier }}</label>
+              <label>{{ branch.name }}</label>
             </td>
             <td class="text-center">
               <i :class="service.currentVersionId

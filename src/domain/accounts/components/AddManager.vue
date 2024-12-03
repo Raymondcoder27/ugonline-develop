@@ -91,7 +91,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Branch</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
@@ -99,11 +99,11 @@ onMounted(() => {
             <option value="public">Branch Masaka</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
-      <div class="w-6/12 mr-1">
+      <div class="">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-          >Select Branch 2</label
+          >Select Branch</label
         >
         <select
           v-model="form.branchId"

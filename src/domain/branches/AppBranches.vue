@@ -358,7 +358,7 @@ watch(
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <CreateBranch @branchAdded="close"  @cancel="close" />
+    <CreateBranch @branchCreated="close"  @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 

@@ -8,7 +8,7 @@ import FloatManagement from "@/domain/billing/FloatManagement.vue";
 import Transactions from "@/domain/billing/Transactions.vue";
 import FloatRequests from "@/domain/billing/FloatRequests.vue";
 
-const activeTab: Ref<string> = ref("transactions")
+const activeTab: Ref<string> = ref("floatmanagement");
 
 function select(tab: string) {
   activeTab.value = tab

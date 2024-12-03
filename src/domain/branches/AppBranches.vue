@@ -307,7 +307,9 @@ watch(
               <label>{{ branch.id }}</label>
             </td> -->
             <td>
-              <label>{{ branch.manager }}</label>
+              <!-- <label>{{ branch.manager }}</label> -->
+              <button class="bg-red-300 rounded-md font-semibold text-red-700">Assign Manger</button>
+
             </td>
             <!-- <td class="text-center">
               <i

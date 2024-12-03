@@ -136,7 +136,7 @@ onMounted(() => fetch());
             <th>Amount</th>
             <th>Status</th>
             <th>Date</th>
-            <th>Actions</th>
+            <!-- <th>Actions</th> -->
           </tr>
         </thead>
         <tbody>

@@ -8,15 +8,15 @@ import type { AllocateFloat } from "@/types";
 export const useBilling = defineStore("billing", () => {
   // Dummy data for testing
   const dummyTransactions: Transaction[] = [
-    { id: 1, amount: 100, description: "Sample Transaction 1", branchName: "Branch 1", manager: "Manager 1", transactionType: "Credit", status: "Approved", date: "2021-09-01" },
-    { id: 2, amount: 200, description: "Sample Transaction 2", branchName: "Branch 2", manager: "Manager 2", transactionType: "Debit", status: "Pending", date: "2021-09-02" },
-    { id: 3, amount: 300, description: "Sample Transaction 3", branchName: "Branch 3", manager: "Manager 3", transactionType: "Credit", status: "Approved", date: "2021-09-03" },
+    { id: 1, amount: 1500000, description: "Sample Transaction 1", branchName: "Branch 1", manager: "Manager 1", transactionType: "Credit", status: "Approved", date: "2021-09-01" },
+    { id: 2, amount: 2500000, description: "Sample Transaction 2", branchName: "Branch 2", manager: "Manager 2", transactionType: "Debit", status: "Pending", date: "2021-09-02" },
+    { id: 3, amount: 3500000, description: "Sample Transaction 3", branchName: "Branch 3", manager: "Manager 3", transactionType: "Credit", status: "Approved", date: "2021-09-03" },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
-    { id: 1, name: "Sample FloatLedger 1", balance: 500 },
-    { id: 2, name: "Sample FloatLedger 2", balance: 1000 },
-    { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
+    { id: 1, name: "Sample FloatLedger 1", balance: 500000 },
+    { id: 2, name: "Sample FloatLedger 2", balance: 100000 },
+    { id: 3, name: "Sample FloatLedger 3", balance: 150000 },
   ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [
@@ -34,9 +34,9 @@ export const useBilling = defineStore("billing", () => {
 
   // dummy float assignment data
   const dummyFloatAllocations: FloatAllocation[] = [
-    { id: 1, dateAssigned: "2021-09-01", amount: 100, status: "Assigned", branch: "Branch 1" },
-    { id: 2, dateAssigned: "2021-09-02", amount: 200, status: "Assigned", branch: "Branch 2" },
-    { id: 3, dateAssigned: "2021-09-03", amount: 300, status: "Assigned", branch: "Branch 3" },
+    { id: 1, dateAssigned: "2021-09-01", amount: 130000, status: "Assigned", branch: "Branch 1" },
+    { id: 2, dateAssigned: "2021-09-02", amount: 210000, status: "Assigned", branch: "Branch 2" },
+    { id: 3, dateAssigned: "2021-09-03", amount: 370000, status: "Assigned", branch: "Branch 3" },
   ];
 
 

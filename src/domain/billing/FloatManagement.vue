@@ -117,6 +117,13 @@ watch(
 </script>
 
 <template>
+
+  <!-- <h2>Transactions</h2>
+    <ul>
+      <li v-for="transaction in billingStore.transactions" :key="transaction.id">
+        {{ transaction.description }} - {{ transaction.amount }}
+      </li>
+    </ul> -->
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
@@ -142,14 +149,15 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in billingStore.backOfficeUsers" :key="idx">
-
+          <tr 
+            v-for="(account, idx) in billingStore.backOfficeUsers" :key="account.id">
+            <td class="text-left">{{ idx + 1 }}</td>
             <td>
               <label class="font-bold py-1">
                 {{ account.fullName }} 
                 <!-- {{ account.lastName }} -->
                 <!-- {{ account.middleNames }} -->
+                  Name goes here
               </label>
               <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
             </td>
@@ -163,14 +171,14 @@ watch(
             </td>
             <td>
               <label class="font-bold py-1">
-                {{ account.createdAt }} 
+                {{ account.dateAssigned }} 
                 <!-- {{ account.lastName }} -->
                 <!-- {{ account.middleNames }} -->
               </label>
               <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
             </td>
            
-            <td class="text-center">
+            <!-- <td class="text-center">
               <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
               <label v-else class="text-green-600 font-bold">ACTIVE</label>
             </td>
@@ -189,7 +197,7 @@ watch(
                   class="text-gray-600 fa-solid fa-unlock-keyhole px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="resend('change-password', account.username)" title="Change Password"></i>
               </div>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>

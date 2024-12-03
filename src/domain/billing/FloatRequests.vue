@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useBilling } from "@/domain/billing/stores";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, reactive } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 
@@ -60,6 +60,13 @@ const updateFilter = useDebounceFn(
   },
   300,
   { maxWait: 5000 }
+);
+
+// Watch for changes in the filter object
+watch(
+  () => filter,
+  () => updateFilter(),
+  { deep: true }
 );
 
 onMounted(() => {

@@ -104,8 +104,8 @@ onMounted(() => fetch());
           <tr class="text-left">
             <th>Branch Name</th>
             <th>Manager</th>
-            <th>Amount</th>
             <th>Transaction Type</th>
+            <th>Amount</th>
             <th>Status</th>
             <th>Date</th>
             <th>Actions</th>
@@ -121,6 +121,7 @@ onMounted(() => fetch());
             <td>{{ transaction.branchName }}</td>
             <td>{{ transaction.manager }}</td>
             <td class="text-left">{{ transaction.transactionType }}</td>
+            <td class="text-left">{{ transaction.amount }}</td>
             <td class="text-left">{{ transaction.status }}</td>
             <td class="text-left">{{ convertDate(transaction.date) }}</td>
             <!-- <td class="text-left"> -->

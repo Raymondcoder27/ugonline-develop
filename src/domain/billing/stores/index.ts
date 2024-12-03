@@ -18,6 +18,12 @@ export const useBilling = defineStore("billing", () => {
     { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
   ];
 
+  const dummyBackofficeUsers: BackofficeUser[] = [
+    { id: 1, username: "admin1", fullName: "Admin User One", role: "Administrator", branch: "Branch 1", status: "Active" },
+    { id: 2, username: "manager1", fullName: "Manager User One", role: "Manager", branch: "Branch 2", status: "Active" },
+    { id: 3, username: "admin2", fullName: "Admin User Two", role: "Administrator", branch: "Branch 3", status: "Inactive" },
+  ];
+
   // State variables
   const transactions = ref<Transaction[]>(dummyTransactions); // Use dummy data for now
   const totalAmount = ref(600); // Set a test value

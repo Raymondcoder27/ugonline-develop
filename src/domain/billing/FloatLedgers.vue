@@ -96,7 +96,7 @@ watch(() => filter, () => updateFilter(), { deep: true });
 
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white">
-      <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
+      <!-- <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
         <div>
           <label for="date-range" class="mr-2 text-sm text-gray-600 justify-end">Date Range:</label>
           <input
@@ -105,7 +105,30 @@ watch(() => filter, () => updateFilter(), { deep: true });
             class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-      </div>
+      </div> -->
+      <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
+  <div class="flex space-x-4">
+    <div>
+      <label for="date-from" class="mr-2 text-sm text-gray-600">From:</label>
+      <input
+        type="date"
+        id="date-from"
+        class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        v-model="filter.fromDate"
+      />
+    </div>
+    <div>
+      <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
+      <input
+        type="date"
+        id="date-to"
+        class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        v-model="filter.toDate"
+      />
+    </div>
+  </div>
+</div>
+
 
       <!-- Table -->
      <!-- Table -->

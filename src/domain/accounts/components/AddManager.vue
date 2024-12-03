@@ -8,14 +8,24 @@ import { useBranchStore } from "@/domain/branches/stores";
 
 const branchStore = useBranchStore();
 
-let form: CreateAccount = reactive({
+// let form: CreateAccount = reactive({
+//   firstName: "",
+//   lastName: "",
+//   middleName: "",
+//   role: "admin",
+//   username: "",
+//   phone: "",
+// })
+
+ const form: AddManager = reactive({
   firstName: "",
   lastName: "",
-  middleName: "",
-  role: "admin",
-  username: "",
+  email: "",
   phone: "",
+  role: "admin",
+  branchId: null, 
 })
+
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(['cancel'])
@@ -88,7 +98,7 @@ function submit() {
           >Select Branch 2</label
         >
         <select
-          v-model="form.providerId"
+          v-model="form.branchId"
           class="noFocus form-element e-input w-full"
         >
           <option :value="null">-- Select Provider --</option>

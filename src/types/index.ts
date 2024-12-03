@@ -45,6 +45,12 @@ export interface CreateAccount {
   phone: string;
 }
 
+// AddManager
+export interface AddManager {
+  branchId: string;
+  managerId: string;
+}
+
 export interface ApiSuccess {
   status: number
   data: Object

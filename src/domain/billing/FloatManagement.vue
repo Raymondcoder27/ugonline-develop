@@ -46,8 +46,8 @@ const filter: IGoFilter = reactive({
 
 onMounted(() => {
   fetch();
-  billingStore.fetchTransactions(); // Fetch transactions when the component mounts
-  billingStore.fetchFloatLedgers(); // Fetch float ledgers
+  billingStore.fetchFloatAssignments(); // Fetch transactions when the component mounts
+  // billingStore.fetchFloatLedgers(); // Fetch float ledgers
 });
 
 function fetch() {

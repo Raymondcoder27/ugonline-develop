@@ -104,6 +104,7 @@ onMounted(() => fetch());
           <tr class="text-left">
             <th>Branch Name</th>
             <th>Manager</th>
+            <th>Amount</th>
             <th>Transaction Type</th>
             <th>Status</th>
             <th>Date</th>

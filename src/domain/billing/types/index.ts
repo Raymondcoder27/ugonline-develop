@@ -14,6 +14,22 @@ import { AccountVerificationTypes } from "../constants";
 //   createdAt: string; 
 // }
 
+// types/account.ts
+export interface IAccount {
+    firstName: string;
+    lastName: string;
+    middleNames?: string;
+    username: string;
+    phone: string;
+    emailVerified: boolean;
+    phoneVerified: boolean;
+    role: string;
+    createdAt: string;
+    blockedAt?: string;
+    activatedAt?: string;
+  }
+  
+
 export type Transaction = {
     id: string;
     branchName: string;

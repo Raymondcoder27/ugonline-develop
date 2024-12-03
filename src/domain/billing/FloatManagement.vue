@@ -84,8 +84,12 @@ const updateFilter = useDebounceFn(
   { maxWait: 5000 }
 );
 
-function convertDate(date: string) {
-  return moment(date).format("DD-MM-YYYY");
+// function convertDate(date: string) {
+//   return moment(date).format("DD-MM-YYYY");
+// }
+
+function convertDateTime(date: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
 function next() {
@@ -162,7 +166,7 @@ watch(
             </td> -->
             <td class="text-left">{{ assignment.branch }}</td>
             <td class="text-left">{{ assignment.amount }}</td>
-            <td class="text-left">{{ assignment.dateAssigned }}</td>
+            <td class="text-left">{{ convertDateTime(transaction.createdAt) }}</td>
 
 
             <td class="text-left">

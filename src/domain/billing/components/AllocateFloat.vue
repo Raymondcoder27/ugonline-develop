@@ -123,7 +123,7 @@ onMounted(() => {
           <option
             v-for="(branch, idx) in branchStore.branches"
             :key="idx"
-            :value="branch.id"
+            :value="branch.name"
           >
             {{ branch.name }}
           </option>

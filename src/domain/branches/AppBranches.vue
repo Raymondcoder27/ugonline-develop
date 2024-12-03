@@ -308,7 +308,7 @@ watch(
             </td> -->
             <td>
               <!-- <label>{{ branch.manager }}</label> -->
-              <button class="bg-red-300 rounded-md font-semibold text-red-700 p-1">Assign Manger</button>
+              <button class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline">Assign Manger</button>
 
             </td>
             <!-- <td class="text-center">

@@ -112,6 +112,7 @@ watch(() => filter, () => updateFilter(), { deep: true });
   <table class="table w-full">
     <thead>
       <tr class="header-tr">
+        <th class="t-header">#</th>
         <th class="t-header">Date</th>
         <th class="t-header">Description</th>
         <th class="text-right t-header">Amount</th>
@@ -127,7 +128,7 @@ watch(() => filter, () => updateFilter(), { deep: true });
     </thead>
     <tbody>
       <tr v-for="(transaction, idx) in store.transactions" :key="transaction.id" class="body-tr">
-        <!-- <td>{{ idx + 1 }}</td> -->
+        <td>{{ idx + 1 }}</td>
         <td class="text-center">
   <span class="text-xs">{{ convertDateTime(transaction.createdAt) }}</span>
 </td>

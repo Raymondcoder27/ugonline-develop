@@ -45,10 +45,23 @@ export interface CreateAccount {
   phone: string;
 }
 
+// const form: AddManager = reactive({
+//   firstName: "",
+//   lastName: "",
+//   email: "",
+//   phone: "",
+//   role: "admin",
+//   branchId: null, 
+// })
+
 // AddManager
 export interface AddManager {
-  branchId: string;
-  managerId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  role: string;
+  branchId: string | null;
 }
 
 export interface ApiSuccess {

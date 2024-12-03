@@ -142,7 +142,7 @@ watch(
             <th class="t-header" width="30%">Names</th>
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
-            <th class="text-center">Role</th>
+            <!-- <th class="text-center">Role</th> -->
             <th class="text-center">Status</th>
             <th class="text-center">Activation</th>
             <th class="text-center">Date</th>
@@ -170,9 +170,9 @@ watch(
               {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
                 v-if="!account.phoneVerified"></i>
             </td>
-            <td class="text-center">
+            <!-- <td class="text-center">
               {{ account.role }}
-            </td>
+            </td> -->
             <td class="text-center">
               <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
               <label v-else class="text-green-600 font-bold">ACTIVE</label>

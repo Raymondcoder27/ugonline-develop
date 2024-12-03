@@ -146,8 +146,9 @@ watch(
             v-for="(account, idx) in billingStore.backOfficeUsers" :key="idx">
             <td>
               <label class="font-bold py-1">
-                {{ account.firstName }} {{ account.lastName }}
-                {{ account.middleNames }}
+                {{ account.fullName }} 
+                <!-- {{ account.lastName }} -->
+                <!-- {{ account.middleNames }} -->
               </label>
               <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
             </td>

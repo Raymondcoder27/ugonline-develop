@@ -7,7 +7,7 @@ import moment from "moment";
 import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
 import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
-import AddManager from "@/components/AddManager.vue";
+import AddManager from "@/domain/accounts/components/AddManager.vue";
 
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);

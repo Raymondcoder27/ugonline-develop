@@ -409,6 +409,10 @@ watch(
         <table class="text-sm text-gray-600">
           <tbody>
             <tr>
+              <td class="font-semibold">Description:</td>
+              <td class="px-2">{{ service.description }}</td>
+            </tr>
+            <!-- <tr>
               <td class="font-semibold">Provider:</td>
               <td class="px-2">{{ service.name }}</td>
             </tr>
@@ -423,7 +427,7 @@ watch(
             <tr>
               <td class="font-semibold">Address:</td>
               <td class="px-2">{{ service.address }}</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
         <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>

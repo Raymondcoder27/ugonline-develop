@@ -5,14 +5,24 @@ import { Account } from "@/types";
 import { AccountVerificationTypes } from "../constants";
 
 // Billing-related types
-export interface Transaction {
-  id: string;
-  date: string;
-  description: string;
-  amount: number;
-  balance: number;
-  createdAt: string; 
-}
+// export interface Transaction {
+//   id: string;
+//   date: string;
+//   description: string;
+//   amount: number;
+//   balance: number;
+//   createdAt: string; 
+// }
+
+export type Transaction = {
+    id: string;
+    branchName: string;
+    manager: string;
+    transactionType: string;
+    status: string;
+    date: string;
+    amount: number;
+  };
 
 export interface FloatLedger {
   id: string;
@@ -58,4 +68,20 @@ export interface IResendVerificationPayload {
   purpose: TAccountVerificationType | "";
   username: string;
 }
+
+
+export type IGoFilter = {
+    limit: number;
+    offset: number;
+    page: number;
+    sort: Array<{
+      field: string;
+      order: string;
+    }>;
+    filter: Array<{
+      field: string;
+      operand: string;
+      operator: string;
+    }>;
+  };
 

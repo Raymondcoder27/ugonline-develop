@@ -53,7 +53,7 @@ onMounted(() => {
 function fetch() {
   filter.limit = limit.value;
   filter.page = page.value;
-  billingStore.fetchBackofficeAccounts(filter);
+  billingStore.fetchbackOfficeUsers(filter);
 }
 
 function open() {
@@ -143,7 +143,7 @@ watch(
         </thead>
         <tbody>
           <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in billingStore.backofficeAccounts" :key="idx">
+            v-for="(account, idx) in billingStore.backOfficeUsers" :key="idx">
             <td>
               <label class="font-bold py-1">
                 {{ account.firstName }} {{ account.lastName }}
@@ -190,13 +190,13 @@ watch(
     </div>
     <div class="flex">
       <div class="w-full">
-        <div class="flex" v-if="limit == billingStore.backofficeAccounts?.length || page > 1">
+        <div class="flex" v-if="limit == billingStore.backOfficeUsers?.length || page > 1">
           <button v-if="page > 1" class="pagination-button" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
           <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
           <div class="w-1/12 text-center my-auto">
             <label class="rounded text-white bg-primary-700 px-3 py-1">{{page}}</label>
           </div>
-          <button v-if="limit == billingStore.backofficeAccounts?.length - 1 || limit > billingStore.backofficeAccounts?.length" class="pagination-button-inert">
+          <button v-if="limit == billingStore.backOfficeUsers?.length - 1 || limit > billingStore.backOfficeUsers?.length" class="pagination-button-inert">
             <i class="fa-solid fa-arrow-right"></i></button>
           <button v-else class="pagination-button" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>

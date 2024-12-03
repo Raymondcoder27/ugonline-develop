@@ -14,9 +14,9 @@ export const useBilling = defineStore("billing", () => {
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
-    { id: 1, name: "Sample FloatLedger 1", balance: 500000 },
-    { id: 2, name: "Sample FloatLedger 2", balance: 100000 },
-    { id: 3, name: "Sample FloatLedger 3", balance: 150000 },
+    { id: 1, name: "Sample FloatLedger 1", balance: 5000000 },
+    { id: 2, name: "Sample FloatLedger 2", balance: 1200000 },
+    { id: 3, name: "Sample FloatLedger 3", balance: 1500000 },
   ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [
@@ -34,9 +34,9 @@ export const useBilling = defineStore("billing", () => {
 
   // dummy float assignment data
   const dummyFloatAllocations: FloatAllocation[] = [
-    { id: 1, dateAssigned: "2021-09-01", amount: 130000, status: "Assigned", branch: "Branch 1" },
-    { id: 2, dateAssigned: "2021-09-02", amount: 210000, status: "Assigned", branch: "Branch 2" },
-    { id: 3, dateAssigned: "2021-09-03", amount: 370000, status: "Assigned", branch: "Branch 3" },
+    { id: 1, dateAssigned: "2021-09-01", amount: 13000000, status: "Assigned", branch: "Branch 1" },
+    { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "Assigned", branch: "Branch 2" },
+    { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "Assigned", branch: "Branch 3" },
   ];
 
 

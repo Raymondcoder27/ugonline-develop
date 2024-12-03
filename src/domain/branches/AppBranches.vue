@@ -389,19 +389,6 @@ watch(
     <!-- That's also okay -->
   </AppModal>
 
-  <!-- <AppModal v-model="categoryModalOpen" xl2> -->
-    <!-- Put here whatever makes you smile -->
-    <!-- Chances are high that you're starting with a form -->
-    <!-- <CategorySelector :service-id="selectedService" @cancel="close" /> -->
-    <!-- That's also okay -->
-  <!-- </AppModal> -->
-
-  <!-- <AppModal v-model="specModalOpen" xl6> -->
-    <!-- Put here whatever makes you smile -->
-    <!-- <ServiceSpecificationDetails :id="selectedService" /> -->
-    <!-- That's also okay -->
-  <!-- </AppModal> -->
-
   <AppModal v-model="editModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <EditService @cancel="close" />

@@ -20,17 +20,36 @@ const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(['cancel'])
 const store = useAccounts()
+// function submit() {
+//   loading.value = true
+//   store.createAccount(form)
+//     .then(() => {
+//       loading.value = false
+//       notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
+//       emit("cancel")
+//     })
+//     .catch(() => {
+//       loading.value = false
+//     })
+// }
+
+// submit function to assign float
 function submit() {
-  loading.value = true
-  store.createAccount(form)
+  let payload = {
+    amount: form.firstName,
+    branchId: form.branchId,
+  };
+  loading.value = true;
+  store
+    .assignFloat(payload)
     .then(() => {
-      loading.value = false
-      notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
-      emit("cancel")
+      loading.value = false;
+      notify.success(`Float assigned to ${form.branchId}.`);
+      emit("cancel");
     })
     .catch(() => {
-      loading.value = false
-    })
+      loading.value = false;
+    });
 }
 
 onMounted(() => {

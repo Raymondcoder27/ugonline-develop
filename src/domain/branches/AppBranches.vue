@@ -141,7 +141,8 @@ onMounted(() => {
 });
 
 function fetchBranches() {
-  branchStore.fetchBranches(page.value, limit.value)
+  branchStore
+    .fetchBranches(page.value, limit.value)
     .then(() => (loading.value = false))
     .catch((error: ApiError) => {
       loading.value = false;
@@ -177,18 +178,28 @@ function previous() {
   <div class="w-full shadow-lg bg-white rounded p-2">
     <div class="flex">
       <div class="w-full py-1 text-primary-700">
-        <i class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-code-branch"></i>
+        <i
+          class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-code-branch"
+        ></i>
         <label class="text-lg mx-1">Branches</label>
       </div>
     </div>
     <div class="flex justify-between my-1">
       <div class="flex flex-col">
         <div class="grid grid-cols-5">
-          <input class="filter-element e-input" type="text" placeholder="Search by Name" />
+          <input
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Name"
+          />
           <select class="filter-element e-select" v-model="providerId">
             <option :value="null">- Select Provider -</option>
-            <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{ provider.name
-              }}
+            <option
+              v-for="(provider, idx) in providerStore.providers"
+              :key="idx"
+              :value="provider.id"
+            >
+              {{ provider.name }}
             </option>
           </select>
           <select class="filter-element e-select" v-model="status">
@@ -199,7 +210,11 @@ function previous() {
         </div>
       </div>
       <div class="flex">
-        <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
+        <button
+          @click="modalOpen = true"
+          class="button btn-sm my-auto"
+          type="button"
+        >
           <i class="px-1 fa-solid fa-plus"></i> Add Branch
         </button>
       </div>
@@ -218,20 +233,30 @@ function previous() {
         <thead v-if="loading">
           <tr>
             <th colspan="12" style="padding: 0">
-              <div class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"></div>
+              <div
+                class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"
+              ></div>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr class="body-tr" v-for="(branch, idx) in branchStore.branches" :key="idx">
+          <tr
+            class="body-tr"
+            v-for="(branch, idx) in branchStore.branches"
+            :key="idx"
+          >
             <td width="10px">{{ idx + 1 }}.</td>
             <td>
-              <label class=" cursor-pointer font-bold hover:text-primary-700 mx-2">
+              <label
+                class="cursor-pointer font-bold hover:text-primary-700 mx-2"
+              >
                 <span class="hover:underline" @click="open(branch)">
                   {{ branch.name }}
                 </span>
-                <i class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
-                  @click="tag(branch)"></i>
+                <i
+                  class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
+                  @click="tag(branch)"
+                ></i>
               </label>
             </td>
             <td>
@@ -240,24 +265,42 @@ function previous() {
             <td>
               <label>{{ branch.name }}</label>
             </td>
-            <td class="text-center">
+            <!-- <td class="text-center">
               <i :class="service.currentVersionId
             ? 'text-green-600 fa-solid fa-check'
             : 'text-red-600 fa-solid fa-times'"></i>
+            </td> -->
+            <td class="text-center">
+              <i
+                :class="
+                  branch.isActive
+                    ? 'text-green-600 fa-solid fa-check'
+                    : 'text-red-600 fa-solid fa-times'
+                "
+              ></i>
             </td>
+
             <td class="text-center">
               <span>{{ service.status }}</span>
             </td>
             <td class="text-center">
-              <span class="text-xs">{{ convertDateTime(service.createdAt.Time) }}</span>
+              <span class="text-xs">{{
+                convertDateTime(service.createdAt.Time)
+              }}</span>
             </td>
             <td class="text-center">
-              <i class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200  hover:text-blue-700"
-                @click="open(service)"></i>
-              <i class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
-                @click="edit(service)"></i>
-              <i class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
-                @click="spec(service)"></i>
+              <i
+                class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+                @click="open(service)"
+              ></i>
+              <i
+                class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
+                @click="edit(service)"
+              ></i>
+              <i
+                class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
+                @click="spec(service)"
+              ></i>
             </td>
           </tr>
         </tbody>
@@ -265,16 +308,28 @@ function previous() {
     </div>
     <div class="flex">
       <div class="w-full">
-        <div class="flex" v-if="limit == store.services?.length || page > 1">
-          <button v-if="page > 1" class="pagination-button" @click="previous"> <i
-              class="fa-solid fa-arrow-left"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="flex" v-if="limit == branchStore.branches.length || page > 1">
+          <button v-if="page > 1" class="pagination-button" @click="previous">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button v-else class="pagination-button-inert">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
           <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{ page }}</label>
+            <label class="rounded text-white bg-primary-700 px-3 py-1">{{
+              page
+            }}</label>
           </div>
-          <button v-if="limit == store.services?.length ?? 1 - 1" class="pagination-button" @click="next"><i
-              class="fa-solid fa-arrow-right"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-right"></i></button>
+          <button
+            v-if="limit == store.services?.length ?? 1 - 1"
+            class="pagination-button"
+            @click="next"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button v-else class="pagination-button-inert">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>

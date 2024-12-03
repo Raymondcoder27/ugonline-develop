@@ -130,7 +130,7 @@ watch(() => filter, () => updateFilter(), { deep: true });
           <tbody>
             <tr v-for="(transaction, idx) in store.transactions" :key="transaction.id" class="body-tr">
               <td class="text-left">{{ idx + 1 }}</td>
-              <td class="text-center">
+              <td class="text-left">
                 <span class="text-xs">{{ convertDateTime(transaction.createdAt) }}</span>
               </td>
               <td class="text-left">
@@ -138,19 +138,19 @@ watch(() => filter, () => updateFilter(), { deep: true });
                   <span class="hover:underline">{{ transaction.description }}</span>
                 </label>
               </td>
-              <td class="text-right text-green-600">
+              <td class="text-left text-green-600">
                 <span>{{ transaction.amount }}</span>
               </td>
-              <td class="text-right text-gray-800">
+              <td class="text-left text-gray-800">
                 <span>{{ transaction.balance }}</span>
               </td>
             </tr>
           </tbody>
           <tfoot>
             <tr class="bg-gray-50">
-              <td colspan="3" class="text-right font-bold text-gray-600">Totals:</td>
-              <td class="text-right font-bold text-gray-800">{{ store.totalAmount }}</td>
-              <td class="text-right font-bold text-gray-800">{{ store.totalBalance }}</td>
+              <td colspan="3" class="text-left font-bold text-gray-600">Totals:</td>
+              <td class="text-left font-bold text-gray-800">{{ store.totalAmount }}</td>
+              <td class="text-left font-bold text-gray-800">{{ store.totalBalance }}</td>
             </tr>
           </tfoot>
         </table>

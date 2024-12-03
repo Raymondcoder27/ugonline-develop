@@ -1,22 +1,26 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { useAccounts } from "@/domain/accounts/stores";
-import { onMounted, type Ref, ref, watch, reactive } from "vue";
+import { onMounted, ref, reactive, watch } from "vue";
 import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
 import moment from "moment";
-import type { IGoFilter } from "@/types"
-import { useDebounceFn } from "@vueuse/core"
-import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
+import { useDebounceFn } from "@vueuse/core";
+import type { IGoFilter } from "@/types";
+import type { IResendVerificationPayload, TAccountVerificationType } from "./types";
 
+// Store
 const store = useAccounts();
-const modalOpen: Ref<boolean> = ref(false);
-const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(15);
-// filter
+
+// State
+const modalOpen = ref(false);
+const page = ref(1);
+const limit = ref(15);
+
+// Filter setup
 const filter: IGoFilter = reactive({
   limit: 100,
   offset: 0,
-  page:0,
+  page: 0,
   sort: [
     {
       field: "firstname",
@@ -24,91 +28,61 @@ const filter: IGoFilter = reactive({
     }
   ],
   filter: [
-    {
-      field: "firstname",
-      operand: "",
-      operator: "CONTAINS"
-    },
-    {
-      field: "username",
-      operand: "",
-      operator: "CONTAINS"
-    },
-    {
-      field: "phone",
-      operand: "",
-      operator: "CONTAINS"
-    },
+    { field: "firstname", operand: "", operator: "CONTAINS" },
+    { field: "username", operand: "", operator: "CONTAINS" },
+    { field: "phone", operand: "", operator: "CONTAINS" }
   ]
-})
+});
 
-onMounted(() => {
-  fetch()
-})
+// Fetch accounts
+const fetch = () => {
+  filter.limit = limit.value;
+  filter.page = page.value;
+  store.fetchBackofficeAccounts(filter);
+};
 
-function fetch() {
-  filter.limit = limit.value
-  filter.page = page.value
-  store.fetchBackofficeAccounts(filter)
-}
-function open() {
-  modalOpen.value = true;
-}
+// Debounced filter update
+const updateFilter = useDebounceFn(() => fetch(), 300, { maxWait: 5000 });
 
-function close() {
-  modalOpen.value = false;
-}
-
+// Form for re-verification
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
   username: ""
-})
+});
+
+// Resend verification request
 const resend = (purpose: TAccountVerificationType, username: string) => {
-  if (username.length === 0) return
-  reVerifyForm.purpose = purpose
-  reVerifyForm.username = username
-  store.resendAccountVerification(reVerifyForm)
-}
+  if (username.length === 0) return;
+  reVerifyForm.purpose = purpose;
+  reVerifyForm.username = username;
+  store.resendAccountVerification(reVerifyForm);
+};
 
-const updateFilter = useDebounceFn(
-  () => {
-    fetch()
-  },
-  300,
-  { maxWait: 5000 }
-)
+// Date conversion utility
+const convertDate = (date: string) => moment(date).format("DD-MM-YYYY");
 
-function convertDate(date: string) {
-  return moment(date).format("DD-MM-YYYY")
-}
+// Pagination
+const next = () => {
+  page.value += 1;
+  fetch();
+};
 
-function next(){
-  page.value += 1
-  fetch()
-}
+const previous = () => {
+  page.value -= 1;
+  fetch();
+};
 
-function previous(){
-  page.value -= 1
-  fetch()
-}
+// Watchers
+watch(() => modalOpen.value, (isOpen) => {
+  if (!isOpen) fetch();
+});
 
-// watch state of the modal
-watch(
-  () => modalOpen.value,
-  (isOpen: boolean) => {
-    if (!isOpen) {
-      fetch()
-    }
-  },
-);
+watch(() => filter, updateFilter, { deep: true });
 
-// watch for changes in the filter object
-watch(
-  () => filter,
-  () => updateFilter(),
-  { deep: true }
-)
+// Initialize fetch
+onMounted(() => fetch());
 </script>
+
 
 <template>
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
@@ -157,19 +131,12 @@ watch(
         </tbody>
       </table>
     </div>
+
+
     <div class="flex">
-      <div class="w-full">
-        <div class="flex" v-if="limit == store.backofficeAccounts?.length || page > 1">
-          <button v-if="page > 1" class="pagination-button" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
-          <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{page}}</label>
-          </div>
-          <button v-if="limit == store.backofficeAccounts?.length - 1 || limit > store.backofficeAccounts?.length" class="pagination-button-inert">
-            <i class="fa-solid fa-arrow-right"></i></button>
-          <button v-else class="pagination-button" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-      </div>
+      <button v-if="page > 1" @click="previousPage">Previous</button>
+      <span>{{ page }}</span>
+      <button v-if="billingStore.transactions.length === limit" @click="nextPage">Next</button>
     </div>
   </div>
 

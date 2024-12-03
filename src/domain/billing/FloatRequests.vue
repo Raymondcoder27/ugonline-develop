@@ -74,7 +74,7 @@ const previous = () => {
       </table>
     </div>
 
-    <div class="flex">
+    <!-- <div class="flex">
       <div class="w-full">
         <div class="flex">
           <button v-if="page > 1" class="pagination-button" @click="previous">
@@ -90,7 +90,7 @@ const previous = () => {
             }}</label>
           </div>
 
-          <!-- <button
+          <button
             v-if="store.transactions.length === store.limit"
             class="pagination-button"
             @click="next"
@@ -99,10 +99,10 @@ const previous = () => {
           </button>
           <button v-else class="pagination-button-inert">
             <i class="fa-solid fa-arrow-right"></i>
-          </button> -->
+          </button>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

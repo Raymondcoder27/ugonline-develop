@@ -78,7 +78,7 @@ export interface AccountsData {
   pages: number;
 }
 
-interface BackofficeUser {
+export interface BackofficeUser {
     id: number;
     username: string;
     fullName: string;

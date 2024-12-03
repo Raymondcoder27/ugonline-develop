@@ -53,7 +53,7 @@ onMounted(() => {
 function fetch() {
   filter.limit = limit.value;
   filter.page = page.value;
-  billingStore.fetchbackOfficeUsers(filter);
+  billingStore.fetchBackofficeUsers(filter);
 }
 
 function open() {

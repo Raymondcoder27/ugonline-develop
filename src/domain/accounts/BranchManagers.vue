@@ -7,6 +7,7 @@ import moment from "moment";
 import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
 import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
+import AddManager from "@/components/AddManager.vue";
 
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
@@ -214,7 +215,7 @@ watch(
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <CreateAccount @cancel="close" />
+    <AddManager @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>

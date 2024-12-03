@@ -153,7 +153,7 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(manager, idx) in billingStore.branchManagers" :key="idx">
+          <tr v-for="(manager, idx) in billingStore.floatAssignment" :key="idx">
             <td>{{ idx + 1 }}</td>
             <!-- <td>
               <label class="font-bold py-1">{{

@@ -24,12 +24,21 @@ export const useBilling = defineStore("billing", () => {
     { id: 3, username: "admin2", fullName: "Admin User Two", role: "Administrator", branch: "Branch 3", status: "Inactive" },
   ];
 
+  // dummy branch manager data
+  const dummyBranchManagers: BackofficeUser[] = [
+    { id: 1, username: "manager1", fullName: "Manager User One", role: "Manager", branch: "Branch 1", status: "Active" },
+    { id: 2, username: "manager2", fullName: "Manager User Two", role: "Manager", branch: "Branch 2", status: "Active" },
+    { id: 3, username: "manager3", fullName: "Manager User Three", role: "Manager", branch: "Branch 3", status: "Inactive" },
+  ];
+
+
   // State variables
   const transactions = ref<Transaction[]>(dummyTransactions); // Use dummy data for now
   const totalAmount = ref(600); // Set a test value
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
   const backofficeUsers = ref<BackofficeUser[]>(dummyBackofficeUsers);
+  const branchManagers = ref<BranchManager[]>(dummyBranchManagers);
 
   // Actions to fetch data
   async function fetchTransactions(filter: any) {
@@ -56,14 +65,22 @@ export const useBilling = defineStore("billing", () => {
     backofficeUsers.value = dummyBackofficeUsers;
   }
 
+  async function fetchBranchManagers(filter: any) {
+    // Simulate API call
+    // You can adjust this based on the filtering criteria or paging
+    branchManagers.value = dummyBranchManagers;
+  }
+
   return {
     transactions,
     totalAmount,
     totalBalance,
     floatLedgers,
     backofficeUsers,
+    branchManagers,
     fetchTransactions,
     fetchFloatLedgers,
     fetchBackofficeUsers,  
+    fetchBranchManagers,
   };
 });

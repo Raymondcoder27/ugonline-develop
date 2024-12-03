@@ -2,7 +2,7 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { Transaction, FloatLedger, BackofficeUser } from "@/domain/billing/types";
+import type { Transaction, FloatLedger, BackofficeUser, BranchManager } from "@/domain/billing/types";
 
 export const useBilling = defineStore("billing", () => {
   // Dummy data for testing
@@ -25,7 +25,7 @@ export const useBilling = defineStore("billing", () => {
   ];
 
   // dummy branch manager data
-  const dummyBranchManagers: BackofficeUser[] = [
+  const dummyBranchManagers: BranchManager[] = [
     { id: 1, username: "manager1", fullName: "Manager User One", role: "Manager", branch: "Branch 1", status: "Active" },
     { id: 2, username: "manager2", fullName: "Manager User Two", role: "Manager", branch: "Branch 2", status: "Active" },
     { id: 3, username: "manager3", fullName: "Manager User Three", role: "Manager", branch: "Branch 3", status: "Inactive" },

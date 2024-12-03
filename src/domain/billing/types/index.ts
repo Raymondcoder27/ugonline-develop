@@ -88,6 +88,16 @@ export interface BackofficeUser {
     dateAssigned: string;
   }
 
+export interface BranchManager {
+    id: number;
+    username: string;
+    fullName: string;
+    role: string;
+    branch: string;
+    status: string;
+    dateAssigned: string;
+  }
+
 export type TAccountVerificationType = (typeof AccountVerificationTypes)[number];
 
 export interface IResendVerificationPayload {

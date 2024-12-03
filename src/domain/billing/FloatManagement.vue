@@ -150,55 +150,36 @@ watch(
           </tr>
         </thead>
         <tbody>
-          <tr 
-            v-for="(account, idx) in billingStore.backOfficeUsers" :key="account.id">
-            <td class="text-left">{{ idx + 1 }}</td>
+          <tr v-for="(manager, idx) in billingStore.branchManagers" :key="idx">
+            <td>{{ idx + 1 }}</td>
             <td>
-              <label class="font-bold py-1">
-                {{ account.fullName }} 
-                <!-- {{ account.lastName }} -->
-                <!-- {{ account.middleNames }} -->
-                  Name goes here
-              </label>
-              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
+              <label class="font-bold py-1">{{
+                manager.description
+              }}</label>
             </td>
-            <td>
-              <label class="font-bold py-1">
-                {{ account.branch }} 
-                <!-- {{ account.lastName }} -->
-                <!-- {{ account.middleNames }} -->
-              </label>
-              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
+            <td class="text-left">{{ manager.branchName }}</td>
+            <td class="text-left">{{ manager.date }}</td>
+
+            <td class="text-left">
+              <i
+                class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+                @click="open(manager)"
+              ></i>
+              <i
+                class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
+                @click="edit(manager)"
+              ></i>
+              <!-- <i
+    class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
+    @click="configure(branch)"
+  ></i> -->
+
+              <!-- delete branch -->
+              <i
+                class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
+                @click="deleteRequest(transaction)"
+              ></i>
             </td>
-            <td>
-              <label class="font-bold py-1">
-                {{ account.dateAssigned }} 
-                <!-- {{ account.lastName }} -->
-                <!-- {{ account.middleNames }} -->
-              </label>
-              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
-            </td>
-           
-            <!-- <td class="text-center">
-              <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
-              <label v-else class="text-green-600 font-bold">ACTIVE</label>
-            </td>
-            <td class="text-center">
-              <i v-if="account.activatedAt" class="fa-solid fa-check-square text-green-600"></i>
-              <i v-else class="fa-solid fa-times-square text-red-600"></i>
-            </td>
-            <td class="text-center">{{ convertDate(account.createdAt) }}</td>
-            <td class="text-center">
-              <div class="flex flex-row space-x-2 w-full justify-center" v-if="!account.blockedAt">
-                <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="open()"></i>
-                <i class="text-gray-600 fa-solid fa-reply px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="open()"></i>
-                <i v-if="account.phoneVerified && !account.activatedAt"
-                  class="text-gray-600 fa-solid fa-unlock-keyhole px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="resend('change-password', account.username)" title="Change Password"></i>
-              </div>
-            </td> -->
           </tr>
         </tbody>
       </table>

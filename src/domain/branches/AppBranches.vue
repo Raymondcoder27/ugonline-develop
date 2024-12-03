@@ -281,9 +281,9 @@ watch(
                 ></i>
               </label>
             </td>
-            <td>
+            <!-- <td>
               <label>{{ branch.id }}</label>
-            </td>
+            </td> -->
             <td>
               <label>{{ branch.name }}</label>
             </td>

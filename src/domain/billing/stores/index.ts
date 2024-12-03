@@ -50,12 +50,20 @@ export const useBilling = defineStore("billing", () => {
     floatLedgers.value = dummyFloatLedgers;
   }
 
+  async function fetchBackofficeUsers(filter: any) {
+    // Simulate API call
+    // You can adjust this based on the filtering criteria or paging
+    backofficeUsers.value = dummyBackofficeUsers;
+  }
+
   return {
     transactions,
     totalAmount,
     totalBalance,
     floatLedgers,
+    backofficeUsers,
     fetchTransactions,
     fetchFloatLedgers,
+    fetchBackofficeUsers,  
   };
 });

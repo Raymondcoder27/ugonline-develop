@@ -7,9 +7,9 @@ import type { Transaction, FloatLedger } from "@/domain/billing/types";
 export const useBilling = defineStore("billing", () => {
   // Dummy data for testing
   const dummyTransactions: Transaction[] = [
-    { id: 1, amount: 100, description: "Sample Transaction 1" },
-    { id: 2, amount: 200, description: "Sample Transaction 2" },
-    { id: 3, amount: 300, description: "Sample Transaction 3" },
+    { id: 1, amount: 100, description: "Sample Transaction 1", branchName: "Branch 1", manager: "Manager 1", transactionType: "Credit", status: "Approved", date: "2021-09-01" },
+    { id: 2, amount: 200, description: "Sample Transaction 2", branchName: "Branch 2", manager: "Manager 2", transactionType: "Debit", status: "Pending", date: "2021-09-02" },
+    { id: 3, amount: 300, description: "Sample Transaction 3", branchName: "Branch 3", manager: "Manager 3", transactionType: "Credit", status: "Approved", date: "2021-09-03" },
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [

@@ -103,7 +103,7 @@ onMounted(() => fetch());
             <th>Transaction Type</th>
             <th>Status</th>
             <th>Date</th>
-            <th></th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -126,11 +126,11 @@ onMounted(() => fetch());
     </div>
 
 
-    <div class="flex">
+    <!-- <div class="flex">
       <button v-if="page > 1" @click="previousPage">Previous</button>
       <span>{{ page }}</span>
       <button v-if="billingStore.transactions.length === limit" @click="nextPage">Next</button>
-    </div>
+    </div> -->
   </div>
 
   <!-- Modal -->

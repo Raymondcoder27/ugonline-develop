@@ -352,7 +352,9 @@ watch(
     </div>
     <div class="flex">
       <div class="w-full">
-        <div class="flex" v-if="limit == branchStore.branches.length || page > 1">
+        <!-- <div class="flex" v-if="limit == branchStore.branches.length || page > 1"> -->
+          <div class="flex" v-if="limit == (branchStore.branches?.length || 0) || page > 1">
+
           <button v-if="page > 1" class="pagination-button" @click="previous">
             <i class="fa-solid fa-arrow-left"></i>
           </button>

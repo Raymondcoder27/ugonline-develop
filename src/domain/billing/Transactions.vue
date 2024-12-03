@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted, watch } from "vue";
 import AppModal from "@/components/AppModal.vue";
-import { useBillingStore } from "@/domain/billing/stores"; // Assuming this is where the transactions are stored
+import { useBilling } from "@/domain/billing/stores"; 
 import { useDebounceFn } from "@vueuse/core";
 import moment from "moment";
 import type { IGoFilter } from "@/types";
 
-const billingStore = useBillingStore();
+const billingStore = useBilling();
 
 // State
 const modalOpen = ref(false);

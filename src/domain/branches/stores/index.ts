@@ -24,6 +24,11 @@ export const useBranchStore = defineStore("branches", () => {
   const addBranch = (newBranch: Branch) => {
     branches.value.push(newBranch); // Directly add the branch to the array
   };
+
+  // delete branch
+  const deleteBranch = (branchId: number) => {
+    branches.value = branches.value.filter((branch) => branch.id !== branchId);
+  };
   
 
   async function fetchBranches(page: number, limit: number) {

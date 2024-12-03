@@ -171,6 +171,12 @@ function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
+function deleteBranch(branch: Branch) {
+  branchStore.deleteBranch(branch.id);
+  notify.success("Branch Deleted");
+  fetchBranches();
+}
+
 function close() {
   modalOpen.value = false;
   editModalOpen.value = false;

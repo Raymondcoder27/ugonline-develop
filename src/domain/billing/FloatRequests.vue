@@ -1,13 +1,42 @@
 <script setup lang="ts">
 import { useBilling } from "@/domain/billing/stores";
 import { onMounted, ref } from "vue";
+import { useDebounceFn } from "@vueuse/core";
+import type { IGoFilter } from "@/types";
 
 const store = useBilling();
 const page = ref(1);
 const limit = ref(10);
 
-onMounted(() => {
-  store.fetchTransactions();
+
+
+const filter: IGoFilter = reactive({
+  limit: 100,
+  offset: 0,
+  page: 0,
+  sort: [
+    {
+      field: "firstname",
+      order: "ASC"
+    }
+  ],
+  filter: [
+    {
+      field: "firstname",
+      operand: "",
+      operator: "CONTAINS"
+    },
+    {
+      field: "username",
+      operand: "",
+      operator: "CONTAINS"
+    },
+    {
+      field: "phone",
+      operand: "",
+      operator: "CONTAINS"
+    },
+  ]
 });
 
 const next = () => {
@@ -23,10 +52,48 @@ const previous = () => {
     store.fetchTransactions();
   }
 };
+
+// Debounced filter update function
+const updateFilter = useDebounceFn(
+  () => {
+    fetchTransactions();
+  },
+  300,
+  { maxWait: 5000 }
+);
+
+onMounted(() => {
+  store.fetchTransactions();
+});
 </script>
 
 <template>
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
+
+    <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
+        <div class="flex space-x-4">
+          <div>
+            <label for="date-from" class="mr-2 text-sm text-gray-600"
+              >From:</label
+            >
+            <input
+              type="date"
+              id="date-from"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.fromDate"
+            />
+          </div>
+          <div>
+            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
+            <input
+              type="date"
+              id="date-to"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.toDate"
+            />
+          </div>
+        </div>
+      </div>
     <div class="flex my-1">
       <table class="table">
         <thead>

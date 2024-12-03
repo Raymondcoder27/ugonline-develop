@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, type Ref, ref, watch } from "vue";
-// import CreateService from "@/domain/services/components/CreateService.vue";
 import CreateBranch from "@/domain/branches/components/CreateBranch.vue"
 import { useServicesStore } from "@/domain/services/stores";
 import type { Service } from "@/domain/services/types";
@@ -99,15 +98,79 @@ watch(
   { deep: true }
 );
 
-// watch state of the modal
 watch(
   () => modalOpen.value,
   (isOpen: boolean) => {
     if (!isOpen) {
-      // do something if that's something you're interested in
     }
   },
 );
+</script>
+
+
+
+<script setup lang="ts">
+import AppModal from "@/components/AppModal.vue";
+import { onMounted, ref, type Ref, watch } from "vue";
+import CreateBranch from "@/domain/branches/components/CreateBranch.vue";
+import { useBranchStore } from "@/domain/branches/stores"; // Updated import
+import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
+import moment from "moment/moment";
+import router from "@/router";
+import { useProviderStore } from "@/domain/entities/stores";
+import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
+import { useNotificationsStore } from "@/stores/notifications";
+import type { ApiError } from "@/types";
+import TableLoader from "@/components/TableLoader.vue";
+
+const branchStore = useBranchStore(); // Updated store
+const modalOpen: Ref<boolean> = ref(false);
+const categoryModalOpen: Ref<boolean> = ref(false);
+const editModalOpen: Ref<boolean> = ref(false);
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(16);
+const loading: Ref<boolean> = ref(false);
+const selectedBranch: Ref<string> = ref("");
+let providerId = ref("");
+let status = ref("");
+const notify = useNotificationsStore();
+
+onMounted(() => {
+  loading.value = true;
+  fetchBranches();
+});
+
+function fetchBranches() {
+  branchStore.fetchBranches(page.value, limit.value)
+    .then(() => (loading.value = false))
+    .catch((error: ApiError) => {
+      loading.value = false;
+      notify.error(error.response.data.message);
+    });
+}
+
+function open(branch: Branch) {
+  router.push({ name: "branch-details", params: { id: branch.id } });
+}
+
+function convertDateTime(date: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
+}
+
+function close() {
+  modalOpen.value = false;
+  editModalOpen.value = false;
+}
+
+function next() {
+  page.value += 1;
+  fetchBranches();
+}
+
+function previous() {
+  page.value -= 1;
+  fetchBranches();
+}
 </script>
 
 <template>

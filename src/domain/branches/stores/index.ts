@@ -8,11 +8,25 @@ export const useBranchStore = defineStore("branches", () => {
   const branch: Ref<Branch | undefined> = ref();
   const isLoading: Ref<boolean> = ref(false);
 
+  // Dummy data for testing purposes
+  const dummyBranches: Branch[] = [
+    { id: 1, name: "Branch 1", location: "Location 1", status: "Active" },
+    { id: 2, name: "Branch 2", location: "Location 2", status: "Inactive" },
+    { id: 3, name: "Branch 3", location: "Location 3", status: "Active" },
+    { id: 4, name: "Branch 4", location: "Location 4", status: "Inactive" },
+  ];
+
   async function fetchBranches(page: number, limit: number) {
     isLoading.value = true;
     try {
-      const { data } = await api.get(`/branches?page=${page}&limit=${limit}`);
-      branches.value = data;
+      // Uncomment the following line to fetch data from the API once ready
+      // const { data } = await api.get(`/branches?page=${page}&limit=${limit}`);
+      
+      // For now, use the dummy data for testing
+      branches.value = dummyBranches; // Use dummy data for testing
+
+      // Uncomment below to assign the API data when it's available
+      // branches.value = data;
     } catch (error) {
       console.error(error);
       throw error;

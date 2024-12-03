@@ -1,62 +1,45 @@
 <script setup lang="ts">
+import { ref, reactive, onMounted, watch } from "vue";
 import AppModal from "@/components/AppModal.vue";
-import { useAccounts } from "@/domain/accounts/stores";
-import { onMounted, ref, reactive, watch } from "vue";
-import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
-import moment from "moment";
+import { useBillingStore } from "@/domain/billing/stores"; // Assuming this is where the transactions are stored
 import { useDebounceFn } from "@vueuse/core";
+import moment from "moment";
 import type { IGoFilter } from "@/types";
-import type { IResendVerificationPayload, TAccountVerificationType } from "./types";
 
-// Store
-const store = useAccounts();
+const billingStore = useBillingStore();
 
 // State
 const modalOpen = ref(false);
 const page = ref(1);
 const limit = ref(15);
 
-// Filter setup
+// Filter setup for transactions
 const filter: IGoFilter = reactive({
   limit: 100,
   offset: 0,
   page: 0,
   sort: [
     {
-      field: "firstname",
+      field: "date", // Sorting by date for transactions
       order: "ASC"
     }
   ],
   filter: [
-    { field: "firstname", operand: "", operator: "CONTAINS" },
-    { field: "username", operand: "", operator: "CONTAINS" },
-    { field: "phone", operand: "", operator: "CONTAINS" }
+    { field: "branchName", operand: "", operator: "CONTAINS" },
+    { field: "manager", operand: "", operator: "CONTAINS" },
+    { field: "status", operand: "", operator: "CONTAINS" }
   ]
 });
 
-// Fetch accounts
+// Fetch transactions
 const fetch = () => {
   filter.limit = limit.value;
   filter.page = page.value;
-  store.fetchBackofficeAccounts(filter);
+  billingStore.fetchTransactions(filter);
 };
 
 // Debounced filter update
 const updateFilter = useDebounceFn(() => fetch(), 300, { maxWait: 5000 });
-
-// Form for re-verification
-const reVerifyForm: IResendVerificationPayload = reactive({
-  purpose: "",
-  username: ""
-});
-
-// Resend verification request
-const resend = (purpose: TAccountVerificationType, username: string) => {
-  if (username.length === 0) return;
-  reVerifyForm.purpose = purpose;
-  reVerifyForm.username = username;
-  store.resendAccountVerification(reVerifyForm);
-};
 
 // Date conversion utility
 const convertDate = (date: string) => moment(date).format("DD-MM-YYYY");
@@ -72,14 +55,24 @@ const previous = () => {
   fetch();
 };
 
+// Modal control
+const openTransaction = (transaction: any) => {
+  // Logic to open modal with transaction details
+  modalOpen.value = true;
+};
+
+const close = () => {
+  modalOpen.value = false;
+};
+
 // Watchers
 watch(() => modalOpen.value, (isOpen) => {
-  if (!isOpen) fetch();
+  if (!isOpen) fetch(); // Re-fetch transactions when modal closes
 });
 
 watch(() => filter, updateFilter, { deep: true });
 
-// Initialize fetch
+// Initialize fetch on mounted
 onMounted(() => fetch());
 </script>
 

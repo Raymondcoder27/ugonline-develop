@@ -16,6 +16,11 @@ export const useBranchStore = defineStore("branches", () => {
     { id: 4, name: "Branch 4", location: "Location 4", status: "Inactive" },
   ];
 
+  // Add new branch to the store
+  const addBranch = (newBranch: Branch) => {
+    branches.value.push(newBranch);
+  };
+
   async function fetchBranches(page: number, limit: number) {
     isLoading.value = true;
     try {
@@ -39,5 +44,6 @@ export const useBranchStore = defineStore("branches", () => {
     branches,
     branch,
     fetchBranches,
+    addBranch,
   };
 });

@@ -90,9 +90,9 @@ watch(() => filter, () => updateFilter(), { deep: true });
 
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white">
-      <div class="flex items-center justify-between border-b pb-4 mb-4 mt-3">
+      <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
         <div>
-          <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
+          <label for="date-range" class="mr-2 text-sm text-gray-600 justify-end">Date Range:</label>
           <input
             type="date"
             id="date-range"

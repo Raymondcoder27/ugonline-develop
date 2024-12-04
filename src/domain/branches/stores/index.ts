@@ -51,18 +51,14 @@ export const useBranchStore = defineStore("branches", () => {
     // }
   }
 
-  // allocate manager to branch using managerId
   const allocateManager = (payload: AllocateManager) => {
-    branches.value?.push({
-      manager: payload.manager,
-    });
-  }
-
-
-  // allocate manager to branch
-  
-
-
+    const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
+    if (branchToUpdate) {
+      branchToUpdate.manager = payload.managerId;
+    } else {
+      console.warn(`Branch with ID ${payload.branchId} not found.`);
+    }
+  };
 
 
    // Delete branch from the store

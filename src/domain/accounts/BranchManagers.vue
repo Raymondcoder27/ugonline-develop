@@ -142,7 +142,7 @@ watch(
             <th class="t-header" width="30%">Names</th>
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
-            <!-- <th class="text-center">Role</th> -->
+            <th class="text-center">Branch</th>
             <th class="text-center">Status</th>
             <!-- <th class="text-center">Activation</th> -->
             <th class="text-center">Date</th>

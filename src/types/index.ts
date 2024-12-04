@@ -62,6 +62,21 @@ export interface AddManager {
   branchId: string | null;
 }
 
+
+export interface ManagerAccount {
+  id: string;
+  firstName: string;
+  lastName: string;
+  middleNames: string;
+  username: string;
+  phone: string;
+  role: string;
+  createdAt: string;
+  emailVerified: boolean;
+  phoneVerified: boolean;
+  activatedAt: string;
+}
+
 export interface ApiSuccess {
   status: number
   data: Object

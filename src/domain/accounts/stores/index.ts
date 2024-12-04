@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse } from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount } from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
@@ -65,6 +65,7 @@ export const useAccounts = defineStore("user-management", () => {
   const response: Ref<AccountResponse | undefined> = ref();
   const userAccounts: Ref<Account[]> = ref([]);
   const backofficeAccounts: Ref<Account[]> = ref([]);
+  const managerAccounts: Ref<ManagerAccount[]> = ref([]);
 
   const request = useGoRequest();
   const notify = useNotificationsStore();

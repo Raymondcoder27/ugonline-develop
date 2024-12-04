@@ -10,6 +10,7 @@ import { useProviderStore } from "@/domain/entities/stores";
 // import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
+import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
 
 const branchStore = useBranchStore(); // Updated store
@@ -43,7 +44,6 @@ function open(branch: Branch) {
   router.push({ name: "branch-details", params: { id: branch.id } });
 }
 
-
 // edit branch
 function edit(branch: Branch) {
   localStorage.setItem("branch", JSON.stringify(branch));
@@ -72,14 +72,12 @@ function convertDateTime(date: string) {
 //     notify.success("Branch Deleted");
 //   }
 
-
 function deleteBranch(branch: Branch) {
   branchStore.deleteBranch(branch.id); // Assuming this is a mutation to remove the branch
-  branchStore.branches = branchStore.branches.filter(b => b.id !== branch.id); // Manually update the store
-  fetchBranches();  // Refetch the branches after deleting, if needed
+  branchStore.branches = branchStore.branches.filter((b) => b.id !== branch.id); // Manually update the store
+  fetchBranches(); // Refetch the branches after deleting, if needed
   notify.success("Branch Deleted");
 }
-
 
 function close() {
   modalOpen.value = false;
@@ -96,13 +94,12 @@ function previous() {
   fetchBranches();
 }
 
-
 watch(
   () => modalOpen.value,
   (isOpen: boolean) => {
     if (!isOpen) {
     }
-  },
+  }
 );
 </script>
 
@@ -195,11 +192,20 @@ watch(
             <!-- <td>
               <label>{{ branch.id }}</label>
             </td> -->
-            <td>
-              <!-- <label>{{ branch.manager }}</label> -->
-              <button class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline">Assign Manger</button>
-
+            <td class="text-black-700">
+              <div v-if="branch.manager">
+                <label>{{ branch.manager }}</label>
+              </div>
+              <div v-else>
+                <button
+                  class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                  @click="assignManager(branch)"
+                >
+                  Assign Manager
+                </button>
+              </div>
             </td>
+
             <!-- <td class="text-center">
               <i
                 :class="
@@ -210,34 +216,35 @@ watch(
               ></i>
             </td> -->
 
-<!-- 
+            <!-- 
             <td class="text-center">
   <span>{{ branch.status }}</span>
 </td> -->
-<td class="text-center">
-  <span class="text-xs">{{ convertDateTime(branch.createdAt) }}</span>
-</td>
-<td class="text-center">
-  <i
-    class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
-    @click="open(branch)"
-  ></i>
-  <i
-    class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
-    @click="edit(branch)"
-  ></i>
-  <!-- <i
+            <td class="text-center">
+              <span class="text-xs">{{
+                convertDateTime(branch.createdAt)
+              }}</span>
+            </td>
+            <td class="text-center">
+              <i
+                class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+                @click="open(branch)"
+              ></i>
+              <i
+                class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
+                @click="edit(branch)"
+              ></i>
+              <!-- <i
     class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
     @click="configure(branch)"
   ></i> -->
 
-  <!-- delete branch -->
-   <i
-    class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
-    @click="deleteBranch(branch)"
-  ></i>
-</td>
-
+              <!-- delete branch -->
+              <i
+                class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
+                @click="deleteBranch(branch)"
+              ></i>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -245,8 +252,10 @@ watch(
     <div class="flex">
       <div class="w-full">
         <!-- <div class="flex" v-if="limit == branchStore.branches.length || page > 1"> -->
-          <div class="flex" v-if="limit == (branchStore.branches?.length || 0) || page > 1">
-
+        <div
+          class="flex"
+          v-if="limit == (branchStore.branches?.length || 0) || page > 1"
+        >
           <button v-if="page > 1" class="pagination-button" @click="previous">
             <i class="fa-solid fa-arrow-left"></i>
           </button>
@@ -277,7 +286,7 @@ watch(
   <AppModal v-model="modalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <CreateBranch @branchCreated="close"  @cancel="close" />
+    <CreateBranch @branchCreated="close" @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 

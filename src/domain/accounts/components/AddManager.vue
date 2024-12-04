@@ -50,8 +50,8 @@ const store = useAccounts()
 
 function submit() {
   let payload = {
-    firstname: form.firstName,
-    lastname: form.lastName,
+    firstName: form.firstName,
+    lastName: form.lastName,
     email: form.email,
     phone: form.phone,
     // role: form.role,

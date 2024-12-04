@@ -391,7 +391,7 @@ watch(
       </div>
     </div> -->
 
-    <div class="grid grid-cols-3 gap-3">
+    <div class="grid grid-cols-3 gap-3 mt-15">
       <div
         v-for="service in services"
         :key="service.id"

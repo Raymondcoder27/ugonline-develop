@@ -92,7 +92,13 @@ const allocateManager = (payload: AllocateManager) => {
   if (manager) {
     manager.branch = payload.branchId;
   }
-  
+
+  // Update the branch's manager
+  const branch = branches.value.find((branch) => branch.id === payload.branchId);
+  if (branch) {
+    branch.manager = payload.managerId;
+  }
+}
 
   // Simulating account creation
   const createAccount = async (payload: any) => {

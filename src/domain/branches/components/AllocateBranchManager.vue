@@ -4,8 +4,10 @@ import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { defineEmits } from "vue";
+import { useAccounts } from "@/doman/accounts/stores";
 
 const branchStore = useBranchStore();
+const store = useAccounts();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
 
@@ -44,6 +46,18 @@ onMounted(() => {
 //       loading.value = false;
 //     });
 // }
+
+// function submit() {
+//   let payload = {
+//     name: form.name,
+//   };
+//   loading.value = true;
+//   branchStore.addBranch(payload); // Simply add the branch
+//   notify.success("Branch Created");
+//   emit("managerAllocated");
+//   loading.value = false;
+// }
+
 
 function submit() {
   let payload = {

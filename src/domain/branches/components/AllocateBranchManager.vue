@@ -23,7 +23,7 @@ const emit = defineEmits(["cancel", "managerAllocated"]);
 
 onMounted(() => {
   loading.value = true;
-  branchtore.fetchBranches().finally(() => (loading.value = false));
+  branchStore.fetchBranches().finally(() => (loading.value = false));
 });
 
 // function submit() {

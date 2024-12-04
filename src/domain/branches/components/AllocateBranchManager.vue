@@ -17,7 +17,7 @@ type BranchForm = {
 };
 
 const form = reactive({
-  branchId: "",
+  managerId: "",
   name: "",
 });
 

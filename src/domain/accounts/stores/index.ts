@@ -77,6 +77,16 @@ const dummyBackofficeAccounts: Account[] = [
   }
 ];
 
+// allocate manager to a branch using managerId
+const allocateManager = (payload: AllocateManager) => {
+  managerAllocations.value.push({
+    id: managerAllocations.value.length + 1,
+    dateAssigned: new Date().toISOString(),
+    branch: payload.branchId,
+    manager: payload.managerId,
+    status: "Assigned"
+  });
+
   // Simulating account creation
   const createAccount = async (payload: any) => {
     return new Promise((resolve) => {

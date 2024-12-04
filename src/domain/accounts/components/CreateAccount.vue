@@ -39,12 +39,12 @@ function submit() {
     email: form.email,
     phone: form.phone,
     // role: form.role,
-    branchId: form.branchId,
+    // branchId: form.branchId,
   };
   loading.value = true;
-  store.addManagerAccount(payload); // Simply add the branch
-  notify.success("Manager Account Created");
-  emit("managerAccountCreated");
+  store.addAccount(payload); // Simply add the branch
+  notify.success("BackOffice Account Created");
+  emit("backOfficeAccountCreated");
   loading.value = false;
 }
 </script>

@@ -182,7 +182,7 @@ watch(
           </thead>
           <tbody>
             <tr
-              v-for="(transaction, idx) in store.transactions"
+              v-for="(transaction) in store.transactions"
               :key="transaction.id"
               class="body-tr"
             >

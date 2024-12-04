@@ -130,7 +130,7 @@ function submit() {
           </option>
         </select>
       </div>
-
+      
       <!-- <div class="cell-full">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
         <input type="text" v-model="form.name" class="noFocus form-element e-input w-full" required />
@@ -145,8 +145,8 @@ function submit() {
           <button class="button" type="submit">
             <i class="fa-solid fa-hand-pointer"></i> Submit
           </button>
-        </div>
-      </div> -->
+        </div> -->
+      </div>
     </form>
   </div>
 </template>

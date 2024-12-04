@@ -68,6 +68,8 @@ export const useBilling = defineStore("billing", () => {
   const dummyFloatLedgers: FloatLedger[] = [
     { id: 1, date: "2021-09-01", description: "Float from Ministry of ICT", amount: 10000000, balance: 10000000 },
     { id: 2, date: "2021-09-02", description: "Float to Branch 1", amount: -20000000, balance: 30000000 },
+    { id: 3, date: "2021-09-03", description: "Float to Branch 2", amount: -30000000, balance: 0 },
+  ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [
     { id: 1, username: "admin1", fullName: "Admin User One", role: "Administrator", branch: "Branch 1", status: "Active" },

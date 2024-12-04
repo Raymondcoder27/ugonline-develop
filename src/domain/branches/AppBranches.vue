@@ -15,14 +15,6 @@ import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
 import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
-
-// Helper function to get manager by branch
-const getManagerByBranch = (branchName) => {
-  return accountStore.managerAccounts.find(
-    (manager) => manager.branch === branchName
-  );
-};
-
 const branchStore = useBranchStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
 const categoryModalOpen: Ref<boolean> = ref(false);
@@ -34,6 +26,15 @@ const selectedBranch: Ref<string> = ref("");
 // let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
+
+
+// Helper function to get manager by branch
+const getManagerByBranch = (branchName) => {
+  return accountStore.managerAccounts.find(
+    (manager) => manager.branch === branchName
+  );
+};
+
 
 onMounted(() => {
   loading.value = true;
@@ -118,6 +119,24 @@ watch(
     }
   }
 );
+
+// Helper function to assign managers to branches
+const assignManagersToBranches = () => {
+  branchStore.branches.forEach(branch => {
+    const manager = getManagerByBranch(branch.name);
+    if (manager) {
+      branch.manager = manager;
+    }
+  });
+};
+
+
+onMounted(() => {
+  accountStore.fetchManagerAccounts();
+  branchStore.fetchBranches();
+  // allocateManager();
+  assignManagersToBranches();
+});
 </script>
 
 <template>
@@ -315,7 +334,7 @@ watch(
   <!-- /Modal -->
 
   <!-- Assign Manager Modal -->
-  <AppModal v-model="allocateManager" xl2>
+  <AppModal v-model="allocateManagerModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
     <AllocateBranchManager @managerAllocated="close" @cancel="close" />

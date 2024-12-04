@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import type { AddManager } from "@/types";
+import type { ManagerAccount } from "@/types";
 import { type Ref, ref, reactive, onMounted } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
@@ -10,12 +10,12 @@ import { useBranchStore } from "@/domain/branches/stores";
 const branchStore = useBranchStore();
 
 
- const form: AddManager = reactive({
+ const form: ManagerAccount = reactive({
   firstName: "",
   lastName: "",
   email: "",
   phone: "",
-  role: "admin",
+  // role: "admin",
   branchId: null, 
 })
 

@@ -9,25 +9,43 @@ let form: CreateAccount = reactive({
   firstName: "",
   lastName: "",
   middleName: "",
-  role: "admin",
-  username: "",
+  // role: "admin",
+  // username: "",
+  email: "",
   phone: "",
 })
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(['cancel'])
 const store = useAccounts()
+
+// function submit() {
+//   loading.value = true
+//   store.createAccount(form)
+//     .then(() => {
+//       loading.value = false
+//       notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
+//       emit("cancel")
+//     })
+//     .catch(() => {
+//       loading.value = false
+//     })
+// }
+
 function submit() {
-  loading.value = true
-  store.createAccount(form)
-    .then(() => {
-      loading.value = false
-      notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
-      emit("cancel")
-    })
-    .catch(() => {
-      loading.value = false
-    })
+  let payload = {
+    firstName: form.firstName,
+    lastName: form.lastName,
+    email: form.email,
+    phone: form.phone,
+    // role: form.role,
+    branchId: form.branchId,
+  };
+  loading.value = true;
+  store.addManagerAccount(payload); // Simply add the branch
+  notify.success("Manager Account Created");
+  emit("managerAccountCreated");
+  loading.value = false;
 }
 </script>
 

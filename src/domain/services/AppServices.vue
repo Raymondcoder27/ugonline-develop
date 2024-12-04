@@ -412,76 +412,45 @@ watch(
     </div> -->
 
     <div class="block">
-      <div class="flex px-2 pb-5">
-            <div class="w-full text-center shadow py-2 rounded-lg">
-              <div class="flex py-1 px-2">
-                <div class="w-full text-center" >
-                  <!-- <i class="fa-solid fa-user mx-auto bg-white shadow p-3 my-2" style="font-size: 30px;"></i>
-                  <p class="text-xs font-bold">
-                  </p> -->
-                  <!-- <p class="text-xs">{{ accountStore.profile.username }}</p> -->
-                  <!-- <p class="text-xs">{{ accountStore.profile.phone }}</p> -->
-                </div>
-              </div>
-              <button
-                  class="px-2 border border-primary-500 text-primary-700 rounded text-xs hover:bg-primary hover:text-white"
-                  @click="search">
-                Search
-                <span class="lds-ring mx-1" v-if="loading">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                </span>
-              </button>
-            </div>
-          </div>
+  <!-- Styled Search Bar -->
+  <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6">
+    <input
+      type="text"
+      placeholder="Search..."
+      class="w-full md:w-2/3 lg:w-1/2 px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      class="ml-4 px-6 py-2 bg-red-600 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button>
+  </div>
 
-    <div class="grid grid-cols-3 gap-3 mt-3">
-      <div
-        v-for="service in services"
-        :key="service.id"
-        class="service service-active p-4 bg-white shadow rounded"
-      >
-        <div class="flex justify-between items-center">
-          <!-- <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover"> -->
-          <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">
-
-          <!-- <img class="w-10 h-10 object-cover" />
-          <i
-            class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"
-          ></i> -->
-        </div>
-        <hr class="my-2" />
-        <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
-        <table class="text-sm text-gray-600">
-          <tbody>
-            <tr>
-              <td class="font-semibold">{{ service.description }}</td>
-              <!-- <td class="px-2">{{ service.description }}</td> -->
-            </tr>
-            <!-- <tr>
-              <td class="font-semibold">Provider:</td>
-              <td class="px-2">{{ service.name }}</td>
-            </tr>
-            <tr>
-              <td class="font-semibold">Email:</td>
-              <td class="px-2">{{ service.email }}</td>
-            </tr>
-            <tr>
-              <td class="font-semibold">Phone:</td>
-              <td class="px-2">{{ service.phone }}</td>
-            </tr>
-            <tr>
-              <td class="font-semibold">Address:</td>
-              <td class="px-2">{{ service.address }}</td>
-            </tr> -->
-          </tbody>
-        </table>
-        <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>
+  <!-- Service Cards Section -->
+  <div class="grid grid-cols-3 gap-3 mt-3">
+    <div
+      v-for="service in services"
+      :key="service.id"
+      class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
+    >
+      <div class="flex justify-between items-center">
+        <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">
       </div>
+      <hr class="my-2" />
+      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+      <table class="text-sm text-gray-600">
+        <tbody>
+          <tr>
+            <td class="font-semibold">{{ service.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>
     </div>
-    </div>
+  </div>
+</div>
+
 
     <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
 

@@ -14,9 +14,9 @@ export const useBilling = defineStore("billing", () => {
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
-    { id: 1, name: "Sample FloatLedger 1", balance: 5000000 },
-    { id: 2, name: "Sample FloatLedger 2", balance: 1200000 },
-    { id: 3, name: "Sample FloatLedger 3", balance: 1500000 },
+    { id: 1, name: "Sample FloatLedger 1", balance: 50000000 },
+    { id: 2, name: "Sample FloatLedger 2", balance: 12000000 },
+    { id: 3, name: "Sample FloatLedger 3", balance: 15000000 },
   ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [

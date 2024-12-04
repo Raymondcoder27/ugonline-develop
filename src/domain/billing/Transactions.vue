@@ -130,10 +130,12 @@ onMounted(() => fetch());
         <thead>
           <tr class="text-left">
             <!-- <th>#</th> -->
-            <th>Branch Name</th>
             <th>Tracking Number</th>
+            <th>Branch Name</th>
+            <th>Till</th>
             <th>Transaction Type</th>
-            <th>Amount</th>
+            <th>Provider</th>
+            <th>Fee</th>
             <th>Status</th>
             <th>Date</th>
             <!-- <th>Actions</th> -->
@@ -147,10 +149,12 @@ onMounted(() => fetch());
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
             <!-- <td>{{ idx + 1 }}</td> -->
-            <td>{{ transaction.branchName }}</td>
             <td>{{ transaction.trackingNumber }}</td>
+            <td>{{ transaction.branchName }}</td>
+            <td>{{ transaction.till }}</td>
             <td class="text-left">{{ transaction.transactionType }}</td>
-            <td class="text-left">{{ transaction.amount }}</td>
+            <td class="text-left">{{ transaction.provider }}</td>
+            <td class="text-left">{{ transaction.fee }}</td>
             <td class="text-left">{{ transaction.status }}</td>
             <td class="text-left">{{ convertDate(transaction.date) }}</td>
             <!-- <td class="text-left"> -->

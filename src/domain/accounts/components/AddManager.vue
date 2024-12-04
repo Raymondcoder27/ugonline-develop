@@ -16,7 +16,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel'])
+const emit = defineEmits(['cancel', 'managerAccountCreated'])
 const store = useAccounts()
 // function submit() {
 //   loading.value = true

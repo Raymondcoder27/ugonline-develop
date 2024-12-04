@@ -72,6 +72,13 @@ function convertDateTime(date: string) {
 //     notify.success("Branch Deleted");
 //   }
 
+
+function assignManager(branch: Branch) {
+  // Logic to open the modal or start the process
+  console.log(`Assigning manager for branch: ${branch.name}`);
+  // Example: modalOpen.value = true;
+}
+
 function deleteBranch(branch: Branch) {
   branchStore.deleteBranch(branch.id); // Assuming this is a mutation to remove the branch
   branchStore.branches = branchStore.branches.filter((b) => b.id !== branch.id); // Manually update the store

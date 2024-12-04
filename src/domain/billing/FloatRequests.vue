@@ -3,6 +3,7 @@ import { useBilling } from "@/domain/billing/stores";
 import { onMounted, ref, reactive, watch } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
+// import { useDebounce } from "@vueuse/core";
 
 const store = useBilling();
 const page = ref(1);
@@ -70,7 +71,7 @@ watch(
 );
 
 onMounted(() => {
-  store.fetchTransactions();
+  store.fetchFloatRequests();
 });
 </script>
 
@@ -114,7 +115,7 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(transaction, idx) in store.transactions" :key="idx">
+          <tr v-for="(transaction, idx) in store.floatRequests" :key="idx">
             <!-- <td>{{ idx + 1 }}</td> -->
             <td class="text-left">{{ transaction.date }}</td>
             <!-- <td>

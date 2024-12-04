@@ -206,7 +206,7 @@ watch(
               </td> -->
               <!-- v-bind for red incase negative transaction and green incase positive transaction -->
               <td
-                class="text-right text-green-600"
+                class="text-left text-green-600"
                 :class="{ 'text-red-600': transaction.amount < 0 }"
               >
                 <span>{{ transaction.amount }}</span>

@@ -7,6 +7,7 @@ export const useBranchStore = defineStore("branches", () => {
   const branches: Ref<Branch[] | undefined> = ref();
   const branch: Ref<Branch | undefined> = ref();
   const isLoading: Ref<boolean> = ref(false);
+  const managerAllocations: Ref<ManagerAllocation[]> = ref([]);
 
   // Dummy data for testing purposes
   const dummyBranches: Branch[] = [
@@ -52,8 +53,9 @@ export const useBranchStore = defineStore("branches", () => {
   // allocate manager to branch using managerId
   const allocateManager = (payload: AllocateManager) => {
     branches.value?.push({
-      manager: newBranch.manager,
+      manager: payload.manager,
     });
+  }
 
 
   // allocate manager to branch
@@ -92,7 +94,9 @@ export const useBranchStore = defineStore("branches", () => {
   return {
     branches,
     branch,
+
     fetchBranches,
+    allocateManager,
     addBranch,
     deleteBranch,
   };

@@ -27,13 +27,13 @@ export const useBilling = defineStore("billing", () => {
       service: "Name Reservation", provider: "URSB", till: "Till 001",
       fee: 25000, date: "2021-09-01" 
     },
-    { id: 20000, trackingNumber: "TB123457",
+    { id: 2, trackingNumber: "TB123457",
       service: "Create Postal Account", provider: "Posta Uganda",
-       till: "Till 002", fee: 200, date: "2021-09-02"
+       till: "Till 002", fee: 20000, date: "2021-09-02"
       },
-    { id: 35000, trackingNumber: "TC123458",
+    { id: 3, trackingNumber: "TC123458",
       service: "National ID registration", provider: "NIRA",
-       till: "Till 003", fee: 300, date: "2021-09-03" },
+       till: "Till 003", fee: 35000, date: "2021-09-03" },
   ];
 
 

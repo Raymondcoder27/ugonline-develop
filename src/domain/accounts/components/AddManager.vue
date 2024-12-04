@@ -55,7 +55,7 @@ function submit() {
   loading.value = true;
   store.addBranch(payload); // Simply add the branch
   notify.success("Branch Created");
-  emit("branchCreated");
+  emit("managerAccountCreated");
   loading.value = false;
 }
 

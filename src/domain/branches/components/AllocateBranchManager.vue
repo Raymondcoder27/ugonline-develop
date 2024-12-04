@@ -18,7 +18,7 @@ const notify = useNotificationsStore();
 
 const form = reactive({
   managerId: "",
-  name: "",
+  branchId: "",
 });
 
 const emit = defineEmits(["cancel", "managerAllocated"]);
@@ -31,6 +31,7 @@ onMounted(() => {
 function submit() {
   let payload = {
     managerId: form.managerId,
+    branchId: form.branchId,
   };
   loading.value = true;
   branchStore.allocateManager(payload); // Simply add the branch

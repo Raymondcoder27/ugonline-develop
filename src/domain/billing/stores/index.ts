@@ -171,6 +171,8 @@ export const useBilling = defineStore("billing", () => {
     backofficeUsers,
     branchManagers,
     floatAllocations,
+    floatRequests,
+    fetchFloatRequests,
     fetchTransactions,
     fetchFloatLedgers,
     fetchBackofficeUsers,  

@@ -5,6 +5,7 @@ import { useBilling } from "@/domain/billing/stores";
 import { useDebounceFn } from "@vueuse/core";
 import moment from "moment";
 import type { IGoFilter } from "@/types";
+import TransactionDetails from "@/domain/billing/components/TransactionDetails.vue";
 
 const billingStore = useBilling();
 

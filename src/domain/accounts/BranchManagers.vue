@@ -170,6 +170,9 @@ watch(
               {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
                 v-if="!account.phoneVerified"></i>
             </td>
+            <td>
+              {{ account.branchName }}  
+            </td>
             <!-- <td class="text-center">
               {{ account.role }}
             </td> -->

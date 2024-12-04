@@ -84,6 +84,14 @@ const dummyBackofficeAccounts: Account[] = [
     });
   }
 
+  // const addBranch = (newBranch: Branch) => {
+  //   branches.value.push(newBranch); // Directly add the branch to the array
+  // };
+
+  const addManagerAccount = (newManager: ManagerAccount) => {
+    managerAccounts.value.push(newManager); // Directly add the manager to the array
+  }
+
   // Fetch dummy user accounts
   const fetchUserAccounts = async (filter: IGoFilter) => {
     // Here you would normally process the filter if you had real data

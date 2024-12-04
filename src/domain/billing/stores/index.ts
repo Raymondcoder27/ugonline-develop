@@ -36,6 +36,21 @@ export const useBilling = defineStore("billing", () => {
        till: "Till 003", fee: 300, date: "2021-09-03" },
   ];
 
+
+  // use this for dummy float requests
+  // <th class="text-left">Date</th>
+  // <th class="text-left">Name</th>
+  // <th class="text-left">Branch</th>
+  // <th class="text-left">Amount</th>
+  // <th class="text-left">Actions</th>
+
+  const dummyFloatRequests: FloatRequest[] = [
+    { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "Pending", branch: "Branch 1", approvedBy: null },
+    { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "Approved", branch: "Branch 2", approvedBy: "Manager One" },
+    { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "Rejected", branch: "Branch 3", approvedBy: null },
+    { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "Pending", branch: "Branch 4", approvedBy: null },
+  ];
+
     
 
 

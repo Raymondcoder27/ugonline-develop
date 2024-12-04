@@ -89,6 +89,7 @@ export const useBilling = defineStore("billing", () => {
   const backofficeUsers = ref<BackofficeUser[]>(dummyBackofficeUsers);
   const branchManagers = ref<BranchManager[]>(dummyBranchManagers);
   const floatAllocations = ref<FloatAllocation[]>(dummyFloatAllocations);
+  const floatRequests = ref<FloatRequest[]>(dummyFloatRequests);
 
   // Actions to fetch data
   async function fetchTransactions(filter: any) {

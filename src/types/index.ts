@@ -62,7 +62,6 @@ export interface AddManager {
   branchId: string | null;
 }
 
-
 export interface ManagerAccount {
   id: string;
   firstName: string;

@@ -65,6 +65,16 @@ const close = () => {
   modalOpen.value = false;
 };
 
+const transactionDetailsModalOpen: Ref<boolean> = ref(false);
+
+
+  function allocateManager(branch: Branch) {
+  // Logic to open the modal or start the process
+  console.log(`Assigning manager for branch: ${branch.name}`);
+  // Example: modalOpen.value = true;
+  transactionDetailsModalOpen.value = true;
+}
+
 // Watchers
 watch(
   () => modalOpen.value,
@@ -155,7 +165,7 @@ onMounted(() => {
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
             <!-- <td>{{ idx + 1 }}</td> -->
-            <td class="rounded-md font-semibold text-red-700 hover:underline">{{ transaction.trackingNumber }}</td>
+            <td class="rounded-md font-semibold text-red-700 hover:underline" @click="transactionDetailsOpen">{{ transaction.trackingNumber }}</td>
             <td>{{ transaction.service }}</td>
             <td class="text-left">{{ transaction.provider }}</td>
             <td>{{ transaction.till }}</td>

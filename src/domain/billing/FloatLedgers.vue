@@ -182,7 +182,7 @@ watch(
           </thead>
           <tbody>
             <tr
-              v-for="(transaction) in store.transactions"
+              v-for="(transaction) in store.floatLedgers"
               :key="transaction.id"
               class="body-tr"
             >
@@ -201,7 +201,14 @@ watch(
                   }}</span>
                 </label>
               </td>
-              <td class="text-left text-green-600">
+              <!-- <td class="text-left text-green-600">
+                <span>{{ transaction.amount }}</span>
+              </td> -->
+              <!-- v-bind for red incase negative transaction and green incase positive transaction -->
+              <td
+                class="text-right text-green-600"
+                :class="{ 'text-red-600': transaction.amount < 0 }"
+              >
                 <span>{{ transaction.amount }}</span>
               </td>
               <td class="text-left text-gray-800">

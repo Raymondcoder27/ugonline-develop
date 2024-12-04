@@ -128,6 +128,12 @@ export const useBilling = defineStore("billing", () => {
     floatAllocations.value = dummyFloatAllocations;
   }
 
+  async function fetchFloatRequests(filter: any) {
+    // Simulate API call
+    // You can adjust this based on the filtering criteria or paging
+    floatRequests.value = dummyFloatRequests;
+  }
+
   // function submit() {
   //   let payload = {
   //     amount: form.firstName,

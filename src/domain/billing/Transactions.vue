@@ -200,6 +200,11 @@ onMounted(() => {
     <CreateAccount @cancel="close" />
   </AppModal>
   <!-- /Modal -->
+
+   <!-- Tracking Number Modal to show transaction details -->
+  <AppModal v-model="modalOpen" xl2>
+    <TransactionDetails @cancel="close" />
+  </AppModal>
 </template>
 
 <style scoped>

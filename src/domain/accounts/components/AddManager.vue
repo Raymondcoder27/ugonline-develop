@@ -53,8 +53,8 @@ function submit() {
     branchId: form.branchId,
   };
   loading.value = true;
-  store.addBranch(payload); // Simply add the branch
-  notify.success("Branch Created");
+  store.addManagerAccount(payload); // Simply add the branch
+  notify.success("Manager Account Created");
   emit("managerAccountCreated");
   loading.value = false;
 }

@@ -68,7 +68,7 @@ const close = () => {
 const transactionDetailsModalOpen: Ref<boolean> = ref(false);
 
 
-  function allocateManager(branch: Branch) {
+  function transactionDetails(branch: Branch) {
   // Logic to open the modal or start the process
   console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;

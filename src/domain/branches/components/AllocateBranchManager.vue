@@ -4,7 +4,7 @@ import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { defineEmits } from "vue";
-import { useAccounts } from "@/doman/accounts/stores";
+import { useAccounts } from "@/domain/accounts/stores";
 
 const branchStore = useBranchStore();
 const store = useAccounts();
@@ -83,13 +83,13 @@ function submit() {
           v-model="form.branchId"
           class="noFocus form-element e-input w-full"
         >
-          <option :value="null">-- Select Branch --</option>
+          <option :value="null">-- Select Manager --</option>
           <option
             v-for="(account, idx) in store.managerAccounts"
             :key="idx"
-            :value="account.name"
+            :value="account.firstName"
           >
-            {{ account.name }}
+            {{ account.firstName }}
           </option>
         </select>
         <div class="flex my-2 py-5">

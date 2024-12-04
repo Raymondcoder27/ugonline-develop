@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount } from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount } from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
@@ -121,6 +121,27 @@ const dummyBackofficeAccounts: Account[] = [
         branch: newManager.branchId
       }
     );
+  }
+
+  // add backoffice account, push to the backoffice account array
+  const addBackofficeAccount = (newBackoffice: BackOfficeAccount) => {
+    backofficeAccounts.value.push(
+      {
+        // id:  floatAllocations.value.length + 1,
+        id: backofficeAccounts.value.length + 1,
+        firstName: newBackoffice.firstName,
+        lastName: newBackoffice.lastName,
+        middleNames: newBackoffice.middleNames,
+        username: newBackoffice.username,
+        phone: newBackoffice.phone,
+        emailVerified: true,
+        phoneVerified: true,
+        role: newBackoffice.role,
+        createdAt: new Date().toISOString(),
+        status: "Active",
+        email: newBackoffice.username
+      }
+    ); // Directly add the backoffice to the array
   }
 
   // const addManagerAccount = (newManager: ManagerAccount) => {

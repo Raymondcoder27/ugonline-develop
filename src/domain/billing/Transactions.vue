@@ -76,7 +76,13 @@ watch(
 watch(() => filter, updateFilter, { deep: true });
 
 // Initialize fetch on mounted
-onMounted(() => fetch());
+// onMounted(() => fetch());
+onMounted(() => {
+  fetch();
+  billingStore.fetchFloatAllocations(); // Fetch transactions when the component mounts
+  // billingStore.fetchFloatLedgers(); // Fetch float ledgers
+  billingStore.fetchTransactions
+});
 </script>
 
 

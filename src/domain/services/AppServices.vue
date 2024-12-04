@@ -184,26 +184,26 @@ const services = ref<Service[]>([
     // phone: "0312123123",
     // address: "",
   },
-  {
-    id: 10,
-    service: "Business Registration",
-    description: "Register a Business",
-  },
-  {
-    id: 11,
-    service: "Company Registration",
-    description: "Register a Company",
-  },
-  {
-    id: 12,
-    service: "e-Government Services",
-    description: "Access e-Government Services",
-  },
-  {
-    id: 13,
-    service: "e-Procurement",
-    description: "Access e-Procurement Services",
-  }
+  // {
+  //   id: 10,
+  //   service: "Business Registration",
+  //   description: "Register a Business",
+  // },
+  // {
+  //   id: 11,
+  //   service: "Company Registration",
+  //   description: "Register a Company",
+  // },
+  // {
+  //   id: 12,
+  //   service: "e-Government Services",
+  //   description: "Access e-Government Services",
+  // },
+  // {
+  //   id: 13,
+  //   service: "e-Procurement",
+  //   description: "Access e-Procurement Services",
+  // }
 ]);
 
 
@@ -410,6 +410,31 @@ watch(
         </div>
       </div>
     </div> -->
+
+    <div class="flex px-2 pb-5" v-if="menuOpen">
+            <div class="w-full text-center shadow py-2 rounded-lg">
+              <div class="flex py-1 px-2">
+                <div class="w-full text-center" v-if="accountStore.profile">
+                  <i class="fa-solid fa-user mx-auto bg-gray-50 shadow p-3 my-2" style="font-size: 30px;"></i>
+                  <p class="text-xs font-bold">{{ accountStore.profile.firstName }} {{ accountStore.profile.lastName }}
+                  </p>
+                  <p class="text-xs">{{ accountStore.profile.username }}</p>
+                  <p class="text-xs">{{ accountStore.profile.phone }}</p>
+                </div>
+              </div>
+              <button
+                  class="px-2 border border-primary-500 text-primary-700 rounded text-xs hover:bg-primary hover:text-white"
+                  @click="logout">
+                Logout
+                <span class="lds-ring mx-1" v-if="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </span>
+              </button>
+            </div>
+          </div>
 
     <div class="grid grid-cols-3 gap-3 mt-20">
       <div

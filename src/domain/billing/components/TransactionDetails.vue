@@ -79,13 +79,13 @@ onMounted(() => {
     <!-- <p class="text-sm text-gray-500">The allocation of funds by a Super Agent to a designated branch or till to ensure liquidity for transactions and service delivery.</p> -->
     <form @submit.prevent="submit" class="pt-5">
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount (UGX)</label>
           <input autocomplete="off" type="number" v-model="form.firstName" class="noFocus form-element e-input w-full"
             required />
         </div>
-      </div>
+      </div> -->
       
       <div class="flex">
         <!-- <div class="cell">
@@ -111,7 +111,7 @@ onMounted(() => {
       </div> -->
 
 
-      <div class="">
+      <!-- <div class="">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
           >Select Branch</label
         >
@@ -149,7 +149,7 @@ onMounted(() => {
 
           </button>
         </div>
-      </div>
+      </div> -->
     </form>
   </div>
 </template>

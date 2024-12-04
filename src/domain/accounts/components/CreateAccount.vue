@@ -96,6 +96,7 @@ function submit() {
             required />
         </div>
       </div>
+      </div>
 
       <!-- <div class="flex">
         <div class="cell-full">

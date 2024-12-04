@@ -79,7 +79,7 @@ function submit() {
       <div class="flex">
         <div class="cell">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Email Address</label>
-          <input autocomplete="off" type="email" v-model="form.username" class="noFocus form-element e-input w-full"
+          <input autocomplete="off" type="email" v-model="form.email" class="noFocus form-element e-input w-full"
             required />
         </div>
         <div class="cell">

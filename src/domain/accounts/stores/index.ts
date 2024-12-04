@@ -139,7 +139,7 @@ const dummyBackofficeAccounts: Account[] = [
         role: newBackoffice.role,
         createdAt: new Date().toISOString(),
         status: "Active",
-        email: newBackoffice.username
+        email: newBackoffice.email
       }
     ); // Directly add the backoffice to the array
   }

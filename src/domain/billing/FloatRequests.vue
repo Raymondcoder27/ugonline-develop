@@ -122,7 +122,7 @@ onMounted(() => {
                 transaction.description
               }}</label>
             </td> -->
-            <td class="text-left">{{ transaction.branchName }}</td>
+            <td class="text-left">{{ transaction.branch }}</td>
             <td class="text-left">{{ transaction.amount }}</td>
 
             <td class="text-left">

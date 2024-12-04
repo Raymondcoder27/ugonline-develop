@@ -27,14 +27,12 @@ const selectedBranch: Ref<string> = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
-
 // Helper function to get manager by branch
 const getManagerByBranch = (branchName) => {
   return accountStore.managerAccounts.find(
     (manager) => manager.branch === branchName
   );
 };
-
 
 onMounted(() => {
   loading.value = true;
@@ -122,14 +120,13 @@ watch(
 
 // Helper function to assign managers to branches
 const assignManagersToBranches = () => {
-  branchStore.branches.forEach(branch => {
+  branchStore.branches.forEach((branch) => {
     const manager = getManagerByBranch(branch.name);
     if (manager) {
       branch.manager = manager;
     }
   });
 };
-
 
 onMounted(() => {
   accountStore.fetchManagerAccounts();
@@ -230,7 +227,10 @@ onMounted(() => {
             </td> -->
             <td class="text-black-700">
               <div v-if="getManagerByBranch(branch.name)">
-                <label>{{ getManagerByBranch(branch.name).firstName }} {{ getManagerByBranch(branch.name).lastName }}</label>
+                <label
+                  >{{ getManagerByBranch(branch.name).firstName }}
+                  {{ getManagerByBranch(branch.name).lastName }}</label
+                >
               </div>
               <div v-else>
                 <button

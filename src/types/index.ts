@@ -79,6 +79,24 @@ export interface ManagerAccount {
   activatedAt: string;
 }
 
+export interface BackOfficeAccount {
+  id: string;
+  status: string;
+  firstName: string;
+  lastName: string;
+  middleNames: string;
+  username: string;
+  email: string;
+  phone: string;
+  role: string;
+  createdAt: string;
+  emailVerified: boolean;
+  phoneVerified: boolean;
+  activatedAt: string;
+}
+
+
+
 export interface ApiSuccess {
   status: number
   data: Object

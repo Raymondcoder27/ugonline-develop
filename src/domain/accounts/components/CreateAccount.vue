@@ -43,7 +43,7 @@ function submit() {
     // branchId: form.branchId,
   };
   loading.value = true;
-  store.addAccount(payload); // Simply add the branch
+  store.addBackOfficeAccount(payload); // Simply add the branch
   notify.success("BackOffice Account Created");
   emit("backOfficeAccountCreated");
   loading.value = false;

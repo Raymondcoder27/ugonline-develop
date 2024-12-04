@@ -124,7 +124,7 @@ const dummyBackofficeAccounts: Account[] = [
   }
 
   // add backoffice account, push to the backoffice account array
-  const addBackofficeAccount = (newBackoffice: BackOfficeAccount) => {
+  const addBackOfficeAccount = (newBackoffice: BackOfficeAccount) => {
     backofficeAccounts.value.push(
       {
         // id:  floatAllocations.value.length + 1,
@@ -190,6 +190,7 @@ const dummyBackofficeAccounts: Account[] = [
     fetchUserAccounts, 
     fetchManagerAccounts,
     addManagerAccount,
-    resendAccountVerification 
+    addBackOfficeAccount,
+    resendAccountVerification
   };
 });

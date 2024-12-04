@@ -417,10 +417,10 @@ watch(
     <input
       type="text"
       placeholder="Search..."
-      class="w-full md:w-2/3 lg:w-1/2 px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
+      class="w-full md:w-2/3 lg:w-1/2 px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-red-700"
     />
     <button
-      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-800 transition duration-300 ease-in-out"
       @click="search"
     >
       Search
@@ -446,7 +446,7 @@ watch(
           </tr>
         </tbody>
       </table>
-      <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>
+      <p class="font-bold text-xs text-white bg-red-700 p-1 rounded-md w-2/5 text-center cursor-pointer hover:scale-105 hover:bg-red-800">SUBSCRIBE</p>
     </div>
   </div>
 </div>

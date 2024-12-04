@@ -30,18 +30,48 @@ const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(['cancel'])
 const store = useAccounts()
+// function submit() {
+//   loading.value = true
+//   store.createAccount(form)
+//     .then(() => {
+//       loading.value = false
+//       notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
+//       emit("cancel")
+//     })
+//     .catch(() => {
+//       loading.value = false
+//     })
+// }
+
+// function submit() {
+//   let payload = {
+//     name: form.name,
+//   };
+//   loading.value = true;
+//   store.addBranch(payload); // Simply add the branch
+//   notify.success("Branch Created");
+//   emit("branchCreated");
+//   loading.value = false;
+// }
+
+
 function submit() {
-  loading.value = true
-  store.createAccount(form)
-    .then(() => {
-      loading.value = false
-      notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
-      emit("cancel")
-    })
-    .catch(() => {
-      loading.value = false
-    })
+  let payload = {
+    firstname: form.firstname,
+    lastname: form.lastname,
+    email: form.email,
+    phone: form.phone,
+    // role: form.role,
+    branchId: form.branchId,
+  };
+  loading.value = true;
+  store.addBranch(payload); // Simply add the branch
+  notify.success("Branch Created");
+  emit("branchCreated");
+  loading.value = false;
 }
+
+
 
 // onMounted fetch branches
 onMounted(() => {

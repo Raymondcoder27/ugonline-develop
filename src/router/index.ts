@@ -36,64 +36,64 @@ const appRoutes: RouteRecordRaw[] = [
     redirect: { name: "app-home" },
   },
   {
-    path: "/home",
+    path: "/agent-admin",
     name: "app-home",
     component: MainLayout,
     meta: { requiresAuth: false },
     children: [
       {
         name: "app-dashboard",
-        path: "/home/dashboard",
+        path: "/agent-admin/dashboard",
         component: AppDashboard,
       },
       {
         name: "app-entities",
-        path: "/home/entities",
+        path: "/agent-admin/entities",
         component: AppEntities,
       },
       {
         name: "app-agents",
-        path: "/home/agents",
+        path: "/agent-admin/agents",
         component: AppAgents,
       },
       {
         name: "app-services",
-        path: "/home/services",
+        path: "/agent-admin/services",
         component: Services,
       },
       {
         name: "app-branches",
-        path: "/home/branches",
+        path: "/agent-admin/branches",
         component: Branches,
       },
       {
         name: "app-accounts",
-        path: "/home/accounts",
+        path: "/agent-admin/accounts",
         component: Accounts
       },
       {
         name: "app-configurations",
-        path: "/home/configurations",
+        path: "/agent-admin/configurations",
         component: Settings
       },
       {
         name: "app-reports",
-        path: "/home/data-analytics",
+        path: "/agent-admin/data-analytics",
         component: DataAnalytics
       },
       {
         name: "app-services-details",
-        path: "/home/services-details",
+        path: "/agent-admin/services-details",
         component: ServicesDetails
       },
       {
         name: "app-billing",
-        path: "/home/billing",
+        path: "/agent-admin/billing",
         component: Billing
       },
       {
         name: "app-gateway",
-        path: "/home/gateway",
+        path: "/agent-admin/gateway",
         component: AppGateway
       },
     ]

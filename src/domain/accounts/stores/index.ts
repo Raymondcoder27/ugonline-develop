@@ -8,7 +8,20 @@ import { useCommonsStore } from "../../../stores/commons";
 import { AxiosError } from "axios";
 import type { AccountResponseInterface, AccountsData, IResendVerificationPayload } from "@/domain/accounts/types";
 
-// Dummy Data for testing
+
+
+export const useAccounts = defineStore("user-management", () => {
+  const response: Ref<AccountResponse | undefined> = ref();
+  const userAccounts: Ref<Account[]> = ref([]);
+  const backofficeAccounts: Ref<Account[]> = ref([]);
+  const managerAccounts: Ref<ManagerAccount[]> = ref([]);
+
+  const request = useGoRequest();
+  const notify = useNotificationsStore();
+  const commons = useCommonsStore();
+
+
+  // Dummy Data for testing
 const dummyUserAccounts: Account[] = [
   { 
     firstName: "John", lastName: "Doe", middleNames: "M", username: "john.doe@example.com", 
@@ -63,16 +76,6 @@ const dummyBackofficeAccounts: Account[] = [
     emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01"
   }
 ];
-
-export const useAccounts = defineStore("user-management", () => {
-  const response: Ref<AccountResponse | undefined> = ref();
-  const userAccounts: Ref<Account[]> = ref([]);
-  const backofficeAccounts: Ref<Account[]> = ref([]);
-  const managerAccounts: Ref<ManagerAccount[]> = ref([]);
-
-  const request = useGoRequest();
-  const notify = useNotificationsStore();
-  const commons = useCommonsStore();
 
   // Simulating account creation
   const createAccount = async (payload: any) => {

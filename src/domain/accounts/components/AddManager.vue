@@ -4,18 +4,6 @@ import type { AddManager } from "@/types";
 import { type Ref, ref, reactive, onMounted } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useBranchStore } from "@/domain/branches/stores"; 
-
-const branchStore = useBranchStore();
-
-// let form: CreateAccount = reactive({
-//   firstName: "",
-//   lastName: "",
-//   middleName: "",
-//   role: "admin",
-//   username: "",
-//   phone: "",
-// })
 
  const form: AddManager = reactive({
   firstName: "",

@@ -16,7 +16,7 @@ let form: CreateAccount = reactive({
 })
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel'])
+const emit = defineEmits(['cancel', 'backOfficeAccountCreated'])
 const store = useAccounts()
 
 // function submit() {

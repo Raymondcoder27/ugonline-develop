@@ -2,12 +2,13 @@ import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 import api from "@/config/api";
 import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
+import type { AllocateManager } from "@/types";
 
 export const useBranchStore = defineStore("branches", () => {
   const branches: Ref<Branch[] | undefined> = ref();
   const branch: Ref<Branch | undefined> = ref();
   const isLoading: Ref<boolean> = ref(false);
-  const managerAllocations: Ref<ManagerAllocation[]> = ref([]);
+  const managerAllocations: Ref<AllocateManager[]> = ref([]);
 
   // Dummy data for testing purposes
   const dummyBranches: Branch[] = [
@@ -94,7 +95,7 @@ export const useBranchStore = defineStore("branches", () => {
   return {
     branches,
     branch,
-
+    managerAllocations,
     fetchBranches,
     allocateManager,
     addBranch,

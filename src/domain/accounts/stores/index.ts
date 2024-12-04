@@ -68,12 +68,12 @@ const dummyBackofficeAccounts: Account[] = [
   { 
     firstName: "Admin", lastName: "User", middleNames: "B", username: "admin.user@example.com", 
     phone: "345-678-9012", role: "admin", createdAt: "2021-03-01", 
-    emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01"
+    emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01", email: "admin.user@example.com"
   },
   { 
     firstName: "Support", lastName: "Agent", middleNames: "C", username: "support.agent@example.com", 
     phone: "456-789-0123", role: "admin", createdAt: "2021-04-01", 
-    emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01"
+    emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01", email: "support.agent@example.com"
   }
 ];
 

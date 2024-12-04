@@ -161,7 +161,7 @@ watch(
             </td>
             <td>
               <a class="underline" :href="'smtp:' + account.username">
-                {{ account.username }}
+                {{ account.email }}
               </a>
               <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
             </td>

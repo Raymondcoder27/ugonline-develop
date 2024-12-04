@@ -85,6 +85,7 @@ function assignManager(branch: Branch) {
   // Logic to open the modal or start the process
   console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
+
 }
 
 function deleteBranch(branch: Branch) {
@@ -311,6 +312,14 @@ watch(
     <!-- That's also okay -->
   </AppModal>
   <!-- /Modal -->
+
+  <!-- Assign Manager Modal -->
+  <AppModal v-model="categoryModalOpen" xl2>
+    <!-- Put here whatever makes you smile -->
+    <!-- Chances are high that you're starting with a form -->
+    <AllocateBranchManager @managerAllocated="close" @cancel="close" />
+    <!-- That's also okay -->
+  </AppModal>
 </template>
 
 <style scoped>

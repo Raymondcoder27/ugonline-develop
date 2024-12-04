@@ -14,7 +14,6 @@ import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
 
-
 import { useAccounts } from "@/domain/accounts/stores";
 const accountStore = useAccounts();
 const branchStore = useBranchStore(); // Updated store
@@ -245,32 +244,31 @@ onMounted(() => {
             </td> -->
 
             <td class="text-black-700">
-  <!-- First Case: Manager linked via `getManagerByBranch()` -->
-  <div v-if="getManagerByBranch(branch.name)">
-    <label>
-      {{ getManagerByBranch(branch.name).firstName }}
-      {{ getManagerByBranch(branch.name).lastName }}
-    </label>
-  </div>
+              <!-- First Case: Manager linked via `getManagerByBranch()` -->
+              <div v-if="getManagerByBranch(branch.name)">
+                <label>
+                  {{ getManagerByBranch(branch.name).firstName }}
+                  {{ getManagerByBranch(branch.name).lastName }}
+                </label>
+              </div>
 
-  <!-- Second Case: Manager directly assigned to branch -->
-  <div v-else-if="branch.manager">
-    <label>
-      {{ branch.manager.firstName }} {{ branch.manager.lastName }}
-    </label>
-  </div>
+              <!-- Second Case: Manager directly assigned to branch -->
+              <div v-else-if="branch.manager">
+                <label>
+                  {{ branch.manager.firstName }} {{ branch.manager.lastName }}
+                </label>
+              </div>
 
-  <!-- Third Case: Fallback, no manager assigned -->
-  <div v-else>
-    <button
-      class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
-      @click="allocateManager(branch)"
-    >
-      Allocate Manager
-    </button>
-  </div>
-</td>
-
+              <!-- Third Case: Fallback, no manager assigned -->
+              <div v-else>
+                <button
+                  class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                  @click="allocateManager(branch)"
+                >
+                  Allocate Manager
+                </button>
+              </div>
+            </td>
 
             <!-- <td class="text-center">
               <i

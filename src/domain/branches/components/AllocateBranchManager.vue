@@ -64,7 +64,7 @@ function submit() {
     name: form.name,
   };
   loading.value = true;
-  branchStore.addBranch(payload); // Simply add the branch
+  store.addBranch(payload); // Simply add the branch
   notify.success("Branch Created");
   emit("managerAllocated");
   loading.value = false;
@@ -85,11 +85,11 @@ function submit() {
         >
           <option :value="null">-- Select Branch --</option>
           <option
-            v-for="(branch, idx) in branchStore.branches"
+            v-for="(account, idx) in store.managerAccounts"
             :key="idx"
-            :value="branch.name"
+            :value="account.name"
           >
-            {{ branch.name }}
+            {{ account.name }}
           </option>
         </select>
         <div class="flex my-2 py-5">

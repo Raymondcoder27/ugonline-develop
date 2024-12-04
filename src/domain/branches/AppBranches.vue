@@ -81,11 +81,11 @@ function convertDateTime(date: string) {
 //     notify.success("Branch Deleted");
 //   }
 
-function assignManager(branch: Branch) {
+function allocateManager(branch: Branch) {
   // Logic to open the modal or start the process
   console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
-
+  modalOpen.value = true;
 }
 
 function deleteBranch(branch: Branch) {
@@ -215,9 +215,9 @@ watch(
               <div v-else>
                 <button
                   class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
-                  @click="assignManager(branch)"
+                  @click="allocateManager(branch)"
                 >
-                  Assign Manager
+                  Allocate Manager
                 </button>
               </div>
             </td>
@@ -314,7 +314,7 @@ watch(
   <!-- /Modal -->
 
   <!-- Assign Manager Modal -->
-  <AppModal v-model="categoryModalOpen" xl2>
+  <AppModal v-model="allocateManager" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
     <AllocateBranchManager @managerAllocated="close" @cancel="close" />

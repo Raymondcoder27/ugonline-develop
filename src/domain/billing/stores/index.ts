@@ -24,15 +24,15 @@ export const useBilling = defineStore("billing", () => {
 
   const dummyTransactions: Transaction[] = [
     { id: 1, trackingNumber: "TRK123456",
-      service: "Service 1", provider: "Provider 1", till: "Till 1",
+      service: "Name Reservation", provider: "URSB", till: "Till 1",
       fee: 100, date: "2021-09-01" 
     },
     { id: 2, trackingNumber: "TRK123457",
-      service: "Service 2", provider: "Provider 2",
+      service: "Create Postal Account", provider: "Posta Uganda",
        till: "Till 2", fee: 200, date: "2021-09-02"
       },
     { id: 3, trackingNumber: "TRK123458",
-      service: "Service 3", provider: "Provider 3",
+      service: "National ID registration", provider: "NIRA",
        till: "Till 3", fee: 300, date: "2021-09-03" },
   ];
 

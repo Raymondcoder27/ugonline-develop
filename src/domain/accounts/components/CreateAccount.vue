@@ -70,7 +70,7 @@ function submit() {
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Role</label>
           <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
@@ -78,7 +78,7 @@ function submit() {
             <option value="public">Public User</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">

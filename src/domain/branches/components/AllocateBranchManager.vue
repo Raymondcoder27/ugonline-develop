@@ -11,10 +11,10 @@ const store = useAccounts();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
 
-type BranchForm = {
-  branchId: string;
-  name: string;
-};
+// type BranchForm = {
+//   branchId: string;
+//   name: string;
+// };
 
 const form = reactive({
   managerId: "",

@@ -19,11 +19,11 @@ const form = reactive({
   name: "",
 });
 
-const emit = defineEmits(["cancel", "branchCreated"]);
+const emit = defineEmits(["cancel", "managerAllocated"]);
 
 onMounted(() => {
   loading.value = true;
-  store.fetchBranches().finally(() => (loading.value = false));
+  branchtore.fetchBranches().finally(() => (loading.value = false));
 });
 
 // function submit() {
@@ -52,7 +52,7 @@ function submit() {
   loading.value = true;
   branchStore.addBranch(payload); // Simply add the branch
   notify.success("Branch Created");
-  emit("branchCreated");
+  emit("managerAllocated");
   loading.value = false;
 }
 </script>

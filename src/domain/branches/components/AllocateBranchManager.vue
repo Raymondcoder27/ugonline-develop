@@ -116,7 +116,22 @@ function submit() {
         The individual responsible for overseeing branch operations, managing staff, and ensuring smooth service delivery to agents and the public.
     </p>
     <form @submit.prevent="submit" class="pt-5">
-      <div class="cell-full">
+        <select
+          v-model="form.branchId"
+          class="noFocus form-element e-input w-full"
+        >
+          <option :value="null">-- Select Branch --</option>
+          <option
+            v-for="(branch, idx) in branchStore.branches"
+            :key="idx"
+            :value="branch.name"
+          >
+            {{ branch.name }}
+          </option>
+        </select>
+      </div>
+
+      <!-- <div class="cell-full">
         <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
         <input type="text" v-model="form.name" class="noFocus form-element e-input w-full" required />
       </div>
@@ -131,7 +146,7 @@ function submit() {
             <i class="fa-solid fa-hand-pointer"></i> Submit
           </button>
         </div>
-      </div>
+      </div> -->
     </form>
   </div>
 </template>

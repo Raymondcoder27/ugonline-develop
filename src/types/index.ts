@@ -69,6 +69,7 @@ export interface ManagerAccount {
   lastName: string;
   middleNames: string;
   username: string;
+  email: string;
   phone: string;
   role: string;
   createdAt: string;

@@ -97,7 +97,7 @@ export interface BackOfficeAccount {
 
 // AllocateManager type
 export interface AllocateManager {
-  branchId: string | null;
+  // branchId: string | null;
   managerId: string | null;
 }
 

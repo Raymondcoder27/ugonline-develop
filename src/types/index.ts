@@ -70,7 +70,7 @@ export interface ManagerAccount {
   middleNames: string;
   username: string;
   email: string;
-  branch: string;
+  branchName: string;
   phone: string;
   role: string;
   createdAt: string;

@@ -109,6 +109,10 @@ watch(
   () => updateFilter(),
   { deep: true }
 )
+
+onMounted(() => {
+  store.fetchBackofficeAccounts()
+})
 </script>
 
 <template>

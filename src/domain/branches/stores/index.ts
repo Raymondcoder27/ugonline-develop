@@ -51,6 +51,15 @@ export const useBranchStore = defineStore("branches", () => {
     // }
   }
 
+  // const allocateManager = (payload: AllocateManager) => {
+  //   const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
+  //   if (branchToUpdate) {
+  //     branchToUpdate.manager = payload.managerId;
+  //   } else {
+  //     console.warn(`Branch with ID ${payload.branchId} not found.`);
+  //   }
+  // };
+
   const allocateManager = (payload: AllocateManager) => {
     const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
     if (branchToUpdate) {
@@ -59,6 +68,7 @@ export const useBranchStore = defineStore("branches", () => {
       console.warn(`Branch with ID ${payload.branchId} not found.`);
     }
   };
+  
 
 
    // Delete branch from the store

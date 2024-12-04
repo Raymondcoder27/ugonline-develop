@@ -116,6 +116,7 @@ onMounted(() => {
         <tbody>
           <tr v-for="(transaction, idx) in store.transactions" :key="idx">
             <!-- <td>{{ idx + 1 }}</td> -->
+            <td class="text-left">{{ transaction.date }}</td>
             <td>
               <label class="font-bold py-1">{{
                 transaction.description
@@ -123,7 +124,6 @@ onMounted(() => {
             </td>
             <td class="text-left">{{ transaction.branchName }}</td>
             <td class="text-left">{{ transaction.amount }}</td>
-            <td class="text-left">{{ transaction.date }}</td>
 
             <td class="text-left">
               <!-- approve or reject -->

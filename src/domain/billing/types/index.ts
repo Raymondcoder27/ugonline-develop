@@ -118,7 +118,7 @@ export interface BranchManager {
 
   export interface FloatRequest {
     id: string;
-    requestDate: string;
+    date: string;
     amount: number;
     status: string;
     branch: string;

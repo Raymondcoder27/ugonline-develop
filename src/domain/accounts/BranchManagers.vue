@@ -151,7 +151,7 @@ watch(
         </thead>
         <tbody>
           <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
-            v-for="(account, idx) in store.backofficeAccounts" :key="idx">
+            v-for="(account, idx) in store.managerAccounts" :key="idx">
 <!--            <td width="10px">{{ idx + 1 }}.</td>-->
             <td>
               <label class="font-bold py-1">
@@ -215,7 +215,7 @@ watch(
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
-    <AddManager @cancel="close" />
+    <AddManager @managerAccountCreated="close" @cancel="close" />
   </AppModal>
   <!-- /Modal -->
 </template>

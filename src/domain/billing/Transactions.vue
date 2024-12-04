@@ -132,9 +132,9 @@ onMounted(() => fetch());
             <!-- <th>#</th> -->
             <th>Tracking Number</th>
             <th>Service</th>
-            <th>Till</th>
-            <th>Transaction Type</th>
             <th>Provider</th>
+            <th>Till</th>
+            <!-- <th>Transaction Type</th> -->
             <th>Fee</th>
             <!-- <th>Status</th> -->
             <th>Date</th>
@@ -151,9 +151,9 @@ onMounted(() => fetch());
             <!-- <td>{{ idx + 1 }}</td> -->
             <td>{{ transaction.trackingNumber }}</td>
             <td>{{ transaction.service }}</td>
-            <td>{{ transaction.till }}</td>
-            <td class="text-left">{{ transaction.transactionType }}</td>
             <td class="text-left">{{ transaction.provider }}</td>
+            <td>{{ transaction.till }}</td>
+            <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
             <td class="text-left">{{ transaction.fee }}</td>
             <!-- <td class="text-left">{{ transaction.status }}</td> -->
             <td class="text-left">{{ convertDate(transaction.date) }}</td>

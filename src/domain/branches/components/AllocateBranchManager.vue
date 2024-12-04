@@ -3,18 +3,19 @@ import { onMounted, reactive, ref, type Ref } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
+import { defineEmits } from "vue";
 
-const store = useBranchStore();
+const branchStore = useBranchStore();
 const loading: Ref<boolean> = ref(false);
 const notify = useNotificationsStore();
 
 type BranchForm = {
-  id: string;
+  branchId: string;
   name: string;
 };
 
 const form = reactive({
-  id: "",
+  branchId: "",
   name: "",
 });
 
@@ -49,7 +50,7 @@ function submit() {
     name: form.name,
   };
   loading.value = true;
-  store.addBranch(payload); // Simply add the branch
+  branchStore.addBranch(payload); // Simply add the branch
   notify.success("Branch Created");
   emit("branchCreated");
   loading.value = false;
@@ -62,6 +63,7 @@ function submit() {
     <p class="text-sm text-gray-500">
         The individual responsible for overseeing branch operations, managing staff, and ensuring smooth service delivery to agents and the public.
     </p>
+
     <form @submit.prevent="submit" class="pt-5">
         <select
           v-model="form.branchId"
@@ -76,25 +78,6 @@ function submit() {
             {{ branch.name }}
           </option>
         </select>
-      </div>
-      
-      
-      <!-- <div class="cell-full">
-        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
-        <input type="text" v-model="form.name" class="noFocus form-element e-input w-full" required />
-      </div> -->
-      <div class="flex my-2 py-5">
-        <div class="w-6/12 px-1">
-          <button class="button-outline" type="button" @click="emit('cancel')">
-            <i class="fa-solid fa-ban"></i> Cancel
-          </button>
-        </div>
-        <div class="w-6/12 px-1">
-          <button class="button" type="submit">
-            <i class="fa-solid fa-hand-pointer"></i> Submit
-          </button>
-        </div>
-      </div>
     </form>
   </div>
 </template>

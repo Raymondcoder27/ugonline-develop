@@ -156,13 +156,13 @@ watch(
             <td>
               <label class="font-bold py-1">
                 {{ account.firstName }} {{ account.lastName }}
-                {{ account.middleNames }}
+                <!-- {{ account.middleNames }} -->
               </label>
               <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
             </td>
             <td>
               <a class="underline" :href="'smtp:' + account.username">
-                {{ account.username }}
+                {{ account.email }}
               </a>
               <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
             </td>

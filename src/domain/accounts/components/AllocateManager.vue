@@ -5,6 +5,9 @@ import { type Ref, ref, reactive } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
+import { useBranchStore } from "@/domain/branches/stores";
+
+const branchStore = useBranchStore();
 
 let form: CreateAccount = reactive({
   firstName: "",

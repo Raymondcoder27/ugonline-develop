@@ -88,9 +88,42 @@ const dummyBackofficeAccounts: Account[] = [
   //   branches.value.push(newBranch); // Directly add the branch to the array
   // };
 
+ 
+
+   // allocate float function, push to the float allocation array
+  //  function allocateFloat(payload: AllocateFloat) {
+  //   floatAllocations.value.push({
+  //     id: floatAllocations.value.length + 1,
+  //     dateAssigned: new Date().toISOString(),
+  //     amount: payload.amount,
+  //     status: "Assigned",
+  //     branch: payload.branchId,
+  //   })
+  // }
+
+  // add manager account, push to the manager account array
   const addManagerAccount = (newManager: ManagerAccount) => {
-    managerAccounts.value.push(newManager); // Directly add the manager to the array
-  }
+    managerAccounts.value.push(
+      {
+        // id:  floatAllocations.value.length + 1,
+        id: managerAccounts.value.length + 1,
+        firstName: newManager.firstName,
+        lastName: newManager.lastName,
+        middleNames: newManager.middleNames,
+        username: newManager.username,
+        phone: newManager.phone,
+        emailVerified: true,
+        phoneVerified: true,
+        role: newManager.role,
+        createdAt: new Date().toISOString(),
+        status: "Active",
+        email: newManager.email,
+        branch: newManager.branchId
+      }
+
+  // const addManagerAccount = (newManager: ManagerAccount) => {
+  //   managerAccounts.value.push(newManager); // Directly add the manager to the array
+  // }
 
   // Fetch dummy user accounts
   const fetchUserAccounts = async (filter: IGoFilter) => {

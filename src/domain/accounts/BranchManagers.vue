@@ -8,6 +8,9 @@ import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
 import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
 import AddManager from "@/domain/accounts/components/AddManager.vue";
+import { useBranchStore } from "@/domain/branches/stores"; // Updated import
+
+const branchStore = useBranchStore();
 
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
@@ -111,7 +114,9 @@ watch(
 )
 
 onMounted(() => {
-  store.fetchBackofficeAccounts()
+  store.fetchManagerAccounts(),
+  branchStore.fetchBranches()
+  // store.fetchRoles()
 })
 </script>
 
@@ -175,7 +180,7 @@ onMounted(() => {
                 v-if="!account.phoneVerified"></i>
             </td>
             <td>
-              {{ account.branchName }}  
+              {{ account.branch }}  
             </td>
             <!-- <td class="text-center">
               {{ account.role }}

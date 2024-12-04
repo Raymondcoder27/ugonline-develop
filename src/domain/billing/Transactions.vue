@@ -212,7 +212,7 @@ onMounted(() => {
   <!-- /Modal -->
 
    <!-- Tracking Number Modal to show transaction details -->
-  <AppModal v-model=" transactionDetailsModalOpen" xl2>
+  <AppModal v-model="transactionDetailsModalOpen" xl2>
     <TransactionDetails @transactionViewed="close" @cancel="close" />
   </AppModal>
 </template>

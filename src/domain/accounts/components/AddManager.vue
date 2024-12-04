@@ -4,6 +4,11 @@ import type { AddManager } from "@/types";
 import { type Ref, ref, reactive, onMounted } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
+import { defineEmits } from "vue";
+import { useBranchStore } from "@/domain/branches/stores";
+
+const branchStore = useBranchStore();
+
 
  const form: AddManager = reactive({
   firstName: "",
@@ -65,7 +70,10 @@ function submit() {
 onMounted(() => {
   // loading.value = true;
    store
-    .fetchManagerAccounts()
+    .fetchManagerAccounts(),
+    branchStore
+    .fetchBranches()
+  
     // .finally(() => (loading.value = false));
 });
 </script>
@@ -131,7 +139,7 @@ onMounted(() => {
           <option
             v-for="(branch, idx) in branchStore.branches"
             :key="idx"
-            :value="branch.id"
+            :value="branch.name"
           >
             {{ branch.name }}
           </option>

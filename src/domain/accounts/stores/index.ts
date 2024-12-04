@@ -15,6 +15,7 @@ export const useAccounts = defineStore("user-management", () => {
   const userAccounts: Ref<Account[]> = ref([]);
   const backofficeAccounts: Ref<Account[]> = ref([]);
   const managerAccounts: Ref<ManagerAccount[]> = ref([]);
+  const managerAllocations: Ref<ManagerAllocation[]> = ref([]);
 
   const request = useGoRequest();
   const notify = useNotificationsStore();
@@ -22,83 +23,83 @@ export const useAccounts = defineStore("user-management", () => {
 
 
   // Dummy Data for testing
-const dummyUserAccounts: Account[] = [
-  { 
-    firstName: "John", lastName: "Doe", middleNames: "M", username: "john.doe@example.com", 
-    phone: "123-456-7890", role: "public", createdAt: "2021-01-01", 
-    emailVerified: true, phoneVerified: true, activatedAt: "2021-01-01"
-  },
-  { 
-    firstName: "Jane", lastName: "Smith", middleNames: "A", username: "jane.smith@example.com", 
-    phone: "234-567-8901", role: "public", createdAt: "2021-02-01", 
-    emailVerified: true, phoneVerified: false, activatedAt: "2021-02-01"
+  const dummyUserAccounts: Account[] = [
+    {
+      firstName: "John", lastName: "Doe", middleNames: "M", username: "john.doe@example.com",
+      phone: "123-456-7890", role: "public", createdAt: "2021-01-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-01-01"
+    },
+    {
+      firstName: "Jane", lastName: "Smith", middleNames: "A", username: "jane.smith@example.com",
+      phone: "234-567-8901", role: "public", createdAt: "2021-02-01",
+      emailVerified: true, phoneVerified: false, activatedAt: "2021-02-01"
+    }
+  ];
+
+  // <th class="t-header" width="30%">Names</th>
+  // <th class="t-header">Email</th>
+  // <th class="t-header">Phone</th>
+  // <!-- <th class="text-center">Role</th> -->
+  // <th class="text-center">Status</th>
+  // <!-- <th class="text-center">Activation</th> -->
+  // <th class="text-center">Date</th>
+
+  const dummyManagerAccounts: ManagerAccount[] = [
+    {
+      firstName: "Manager", lastName: "One", middleNames: "M", username: "James Doe",
+      phone: "123-456-7890", role: "manager", createdAt: "2021-01-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-01-01",
+      email: "managerone@gmail.com", status: "Active", branch: "Branch 1"
+    },
+    {
+      firstName: "Manager", lastName: "Two", middleNames: "A", username: "Jane Smith",
+      phone: "234-567-8901", role: "manager", createdAt: "2021-02-01",
+      emailVerified: true, phoneVerified: false, activatedAt: "2021-02-01",
+      email: "managertwo@gmail.com", status: "Active", branch: "Branch 2"
+    },
+    {
+      firstName: "Manager", lastName: "Three", middleNames: "B", username: "John Doe",
+      phone: "345-678-9012", role: "manager", createdAt: "2021-03-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01",
+      email: "managerthree@gmail.com", status: "Active", branch: "Branch 3"
+    }
+  ];
+
+  const dummyBackofficeAccounts: Account[] = [
+    {
+      firstName: "Admin", lastName: "User", middleNames: "B", username: "admin.user@example.com",
+      phone: "345-678-9012", role: "admin", createdAt: "2021-03-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01", email: "admin.user@example.com"
+    },
+    {
+      firstName: "Support", lastName: "Agent", middleNames: "C", username: "support.agent@example.com",
+      phone: "456-789-0123", role: "admin", createdAt: "2021-04-01",
+      emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01", email: "support.agent@example.com"
+    }
+  ];
+
+  // allocate manager to a branch using managerId
+  const allocateManager = (payload: AllocateManager) => {
+    managerAllocations.value.push({
+      id: managerAllocations.value.length + 1,
+      dateAssigned: new Date().toISOString(),
+      branch: payload.branchId,
+      manager: payload.managerId,
+      status: "Assigned"
+    });
+
+    // Update the manager's branch
+    const manager = managerAccounts.value.find((manager) => manager.id === payload.managerId);
+    if (manager) {
+      manager.branch = payload.branchId;
+    }
+
+    // Update the branch's manager
+    const branch = branches.value.find((branch) => branch.id === payload.branchId);
+    if (branch) {
+      branch.manager = payload.managerId;
+    }
   }
-];
-
-// <th class="t-header" width="30%">Names</th>
-// <th class="t-header">Email</th>
-// <th class="t-header">Phone</th>
-// <!-- <th class="text-center">Role</th> -->
-// <th class="text-center">Status</th>
-// <!-- <th class="text-center">Activation</th> -->
-// <th class="text-center">Date</th>
-
-const dummyManagerAccounts: ManagerAccount[] = [
-  { 
-    firstName: "Manager", lastName: "One", middleNames: "M", username: "James Doe", 
-    phone: "123-456-7890", role: "manager", createdAt: "2021-01-01",
-    emailVerified: true, phoneVerified: true, activatedAt: "2021-01-01",
-    email: "managerone@gmail.com", status: "Active", branch: "Branch 1"
-  },
-  { 
-    firstName: "Manager", lastName: "Two", middleNames: "A", username: "Jane Smith", 
-    phone: "234-567-8901", role: "manager", createdAt: "2021-02-01",
-    emailVerified: true, phoneVerified: false, activatedAt: "2021-02-01",
-    email: "managertwo@gmail.com", status: "Active", branch: "Branch 2"
-  },
-  { 
-    firstName: "Manager", lastName: "Three", middleNames: "B", username: "John Doe", 
-    phone: "345-678-9012", role: "manager", createdAt: "2021-03-01",
-    emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01",
-    email: "managerthree@gmail.com", status: "Active", branch: "Branch 3"
-  } 
-];
-
-const dummyBackofficeAccounts: Account[] = [
-  { 
-    firstName: "Admin", lastName: "User", middleNames: "B", username: "admin.user@example.com", 
-    phone: "345-678-9012", role: "admin", createdAt: "2021-03-01", 
-    emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01", email: "admin.user@example.com"
-  },
-  { 
-    firstName: "Support", lastName: "Agent", middleNames: "C", username: "support.agent@example.com", 
-    phone: "456-789-0123", role: "admin", createdAt: "2021-04-01", 
-    emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01", email: "support.agent@example.com"
-  }
-];
-
-// allocate manager to a branch using managerId
-const allocateManager = (payload: AllocateManager) => {
-  managerAllocations.value.push({
-    id: managerAllocations.value.length + 1,
-    dateAssigned: new Date().toISOString(),
-    branch: payload.branchId,
-    manager: payload.managerId,
-    status: "Assigned"
-  });
-
-  // Update the manager's branch
-  const manager = managerAccounts.value.find((manager) => manager.id === payload.managerId);
-  if (manager) {
-    manager.branch = payload.branchId;
-  }
-
-  // Update the branch's manager
-  const branch = branches.value.find((branch) => branch.id === payload.branchId);
-  if (branch) {
-    branch.manager = payload.managerId;
-  }
-}
 
   // Simulating account creation
   const createAccount = async (payload: any) => {
@@ -111,9 +112,9 @@ const allocateManager = (payload: AllocateManager) => {
   //   branches.value.push(newBranch); // Directly add the branch to the array
   // };
 
- 
 
-   // allocate float function, push to the float allocation array
+
+  // allocate float function, push to the float allocation array
   //  function allocateFloat(payload: AllocateFloat) {
   //   floatAllocations.value.push({
   //     id: floatAllocations.value.length + 1,
@@ -203,14 +204,14 @@ const allocateManager = (payload: AllocateManager) => {
     });
   }
 
-  return { 
-    response, 
-    userAccounts, 
-    backofficeAccounts, 
+  return {
+    response,
+    userAccounts,
+    backofficeAccounts,
     managerAccounts,
-    createAccount, 
-    fetchBackofficeAccounts, 
-    fetchUserAccounts, 
+    createAccount,
+    fetchBackofficeAccounts,
+    fetchUserAccounts,
     fetchManagerAccounts,
     addManagerAccount,
     addBackOfficeAccount,

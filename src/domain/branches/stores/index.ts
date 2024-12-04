@@ -43,11 +43,18 @@ export const useBranchStore = defineStore("branches", () => {
     })
 
     // allocate branch manager
-    const manager = branchManagers.value.find((manager) => manager.id === newBranch.managerId);
-    if (manager) {
-      manager.branch = newBranch.id;
-    }
+    // const manager = branchManagers.value.find((manager) => manager.id === newBranch.managerId);
+    // if (manager) {
+    //   manager.branch = newBranch.id;
+    // }
   }
+
+  // allocate manager to branch using managerId
+  const allocateManager = (payload: AllocateManager) => {
+    branches.value?.push({
+      manager: newBranch.manager,
+    });
+
 
   // allocate manager to branch
   

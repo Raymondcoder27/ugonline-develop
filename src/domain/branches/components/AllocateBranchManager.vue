@@ -33,7 +33,7 @@ function submit() {
     managerId: form.managerId,
   };
   loading.value = true;
-  store.allocateManager(payload); // Simply add the branch
+  branchStore.allocateManager(payload); // Simply add the branch
   notify.success("Manager allocated to branch");
   emit("managerAllocated");
   loading.value = false;

@@ -64,8 +64,8 @@ function submit() {
 // onMounted fetch branches
 onMounted(() => {
   // loading.value = true;
-  branchStore
-    .fetchBranches()
+   store
+    .fetchManagerAccounts()
     // .finally(() => (loading.value = false));
 });
 </script>

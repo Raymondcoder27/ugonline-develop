@@ -123,6 +123,7 @@ const dummyBackofficeAccounts: Account[] = [
     createAccount, 
     fetchBackofficeAccounts, 
     fetchUserAccounts, 
+    fetchManagerAccounts,
     resendAccountVerification 
   };
 });

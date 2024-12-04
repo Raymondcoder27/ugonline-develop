@@ -28,40 +28,9 @@ onMounted(() => {
   branchStore.fetchBranches().finally(() => (loading.value = false));
 });
 
-// function submit() {
-//   let payload = {
-//     name: form.name,
-//   };
-//   loading.value = true;
-//   store
-//     .addBranch(payload)
-//     .then(() => {
-//       notify.success("Branch Created");
-//       emit("created");
-//     })
-//     .catch((error: ApiError) => {
-//       notify.error(error.response.data.message);
-//     })
-//     .finally(() => {
-//       loading.value = false;
-//     });
-// }
-
-// function submit() {
-//   let payload = {
-//     name: form.name,
-//   };
-//   loading.value = true;
-//   branchStore.addBranch(payload); // Simply add the branch
-//   notify.success("Branch Created");
-//   emit("managerAllocated");
-//   loading.value = false;
-// }
-
-
 function submit() {
   let payload = {
-    name: form.name,
+    managerId: form.managerId,
   };
   loading.value = true;
   store.allocateManager(payload); // Simply add the branch
@@ -80,14 +49,14 @@ function submit() {
 
     <form @submit.prevent="submit" class="pt-5">
         <select
-          v-model="form.branchId"
+          v-model="form.managerId"
           class="noFocus form-element e-input w-full"
         >
           <option :value="null">-- Select Manager --</option>
           <option
             v-for="(account, idx) in store.managerAccounts"
             :key="idx"
-            :value="account.email"
+            :value="account.managerId"
           >
             {{ account.firstName }} {{ account.lastName }}
           </option>

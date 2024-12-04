@@ -442,7 +442,7 @@ watch(
       <table class="text-sm text-gray-600">
         <tbody>
           <tr>
-            <td class="font-semibold">{{ service.description }}</td>
+            <td class="font-semibold hover:text-red-700">{{ service.description }}</td>
           </tr>
         </tbody>
       </table>

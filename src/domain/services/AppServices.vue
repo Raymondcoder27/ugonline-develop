@@ -409,8 +409,8 @@ watch(
         <table class="text-sm text-gray-600">
           <tbody>
             <tr>
-              <td class="font-semibold">Description:</td>
-              <td class="px-2">{{ service.description }}</td>
+              <td class="font-semibold">{{ service.description }}</td>
+              <!-- <td class="px-2">{{ service.description }}</td> -->
             </tr>
             <!-- <tr>
               <td class="font-semibold">Provider:</td>

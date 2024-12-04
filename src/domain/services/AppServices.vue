@@ -184,6 +184,26 @@ const services = ref<Service[]>([
     // phone: "0312123123",
     // address: "",
   },
+  {
+    id: 10,
+    service: "Business Registration",
+    description: "Register a Business",
+  },
+  {
+    id: 11,
+    service: "Company Registration",
+    description: "Register a Company",
+  },
+  {
+    id: 12,
+    service: "e-Government Services",
+    description: "Access e-Government Services",
+  },
+  {
+    id: 13,
+    service: "e-Procurement",
+    description: "Access e-Procurement Services",
+  }
 ]);
 
 
@@ -391,7 +411,7 @@ watch(
       </div>
     </div> -->
 
-    <div class="grid grid-cols-3 gap-3 mt-15">
+    <div class="grid grid-cols-3 gap-3 mt-20">
       <div
         v-for="service in services"
         :key="service.id"

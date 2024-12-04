@@ -209,7 +209,7 @@ watch(
             </td> -->
             <td class="text-black-700">
               <div v-if="getManagerByBranch(branch.name)">
-                <label>{{ getManagerByBranch(branch.name).username }}</label>
+                <label>{{ getManagerByBranch(branch.name).firstName }} {{ getManagerByBranch(branch.name).lastName }}</label>
               </div>
               <div v-else>
                 <button

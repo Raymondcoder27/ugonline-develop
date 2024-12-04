@@ -87,6 +87,13 @@ const allocateManager = (payload: AllocateManager) => {
     status: "Assigned"
   });
 
+  // Update the manager's branch
+  const manager = managerAccounts.value.find((manager) => manager.id === payload.managerId);
+  if (manager) {
+    manager.branch = payload.branchId;
+  }
+  
+
   // Simulating account creation
   const createAccount = async (payload: any) => {
     return new Promise((resolve) => {

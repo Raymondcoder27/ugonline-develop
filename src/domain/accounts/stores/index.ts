@@ -93,6 +93,32 @@ const dummyUserAccounts: Account[] = [
   }
 ];
 
+// <th class="t-header" width="30%">Names</th>
+// <th class="t-header">Email</th>
+// <th class="t-header">Phone</th>
+// <!-- <th class="text-center">Role</th> -->
+// <th class="text-center">Status</th>
+// <!-- <th class="text-center">Activation</th> -->
+// <th class="text-center">Date</th>
+
+const dummyManagerAccounts: Account[] = [
+  { 
+    firstName: "Manager", lastName: "One", middleNames: "M", username: "James Doe", 
+    phone: "123-456-7890", role: "manager", createdAt: "2021-01-01",
+    emailVerified: true, phoneVerified: true, activatedAt: "2021-01-01"
+  },
+  { 
+    firstName: "Manager", lastName: "Two", middleNames: "A", username: "Jane Smith", 
+    phone: "234-567-8901", role: "manager", createdAt: "2021-02-01",
+    emailVerified: true, phoneVerified: false, activatedAt: "2021-02-01"
+  },
+  { 
+    firstName: "Manager", lastName: "Three", middleNames: "B", username: "John Doe", 
+    phone: "345-678-9012", role: "manager", createdAt: "2021-03-01",
+    emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01"
+  } 
+];
+
 const dummyBackofficeAccounts: Account[] = [
   { 
     firstName: "Admin", lastName: "User", middleNames: "B", username: "admin.user@example.com", 

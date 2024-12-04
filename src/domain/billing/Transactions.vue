@@ -166,7 +166,7 @@ onMounted(() => {
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
             <!-- <td>{{ idx + 1 }}</td> -->
-            <td class="rounded-md font-semibold text-red-700 hover:underline" @click="transactionDetailsOpen">{{ transaction.trackingNumber }}</td>
+            <td class="rounded-md font-semibold text-red-700 hover:underline" @click="transactionDetails(transaction.id)">{{ transaction.trackingNumber }}</td>
             <td>{{ transaction.service }}</td>
             <td class="text-left">{{ transaction.provider }}</td>
             <td>{{ transaction.till }}</td>

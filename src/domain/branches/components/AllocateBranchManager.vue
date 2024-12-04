@@ -65,7 +65,7 @@ function submit() {
   };
   loading.value = true;
   store.allocateManager(payload); // Simply add the branch
-  notify.success("Branch Created");
+  notify.success("Manager allocated to branch");
   emit("managerAllocated");
   loading.value = false;
 }

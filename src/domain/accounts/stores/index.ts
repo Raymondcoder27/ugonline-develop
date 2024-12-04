@@ -121,6 +121,7 @@ const dummyBackofficeAccounts: Account[] = [
         branch: newManager.branchId
       }
     );
+  }
 
   // const addManagerAccount = (newManager: ManagerAccount) => {
   //   managerAccounts.value.push(newManager); // Directly add the manager to the array

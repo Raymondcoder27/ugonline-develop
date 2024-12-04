@@ -7,11 +7,37 @@ import type { AllocateFloat } from "@/types";
 
 export const useBilling = defineStore("billing", () => {
   // Dummy data for testing
+
+  // use this for dummy transactions
+  // <tr class="text-left">
+  //           <!-- <th>#</th> -->
+  //           <th>Tracking Number</th>
+  //           <th>Service</th>
+  //           <th>Provider</th>
+  //           <th>Till</th>
+  //           <!-- <th>Transaction Type</th> -->
+  //           <th>Fee</th>
+  //           <!-- <th>Status</th> -->
+  //           <th>Date</th>
+  //           <!-- <th>Actions</th> -->
+  //         </tr>
+
   const dummyTransactions: Transaction[] = [
-    { id: 1, amount: 1500000, description: "Sample Transaction 1", branchName: "Branch 1", manager: "Manager 1", transactionType: "Credit", status: "Approved", date: "2021-09-01" },
-    { id: 2, amount: 2500000, description: "Sample Transaction 2", branchName: "Branch 2", manager: "Manager 2", transactionType: "Debit", status: "Pending", date: "2021-09-02" },
-    { id: 3, amount: 3500000, description: "Sample Transaction 3", branchName: "Branch 3", manager: "Manager 3", transactionType: "Credit", status: "Approved", date: "2021-09-03" },
+    { id: 1, trackingNumber: "TRK123456",
+      service: "Service 1", provider: "Provider 1", till: "Till 1",
+      fee: 100, date: "2021-09-01" 
+    },
+    { id: 2, trackingNumber: "TRK123457",
+      service: "Service 2", provider: "Provider 2",
+       till: "Till 2", fee: 200, date: "2021-09-02"
+      },
+    { id: 3, trackingNumber: "TRK123458",
+      service: "Service 3", provider: "Provider 3",
+       till: "Till 3", fee: 300, date: "2021-09-03" },
   ];
+
+    
+
 
   const dummyFloatLedgers: FloatLedger[] = [
     { id: 1, name: "Sample FloatLedger 1", balance: 50000000 },

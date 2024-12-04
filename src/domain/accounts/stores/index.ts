@@ -128,10 +128,12 @@ const dummyBackofficeAccounts: Account[] = [
     response, 
     userAccounts, 
     backofficeAccounts, 
+    managerAccounts,
     createAccount, 
     fetchBackofficeAccounts, 
     fetchUserAccounts, 
     fetchManagerAccounts,
+    addManagerAccount,
     resendAccountVerification 
   };
 });

@@ -106,9 +106,10 @@ onMounted(() => {
         <thead>
           <tr class="header-tr">
             <!-- <th class="text-left">#</th> -->
+            <th class="text-left">Date</th>
             <th class="text-left">Name</th>
             <th class="text-left">Branch</th>
-            <th class="text-left">Date</th>
+            <th class="text-left">Amount</th>
             <th class="text-left">Actions</th>
           </tr>
         </thead>
@@ -121,6 +122,7 @@ onMounted(() => {
               }}</label>
             </td>
             <td class="text-left">{{ transaction.branchName }}</td>
+            <td class="text-left">{{ transaction.amount }}</td>
             <td class="text-left">{{ transaction.date }}</td>
 
             <td class="text-left">

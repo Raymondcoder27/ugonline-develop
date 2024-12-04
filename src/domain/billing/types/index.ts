@@ -109,6 +109,22 @@ export interface BranchManager {
     dateAssigned: string;
   }
 
+  // const dummyFloatRequests: FloatRequest[] = [
+  //   { id: 1, requestDate: "2021-09-01", amount: 10000000, status: "Pending", branch: "Branch 1", approvedBy: null },
+  //   { id: 2, requestDate: "2021-09-02", amount: 20000000, status: "Approved", branch: "Branch 2", approvedBy: "Manager One" },
+  //   { id: 3, requestDate: "2021-09-03", amount: 30000000, status: "Rejected", branch: "Branch 3", approvedBy: null },
+  //   { id: 4, requestDate: "2021-09-04", amount: 40000000, status: "Pending", branch: "Branch 4", approvedBy: null },
+  // ];
+
+  export interface FloatRequest {
+    id: string;
+    requestDate: string;
+    amount: number;
+    status: string;
+    branch: string;
+    approvedBy: string | null;
+  }
+
 export type TAccountVerificationType = (typeof AccountVerificationTypes)[number];
 
 export interface IResendVerificationPayload {

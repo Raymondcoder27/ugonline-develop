@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount } from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager } from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
@@ -209,12 +209,14 @@ export const useAccounts = defineStore("user-management", () => {
     userAccounts,
     backofficeAccounts,
     managerAccounts,
+    managerAllocations,
     createAccount,
     fetchBackofficeAccounts,
     fetchUserAccounts,
     fetchManagerAccounts,
     addManagerAccount,
     addBackOfficeAccount,
+    allocateManager,
     resendAccountVerification
   };
 });

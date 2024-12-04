@@ -95,6 +95,11 @@ export interface BackOfficeAccount {
   activatedAt: string;
 }
 
+// AllocateManager type
+export interface AllocateManager {
+  branchId: string | null;
+  managerId: string | null;
+}
 
 
 export interface ApiSuccess {

@@ -19,6 +19,7 @@ const branchStore = useBranchStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
 const categoryModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
+const allocateManagerModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(16);
 const loading: Ref<boolean> = ref(false);
@@ -85,7 +86,7 @@ function allocateManager(branch: Branch) {
   // Logic to open the modal or start the process
   console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
-  modalOpen.value = true;
+  allocateManagerModalOpen.value = true;
 }
 
 function deleteBranch(branch: Branch) {
@@ -98,6 +99,7 @@ function deleteBranch(branch: Branch) {
 function close() {
   modalOpen.value = false;
   editModalOpen.value = false;
+  allocateManagerModalOpen.value = false;
 }
 
 function next() {

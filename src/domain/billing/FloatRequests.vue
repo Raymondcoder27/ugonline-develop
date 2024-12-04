@@ -125,10 +125,10 @@ onMounted(() => {
 
             <td class="text-left">
               <!-- approve or reject -->
-              <i class="text-xs p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+              <i class="text-xs p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-300"
                 @click="open(transaction)">Approve</i>
 
-              <i class="text-xs p-1 mr-2 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
+              <i class="text-xs p-1 mr-2 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-300"             
                 @click="open(transaction)">Reject</i>
                
               <!-- <i

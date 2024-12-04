@@ -12,6 +12,15 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { useAccountStore } from "../auth/stores";
 // import TableLoader from "@/components/TableLoader.vue";
+import { useAccounts } from "@/domain/accounts/stores";
+const accountStore = useAccounts();
+
+// Helper function to get manager by branch
+const getManagerByBranch = (branchName) => {
+  return accountStore.managerAccounts.find(
+    (manager) => manager.branch === branchName
+  );
+};
 
 const branchStore = useBranchStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
@@ -71,7 +80,6 @@ function convertDateTime(date: string) {
 //     fetchBranches();  // Refetch the branches after deleting
 //     notify.success("Branch Deleted");
 //   }
-
 
 function assignManager(branch: Branch) {
   // Logic to open the modal or start the process
@@ -200,8 +208,8 @@ watch(
               <label>{{ branch.id }}</label>
             </td> -->
             <td class="text-black-700">
-              <div v-if="branch.manager">
-                <label>{{ branch.manager }}</label>
+              <div v-if="getManagerByBranch(branch.name)">
+                <label>{{ getManagerByBranch(branch.name).username }}</label>
               </div>
               <div v-else>
                 <button

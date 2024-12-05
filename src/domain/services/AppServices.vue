@@ -112,99 +112,18 @@ watch(
   }
 );
 
-interface Service {
-  id: number;
-  service: string;
-  description: string;
-  // name: string;
-  // thumbnail: string;
-  // email: string;
-  // phone: string;
-  // address: string;
-}
+// interface Service {
+//   id: number;
+//   service: string;
+//   description: string;
+//   // name: string;
+//   // thumbnail: string;
+//   // email: name
+//   // phone: string;
+//   // address: string;
+// }
 
-const services = ref<Service[]>([
-  {
-    id: 1,
-    service: "Post Office Account",
-    description: "Open a Post Office Account",
-    // name: "Posta Uganda",
-    // thumbnail: "/assets/coa-19c4edfc.png",
-    // email: "info@ugapost.co.ug",
-    // phone: "+256784944479",
-    // address: "Plot 35 Kampala Road, Kampala",
-  },
-  {
-    id: 2,
-    service: "Agricultural Research",
-    description: "Request for Agricultural Research",
-    // name: "National Agricultural Research Organization",
-    // thumbnail: "/assets/coa-19c4edfc.png",
-    // email: "info@naro.go.ug",
-    // phone: "+256-41-320512",
-    // address: "Plot 11-13, Lugard Avenue, Entebbe",
-  },
-  {
-    id: 3,
-    service: "National ID Registration",
-    description: "Apply for a National ID",
-    // name: "National Identification & Registration Authority",
-    // thumbnail: "/assets/coa-19c4edfc.png",
-    // email: "info@nira.com",
-    // phone: "0800211700",
-    // address: "National Independence Grounds, Kololo Airstrip",
-  },
-  {
-    id: 4,
-    service: "Land Title Registration",
-    description: "Apply for a Land Title",
-    // name: "Ministry of Lands and Urban Development",
-    // thumbnail: "/assets/coa-19c4edfc.png",
-    // email: "info@mlhud.go.ug",
-    // phone: "0414355355",
-    // address: "Dewinton Road",
-  },
-  {
-    id: 5,
-    service: "Name Reservation",
-    description: "Reserve a Business Name",
-    // name: "URSB",
-    // thumbnail: "/assets/coa-19c4edfc.png",
-    // email: "ursb@ursb.go.ug",
-    // phone: "0312211211",
-    // address: "Plot 1 Baskerville Avenue",
-  },
-  {
-    id: 9,
-    service: "Passport Application",
-    description: "Apply for a Passport",
-    // name: "Ministry of Internal Affairs",
-    // thumbnail: "/assets/coa-19c4edfc.png",
-    // email: "info@moia.go.ug",
-    // phone: "0312123123",
-    // address: "",
-  },
-  // {
-  //   id: 10,
-  //   service: "Business Registration",
-  //   description: "Register a Business",
-  // },
-  // {
-  //   id: 11,
-  //   service: "Company Registration",
-  //   description: "Register a Company",
-  // },
-  // {
-  //   id: 12,
-  //   service: "e-Government Services",
-  //   description: "Access e-Government Services",
-  // },
-  // {
-  //   id: 13,
-  //   service: "e-Procurement",
-  //   description: "Access e-Procurement Services",
-  // }
-]);
+
 
 // filter
 const filter: IGoFilter = reactive({
@@ -452,7 +371,7 @@ watch(
       <!-- Service Cards Section -->
       <div class="grid grid-cols-3 gap-3 mt-3">
         <div
-          v-for="service in services"
+          v-for="service in store.services"
           :key="service.id"
           class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
         >
@@ -464,7 +383,7 @@ watch(
             />
           </div>
           <hr class="my-2" />
-          <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+          <p class="font-bold text-gray-700 my-1">{{ service.name }}</p>
           <table class="text-sm text-gray-600">
             <tbody>
               <tr>
@@ -545,7 +464,7 @@ watch(
       </div>
 
       <!-- all services subscribed looped from subscribedServices store -->
-      <div class="body-tr"
+      <ul class=""
               v-for="(subscribedService, idx) in store.subscribedServices"
               :key="idx"
             >
@@ -554,11 +473,10 @@ watch(
                   <span class="hover:underline" @click="open(service)">
                     {{ subscribedService.name }}
                   </span>
-                  <!-- <i
-                    class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
-                    @click="tag(service)"
-                  ></i> -->
+                <p>Hi</p>
               </li>
+    </ul>
+
     </div>
   </div>
 

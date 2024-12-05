@@ -142,46 +142,56 @@ export const useServicesStore = defineStore("services", () => {
   // }
 
   // make subscribeToService function
-  function subscribeToService(serviceId: string) {
-    // Simulate API call
-    // const response = await fetch(`/api/services/subscribe/${serviceId}`);
-    // const data = await response.json();
-
-    //set the status of the service to active
-    // services.value?.find((service) => service.id === serviceId)?.status === "subscribed";
-
-    services.value?.find((service) => service.id === serviceId)!.status === "subscribed";
-
-
-    // Use dummy data for now
-    subscribedServices.value?.push(dummyServices.find((service) => service.id === serviceId));
-
-
-
-
-    // filter it out of the services
-    services.value = services.value?.filter((service) => service.id !== serviceId);
-  }
+  // function subscribeToService(serviceId: string) {
+  //   // Simulate API call
+  //   // const response = await fetch(`/api/services/subscribe/${serviceId}`);
+  //   // const data = await response.json();
+  //   //set the status of the service to active
+  //   // services.value?.find((service) => service.id === serviceId)?.status === "subscribed";
+  //   services.value?.find((service) => service.id === serviceId)!.status === "subscribed";
+  //   // Use dummy data for now
+  //   subscribedServices.value?.push(dummyServices.find((service) => service.id === serviceId));
+  //   // filter it out of the services
+  //   services.value = services.value?.filter((service) => service.id !== serviceId);
+  // }
 
   // unsubscribeFromService function
-  function unsubscribeFromService(serviceId: string) {
-    // Simulate API call
-    // const response = await fetch(`/api/services/unsubscribe/${serviceId}`);
-    // const data = await response.json();
+  // function unsubscribeFromService(serviceId: string) {
+  //   // Simulate API call
+  //   // const response = await fetch(`/api/services/unsubscribe/${serviceId}`);
+  //   // const data = await response.json();
+  //   //set the status of the service to inactive
+  //   // subscribedServices.value?.find((service) => service.id === serviceId)?.status === "listed";
+  //   subscribedServices.value?.find((service) => service.id === serviceId)!.status === "listed";
+  //   // Use dummy data for now
+  //   services.value?.push(dummySubscribedServices.find((service) => service.id === serviceId));
+  //   // filter it out of the subscribed services
+  //   subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);
+  // }
 
-    //set the status of the service to inactive
-    // subscribedServices.value?.find((service) => service.id === serviceId)?.status === "listed";
 
-    subscribedServices.value?.find((service) => service.id === serviceId)!.status === "listed";
-
-
-    // Use dummy data for now
-    services.value?.push(dummySubscribedServices.find((service) => service.id === serviceId));
-
-
-    // filter it out of the subscribed services
-    subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);
+  function subscribeToService(serviceId: string) {
+    const service = dummyServices.find((s) => s.id === serviceId);
+    if (service) {
+      service.status = "subscribed"; // Update status
+      subscribedServices.value?.push(service);
+      services.value = services.value?.filter((s) => s.id !== serviceId);
+    } else {
+      console.error(`Service with ID ${serviceId} not found for subscription.`);
+    }
   }
+  
+  function unsubscribeFromService(serviceId: string) {
+    const service = dummySubscribedServices.find((s) => s.id === serviceId);
+    if (service) {
+      service.status = "listed"; // Update status
+      services.value?.push(service);
+      subscribedServices.value = subscribedServices.value?.filter((s) => s.id !== serviceId);
+    } else {
+      console.error(`Service with ID ${serviceId} not found for unsubscription.`);
+    }
+  }
+  
 
   return {
     services,

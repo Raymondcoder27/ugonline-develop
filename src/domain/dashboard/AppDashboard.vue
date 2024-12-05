@@ -4,18 +4,18 @@ import { useBranchStore } from "@/domain/branches/stores";
 import { useBilling } from "@/domain/billing/stores";
 import { useServicesStore } from "@/domain/services/stores";
 import { useAccounts } from "@/domain/accounts/stores";
-// import { useBalance } from "@/domain/balance/stores";
+import { useBalance } from "@/domain/balance/stores";
 
 // const totalServiceSubscriptions = ref(0);
 
 // onMounted(() => {
-  // store.fetchDashboardData();
-  // branchStore.fetchBranches();
-  // billingStore.fetchFloatRequests();
-  // servicesStore.fetchSubscribedServices();
-  // accountStore.fetchManagerAccounts();
-  // accountStore.fetchBackofficeAccounts();
-  // balanceStore.fetchBalance();
+// store.fetchDashboardData();
+// branchStore.fetchBranches();
+// billingStore.fetchFloatRequests();
+// servicesStore.fetchSubscribedServices();
+// accountStore.fetchManagerAccounts();
+// accountStore.fetchBackofficeAccounts();
+// balanceStore.fetchBalance();
 // });
 
 // const store = useDashboard();
@@ -23,15 +23,15 @@ const branchStore = useBranchStore();
 const billingStore = useBilling();
 const servicesStore = useServicesStore();
 const accountStore = useAccounts();
-// const balanceStore = useBalance();
+const balanceStore = useBalance();
 
 // const fetch = () => {
-  branchStore.fetchBranches();
-  billingStore.fetchFloatRequests();
-  servicesStore.fetchSubscribedServices();
-  accountStore.fetchManagerAccounts();
-  accountStore.fetchBackofficeAccounts();
-  // balanceStore.fetchBalance();
+branchStore.fetchBranches();
+billingStore.fetchFloatRequests();
+servicesStore.fetchSubscribedServices();
+accountStore.fetchManagerAccounts();
+accountStore.fetchBackofficeAccounts();
+balanceStore.fetchBalance();
 // };
 
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
@@ -40,7 +40,7 @@ const totalFloatRequests = billingStore.floatRequests?.length || 0;
 
 const totalTransactions = billingStore.transactions?.length || 0;
 
-// const totalBalance = balanceStore.balance;
+const totalBalance = balanceStore.balance;
 
 const totalBranches = branchStore.branches?.length || 0;
 
@@ -48,12 +48,9 @@ const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 
 const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
 
-
 // const store = useDashboard();
 const page = ref(1);
 const limit = ref(15);
-
-
 
 // onMounted(async () => {
 //   try {
@@ -146,8 +143,8 @@ const limit = ref(15);
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">130,400,000/=</p>
-        <!-- <p class="text-xl font-bold py-2">{{ balanceStore.balance }}</p> -->
+        <!-- <p class="text-xl font-bold py-2">130,400,000/=</p> -->
+        <p class="text-xl font-bold py-2">{{ totalBalance }}</p>
         <p class="text-xs">Balance</p>
       </div>
     </div>

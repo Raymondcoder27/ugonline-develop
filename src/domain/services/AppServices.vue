@@ -189,14 +189,14 @@ function subscribe(serviceId: string) {
 }
 
 function unsubscribeFromService(serviceId: string) {
-  store.unsubscribeFromService(serviceId) {
-    try{
+  try{
+  store.unsubscribeFromService(serviceId) 
       notify.success("Service unsubscribed successfully!");
     } catch (error) {
       notify.error("Failed to unsubscribe from service: " + error.message);
     }
   }
-}
+
 
 onMounted(() => {
   store.fetchServices();

@@ -131,6 +131,25 @@ export const useServicesStore = defineStore("services", () => {
     subscribedServices.value = dummySubscribedServices;
   }
 
+  // function subscribe(serviceId: string) {
+  //   try {
+  //     store.subscribeToService(serviceId);
+  //     notify.success("Service subscribed successfully!");
+  //   } catch (error) {
+  //     notify.error("Failed to subscribe to service: " + error.message);
+  //   }
+  // }
+
+  // make subscribeToService function
+  function subscribeToService(serviceId: string) {
+    // Simulate API call
+    // const response = await fetch(`/api/services/subscribe/${serviceId}`);
+    // const data = await response.json();
+    // Use dummy data for now
+    subscribedServices.value.push(dummyServices.find((service) => service.id === serviceId));
+  }
+
+
   return {
     services,
     subscribedServices,

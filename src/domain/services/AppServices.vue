@@ -164,6 +164,27 @@ function fetchServices() {
   store.fetchServices(filter);
 }
 
+// function subscribe(serviceId: string) {
+//   store.subscribeToServiceById(serviceId)
+//     .then(() => {
+//       notify.success("Service subscribed successfully!");
+//     })
+//     .catch((error: ApiError) => {
+//       notify.error("Failed to subscribe to service: " + error.message);
+//     });
+// }
+
+  // don't use .then and .catch just make the function synchronous
+function subscribe(serviceId: string) {
+  try {
+    store.subscribeToService(serviceId);
+    notify.success("Service subscribed successfully!");
+  } catch (error) {
+    notify.error("Failed to subscribe to service: " + error.message);
+  }
+}
+
+
 onMounted(() => {
   store.fetchServices();
   store.fetchSubscribedServices();
@@ -437,7 +458,7 @@ onMounted(() => {
 
       <!-- all services subscribed looped from subscribedServices store -->
       <div
-        class="flex flex-col justify-between mt-2 text-left"
+        class="flex flex-col justify-between mt-3 text-left"
         v-for="(subscribedService, idx) in store.subscribedServices"
         :key="idx"
       >

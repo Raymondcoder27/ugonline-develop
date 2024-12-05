@@ -90,8 +90,8 @@ function allocateManager(branch: Branch) {
   allocateManagerModalOpen.value = true;
 }
 
-function deleteBranch(branch: Branch) {
-  branchStore.deleteBranch(branch.id); // Assuming this is a mutation to remove the branch
+function deleteBranch(branchId: string) {
+  branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
   branchStore.branches = branchStore.branches.filter((b) => b.id !== branch.id); // Manually update the store
   fetchBranches(); // Refetch the branches after deleting, if needed
   notify.success("Branch Deleted");
@@ -306,7 +306,7 @@ onMounted(() => {
               <!-- delete branch -->
               <i
                 class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
-                @click="deleteBranch(branch)"
+                @click="deleteBranch(branch.id)"
               ></i>
             </td>
           </tr>

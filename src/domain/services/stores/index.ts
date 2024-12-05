@@ -170,10 +170,21 @@ export const useServicesStore = defineStore("services", () => {
   // }
 
 
+  // function subscribeToService(serviceId: string) {
+  //   const service = dummyServices.find((s) => s.id === serviceId);
+  //   if (service) {
+  //     service.status = "subscribed"; // Update status
+  //     subscribedServices.value?.push(service);
+  //     services.value = services.value?.filter((s) => s.id !== serviceId);
+  //   } else {
+  //     console.error(`Service with ID ${serviceId} not found for subscription.`);
+  //   }
+  // }
+
   function subscribeToService(serviceId: string) {
-    const service = dummyServices.find((s) => s.id === serviceId);
+    const service = services.value?.find((s) => s.id === serviceId);
     if (service) {
-      service.status = "subscribed"; // Update status
+      service.status = "subscribed";
       subscribedServices.value?.push(service);
       services.value = services.value?.filter((s) => s.id !== serviceId);
     } else {
@@ -181,10 +192,22 @@ export const useServicesStore = defineStore("services", () => {
     }
   }
   
+  
+  // function unsubscribeFromService(serviceId: string) {
+  //   const service = dummySubscribedServices.find((s) => s.id === serviceId);
+  //   if (service) {
+  //     service.status = "listed"; // Update status
+  //     services.value?.push(service);
+  //     subscribedServices.value = subscribedServices.value?.filter((s) => s.id !== serviceId);
+  //   } else {
+  //     console.error(`Service with ID ${serviceId} not found for unsubscription.`);
+  //   }
+  // }
+
   function unsubscribeFromService(serviceId: string) {
-    const service = dummySubscribedServices.find((s) => s.id === serviceId);
+    const service = subscribedServices.value?.find((s) => s.id === serviceId);
     if (service) {
-      service.status = "listed"; // Update status
+      service.status = "listed";
       services.value?.push(service);
       subscribedServices.value = subscribedServices.value?.filter((s) => s.id !== serviceId);
     } else {

@@ -6,28 +6,28 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">79</p>
-        <p class="text-xs font-semibold">Service Subscriptions</p>
+        <p class="text-xs">Service Subscriptions</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">4</p>
-        <p class="text-xs font-semibold">Branches</p>
+        <p class="text-xs">Branches</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">3</p>
-        <p class="text-xs font-semibold">Branch Managers</p>
+        <p class="text-xs">Branch Managers</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">17</p>
-        <p class="text-xs font-semibold">Tills</p>
+        <p class="text-xs">Tills</p>
       </div>
     </div>
 
@@ -41,21 +41,21 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">4</p>
-        <p class="text-xs font-semibold">Pending Float Requests</p>
+        <p class="text-xs">Pending Float Requests</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">123</p>
-        <p class="text-xs font-semibold">Service Transactions</p>
+        <p class="text-xs">Service Transactions</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">13,400,000/=</p>
-        <p class="text-xs font-semibold">Balance</p>
+        <p class="text-xs">Balance</p>
       </div>
     </div>
   </div>

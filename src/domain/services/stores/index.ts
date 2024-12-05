@@ -133,6 +133,7 @@ export const useServicesStore = defineStore("services", () => {
 
   return {
     services,
+    subscribedServices,
     service,
     createServiceResponse,
     updateServiceResponse,
@@ -140,6 +141,7 @@ export const useServicesStore = defineStore("services", () => {
     serviceSpecification,
     serviceSpecifications,
     createService,
+    fetchSubscribedServices,
     createServiceSpec,
     updateServiceSpec,
     editService,

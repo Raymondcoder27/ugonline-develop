@@ -1,13 +1,43 @@
 <script setup lang="ts">
-import { useDashboard } from "@/domain/dashboard/stores";
+// import { useDashboard } from "@/domain/dashboard/stores";
+// import { useDashboard } from "@/domain/dashboard/stores";
+import { useBranchStore } from "@/domain/branches/stores";
+import { useBilling } from "@/domain/billing/stores";
+import { useServicesStore } from "@/domain/services/stores";
+import { useAccounts } from "@/domain/accounts/stores";
+// import { useBalance } from "@/domain/balance/stores";
+
+
 import { onMounted, ref } from "vue";
 
-const store = useDashboard();
+const totalServiceSubscriptions = ref(0);
+
+// const store = useDashboard();
+const branchStore = useBranchStore();
+const billingStore = useBilling();
+const servicesStore = useServicesStore();
+const accountStore = useAccounts();
+// const balanceStore = useBalance();
+
+
+
+ totalServiceSubscriptions.value = servicesStore.servicesSubscribed?.length || 0;
+
+
+
+
+// const store = useDashboard();
 const page = ref(1);
 const limit = ref(15);
 
+
 onMounted(() => {
-  store.fetchDashboardData();
+  // store.fetchDashboardData();
+  branchStore.fetchBranches();
+  billingStore.fetchFloatRequests();
+  servicesStore.fetchServices();
+  accountStore.fetchManagerAccounts();
+  // balanceStore.fetchBalance();
 });
 </script>
 
@@ -16,7 +46,8 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">79</p> -->
-        <p class="text-xl font-bold py-2">{{ servicesStore.subscriptions.length }}</p>
+        <p class="text-xl font-bold py-2">{{ totalServiceSubscriptions }}</p>
+        <!-- <p class="text-xl font-bold py-2">{{ servicesStore.servicesSubscribed?.length || 0 }}</p> -->
         <p class="text-xs">Service Subscriptions</p>
       </div>
     </div>
@@ -24,7 +55,8 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">4</p> -->
-        <p class="text-xl font-bold py-2">{{ branchStore.branches.length }}</p>
+        <p class="text-xl font-bold py-2">{{ totalBranches }}</p>
+
         <p class="text-xs">Branches</p>
       </div>
     </div>
@@ -32,7 +64,8 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">3</p> -->
-        <p class="text-xl font-bold py-2">{{ accountStore.branchManagers.length }}</p>
+        <!-- <p class="text-xl font-bold py-2">{{ accountStore.branchManagers.length }}</p> -->
+        <p class="text-xl font-bold py-2">{{ totalBranchManagers }}</p>
         <p class="text-xs">Branch Managers</p>
       </div>
     </div>
@@ -55,7 +88,8 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">4</p> -->
-        <p class="text-xl font-bold py-2">{{ billingStore.floatRequests.length }}</p>
+        <!-- <p class="text-xl font-bold py-2">{{ billingStore.floatRequests.length }}</p> -->
+        <p class="text-xl font-bold py-2">{{ totalFloatRequests }}</p>
         <p class="text-xs">Pending Float Requests</p>
       </div>
     </div>
@@ -63,15 +97,16 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">123</p> -->
-        <p class="text-xl font-bold py-2">{{ billingStore.serviceTransactions.length }}</p>
+        <!-- <p class="text-xl font-bold py-2">{{ billingStore.serviceTransactions.length }}</p> -->
+        <p class="text-xl font-bold py-2">{{ totalTransactions }}</p>
         <p class="text-xs">Service Transactions</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <!-- <p class="text-xl font-bold py-2">130,400,000/=</p> -->
-        <p class="text-xl font-bold py-2">{{ balanceStore.balance }}</p>
+        <p class="text-xl font-bold py-2">130,400,000/=</p>
+        <!-- <p class="text-xl font-bold py-2">{{ balanceStore.balance }}</p> -->
         <p class="text-xs">Balance</p>
       </div>
     </div>

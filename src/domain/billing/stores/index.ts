@@ -173,6 +173,32 @@ export const useBilling = defineStore("billing", () => {
     })
   }
 
+  // const approveFloatRequest = (reject: any) => {
+  //   store.approveFloatRequest(reject);
+  // };
+  
+  // const rejectFloatRequest = (approve: any) => {
+  //   store.rejectFloatRequest(approve);
+  // };
+
+  // approve float request and set status to approved
+  function approveFloatRequest(payload: any) {
+    const floatRequest = floatRequests.value.find((request) => request.id === payload.id);
+    if (floatRequest) {
+      floatRequest.status = "Approved";
+      floatRequest.approvedBy = "Manager One";
+    }
+  }
+
+  // reject float request and set status to rejected
+  function rejectFloatRequest(payload: any) {
+    const floatRequest = floatRequests.value.find((request) => request.id === payload.id);
+    if (floatRequest) {
+      floatRequest.status = "Rejected";
+      floatRequest.approvedBy = "Manager One";
+    }
+  }
+
   return {
     transactions,
     totalAmount,

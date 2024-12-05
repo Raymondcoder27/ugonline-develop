@@ -80,6 +80,14 @@ watch(
 //   );
 // });
 
+const approveFloatRequest = (reject: any) => {
+  store.approveFloatRequest(reject);
+};
+
+const rejectFloatRequest = (approve: any) => {
+  store.rejectFloatRequest(approve);
+};
+
 
 
 

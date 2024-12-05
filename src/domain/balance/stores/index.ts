@@ -66,9 +66,6 @@ export const useBalance = defineStore("balance", () => {
     }
   }
 
-
-
-
   return {
     totalBalance,
     fetchTotalBalance

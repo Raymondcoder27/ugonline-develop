@@ -23,6 +23,18 @@ const accountStore = useAccounts();
 
  totalServiceSubscriptions.value = servicesStore.servicesSubscribed?.length || 0;
 
+const totalBranches = branchStore.branches?.length || 0;
+
+const totalBranchManagers = accountStore.branchManagers?.length || 0;
+
+const totalFloatRequests = billingStore.floatRequests.length;
+
+const totalTransactions = billingStore.transactions?.length || 0;
+
+// const totalBalance = balanceStore.balance;
+
+
+
 
 
 

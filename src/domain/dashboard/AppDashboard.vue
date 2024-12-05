@@ -7,7 +7,7 @@ import { useAccounts } from "@/domain/accounts/stores";
 // import { useBalance } from "@/domain/balance/stores";
 
 
-const totalServiceSubscriptions = ref(0);
+// const totalServiceSubscriptions = ref(0);
 
 // const store = useDashboard();
 const branchStore = useBranchStore();
@@ -18,17 +18,19 @@ const accountStore = useAccounts();
 
 
 
- totalServiceSubscriptions.value = servicesStore.servicesSubscribed?.length || 0;
+const totalServiceSubscriptions = servicesStore.servicesSubscribed?.length || 0;
 
 const totalBranches = branchStore.branches?.length || 0;
 
-const totalBranchManagers = accountStore.branchManagers?.length || 0;
+const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 
-const totalFloatRequests = billingStore.floatRequests.length;
+const totalFloatRequests = billingStore.floatRequests?.length || 0;
 
 const totalTransactions = billingStore.transactions?.length || 0;
 
 // const totalBalance = balanceStore.balance;
+
+const totalBackOfficeAccounts = accountStore.backOfficeAccounts?.length || 0;
 
 
 
@@ -46,6 +48,7 @@ onMounted(() => {
   billingStore.fetchFloatRequests();
   servicesStore.fetchServices();
   accountStore.fetchManagerAccounts();
+  accountStore.fetchBackofficeAccounts();
   // balanceStore.fetchBalance();
 });
 </script>
@@ -76,6 +79,14 @@ onMounted(() => {
         <!-- <p class="text-xl font-bold py-2">{{ accountStore.branchManagers.length }}</p> -->
         <p class="text-xl font-bold py-2">{{ totalBranchManagers }}</p>
         <p class="text-xs">Branch Managers</p>
+      </div>
+    </div>
+
+    <div class="w-full">
+      <div class="w-12/12 count">
+        <!-- <p class="text-xl font-bold py-2">17</p> -->
+        <p class="text-xl font-bold py-2">{{ totalBackOfficeAccounts }}</p>
+        <p class="text-xs">BackOffice Accounts</p>
       </div>
     </div>
 

@@ -12,15 +12,15 @@
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">13</p>
-        <p class="text-xs">Total Agents</p>
+        <p class="text-xl font-bold py-2">3</p>
+        <p class="text-xs">Total Branches</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">3</p>
-        <p class="text-xs">Total Branches</p>
+        <p class="text-xl font-bold py-2">13</p>
+        <p class="text-xs">Total Agents</p>
       </div>
     </div>
 

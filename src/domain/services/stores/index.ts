@@ -34,11 +34,11 @@ export const useServicesStore = defineStore("services", () => {
         })
   }
 
-  const fetchServices = async (page:number, limit:number) => {
-    return api.get("/registry/v1?page="+page+"&limit="+limit).then((response:any) => {
-      services.value = response.data.data
-    })
-  }
+  // const fetchServices = async (page:number, limit:number) => {
+  //   return api.get("/registry/v1?page="+page+"&limit="+limit).then((response:any) => {
+  //     services.value = response.data.data
+  //   })
+  // }
 
   const fetchServicesByProvider = async (id:string, page:number) => {
     return api.get("/registry/v1/provider/"+id+"?limit=15&page="+page).then((response:any) => {

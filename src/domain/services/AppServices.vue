@@ -14,7 +14,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
 import { useDebounceFn } from "@vueuse/core";
-import { subscribe } from "diagnostics_channel";
+// import { subscribe } from "diagnostics_channel";
 
 const store = useServicesStore();
 const modalOpen: Ref<boolean> = ref(false);
@@ -112,18 +112,6 @@ watch(
   }
 );
 
-// interface Service {
-//   id: number;
-//   service: string;
-//   description: string;
-//   // name: string;
-//   // thumbnail: string;
-//   // email: name
-//   // phone: string;
-//   // address: string;
-// }
-
-
 
 // filter
 const filter: IGoFilter = reactive({
@@ -169,6 +157,17 @@ watch(
   () => updateFilter(),
   { deep: true }
 );
+
+// fetch services
+function fetchServices() {
+  filter.limit = limit.value;
+  filter.page = page.value;
+  store.fetchServices(filter);
+}
+
+onMounted(() => {
+  fetchServices();
+});
 </script>
 
 <template>

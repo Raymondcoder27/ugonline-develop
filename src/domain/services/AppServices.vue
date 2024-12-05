@@ -482,7 +482,7 @@ watch(
       <!-- all services -->
       <div class="pt-2 justify-around block px-3">
         <!-- just list the services and put a toggle button at the end -->
-        <div class="flex items-center pb-2">
+        <div class="flex items-center ml-10 pb-2">
           <label class="text-xs font-semibold">National ID Registration</label>
           <!-- Provider and give it a color code -->
           <!-- <label
@@ -492,7 +492,7 @@ watch(
           <!-- <i class="fa-solid fa-toggle-off text-red-600"></i> -->
         </div>
 
-        <div class="flex items-center pb-2">
+        <div class="flex items-center ml-10 pb-2">
           <!-- <div class="flex"> -->
           <label class="text-xs font-semibold">Passport Application</label>
           <!-- Provider and give each service a different color code -->
@@ -503,7 +503,7 @@ watch(
           <!-- <i class="fa-solid fa-toggle-on text-green-600"></i> -->
         </div>
 
-        <div class="flex items-center pb-2">
+        <div class="flex items-center ml-10 pb-2">
           <label class="text-xs font-semibold">Land Title Registration</label>
           <!-- Provider and give each service a different color code -->
           <!-- <label

@@ -407,14 +407,25 @@ onMounted(() => {
       <div class="block mt-2 mb-2">
         <!-- <p class="text-lg mx-1">Subscriptions</p> -->
 
-        <input
+        <!-- <input
           v-if="filter.filter !== undefined"
           input-type="text"
           v-model="filter.filter[2].operand"
           class="rounded-full filter-element e-input text-xs mt-1"
           type="text"
-          placeholder="Search By MDA or Service Name"
-        />
+          placeholder="Search Subscribed Services"
+        /> -->
+
+        <div
+          class="w-full bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+        >
+          <input
+            type="text"
+            placeholder="Search Services provided by Ministries, Departments and Agencies"
+            class="w-full text-sm border-none outline-none bg-white"
+          />
+          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+        </div>
       </div>
       <!-- all services -->
       <div class="pt-2 justify-around block px-3">

@@ -4,11 +4,7 @@ import api from "@/config/api";
 import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
 import type { AllocateManager } from "@/types";
 
-export const useBranchStore = defineStore("branches", () => {
-  const branches: Ref<Branch[] | undefined> = ref();
-  const branch: Ref<Branch | undefined> = ref();
-  const isLoading: Ref<boolean> = ref(false);
-  const managerAllocations: Ref<AllocateManager[]> = ref([]);
+export const useBranchStore = defineStore("useBranch", () => {
 
   // Dummy data for testing purposes
   const dummyBranches: Branch[] = [
@@ -35,6 +31,12 @@ export const useBranchStore = defineStore("branches", () => {
   //     manager: payload.managerId,
   //     status: "Assigned"
   //   });
+
+  // state variables
+  const branches: Ref<Branch[] | undefined> = ref(dummyBranches);
+  const branch: Ref<Branch | undefined> = ref();
+  const isLoading: Ref<boolean> = ref(false);
+  const managerAllocations: Ref<AllocateManager[]> = ref([]);
 
   const addBranch = (newBranch: Branch) => {
     branches.value?.push({
@@ -93,9 +95,9 @@ export const useBranchStore = defineStore("branches", () => {
   
   
 
-  async function fetchBranches(page: number, limit: number) {
-    isLoading.value = true;
-    try {
+  async function fetchBranches(filter: any) {
+    // isLoading.value = true;
+    // try {
       // Uncomment the following line to fetch data from the API once ready
       // const { data } = await api.get(`/branches?page=${page}&limit=${limit}`);
       
@@ -104,12 +106,12 @@ export const useBranchStore = defineStore("branches", () => {
 
       // Uncomment below to assign the API data when it's available
       // branches.value = data;
-    } catch (error) {
-      console.error(error);
-      throw error;
-    } finally {
-      isLoading.value = false;
-    }
+    // } catch (error) {
+      // console.error(error);
+      // throw error;
+    // } finally {
+      // isLoading.value = false;
+    // }
   }
 
   return {

@@ -11,11 +11,6 @@ import type { AccountResponseInterface, AccountsData, IResendVerificationPayload
 
 
 export const useAccounts = defineStore("user-management", () => {
-  const response: Ref<AccountResponse | undefined> = ref();
-  const userAccounts: Ref<Account[]> = ref([]);
-  const backofficeAccounts: Ref<Account[]> = ref([]);
-  const managerAccounts: Ref<ManagerAccount[]> = ref([]);
-  const managerAllocations: Ref<ManagerAllocation[]> = ref([]);
 
   const request = useGoRequest();
   const notify = useNotificationsStore();
@@ -77,6 +72,15 @@ export const useAccounts = defineStore("user-management", () => {
       emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01", email: "support.agent@example.com"
     }
   ];
+
+
+  const response: Ref<AccountResponse | undefined> = ref();
+  const userAccounts: Ref<Account[]> = ref([dummyUserAccounts]);
+  const backofficeAccounts: Ref<Account[]> = ref([dummyBackofficeAccounts]);
+  const managerAccounts: Ref<ManagerAccount[]> = ref([]);
+  const managerAllocations: Ref<ManagerAllocation[]> = ref([]);
+
+  
 
   // allocate manager to a branch using managerId
   const allocateManager = (payload: AllocateManager) => {

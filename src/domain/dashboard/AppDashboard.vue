@@ -26,21 +26,37 @@ const totalTransactions = billingStore.transactions?.length || 0;
 const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
 
 const totalBranches = branchStore.branches?.length || 0;
+
 const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 
 // const store = useDashboard();
 const page = ref(1);
 const limit = ref(15);
 
-onMounted(() => {
-  // store.fetchDashboardData();
-  branchStore.fetchBranches();
-  billingStore.fetchFloatRequests();
-  servicesStore.fetchSubscribedServices();
-  accountStore.fetchManagerAccounts();
-  accountStore.fetchBackofficeAccounts();
-  // balanceStore.fetchBalance();
-});
+// onMounted(() => {
+//   // store.fetchDashboardData();
+//   branchStore.fetchBranches();
+//   billingStore.fetchFloatRequests();
+//   servicesStore.fetchSubscribedServices();
+//   accountStore.fetchManagerAccounts();
+//   accountStore.fetchBackofficeAccounts();
+//   // balanceStore.fetchBalance();
+// });
+
+// onMounted(async () => {
+//   try {
+//     await Promise.all([
+//       branchStore.fetchBranches(),
+//       billingStore.fetchFloatRequests(),
+//       servicesStore.fetchSubscribedServices(),
+//       accountStore.fetchManagerAccounts(),
+//       accountStore.fetchBackofficeAccounts(),
+//     ]);
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//   }
+// });
+
 </script>
 
 <template>

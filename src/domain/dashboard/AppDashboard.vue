@@ -8,6 +8,16 @@ import { useAccounts } from "@/domain/accounts/stores";
 
 // const totalServiceSubscriptions = ref(0);
 
+onMounted(() => {
+  // store.fetchDashboardData();
+  branchStore.fetchBranches();
+  billingStore.fetchFloatRequests();
+  servicesStore.fetchSubscribedServices();
+  accountStore.fetchManagerAccounts();
+  accountStore.fetchBackofficeAccounts();
+  // balanceStore.fetchBalance();
+});
+
 // const store = useDashboard();
 const branchStore = useBranchStore();
 const billingStore = useBilling();
@@ -23,25 +33,18 @@ const totalTransactions = billingStore.transactions?.length || 0;
 
 // const totalBalance = balanceStore.balance;
 
-const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
-
 const totalBranches = branchStore.branches?.length || 0;
 
 const totalBranchManagers = accountStore.managerAccounts?.length || 0;
+
+const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
+
 
 // const store = useDashboard();
 const page = ref(1);
 const limit = ref(15);
 
-// onMounted(() => {
-//   // store.fetchDashboardData();
-//   branchStore.fetchBranches();
-//   billingStore.fetchFloatRequests();
-//   servicesStore.fetchSubscribedServices();
-//   accountStore.fetchManagerAccounts();
-//   accountStore.fetchBackofficeAccounts();
-//   // balanceStore.fetchBalance();
-// });
+
 
 // onMounted(async () => {
 //   try {
@@ -56,7 +59,6 @@ const limit = ref(15);
 //     console.error("Error fetching data:", error);
 //   }
 // });
-
 </script>
 
 <template>

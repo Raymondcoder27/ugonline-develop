@@ -77,10 +77,10 @@ export const useAccounts = defineStore("user-management", () => {
   const response: Ref<AccountResponse | undefined> = ref();
   const userAccounts: Ref<Account[]> = ref([dummyUserAccounts]);
   const backofficeAccounts: Ref<Account[]> = ref([dummyBackofficeAccounts]);
-  const managerAccounts: Ref<ManagerAccount[]> = ref([]);
-  const managerAllocations: Ref<ManagerAllocation[]> = ref([]);
+  const managerAccounts: Ref<ManagerAccount[]> = ref([dummyManagerAccounts]);
+  const managerAllocations: Ref<AllocateManager[]> = ref([]);
 
-  
+
 
   // allocate manager to a branch using managerId
   const allocateManager = (payload: AllocateManager) => {
@@ -207,6 +207,8 @@ export const useAccounts = defineStore("user-management", () => {
       resolve();
     });
   }
+
+
 
   return {
     response,

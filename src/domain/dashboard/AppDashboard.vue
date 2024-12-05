@@ -2,27 +2,37 @@
 import { useDashboard } from "@/domain/dashboard/stores";
 import { onMounted, ref } from "vue";
 
+const store = useDashboard();
+const page = ref(1);
+const limit = ref(15);
+
+onMounted(() => {
+  store.fetchDashboardData();
+});
 </script>
 
 <template>
   <div class="grid grid-cols-3 gap-3 py-2">
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">79</p>
+        <!-- <p class="text-xl font-bold py-2">79</p> -->
+        <p class="text-xl font-bold py-2">{{ servicesStore.subscriptions.length }}</p>
         <p class="text-xs">Service Subscriptions</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">4</p>
+        <!-- <p class="text-xl font-bold py-2">4</p> -->
+        <p class="text-xl font-bold py-2">{{ branchStore.branches.length }}</p>
         <p class="text-xs">Branches</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">3</p>
+        <!-- <p class="text-xl font-bold py-2">3</p> -->
+        <p class="text-xl font-bold py-2">{{ accountStore.branchManagers.length }}</p>
         <p class="text-xs">Branch Managers</p>
       </div>
     </div>
@@ -30,6 +40,7 @@ import { onMounted, ref } from "vue";
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">17</p>
+        <!-- <p class="text-xl font-bold py-2">{{ store.tills }}</p> -->
         <p class="text-xs">Tills</p>
       </div>
     </div>
@@ -43,21 +54,24 @@ import { onMounted, ref } from "vue";
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">4</p>
+        <!-- <p class="text-xl font-bold py-2">4</p> -->
+        <p class="text-xl font-bold py-2">{{ billingStore.floatRequests.length }}</p>
         <p class="text-xs">Pending Float Requests</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">123</p>
+        <!-- <p class="text-xl font-bold py-2">123</p> -->
+        <p class="text-xl font-bold py-2">{{ billingStore.serviceTransactions.length }}</p>
         <p class="text-xs">Service Transactions</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">130,400,000/=</p>
+        <!-- <p class="text-xl font-bold py-2">130,400,000/=</p> -->
+        <p class="text-xl font-bold py-2">{{ balanceStore.balance }}</p>
         <p class="text-xs">Balance</p>
       </div>
     </div>

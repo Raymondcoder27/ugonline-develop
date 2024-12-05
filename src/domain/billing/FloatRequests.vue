@@ -111,7 +111,7 @@ onMounted(() => {
             <!-- <th class="text-left">Name</th> -->
             <th class="text-left">Branch</th>
             <th class="text-left">Amount</th>
-            <th class="text-right">Actions</th>
+            <th class="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -126,7 +126,7 @@ onMounted(() => {
             <td class="text-left">{{ transaction.branch }}</td>
             <td class="text-left">{{ transaction.amount }}</td>
 
-            <td class="text-right">
+            <td class="text-center">
               <!-- approve or reject -->
               <i class="text-xs p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-300"
                 @click="open(transaction)">Approve</i>

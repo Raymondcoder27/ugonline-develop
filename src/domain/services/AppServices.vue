@@ -473,7 +473,7 @@ watch(
       <!-- all services -->
       <div class="pt-2 justify-around block px-3">
         <!-- just list the services and put a toggle button at the end -->
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center pb-2">
           <label class="text-xs">National ID Registration</label>
           <!-- Provider and give it a color code -->
           <label
@@ -483,7 +483,7 @@ watch(
           <!-- <i class="fa-solid fa-toggle-off text-red-600"></i> -->
         </div>
 
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center pb-2">
           <!-- <div class="flex"> -->
           <label class="text-xs">Passport Application</label>
           <!-- Provider and give each service a different color code -->

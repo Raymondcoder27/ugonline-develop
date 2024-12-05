@@ -146,7 +146,9 @@ export const useServicesStore = defineStore("services", () => {
     // const response = await fetch(`/api/services/subscribe/${serviceId}`);
     // const data = await response.json();
     // Use dummy data for now
-    subscribedServices.value.push(dummyServices.find((service) => service.id === serviceId));
+    subscribedServices.value?.push(dummyServices.find((service) => service.id === serviceId));
+    // subscribedServices.value = [...subscribedServices.value];
+    // subscribedServices.value?.push
   }
 
 
@@ -161,6 +163,7 @@ export const useServicesStore = defineStore("services", () => {
     serviceSpecifications,
     createService,
     fetchSubscribedServices,
+    subscribeToService,
     createServiceSpec,
     updateServiceSpec,
     editService,

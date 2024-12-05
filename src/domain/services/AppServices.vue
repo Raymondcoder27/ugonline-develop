@@ -482,8 +482,6 @@ watch(
             >NIRA</label
           >
           <i class="fa-solid fa-toggle-off text-red-600"></i>
-          <!-- </div> -->
-          <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
         </div>
 
         <div class="flex justify-around items-center">

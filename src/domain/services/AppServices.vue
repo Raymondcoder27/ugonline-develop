@@ -431,7 +431,7 @@ watch(
           Search
         </button> -->
 
-        <div class="w-1/3 bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
+        <div class="w-full bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
     <input
       type="text"
       placeholder="Search Services provided by Ministries, Departments and Agencies"

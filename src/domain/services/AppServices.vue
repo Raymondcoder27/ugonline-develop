@@ -330,7 +330,7 @@ onMounted(() => {
     <div class="block">
       <!-- Styled Search Bar -->
       <div
-        class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6"
+        class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-3"
       >
         <!-- <input
           type="text"
@@ -369,7 +369,7 @@ onMounted(() => {
       </div>
 
       <!-- Service Cards Section -->
-      <div class="grid grid-cols-3 gap-3 mt-3">
+      <div class="grid grid-cols-3 gap-3">
         <div
           v-for="service in store.services"
           :key="service.id"

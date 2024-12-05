@@ -8,15 +8,15 @@ import { useAccounts } from "@/domain/accounts/stores";
 
 // const totalServiceSubscriptions = ref(0);
 
-onMounted(() => {
+// onMounted(() => {
   // store.fetchDashboardData();
-  branchStore.fetchBranches();
-  billingStore.fetchFloatRequests();
-  servicesStore.fetchSubscribedServices();
-  accountStore.fetchManagerAccounts();
-  accountStore.fetchBackofficeAccounts();
+  // branchStore.fetchBranches();
+  // billingStore.fetchFloatRequests();
+  // servicesStore.fetchSubscribedServices();
+  // accountStore.fetchManagerAccounts();
+  // accountStore.fetchBackofficeAccounts();
   // balanceStore.fetchBalance();
-});
+// });
 
 // const store = useDashboard();
 const branchStore = useBranchStore();
@@ -24,6 +24,15 @@ const billingStore = useBilling();
 const servicesStore = useServicesStore();
 const accountStore = useAccounts();
 // const balanceStore = useBalance();
+
+// const fetch = () => {
+  branchStore.fetchBranches();
+  billingStore.fetchFloatRequests();
+  servicesStore.fetchSubscribedServices();
+  accountStore.fetchManagerAccounts();
+  accountStore.fetchBackofficeAccounts();
+  // balanceStore.fetchBalance();
+// };
 
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
 
@@ -58,6 +67,10 @@ const limit = ref(15);
 //   } catch (error) {
 //     console.error("Error fetching data:", error);
 //   }
+// });
+
+// onMounted(() => {
+//   fetch();
 // });
 </script>
 

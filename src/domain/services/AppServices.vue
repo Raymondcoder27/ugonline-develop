@@ -483,7 +483,7 @@ watch(
       <div class="pt-2 justify-around block px-3">
         <!-- just list the services and put a toggle button at the end -->
         <div class="flex items-center ml-10 pb-2">
-          <label class="text-xs font-semibold">National ID Registration</label>
+          <label class="text-xs font-semibold text-gray-600">National ID Registration</label>
           <!-- Provider and give it a color code -->
           <!-- <label
             class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1"
@@ -494,7 +494,7 @@ watch(
 
         <div class="flex items-center ml-10 pb-2">
           <!-- <div class="flex"> -->
-          <label class="text-xs font-semibold">Passport Application</label>
+          <label class="text-xs font-semibold text-gray-600">Passport Application</label>
           <!-- Provider and give each service a different color code -->
           <!-- <label
             class="text-xs bg-gray-400 text-black-800 font-semibold rounded-sm px-1"
@@ -504,7 +504,7 @@ watch(
         </div>
 
         <div class="flex items-center ml-10 pb-2">
-          <label class="text-xs font-semibold">Land Title Registration</label>
+          <label class="text-xs font-semibold text-gray-600">Land Title Registration</label>
           <!-- Provider and give each service a different color code -->
           <!-- <label
             class="text-xs bg-amber-300 text-amber-800 font-semibold rounded-sm px-1"
@@ -514,7 +514,7 @@ watch(
         </div>
 
         <div class="flex ml-10 pb-2">
-          <label class="text-xs font-semibold">Name Reservation</label>
+          <label class="text-xs font-semibold text-gray-600">Name Reservation</label>
           <!-- Provider and give each service a different color code -->
           <!-- <label
             class="text-xs bg-blue-300 text-blue-800 font-semibold rounded-sm px-1"

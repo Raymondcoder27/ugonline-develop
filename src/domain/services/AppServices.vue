@@ -491,7 +491,7 @@ onMounted(() => {
       >
         <!-- <li width="10px">{{ idx + 1 }}</li> -->
         <li class="list-none flex justify-between mx-3">
-          <span class="hover:underline cursor-pointer font-semibold" @click="open(service)">
+          <span class="hover:underline cursor-pointer font-semibold text-gray-700" @click="open(service)">
             {{ subscribedService.name }}
           </span>
 

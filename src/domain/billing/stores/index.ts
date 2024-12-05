@@ -169,7 +169,7 @@ export const useBilling = defineStore("billing", () => {
       id: floatAllocations.value.length + 1,
       dateAssigned: new Date().toISOString(),
       amount: payload.amount,
-      status: "Assigned",
+      status: "Allocated",
       branch: payload.branchId,
     })
   }

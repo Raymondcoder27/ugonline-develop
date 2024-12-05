@@ -157,6 +157,10 @@ watch(
   { deep: true }
 );
 
+// const filteredServices = computed(() => {
+//   return store.services.filter(service => service.status === 'listed');
+// });
+
 // fetch services
 function fetchServices() {
   filter.limit = limit.value;
@@ -178,7 +182,7 @@ function fetchServices() {
 function subscribe(serviceId: string) {
   try {
     store.subscribeToService(serviceId);
-    notify.success("Service subscribed, awaiting approval!");
+    notify.success("Service subscribed Successfully!");
   } catch (error) {
     notify.error("Failed to subscribe to service: " + error.message);
   }
@@ -391,6 +395,7 @@ onMounted(() => {
 
       <!-- Service Cards Section -->
       <div class="grid grid-cols-3 gap-3">
+        <!-- v-if service has been subscribed, its removed from the array -->
         <div
           v-for="service in store.services"
           :key="service.id"
@@ -421,6 +426,9 @@ onMounted(() => {
             SUBSCRIBE
           </p>
         </div>
+
+
+
       </div>
     </div>
 

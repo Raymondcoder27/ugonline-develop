@@ -147,8 +147,9 @@ export const useServicesStore = defineStore("services", () => {
     // const data = await response.json();
     // Use dummy data for now
     subscribedServices.value?.push(dummyServices.find((service) => service.id === serviceId));
-    // subscribedServices.value = [...subscribedServices.value];
-    // subscribedServices.value?.push
+
+    // filter it out of the services
+    services.value = services.value?.filter((service) => service.id !== serviceId);
   }
 
 

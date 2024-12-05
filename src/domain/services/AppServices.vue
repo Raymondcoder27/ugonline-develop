@@ -188,6 +188,16 @@ function subscribe(serviceId: string) {
   }
 }
 
+function unsubscribeFromService(serviceId: string) {
+  store.unsubscribeFromService(serviceId) {
+    try{
+      notify.success("Service unsubscribed successfully!");
+    } catch (error) {
+      notify.error("Failed to unsubscribe from service: " + error.message);
+    }
+  }
+}
+
 onMounted(() => {
   store.fetchServices();
   store.fetchSubscribedServices();
@@ -460,8 +470,8 @@ onMounted(() => {
       <!-- all services subscribed looped from subscribedServices store -->
       <div
         class="flex flex-col justify-between mt-3 text-left"
-        v-for="(subscribedService, idx) in store.subscribedServices"
-        :key="idx"
+        v-for="(subscribedService, id) in store.subscribedServices"
+        :key="id"
       >
         <!-- <li width="10px">{{ idx + 1 }}</li> -->
         <li class="list-none flex justify-between mx-3">
@@ -475,7 +485,7 @@ onMounted(() => {
           <!-- Unsubscribe button -->
           <button
             class="text-xs rounded-md p-1 font-semibold text-black-600 bg-gray-100 border border-gray-200 hover:text-red-700 hover:bg-red-300"
-            @click="unsubscribe(subscribedService.id)"
+            @click="unsubscribeFromService(subscribedService.id)"
           >
             Unsubscribe
           </button>

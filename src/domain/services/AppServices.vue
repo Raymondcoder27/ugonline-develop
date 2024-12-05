@@ -178,7 +178,7 @@ function fetchServices() {
 function subscribe(serviceId: string) {
   try {
     store.subscribeToService(serviceId);
-    notify.success("Service subscribed successfully!");
+    notify.success("Service subscribed, awaiting approval!");
   } catch (error) {
     notify.error("Failed to subscribe to service: " + error.message);
   }

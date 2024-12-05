@@ -458,46 +458,27 @@ watch(
             class="filter-element e-input text-xs mt-3" type="text" placeholder="Search By MDA or Service Name" />
       <!-- all services -->
       <div class="pt-2">
-        <!-- <div class="count">Total Services: {{ services.length }}</div>
-      <div class="count">Active Services: {{ services.length }}</div>
-      <div class="count">Inactive Services: 0</div> -->
-
-      <!-- drop down of MDAs -->
-      <!-- <select class="filter-element text-xs w-full">
-        <option :value="null">- NIRA</option>
-        <option value="pending">National ID Registration
-          <i class="fa-solid fa-toggle-off text-red-600"></i>
-        </option>
-        <option value="active">Passport Application</option>
-        <option value="blocked">Name Reservation</option>
-      </select> -->
-
       <!-- just list the services and put a toggle button at the end -->
-      <div class="flex justify-between items-center">
-        <div class="flex">
+      <div class="flex justify-around items-center">
+        <!-- <div class="flex"> -->
           <label class="text-xs">National ID Registration</label>
+          <!-- Provider and give it a color code -->
+          <label class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1">NIRA</label>
           <i class="fa-solid fa-toggle-off text-red-600"></i>
-        </div>
+        <!-- </div> -->
         <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
       </div>
 
-      <!-- drop down of other MDAs -->
-      <select class="filter-element w-full text-xs">
-        <option :value="null">- URSB</option>
-        <!-- services offered by URSB -->
-        <option value="pending">Name Reservation</option>
-        <option value="active">Business Registration</option>
-        <option value="blocked">Company Registration</option>
-      </select>
+      <div class="flex justify-around items-center">
+        <!-- <div class="flex"> -->
+          <label class="text-xs">Passport Application</label>
+          <!-- Provider and give it a color code -->
+          <label class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1">MoIA</label>
+          <i class="fa-solid fa-toggle-on text-green-600"></i>
+        <!-- </div> -->
+        <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
+         </div> 
 
-      <!-- drop down of other MDAs -->
-      <select class="filter-element w-full text-xs">
-        <option :value="null">- NITA</option>
-        <!-- services offered by NITA -->
-        <option value="pending">e-Government Services</option>
-        <option value="active">e-Procurement</option>
-        <option value="blocked">e-Visa</option>
-      </select>
       </div>
     </div>
   </div>

@@ -161,15 +161,15 @@ watch(
 //   return store.services.filter(service => service.status === 'listed');
 // });
 
-const listedServices = computed(() => {
-  return store.services.filter((service) => service.status === "listed");
-});
+// const listedServices = computed(() => {
+//   return store.services.filter((service) => service.status === "listed");
+// });
 
-const activeServices = computed(() => {
-  return store.subscribedServices.filter(
-    (service) => service.status === "subscribed"
-  );
-});
+// const activeServices = computed(() => {
+//   return store.subscribedServices.filter(
+//     (service) => service.status === "subscribed"
+//   );
+// });
 
 // fetch services
 function fetchServices() {
@@ -206,6 +206,9 @@ function unsubscribeFromService(serviceId: string) {
     notify.error("Failed to unsubscribe from service: " + error.message);
   }
 }
+
+// watch for changes in the subscription status and refetch services
+
 
 onMounted(() => {
   store.fetchServices();
@@ -415,16 +418,16 @@ onMounted(() => {
       <!-- Service Cards Section -->
       <div class="grid grid-cols-3 gap-3">
         <!-- v-if service has been subscribed, its removed from the array -->
-        <!-- <div
+        <div
           v-for="service in store.services"
           :key="service.id"
           class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
-        > -->
-        <div
+        >
+        <!-- <div
           v-for="service in listedServices"
           :key="service.id"
           class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
-        >
+        > -->
           <div class="flex justify-between items-center">
             <img
               :src="service.thumbnail"
@@ -482,16 +485,16 @@ onMounted(() => {
         <hr class="mt-3 text-gray-100" />
       </div>
       <!-- all services subscribed looped from subscribedServices store -->
-      <!-- <div
+      <div
         class="flex flex-col justify-between mt-3 text-left"
         v-for="(subscribedService, id) in store.subscribedServices"
         :key="id"
-      > -->
-      <div
+      >
+      <!-- <div
         class="flex flex-col justify-between mt-3 text-left"
         v-for="(subscribedService, id) in activeServices"
         :key="id"
-      >
+      > -->
         <!-- <li width="10px">{{ idx + 1 }}</li> -->
         <li class="list-none flex justify-between mx-3">
           <span

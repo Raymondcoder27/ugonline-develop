@@ -150,10 +150,10 @@ export const useServicesStore = defineStore("services", () => {
     //set the status of the service to active
     services.value?.find((service) => service.id === serviceId)?.status === "subscribed";
 
-
+    
 
     // Use dummy data for now
-    subscribedServices.value?.push(services.find((service) => service.id === serviceId));
+    subscribedServices.value?.push(dummyServices.find((service) => service.id === serviceId));
 
 
     // filter it out of the services

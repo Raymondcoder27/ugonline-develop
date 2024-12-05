@@ -6,21 +6,21 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">79</p>
-        <p class="text-xs">Total Service Subscriptions</p>
+        <p class="text-xs">Service Subscriptions</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">3</p>
-        <p class="text-xs">Total Branches</p>
+        <p class="text-xs">Branches</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">13</p>
-        <p class="text-xs">Total Agents</p>
+        <p class="text-xs">Agents</p>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">123</p>
-        <p class="text-xs">Total Service Transactions</p>
+        <p class="text-xs">Service Transactions</p>
       </div>
     </div>
 

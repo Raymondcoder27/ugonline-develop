@@ -545,8 +545,7 @@ watch(
       </div>
 
       <!-- all services subscribed looped from subscribedServices store -->
-      <div
-              class="body-tr"
+      <div class="body-tr"
               v-for="(subscribedService, idx) in store.subscribedServices"
               :key="idx"
             >
@@ -560,9 +559,6 @@ watch(
                     @click="tag(service)"
                   ></i> -->
               </li>
-
-      
-
     </div>
   </div>
 

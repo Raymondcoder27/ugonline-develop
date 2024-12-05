@@ -496,10 +496,10 @@ watch(
           <!-- <div class="flex"> -->
           <label class="text-xs">Passport Application</label>
           <!-- Provider and give each service a different color code -->
-          <label
+          <!-- <label
             class="text-xs bg-gray-400 text-black-800 font-semibold rounded-sm px-1"
             >MoIA</label
-          >
+          > -->
           <!-- <i class="fa-solid fa-toggle-on text-green-600"></i> -->
         </div>
 

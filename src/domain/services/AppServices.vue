@@ -174,7 +174,7 @@ function fetchServices() {
 //     });
 // }
 
-  // don't use .then and .catch just make the function synchronous
+// don't use .then and .catch just make the function synchronous
 function subscribe(serviceId: string) {
   try {
     store.subscribeToService(serviceId);
@@ -183,7 +183,6 @@ function subscribe(serviceId: string) {
     notify.error("Failed to subscribe to service: " + error.message);
   }
 }
-
 
 onMounted(() => {
   store.fetchServices();
@@ -448,14 +447,8 @@ onMounted(() => {
           />
           <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
         </div>
-        <hr class="mt-3 text-gray-100">
-
+        <hr class="mt-3 text-gray-100" />
       </div>
-      <!-- all services -->
-      <!-- <div class="pt-2 justify-around block px-3">
-
-      </div> -->
-
       <!-- all services subscribed looped from subscribedServices store -->
       <div
         class="flex flex-col justify-between mt-3 text-left"
@@ -464,7 +457,10 @@ onMounted(() => {
       >
         <!-- <li width="10px">{{ idx + 1 }}</li> -->
         <li class="list-none flex justify-between mx-3">
-          <span class="hover:underline cursor-pointer font-semibold text-gray-700" @click="open(service)">
+          <span
+            class="hover:underline cursor-pointer font-semibold text-gray-700"
+            @click="open(service)"
+          >
             {{ subscribedService.name }}
           </span>
 

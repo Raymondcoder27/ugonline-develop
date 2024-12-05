@@ -20,9 +20,7 @@ const accountStore = useAccounts();
 
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
 
-const totalBranches = branchStore.branches?.length || 0;
 
-const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 
 const totalFloatRequests = billingStore.floatRequests?.length || 0;
 
@@ -31,6 +29,10 @@ const totalTransactions = billingStore.transactions?.length || 0;
 // const totalBalance = balanceStore.balance;
 
 const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
+
+const totalBranches = branchStore.branches?.length || 0;
+const totalBranchManagers = accountStore.managerAccounts?.length || 0;
+
 
 
 

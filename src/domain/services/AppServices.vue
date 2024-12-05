@@ -421,7 +421,7 @@ onMounted(() => {
         >
           <input
             type="text"
-            placeholder="Search Services provided by Ministries, Departments and Agencies"
+            placeholder="Search Subscribed Services"
             class="w-full text-sm border-none outline-none bg-white"
           />
           <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>

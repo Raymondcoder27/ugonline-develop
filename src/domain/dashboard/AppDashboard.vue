@@ -18,7 +18,7 @@ const accountStore = useAccounts();
 
 
 
-const totalServiceSubscriptions = servicesStore.servicesSubscribed?.length || 0;
+const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
 
 const totalBranches = branchStore.branches?.length || 0;
 
@@ -30,7 +30,7 @@ const totalTransactions = billingStore.transactions?.length || 0;
 
 // const totalBalance = balanceStore.balance;
 
-const totalBackOfficeAccounts = accountStore.backOfficeAccounts?.length || 0;
+const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
 
 
 
@@ -46,7 +46,7 @@ onMounted(() => {
   // store.fetchDashboardData();
   branchStore.fetchBranches();
   billingStore.fetchFloatRequests();
-  servicesStore.fetchServices();
+  servicesStore.fetchSubscribedServices();
   accountStore.fetchManagerAccounts();
   accountStore.fetchBackofficeAccounts();
   // balanceStore.fetchBalance();

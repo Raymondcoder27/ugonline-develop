@@ -68,6 +68,8 @@ export const useBalance = defineStore("balance", () => {
 
   return {
     totalBalance,
-    fetchTotalBalance
+    fetchTotalBalance,
+    increaseTotalBalance,
+    decreaseTotalBalance
   };
 });

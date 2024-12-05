@@ -31,7 +31,7 @@ billingStore.fetchFloatRequests();
 servicesStore.fetchSubscribedServices();
 accountStore.fetchManagerAccounts();
 accountStore.fetchBackofficeAccounts();
-balanceStore.fetchBalance();
+balanceStore.fetchTotalBalance();
 // };
 
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;

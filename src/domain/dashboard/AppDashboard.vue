@@ -6,7 +6,6 @@ import { useServicesStore } from "@/domain/services/stores";
 import { useAccounts } from "@/domain/accounts/stores";
 // import { useBalance } from "@/domain/balance/stores";
 
-
 // const totalServiceSubscriptions = ref(0);
 
 // const store = useDashboard();
@@ -16,11 +15,7 @@ const servicesStore = useServicesStore();
 const accountStore = useAccounts();
 // const balanceStore = useBalance();
 
-
-
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
-
-
 
 const totalFloatRequests = billingStore.floatRequests?.length || 0;
 
@@ -33,16 +28,9 @@ const totalBackOfficeAccounts = accountStore.backofficeAccounts?.length || 0;
 const totalBranches = branchStore.branches?.length || 0;
 const totalBranchManagers = accountStore.managerAccounts?.length || 0;
 
-
-
-
-
-
-
 // const store = useDashboard();
 const page = ref(1);
 const limit = ref(15);
-
 
 onMounted(() => {
   // store.fetchDashboardData();

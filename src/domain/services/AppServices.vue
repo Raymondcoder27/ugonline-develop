@@ -385,7 +385,7 @@ onMounted(() => {
         </button> -->
 
         <div
-          class="w-full bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+          class="w-[50vw] bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
         >
           <input
             type="text"
@@ -442,8 +442,8 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center mb-2">
-      <div class="block mt-2 mb-4">
+    <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center mb-2  h-[85vh]">
+      <div class="block mt-2 mb-4 ">
         <!-- <p class="text-lg mx-1">Subscriptions</p> -->
 
         <!-- <input

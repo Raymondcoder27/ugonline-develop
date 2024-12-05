@@ -417,7 +417,7 @@ watch(
     <input
       type="text"
       placeholder="Search..."
-      class="w-full md:w-2/3 lg:w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-red-700"
+      class="w-full md:w-2/3 lg:w-full px-4 py-2 border border-gray-300 rounded-full text-sm focus:ring-2 focus:ring-red-700"
     />
     <button
       class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-800 transition duration-300 ease-in-out"
@@ -463,16 +463,23 @@ watch(
       <div class="count">Inactive Services: 0</div> -->
 
       <!-- drop down of MDAs -->
-      <select class="filter-element text-xs w-full">
+      <!-- <select class="filter-element text-xs w-full">
         <option :value="null">- NIRA</option>
-        <!-- services offered by NIRA -->
         <option value="pending">National ID Registration
-          <!-- add a toggle but set it to off -->
           <i class="fa-solid fa-toggle-off text-red-600"></i>
         </option>
         <option value="active">Passport Application</option>
         <option value="blocked">Name Reservation</option>
-      </select>
+      </select> -->
+
+      <!-- just list the services and put a toggle button at the end -->
+      <div class="flex justify-between items-center">
+        <div class="flex">
+          <label class="text-xs">National ID Registration</label>
+          <i class="fa-solid fa-toggle-off text-red-600"></i>
+        </div>
+        <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
+      </div>
 
       <!-- drop down of other MDAs -->
       <select class="filter-element w-full text-xs">

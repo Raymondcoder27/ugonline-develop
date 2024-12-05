@@ -434,7 +434,7 @@ watch(
         <div class="w-1/3 bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
     <input
       type="text"
-      placeholder="Search..."
+      placeholder="Search Services provided by Ministries, Departments and Agencies"
       class="w-full text-sm border-none outline-none bg-white"
     />
     <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>

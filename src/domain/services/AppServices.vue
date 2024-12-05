@@ -471,19 +471,19 @@ watch(
         placeholder="Search By MDA or Service Name"
       />
       <!-- all services -->
-      <div class="pt-2">
+      <div class="pt-2 justify-around block px-3">
         <!-- just list the services and put a toggle button at the end -->
-        <div class="flex justify-around items-center">
+        <div class="flex justify-between items-center">
           <label class="text-xs">National ID Registration</label>
           <!-- Provider and give it a color code -->
           <label
             class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1"
             >NIRA</label
           >
-          <i class="fa-solid fa-toggle-off text-red-600"></i>
+          <!-- <i class="fa-solid fa-toggle-off text-red-600"></i> -->
         </div>
 
-        <div class="flex justify-around items-center">
+        <div class="flex justify-between items-center">
           <!-- <div class="flex"> -->
           <label class="text-xs">Passport Application</label>
           <!-- Provider and give each service a different color code -->
@@ -491,7 +491,7 @@ watch(
             class="text-xs bg-gray-400 text-black-800 font-semibold rounded-sm px-1"
             >MoIA</label
           >
-          <i class="fa-solid fa-toggle-on text-green-600"></i>
+          <!-- <i class="fa-solid fa-toggle-on text-green-600"></i> -->
         </div>
       </div>
     </div>

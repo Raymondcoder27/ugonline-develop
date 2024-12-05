@@ -2,7 +2,7 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { Balance } from "@/domain/balance/types";
+import type { TotalBalance } from "@/domain/balance/types";
 
 export const useBalance = defineStore("balance", () => {
   // Dummy data for testing
@@ -10,7 +10,7 @@ export const useBalance = defineStore("balance", () => {
   // const dummyTotalBalance: Balance = 300000000; // Set a test value
 
   // the dummyTotalBalance should have a current value and a new value
-  const dummyTotalBalance: Balance = {
+  const dummyTotalBalance: TotalBalance = {
     prev: 0,
     current: 300000000
   };

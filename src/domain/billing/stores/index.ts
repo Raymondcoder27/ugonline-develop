@@ -188,6 +188,8 @@ export const useBilling = defineStore("billing", () => {
       floatRequest.status = "Approved";
       floatRequest.approvedBy = "Manager One";
     }
+    // return new floatRequests
+    // floatRequests.value 
   }
 
   // reject float request and set status to rejected
@@ -197,6 +199,8 @@ export const useBilling = defineStore("billing", () => {
       floatRequest.status = "Rejected";
       floatRequest.approvedBy = "Manager One";
     }
+    // return new floatRequests
+    // floatRequests.value 
   }
 
   return {

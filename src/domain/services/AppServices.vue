@@ -474,7 +474,6 @@ watch(
       <div class="pt-2">
         <!-- just list the services and put a toggle button at the end -->
         <div class="flex justify-around items-center">
-          <!-- <div class="flex"> -->
           <label class="text-xs">National ID Registration</label>
           <!-- Provider and give it a color code -->
           <label

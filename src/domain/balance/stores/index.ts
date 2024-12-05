@@ -64,6 +64,7 @@ export const useBalance = defineStore("balance", () => {
       prev: totalBalance.value,
       current: totalBalance.value - amount
   }
+  }
 
 
 

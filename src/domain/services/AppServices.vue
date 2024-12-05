@@ -467,14 +467,14 @@ watch(
     </div>
 
     <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
-      <div class="block">
-        <label class="text-lg mx-1">Subscriptions</label>
+      <div class="block mt-2 mb-2">
+        <p class="text-lg mx-1">Subscriptions</p>
 
       <input
         v-if="filter.filter !== undefined"
         input-type="text"
         v-model="filter.filter[2].operand"
-        class="filter-element e-input text-xs mt-3"
+        class="filter-element e-input text-xs mt-1"
         type="text"
         placeholder="Search By MDA or Service Name"
       />

@@ -13,7 +13,7 @@ export const useBalance = defineStore("balance", () => {
   const dummyTotalBalance: Balance = {
     prev: 0,
     current: 300000000
-  }; 
+  };
 
 
   // State variables
@@ -63,7 +63,7 @@ export const useBalance = defineStore("balance", () => {
     totalBalance.value = {
       prev: totalBalance.value,
       current: totalBalance.value - amount
-  }
+    }
   }
 
 

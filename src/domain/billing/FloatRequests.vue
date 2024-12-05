@@ -5,6 +5,9 @@ import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 // import { useDebounce } from "@vueuse/core";
 
+
+  
+
 const store = useBilling();
 const page = ref(1);
 const limit = ref(10);
@@ -38,6 +41,8 @@ const filter: IGoFilter = reactive({
   ],
 });
 
+
+
 const next = () => {
   if (store.transactions.length >= store.limit) {
     page.value += 1;
@@ -67,6 +72,16 @@ watch(
   () => updateFilter(),
   { deep: true }
 );
+
+// float request approval or rejection
+// const activeServices = computed(() => {
+//   return store.subscribedServices.filter(
+//     (service) => service.status === "subscribed"
+//   );
+// });
+
+
+
 
 onMounted(() => {
   store.fetchFloatRequests();
@@ -166,13 +181,13 @@ onMounted(() => {
                 <td class="text-center">
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
-                    @click="open(transaction)"
+                    @click="rejectFloatRequest(approve)"
                     >Approve</span
                   >
 
                   <span
                     class="text-xs rounded-md p-1 mr-2 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
-                    @click="open(transaction)"
+                    @click="approveFloatRequest(reject)"
                     >Reject</span
                   >
                 </td>

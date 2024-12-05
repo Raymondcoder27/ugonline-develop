@@ -467,6 +467,8 @@ watch(
     </div>
 
     <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
+      <label class="text-lg mx-1">Subscriptions</label>
+
       <input
         v-if="filter.filter !== undefined"
         input-type="text"

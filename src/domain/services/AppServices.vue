@@ -162,12 +162,12 @@ watch(
 // });
 
 const listedServices = computed(() => {
-  return store.services.filter((service) => service.status === "Inactive");
+  return store.services.filter((service) => service.status === "listed");
 });
 
 const activeServices = computed(() => {
   return store.subscribedServices.filter(
-    (service) => service.status === "Active"
+    (service) => service.status === "active"
   );
 });
 

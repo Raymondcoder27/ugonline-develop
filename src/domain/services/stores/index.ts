@@ -150,7 +150,7 @@ export const useServicesStore = defineStore("services", () => {
     subscribedServices.value?.push(dummyServices.find((service) => service.id === serviceId));
 
     //set the status of the service to active
-    services.value?.find((service) => service.id === serviceId)?.status === "Active";
+    services.value?.find((service) => service.id === serviceId)?.status === "active";
 
     // filter it out of the services
     // services.value = services.value?.filter((service) => service.id !== serviceId);
@@ -165,7 +165,7 @@ export const useServicesStore = defineStore("services", () => {
     services.value?.push(dummySubscribedServices.find((service) => service.id === serviceId));
 
     //set the status of the service to inactive
-    subscribedServices.value?.find((service) => service.id === serviceId)?.status === "Inactive";
+    subscribedServices.value?.find((service) => service.id === serviceId)?.status === "listed";
 
     // filter it out of the subscribed services
     // subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);

@@ -153,7 +153,7 @@ export const useServicesStore = defineStore("services", () => {
     services.value?.find((service) => service.id === serviceId)?.status === "Active";
 
     // filter it out of the services
-    services.value = services.value?.filter((service) => service.id !== serviceId);
+    // services.value = services.value?.filter((service) => service.id !== serviceId);
   }
 
   // unsubscribeFromService function
@@ -168,7 +168,7 @@ export const useServicesStore = defineStore("services", () => {
     subscribedServices.value?.find((service) => service.id === serviceId)?.status === "Inactive";
 
     // filter it out of the subscribed services
-    subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);
+    // subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);
   }
 
   return {

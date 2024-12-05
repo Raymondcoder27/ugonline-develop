@@ -14,6 +14,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
 import { useDebounceFn } from "@vueuse/core";
+import { subscribe } from "diagnostics_channel";
 
 const store = useServicesStore();
 const modalOpen: Ref<boolean> = ref(false);
@@ -475,6 +476,7 @@ watch(
           </table>
           <p
             class="font-bold text-xs text-white bg-red-700 p-1 rounded-md w-2/5 text-center cursor-pointer hover:scale-105 hover:bg-red-800"
+            @click="subscribe(service)"
           >
             SUBSCRIBE
           </p>
@@ -541,6 +543,24 @@ watch(
           </div>
 
       </div>
+
+      <!-- all services subscribed looped from subscribedServices store -->
+      <div
+              class="body-tr"
+              v-for="(subscribedService, idx) in store.subscribedServices"
+              :key="idx"
+            >
+              <li width="10px">{{ idx + 1 }}.</li>
+              <li>
+                  <span class="hover:underline" @click="open(service)">
+                    {{ subscribedService.name }}
+                  </span>
+                  <!-- <i
+                    class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
+                    @click="tag(service)"
+                  ></i> -->
+              </li>
+
     </div>
   </div>
 

@@ -490,7 +490,7 @@ watch(
         v-if="filter.filter !== undefined"
         input-type="text"
         v-model="filter.filter[2].operand"
-        class="filter-element e-input text-xs mt-1 rounded-full"
+        class="rounded-full filter-element e-input text-xs mt-1"
         type="text"
         placeholder="Search By MDA or Service Name"
       />

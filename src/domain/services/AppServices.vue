@@ -493,6 +493,28 @@ watch(
           >
           <!-- <i class="fa-solid fa-toggle-on text-green-600"></i> -->
         </div>
+
+        <div class="flex justify-between items-center pb-2">
+          <label class="text-xs">Land Title Registration</label>
+          <!-- Provider and give each service a different color code -->
+          <label
+            class="text-xs bg-amber-300 text-amber-800 font-semibold rounded-sm px-1"
+            >MoLUD</label
+          >
+          <!-- <i class="fa-solid fa-toggle-on text-green-600"></i> -->
+        </div>
+
+        <div class="flex justify-between items-center pb-2">
+          <label class="text-xs">Name Reservation</label>
+          <!-- Provider and give each service a different color code -->
+          <label
+            class="text-xs bg-blue-300 text-blue-800 font-semibold rounded-sm px-1"
+            >URSB</label
+          >
+          <!-- <i class="fa-solid fa-toggle-on text-green-600"></i> -->
+
+          </div>
+
       </div>
     </div>
   </div>

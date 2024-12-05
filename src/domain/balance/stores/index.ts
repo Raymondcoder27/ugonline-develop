@@ -19,7 +19,10 @@ export const useBalance = defineStore("balance", () => {
   // State variables
   // const totalBalance: Balance = ref(dummyTotalBalance); /// Set a test value
 
-  const totalBalance = ref<Balance>(dummyTotalBalance); // Set a test value
+  // const totalBalance = ref<Balance>(dummyTotalBalance); // Set a test value
+
+  // use the current value of the dummyTotalBalance
+  const totalBalance = ref<Balance>(dummyTotalBalance.current); // Set a test value
 
   // Actions to fetch data
   async function fetchTotalBalance() {

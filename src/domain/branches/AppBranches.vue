@@ -92,7 +92,7 @@ function allocateManager(branch: Branch) {
 
 function deleteBranch(branchId: string) {
   branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
-  branchStore.branches = branchStore.branches.filter((b) => b.id !== branch.id); // Manually update the store
+  // branchStore.branches = branchStore.branches.filter((b) => branchId !== branch.id); // Manually update the store
   fetchBranches(); // Refetch the branches after deleting, if needed
   notify.success("Branch Deleted");
 }

@@ -72,7 +72,7 @@ export const useBranchStore = defineStore("branches", () => {
 
 
    // Delete branch from the store
-   const deleteBranch = (branchId: number) => {
+   const deleteBranch = (branchId: string) => {
     branches.value = branches.value?.filter((branch) => branch.id !== branchId); // Remove the branch by ID
   };
   

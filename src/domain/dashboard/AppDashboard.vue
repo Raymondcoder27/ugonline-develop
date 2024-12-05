@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useDashboard } from "@/domain/dashboard/stores";
+import { onMounted, ref } from "vue";
+
 </script>
 
 <template>

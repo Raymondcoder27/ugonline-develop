@@ -175,9 +175,11 @@ onMounted(() => {
               </a>
               <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
             </td>
-            <td>
+            <!-- <td>
               {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
-                v-if="!account.phoneVerified"></i>
+                v-if="!account.phoneVerified"></i> -->
+                <td>
+              {{ account.phone }} 
             </td>
             <td>
               {{ account.branch }}  

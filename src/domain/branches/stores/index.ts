@@ -78,7 +78,7 @@ export const useBranchStore = defineStore("branches", () => {
 
 
   const deleteBranch = (branchId: string) => {
-    branches.value = branches.value?.filter((b) => b.id !== branch.id); 
+    branches.value = branches.value?.filter((b) => b.id !== branchId); 
   }
 
   // const service = subscribedServices.value?.find((s) => s.id === serviceId);

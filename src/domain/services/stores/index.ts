@@ -152,6 +152,17 @@ export const useServicesStore = defineStore("services", () => {
     services.value = services.value?.filter((service) => service.id !== serviceId);
   }
 
+  // unsubscribeFromService function
+  function unsubscribeFromService(serviceId: string) {
+    // Simulate API call
+    // const response = await fetch(`/api/services/unsubscribe/${serviceId}`);
+    // const data = await response.json();
+    // Use dummy data for now
+    services.value?.push(dummySubscribedServices.find((service) => service.id === serviceId));
+
+    // filter it out of the subscribed services
+    subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);
+  }
 
   return {
     services,
@@ -165,6 +176,7 @@ export const useServicesStore = defineStore("services", () => {
     createService,
     fetchSubscribedServices,
     subscribeToService,
+    unsubscribeFromService,
     createServiceSpec,
     updateServiceSpec,
     editService,

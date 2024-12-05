@@ -12,17 +12,31 @@
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">3</p>
+        <p class="text-xl font-bold py-2">4</p>
         <p class="text-xs">Branches</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">13</p>
-        <p class="text-xs">Agents</p>
+        <p class="text-xl font-bold py-2">3</p>
+        <p class="text-xs">Branch Managers</p>
       </div>
     </div>
+
+    <div class="w-full">
+      <div class="w-12/12 count">
+        <p class="text-xl font-bold py-2">17</p>
+        <p class="text-xs">Tills</p>
+      </div>
+    </div>
+
+    <!-- <div class="w-full">
+      <div class="w-12/12 count">
+        <p class="text-xl font-bold py-2">17</p>
+        <p class="text-xs">Agents</p>
+      </div>
+    </div> -->
 
     <div class="w-full">
       <div class="w-12/12 count">

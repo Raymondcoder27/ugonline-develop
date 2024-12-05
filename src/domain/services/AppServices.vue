@@ -419,7 +419,7 @@ watch(
           placeholder="Search..."
           class="w-full md:w-2/3 lg:w-full px-4 py-2 border border-gray-300 rounded-full text-sm focus:ring-2 focus:ring-red-700"
         /> -->
-        <input
+        <!-- <input
           type="text"
           placeholder="Search Services provided by Ministries, Departments and Agencies"
           class="w-full md:w-2/3 lg:w-full px-4 py-2 border border-gray-300 rounded-full text-sm"
@@ -429,7 +429,23 @@ watch(
           @click="search"
         >
           Search
-        </button>
+        </button> -->
+
+        <div class="w-1/3 bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
+    <input
+      type="text"
+      placeholder="Search..."
+      class="w-full text-lg border-none outline-none bg-white"
+    />
+    <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+
+    <!-- <button
+      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button> -->
+   </div>
       </div>
 
       <!-- Service Cards Section -->

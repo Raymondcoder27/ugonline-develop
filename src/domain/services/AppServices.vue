@@ -43,15 +43,15 @@ onMounted(() => {
   }
 });
 
-function fetch() {
-  store
-    .fetchServices(page.value, limit.value)
-    .then(() => (loading.value = false))
-    .catch((error: ApiError) => {
-      loading.value = false;
-      notify.error(error.response.data.message);
-    });
-}
+// function fetch() {
+//   store
+//     .fetchServices(page.value, limit.value)
+//     .then(() => (loading.value = false))
+//     .catch((error: ApiError) => {
+//       loading.value = false;
+//       notify.error(error.response.data.message);
+//     });
+// }
 
 function edit(service: Service) {
   localStorage.setItem("service", JSON.stringify(service));
@@ -165,7 +165,8 @@ function fetchServices() {
 }
 
 onMounted(() => {
-  fetchServices();
+  store.fetchServices();
+  store.fetchSubscribedServices();
 });
 </script>
 
@@ -493,7 +494,6 @@ onMounted(() => {
           <span class="hover:underline" @click="open(service)">
             {{ subscribedService.name }}
           </span>
-          <p>Hi</p>
         </li>
       </ul>
     </div>

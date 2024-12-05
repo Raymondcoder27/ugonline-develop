@@ -1,14 +1,11 @@
 <script setup lang="ts">
-// import { useDashboard } from "@/domain/dashboard/stores";
-// import { useDashboard } from "@/domain/dashboard/stores";
+import { onMounted, ref } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useBilling } from "@/domain/billing/stores";
 import { useServicesStore } from "@/domain/services/stores";
 import { useAccounts } from "@/domain/accounts/stores";
 // import { useBalance } from "@/domain/balance/stores";
 
-
-import { onMounted, ref } from "vue";
 
 const totalServiceSubscriptions = ref(0);
 

@@ -467,7 +467,8 @@ watch(
     </div>
 
     <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
-      <label class="text-lg mx-1">Subscriptions</label>
+      <div class="block">
+        <label class="text-lg mx-1">Subscriptions</label>
 
       <input
         v-if="filter.filter !== undefined"
@@ -477,6 +478,7 @@ watch(
         type="text"
         placeholder="Search By MDA or Service Name"
       />
+      </div>
       <!-- all services -->
       <div class="pt-2 justify-around block px-3">
         <!-- just list the services and put a toggle button at the end -->

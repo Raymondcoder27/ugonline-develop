@@ -112,7 +112,6 @@ watch(
   }
 );
 
-
 // filter
 const filter: IGoFilter = reactive({
   limit: 100,
@@ -350,21 +349,23 @@ onMounted(() => {
           Search
         </button> -->
 
-        <div class="w-full bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
-    <input
-      type="text"
-      placeholder="Search Services provided by Ministries, Departments and Agencies"
-      class="w-full text-sm border-none outline-none bg-white"
-    />
-    <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+        <div
+          class="w-full bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+        >
+          <input
+            type="text"
+            placeholder="Search Services provided by Ministries, Departments and Agencies"
+            class="w-full text-sm border-none outline-none bg-white"
+          />
+          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
 
-    <!-- <button
+          <!-- <button
       class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
       @click="search"
     >
       Search
     </button> -->
-   </div>
+        </div>
       </div>
 
       <!-- Service Cards Section -->
@@ -406,20 +407,22 @@ onMounted(() => {
       <div class="block mt-2 mb-2">
         <!-- <p class="text-lg mx-1">Subscriptions</p> -->
 
-      <input
-        v-if="filter.filter !== undefined"
-        input-type="text"
-        v-model="filter.filter[2].operand"
-        class="rounded-full filter-element e-input text-xs mt-1"
-        type="text"
-        placeholder="Search By MDA or Service Name"
-      />
+        <input
+          v-if="filter.filter !== undefined"
+          input-type="text"
+          v-model="filter.filter[2].operand"
+          class="rounded-full filter-element e-input text-xs mt-1"
+          type="text"
+          placeholder="Search By MDA or Service Name"
+        />
       </div>
       <!-- all services -->
       <div class="pt-2 justify-around block px-3">
         <!-- just list the services and put a toggle button at the end -->
         <div class="flex items-center ml-10 pb-2">
-          <label class="text-xs font-semibold text-gray-600">National ID Registration</label>
+          <label class="text-xs font-semibold text-gray-600"
+            >National ID Registration</label
+          >
           <!-- Provider and give it a color code -->
           <!-- <label
             class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1"
@@ -430,7 +433,9 @@ onMounted(() => {
 
         <div class="flex items-center ml-10 pb-2">
           <!-- <div class="flex"> -->
-          <label class="text-xs font-semibold text-gray-600">Passport Application</label>
+          <label class="text-xs font-semibold text-gray-600"
+            >Passport Application</label
+          >
           <!-- Provider and give each service a different color code -->
           <!-- <label
             class="text-xs bg-gray-400 text-black-800 font-semibold rounded-sm px-1"
@@ -440,7 +445,9 @@ onMounted(() => {
         </div>
 
         <div class="flex items-center ml-10 pb-2">
-          <label class="text-xs font-semibold text-gray-600">Land Title Registration</label>
+          <label class="text-xs font-semibold text-gray-600"
+            >Land Title Registration</label
+          >
           <!-- Provider and give each service a different color code -->
           <!-- <label
             class="text-xs bg-amber-300 text-amber-800 font-semibold rounded-sm px-1"
@@ -450,32 +457,32 @@ onMounted(() => {
         </div>
 
         <div class="flex ml-10 pb-2">
-          <label class="text-xs font-semibold text-gray-600">Name Reservation</label>
+          <label class="text-xs font-semibold text-gray-600"
+            >Name Reservation</label
+          >
           <!-- Provider and give each service a different color code -->
           <!-- <label
             class="text-xs bg-blue-300 text-blue-800 font-semibold rounded-sm px-1"
             >URSB</label
           > -->
           <!-- <i class="fa-solid fa-toggle-on text-green-600"></i> -->
-
-          </div>
-
+        </div>
       </div>
 
       <!-- all services subscribed looped from subscribedServices store -->
-      <ul class=""
-              v-for="(subscribedService, idx) in store.subscribedServices"
-              :key="idx"
-            >
-              <li width="10px">{{ idx + 1 }}.</li>
-              <li>
-                  <span class="hover:underline" @click="open(service)">
-                    {{ subscribedService.name }}
-                  </span>
-                <p>Hi</p>
-              </li>
-    </ul>
-
+      <ul
+        class=""
+        v-for="(subscribedService, idx) in store.subscribedServices"
+        :key="idx"
+      >
+        <li width="10px">{{ idx + 1 }}.</li>
+        <li>
+          <span class="hover:underline" @click="open(service)">
+            {{ subscribedService.name }}
+          </span>
+          <p>Hi</p>
+        </li>
+      </ul>
     </div>
   </div>
 

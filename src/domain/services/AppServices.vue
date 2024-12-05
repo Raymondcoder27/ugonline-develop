@@ -484,7 +484,7 @@ watch(
 
     <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
       <div class="block mt-2 mb-2">
-        <p class="text-lg mx-1">Subscriptions</p>
+        <!-- <p class="text-lg mx-1">Subscriptions</p> -->
 
       <input
         v-if="filter.filter !== undefined"

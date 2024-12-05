@@ -70,10 +70,20 @@ export const useServicesStore = defineStore("services", () => {
     {id: "6", name: "Passport Application", description: "Apply for a Passport", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "6", providerName: "Ministry of Internal Affairs", createdAt: {Time: "2021-09-06", Valid: true}, status: "Active", currentVersionId: "6"},
   ];
 
+  // const dummySubscribedServices: Ref<Service[]> = ref([]);
+
+  const dummySubscribedServices: Service[] = [
+    {id: "1", name: "Post Office Account", description: "Open a Post Office Account", accessibilityTier: "Public", featureId: "1", requirements: ["National ID", "Passport"], providerId: "1", providerName: "Posta Uganda", createdAt: {Time: "2021-09-01", Valid: true}, status: "Active", currentVersionId: "1"},
+    {id: "2", name: "Agricultural Research", description: "Request for Agricultural Research", accessibilityTier: "Public", featureId: "2", requirements: ["National ID", "Passport"], providerId: "2", providerName: "National Agricultural Research Organization", createdAt: {Time: "2021-09-02", Valid: true}, status: "Active", currentVersionId: "2"},
+    {id: "3", name: "National ID Registration", description: "Apply for a National ID", accessibilityTier: "Public", featureId: "3", requirements: ["National ID", "Passport"], providerId: "3", providerName: "National Identification & Registration Authority", createdAt: {Time: "2021-09-03", Valid: true}, status: "Active", currentVersionId: "3"},
+  ];
+
+
 
 
     // const services: Ref<Service[] | undefined> = ref()
     const services: Ref<Service[] | undefined> = ref(dummyServices)
+    const subscribedServices: Ref<Service[] | undefined> = ref(dummySubscribedServices)
 
   const service: Ref<Service | undefined> = ref()
   const serviceSpecification: Ref<ServiceSpecification | undefined> = ref()
@@ -111,6 +121,14 @@ export const useServicesStore = defineStore("services", () => {
     // const data = await response.json();
     // Use dummy data for now
     services.value = dummyServices;
+  }
+
+  async function fetchSubscribedServices (filter: any) {
+    // Simulate API call
+    // const response = await fetch(`/api/services?limit=${limit}&page=${page}`);
+    // const data = await response.json();
+    // Use dummy data for now
+    subscribedServices.value = dummySubscribedServices;
   }
 
   return {

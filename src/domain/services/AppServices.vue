@@ -395,7 +395,7 @@ onMounted(() => {
           </table>
           <p
             class="font-bold text-xs text-white bg-red-700 p-1 rounded-md w-2/5 text-center cursor-pointer hover:scale-105 hover:bg-red-800"
-            @click="subscribe(service)"
+            @click="subscribe(service.id)"
           >
             SUBSCRIBE
           </p>
@@ -417,15 +417,17 @@ onMounted(() => {
         /> -->
 
         <div
-          class="w-full bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+          class="mt-3 mx-2 bg-white rounded-full flex items-center justify-center border border-gray-50 focus:ring-2 focus:ring-red-500"
         >
           <input
             type="text"
             placeholder="Search Subscribed Services"
-            class="w-full text-sm border-none outline-none bg-white"
+            class="text-sm border-none outline-none bg-white"
           />
           <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
         </div>
+        <hr class="mt-3 text-gray-100">
+
       </div>
       <!-- all services -->
       <div class="pt-2 justify-around block px-3">

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { onMounted, type Ref, ref, watch, reactive } from "vue";
+import { onMounted, type Ref, ref, watch, reactive, computed } from "vue";
 import CreateService from "@/domain/services/components/CreateService.vue";
 import { useServicesStore } from "@/domain/services/stores";
 import type { Service } from "@/domain/services/types";
@@ -167,7 +167,7 @@ const listedServices = computed(() => {
 
 const activeServices = computed(() => {
   return store.subscribedServices.filter(
-    (service) => service.status === "active"
+    (service) => service.status === "subscribed"
   );
 });
 
@@ -199,14 +199,13 @@ function subscribe(serviceId: string) {
 }
 
 function unsubscribeFromService(serviceId: string) {
-  try{
-  store.unsubscribeFromService(serviceId) 
-      notify.success("Service unsubscribed successfully!");
-    } catch (error) {
-      notify.error("Failed to unsubscribe from service: " + error.message);
-    }
+  try {
+    store.unsubscribeFromService(serviceId);
+    notify.success("Service unsubscribed successfully!");
+  } catch (error) {
+    notify.error("Failed to unsubscribe from service: " + error.message);
   }
-
+}
 
 onMounted(() => {
   store.fetchServices();
@@ -425,7 +424,7 @@ onMounted(() => {
           v-for="service in listedServices"
           :key="service.id"
           class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
-        ></div>
+        >
           <div class="flex justify-between items-center">
             <img
               :src="service.thumbnail"
@@ -512,7 +511,10 @@ onMounted(() => {
         </li>
       </div>
     </div>
+
+    
   </div>
+
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>

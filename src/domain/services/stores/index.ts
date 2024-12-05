@@ -65,18 +65,18 @@ export const useServicesStore = defineStore("services", () => {
     // {id: "1", name: "Post Office Account", description: "Open a Post Office Account", accessibilityTier: "Public", featureId: "1", requirements: ["National ID", "Passport"], providerId: "1", providerName: "Posta Uganda", createdAt: {Time: "2021-09-01", Valid: true}, status: "Active", currentVersionId: "1"},
     // {id: "2", name: "Agricultural Research", description: "Request for Agricultural Research", accessibilityTier: "Public", featureId: "2", requirements: ["National ID", "Passport"], providerId: "2", providerName: "National Agricultural Research Organization", createdAt: {Time: "2021-09-02", Valid: true}, status: "Active", currentVersionId: "2"},
     // {id: "3", name: "National ID Registration", description: "Apply for a National ID", accessibilityTier: "Public", featureId: "3", requirements: ["National ID", "Passport"], providerId: "3", providerName: "National Identification & Registration Authority", createdAt: {Time: "2021-09-03", Valid: true}, status: "Active", currentVersionId: "3"},
-    {id: "1", name: "Land Title Registration", description: "Apply for a Land Title", accessibilityTier: "Public", featureId: "4", requirements: ["National ID", "Passport"], providerId: "1", providerName: "Ministry of Lands and Urban Development", createdAt: {Time: "2021-09-04", Valid: true}, status: "Inactive", currentVersionId: "1"},
-    {id: "2", name: "Name Reservation", description: "Reserve a Business Name", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "2", providerName: "URSB", createdAt: {Time: "2021-09-05", Valid: true}, status: "Inactive", currentVersionId: "2"},
-    {id: "3", name: "Passport Application", description: "Apply for a Passport", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "3", providerName: "Ministry of Internal Affairs", createdAt: {Time: "2021-09-06", Valid: true}, status: "Inactive", currentVersionId: "3"},
-    {id: "4", name: "Driver's Permit Application", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "Inactive", currentVersionId: "4"},
+    {id: "1", name: "Land Title Registration", description: "Apply for a Land Title", accessibilityTier: "Public", featureId: "4", requirements: ["National ID", "Passport"], providerId: "1", providerName: "Ministry of Lands and Urban Development", createdAt: {Time: "2021-09-04", Valid: true}, status: "listed", currentVersionId: "1"},
+    {id: "2", name: "Name Reservation", description: "Reserve a Business Name", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "2", providerName: "URSB", createdAt: {Time: "2021-09-05", Valid: true}, status: "listed", currentVersionId: "2"},
+    {id: "3", name: "Passport Application", description: "Apply for a Passport", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "3", providerName: "Ministry of Internal Affairs", createdAt: {Time: "2021-09-06", Valid: true}, status: "listed", currentVersionId: "3"},
+    {id: "4", name: "Driver's Permit Application", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
   ];
 
   // const dummySubscribedServices: Ref<Service[]> = ref([]);
 
   const dummySubscribedServices: Service[] = [
-    {id: "5", name: "Post Office Account", description: "Open a Post Office Account", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "5", providerName: "Posta Uganda", createdAt: {Time: "2021-09-01", Valid: true}, status: "Active", currentVersionId: "5"},
-    {id: "6", name: "Agricultural Research", description: "Request for Agricultural Research", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "6", providerName: "National Agricultural Research Organization", createdAt: {Time: "2021-09-02", Valid: true}, status: "Active", currentVersionId: "6"},
-    {id: "7", name: "National ID Registration", description: "Apply for a National ID", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "7", providerName: "National Identification & Registration Authority", createdAt: {Time: "2021-09-03", Valid: true}, status: "Active", currentVersionId: "7"},
+    {id: "5", name: "Post Office Account", description: "Open a Post Office Account", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "5", providerName: "Posta Uganda", createdAt: {Time: "2021-09-01", Valid: true}, status: "subscribed", currentVersionId: "5"},
+    {id: "6", name: "Agricultural Research", description: "Request for Agricultural Research", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "6", providerName: "National Agricultural Research Organization", createdAt: {Time: "2021-09-02", Valid: true}, status: "subscribed", currentVersionId: "6"},
+    {id: "7", name: "National ID Registration", description: "Apply for a National ID", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "7", providerName: "National Identification & Registration Authority", createdAt: {Time: "2021-09-03", Valid: true}, status: "subscribed", currentVersionId: "7"},
   ];
 
 
@@ -146,14 +146,18 @@ export const useServicesStore = defineStore("services", () => {
     // Simulate API call
     // const response = await fetch(`/api/services/subscribe/${serviceId}`);
     // const data = await response.json();
-    // Use dummy data for now
-    subscribedServices.value?.push(dummyServices.find((service) => service.id === serviceId));
 
     //set the status of the service to active
-    services.value?.find((service) => service.id === serviceId)?.status === "active";
+    services.value?.find((service) => service.id === serviceId)?.status === "subscribed";
+
+
+
+    // Use dummy data for now
+    subscribedServices.value?.push(services.find((service) => service.id === serviceId));
+
 
     // filter it out of the services
-    // services.value = services.value?.filter((service) => service.id !== serviceId);
+    services.value = services.value?.filter((service) => service.id !== serviceId);
   }
 
   // unsubscribeFromService function
@@ -161,14 +165,16 @@ export const useServicesStore = defineStore("services", () => {
     // Simulate API call
     // const response = await fetch(`/api/services/unsubscribe/${serviceId}`);
     // const data = await response.json();
-    // Use dummy data for now
-    services.value?.push(dummySubscribedServices.find((service) => service.id === serviceId));
 
     //set the status of the service to inactive
     subscribedServices.value?.find((service) => service.id === serviceId)?.status === "listed";
 
+    // Use dummy data for now
+    services.value?.push(dummySubscribedServices.find((service) => service.id === serviceId));
+
+
     // filter it out of the subscribed services
-    // subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);
+    subscribedServices.value = subscribedServices.value?.filter((service) => service.id !== serviceId);
   }
 
   return {

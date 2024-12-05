@@ -484,18 +484,26 @@ onMounted(() => {
       </div>
 
       <!-- all services subscribed looped from subscribedServices store -->
-      <ul
-        class=""
+      <div
+        class="flex flex-col justify-between mt-2 text-left"
         v-for="(subscribedService, idx) in store.subscribedServices"
         :key="idx"
       >
-        <li width="10px">{{ idx + 1 }}.</li>
-        <li>
+        <!-- <li width="10px">{{ idx + 1 }}</li> -->
+        <li class="list-none flex justify-between mx-3">
           <span class="hover:underline" @click="open(service)">
             {{ subscribedService.name }}
           </span>
+
+          <!-- Unsubscribe button -->
+          <button
+            class="text-xs rounded-md p-1 font-semibold text-black-600 bg-gray-100 border border-gray-200 hover:text-red-700 hover:bg-red-300"
+            @click="unsubscribe(subscribedService.id)"
+          >
+            Unsubscribe
+          </button>
         </li>
-      </ul>
+      </div>
     </div>
   </div>
 

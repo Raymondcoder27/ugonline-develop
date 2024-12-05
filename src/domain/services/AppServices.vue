@@ -13,8 +13,7 @@ import CategorySelector from "@/domain/settings/components/CategorySelector.vue"
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import TableLoader from "@/components/TableLoader.vue";
-import { useDebounceFn } from "@vueuse/core"
-
+import { useDebounceFn } from "@vueuse/core";
 
 const store = useServicesStore();
 const modalOpen: Ref<boolean> = ref(false);
@@ -206,51 +205,50 @@ const services = ref<Service[]>([
   // }
 ]);
 
-
 // filter
 const filter: IGoFilter = reactive({
   limit: 100,
   offset: 0,
-  page:0,
+  page: 0,
   sort: [
     {
       field: "firstname",
-      order: "ASC"
-    }
+      order: "ASC",
+    },
   ],
   filter: [
     {
       field: "firstname",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "username",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "phone",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
-  ]
-})
+  ],
+});
 
 const updateFilter = useDebounceFn(
   () => {
-    fetch()
+    fetch();
   },
   300,
   { maxWait: 5000 }
-)
+);
 
 // watch for changes in the filter object
 watch(
   () => filter,
   () => updateFilter(),
   { deep: true }
-)
+);
 </script>
 
 <template>
@@ -412,73 +410,94 @@ watch(
     </div> -->
 
     <div class="block">
-  <!-- Styled Search Bar -->
-  <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6">
-    <input
-      type="text"
-      placeholder="Search..."
-      class="w-full md:w-2/3 lg:w-full px-4 py-2 border border-gray-300 rounded-full text-sm focus:ring-2 focus:ring-red-700"
-    />
-    <button
-      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-800 transition duration-300 ease-in-out"
-      @click="search"
-    >
-      Search
-    </button>
-  </div>
-
-  <!-- Service Cards Section -->
-  <div class="grid grid-cols-3 gap-3 mt-3">
-    <div
-      v-for="service in services"
-      :key="service.id"
-      class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
-    >
-      <div class="flex justify-between items-center">
-        <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">
+      <!-- Styled Search Bar -->
+      <div
+        class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6"
+      >
+        <input
+          type="text"
+          placeholder="Search..."
+          class="w-full md:w-2/3 lg:w-full px-4 py-2 border border-gray-300 rounded-full text-sm focus:ring-2 focus:ring-red-700"
+        />
+        <button
+          class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-800 transition duration-300 ease-in-out"
+          @click="search"
+        >
+          Search
+        </button>
       </div>
-      <hr class="my-2" />
-      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
-      <table class="text-sm text-gray-600">
-        <tbody>
-          <tr>
-            <td class="font-semibold hover:text-red-700">{{ service.description }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="font-bold text-xs text-white bg-red-700 p-1 rounded-md w-2/5 text-center cursor-pointer hover:scale-105 hover:bg-red-800">SUBSCRIBE</p>
-    </div>
-  </div>
-</div>
 
+      <!-- Service Cards Section -->
+      <div class="grid grid-cols-3 gap-3 mt-3">
+        <div
+          v-for="service in services"
+          :key="service.id"
+          class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
+        >
+          <div class="flex justify-between items-center">
+            <img
+              :src="service.thumbnail"
+              alt=""
+              class="w-10 h-10 object-cover"
+            />
+          </div>
+          <hr class="my-2" />
+          <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+          <table class="text-sm text-gray-600">
+            <tbody>
+              <tr>
+                <td class="font-semibold hover:text-red-700">
+                  {{ service.description }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p
+            class="font-bold text-xs text-white bg-red-700 p-1 rounded-md w-2/5 text-center cursor-pointer hover:scale-105 hover:bg-red-800"
+          >
+            SUBSCRIBE
+          </p>
+        </div>
+      </div>
+    </div>
 
     <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
-
-      <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input text-xs mt-3" type="text" placeholder="Search By MDA or Service Name" />
+      <input
+        v-if="filter.filter !== undefined"
+        input-type="text"
+        v-model="filter.filter[2].operand"
+        class="filter-element e-input text-xs mt-3"
+        type="text"
+        placeholder="Search By MDA or Service Name"
+      />
       <!-- all services -->
       <div class="pt-2">
-      <!-- just list the services and put a toggle button at the end -->
-      <div class="flex justify-around items-center">
-        <!-- <div class="flex"> -->
+        <!-- just list the services and put a toggle button at the end -->
+        <div class="flex justify-around items-center">
+          <!-- <div class="flex"> -->
           <label class="text-xs">National ID Registration</label>
           <!-- Provider and give it a color code -->
-          <label class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1">NIRA</label>
+          <label
+            class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1"
+            >NIRA</label
+          >
           <i class="fa-solid fa-toggle-off text-red-600"></i>
-        <!-- </div> -->
-        <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
-      </div>
+          <!-- </div> -->
+          <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
+        </div>
 
-      <div class="flex justify-around items-center">
-        <!-- <div class="flex"> -->
+        <div class="flex justify-around items-center">
+          <!-- <div class="flex"> -->
           <label class="text-xs">Passport Application</label>
           <!-- Provider and give it a color code -->
-          <label class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1">MoIA</label>
+          <label
+            class="text-xs bg-green-400 text-green-800 font-semibold rounded-sm px-1"
+            >MoIA</label
+          >
           <i class="fa-solid fa-toggle-on text-green-600"></i>
-        <!-- </div> -->
-        <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
-         </div> 
-
+          <!-- </div> -->
+          <!-- <i class="fa-solid fa-eye text-blue-600"></i> -->
+        </div>
       </div>
     </div>
   </div>

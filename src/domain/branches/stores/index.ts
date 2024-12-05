@@ -72,9 +72,23 @@ export const useBranchStore = defineStore("branches", () => {
 
 
    // Delete branch from the store
-   const deleteBranch = (branchId: string) => {
-    branches.value = branches.value?.filter((branch) => branch.id !== branchId); // Remove the branch by ID
-  };
+  //  const deleteBranch = (branchId: string) => {
+  //   branches.value = branches.value?.filter((branch) => branch.id !== branchId); // Remove the branch by ID
+  // };
+
+
+  const deleteBranch = (branchId: string) => {
+    branches.value = branches.value?.filter((b) => b.id !== branch.id); 
+  }
+
+  // const service = subscribedServices.value?.find((s) => s.id === serviceId);
+  // if (service) {
+  //   service.status = "listed";
+  //   services.value?.push(service);
+  //   subscribedServices.value = subscribedServices.value?.filter((s) => s.id !== serviceId);
+  // }
+
+  
   
   
   

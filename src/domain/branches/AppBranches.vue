@@ -36,10 +36,10 @@ const getManagerByBranch = (branchName) => {
   );
 };
 
-onMounted(() => {
-  loading.value = true;
-  fetchBranches();
-});
+// onMounted(() => {
+//   loading.value = true;
+//   fetchBranches();
+// });
 
 function fetchBranches() {
   branchStore
@@ -92,8 +92,8 @@ function allocateManager(branch: Branch) {
 
 function deleteBranch(branchId: string) {
   branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
-  // branchStore.branches = branchStore.branches.filter((b) => branchId !== branch.id); // Manually update the store
-  fetchBranches(); // Refetch the branches after deleting, if needed
+  // branchStore.branches = branchStore.branches.filter((b) => b.id !== branch.id); // Manually update the store
+  // fetchBranches(); // Refetch the branches after deleting, if needed
   notify.success("Branch Deleted");
 }
 

@@ -26,7 +26,6 @@ export interface IResendVerificationPayload {
   username: string;
 }
 
-
 export type IGoFilter = {
     limit: number;
     offset: number;

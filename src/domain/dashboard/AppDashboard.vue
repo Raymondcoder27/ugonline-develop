@@ -6,6 +6,13 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">13</p>
+        <p class="text-xs">Total Service Subscriptions</p>
+      </div>
+    </div>
+
+    <div class="w-full">
+      <div class="w-12/12 count">
+        <p class="text-xl font-bold py-2">13</p>
         <p class="text-xs">Total Agents</p>
       </div>
     </div>

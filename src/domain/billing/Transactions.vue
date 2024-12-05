@@ -43,7 +43,11 @@ const fetch = () => {
 const updateFilter = useDebounceFn(() => fetch(), 300, { maxWait: 5000 });
 
 // Date conversion utility
-const convertDate = (date: string) => moment(date).format("DD-MM-YYYY");
+// const convertDate = (date: string) => moment(date).format("DD-MM-YYYY");
+
+function convertDateTime(date: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
+}
 
 // Pagination
 const next = () => {
@@ -173,7 +177,7 @@ onMounted(() => {
             <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
             <td class="text-left">{{ transaction.fee }}</td>
             <!-- <td class="text-left">{{ transaction.status }}</td> -->
-            <td class="text-left">{{ convertDate(transaction.date) }}</td>
+            <td class="text-left">{{ convertDateTime(transaction.date) }}</td>
             <!-- <td class="text-left"> -->
             <!-- <button @click="openTransaction(transaction)">Edit</button> -->
             <!-- actions -->

@@ -150,7 +150,7 @@ watch(
             <!-- <th class="t-header" width="30%">Names</th> -->
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
-            <th class="t-header">Status</th>
+            <th class=" text-center">Status</th>
             <th class="text-right">Date of Allocation</th>
             <!-- <th class="t-header">Actions</th> -->
             <th class="t-header"></th>
@@ -167,8 +167,8 @@ watch(
             </td> -->
             <td class="text-left">{{ assignment.branch }}</td>
             <td class="text-left">{{ assignment.amount }}</td>
-            <td class="text-left">{{ assignment.status }}</td>
-            <td class="text-left">{{ convertDateTime(assignment.createdAt) }}</td>
+            <td class="text-left text-center">{{ assignment.status }}</td>
+            <td class="text-right">{{ convertDateTime(assignment.createdAt) }}</td>
 
 
             <!-- <td class="text-left">

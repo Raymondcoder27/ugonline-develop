@@ -424,8 +424,8 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center">
-      <div class="block mt-2 mb-2">
+    <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center mb-2">
+      <div class="block mt-2 mb-4">
         <!-- <p class="text-lg mx-1">Subscriptions</p> -->
 
         <!-- <input

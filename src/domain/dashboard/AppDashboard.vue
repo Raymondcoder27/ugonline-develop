@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="flex">
+  <div class="grid grid-cols-3 gap-3 py-2">
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">79</p>
@@ -54,7 +54,7 @@
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">13,400,000/=</p>
+        <p class="text-xl font-bold py-2">130,400,000/=</p>
         <p class="text-xs">Balance</p>
       </div>
     </div>

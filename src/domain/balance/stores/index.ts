@@ -2,10 +2,9 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { Transaction, FloatLedger, BackofficeUser, BranchManager, FloatAllocation, FloatRequest } from "@/domain/billing/types";
-import type { AllocateFloat } from "@/types";
+import type { Balance } from "@/domain/balance/types";
 
-export const useBilling = defineStore("billing", () => {
+export const useBalance = defineStore("balance", () => {
   // Dummy data for testing
 
   // use this for dummy transactions
@@ -35,6 +34,11 @@ export const useBilling = defineStore("billing", () => {
       service: "National ID registration", provider: "NIRA",
        till: "Till 003", fee: 35000, date: "2021-09-03" },
   ];
+
+  const dummyTotalBalance: Balance = 300000000; // Set a test value
+
+
+
 
 
   // use this for dummy float requests

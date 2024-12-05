@@ -14,13 +14,7 @@ import { AccountVerificationTypes } from "../constants";
 //   createdAt: string; 
 // }
 
-  export type Balance = {
-    id: string;
-    branchName: string;
-    manager: string;
-    transactionType: string;
-    status: string;
-    date: string;
+  export type TotalBalance = {
     amount: number;
   };
 

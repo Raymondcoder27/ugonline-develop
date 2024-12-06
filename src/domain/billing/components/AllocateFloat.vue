@@ -63,8 +63,8 @@ function submit() {
   };
   loading.value = true;
   store.allocateFloat(payload) // Simply add the branch
-  balanceStore.decreaseTotalBalance(payload.amount);
   billingStore.adjustFloatLedger(payload);
+  balanceStore.decreaseTotalBalance(payload.amount);
    notify.success(`Float allocated to ${form.branchId}.`)
   emit("floatAllocated");
   loading.value = false;

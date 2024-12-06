@@ -142,28 +142,12 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(request, id) in store.floatRequests" :key="id">
+          <tr class="text-right" v-for="(request, id) in store.floatRequests" :key="id">
             <!-- <td>{{ idx + 1 }}</td> -->
             <td class="text-left">{{ request.date }}</td>
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount }}</td>
-
-            <!-- approve or reject and make button either approved or rejected after click using v-if -->
-            <!-- <td class="text-black-700">
-                  <span
-                    :class="{
-                      'bg-warning-100 border border-warning-400 text-warning-600 font-semibold rounded-sm px-1 py-0.3':
-                        log.requestMethod === 'POST',
-                      'bg-blue-50 border border-blue-300 text-blue-400 font-semibold rounded-sm px-1 py-0.3':
-                        log.requestMethod === 'GET',
-                      'bg-red-100 border border-red-300 text-red-500 font-semibold rounded-sm px-1 py-0.3':
-                        log.requestMethod === 'DELETE',
-                    }"
-                    >{{ log.requestMethod }}</span
-                  >
-                </td> -->
-
-            <td class="text-black-700">
+            <td class="text-black-700 text-right">
               <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">
                 <td>

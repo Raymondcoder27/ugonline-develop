@@ -196,6 +196,7 @@ export const useBilling = defineStore("billing", () => {
     if (floatRequest) {
       floatRequest.status = "Rejected";
     }
+  }
 
   return {
     transactions,

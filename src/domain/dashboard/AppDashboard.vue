@@ -70,9 +70,10 @@ const limit = ref(15);
 //   }
 // });
 
-// onMounted(() => {
-//   fetch();
-// });
+onMounted(() => {
+  // fetch();
+  balanceStore.fetchTotalBalance();
+});
 </script>
 
 <template>

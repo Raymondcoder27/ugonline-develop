@@ -103,22 +103,24 @@ onMounted(() => {
 
 <template>
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
-    <!-- <div class="flex space-x-2 my-1 pt-1 pb-3">
+    <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow"></div>
       <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Name" />
+            class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Email Address" />
+            class="filter-element e-input" type="text" placeholder="Drop down status" />
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Phone Number" />
+            class="filter-element e-input" type="text" placeholder="Drop down provider" />
+            <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Drop down service" />
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button>
         </div>
       </div>
-    </div> -->
+    </div>
 
 
 
@@ -169,6 +171,13 @@ onMounted(() => {
             :key="idx"
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
+          <td class="text-left">
+                <label class="cursor-pointer hover:text-primary-700 mx-2">
+                  <span class="hover:underline">{{
+                    transaction.id
+                  }}</span>
+                </label>
+              </td>
             <!-- <td>{{ idx + 1 }}</td> -->
             <td class="rounded-md font-semibold text-red-700 hover:underline" @click="transactionDetails(transaction.id)">{{ transaction.trackingNumber }}</td>
             <td>{{ transaction.service }}</td>

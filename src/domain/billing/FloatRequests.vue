@@ -129,6 +129,7 @@ onMounted(() => {
             <!-- <th class="text-left">Name</th> -->
             <th class="text-left">Branch</th>
             <th class="text-left">Amount</th>
+            <th class="text-left">Status</th>
             <th class="text-right">Actions</th>
           </tr>
         </thead>
@@ -140,6 +141,7 @@ onMounted(() => {
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount }}</td>
+            <td class="text-left">{{ request.status }}</td>
             <td class="text-right">
               <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">

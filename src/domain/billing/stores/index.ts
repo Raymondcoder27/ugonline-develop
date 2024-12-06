@@ -173,35 +173,29 @@ export const useBilling = defineStore("billing", () => {
     })
   }
 
-  // const approveFloatRequest = (reject: any) => {
-  //   store.approveFloatRequest(reject);
+  // const approveFloatRequest = (requestId: any) => {
+  //   store.approveFloatRequest(requestId);
   // };
   
-  // const rejectFloatRequest = (approve: any) => {
-  //   store.rejectFloatRequest(approve);
+  // const rejectFloatRequest = (requestId: any) => {
+  //   store.rejectFloatRequest(requestId);
   // };
 
-  // approve float request and set status to approved
-  function approveFloatRequest(payload: any) {
-    const floatRequest = floatRequests.value.find((request) => request.id === payload.id);
+  // approve float request using passed in Id and set status to approved
+  function approveFloatRequest(requestId: any) {
+    const floatRequest = floatRequests.value.find((request) => request.id === requestId);
     if (floatRequest) {
       floatRequest.status = "Approved";
       floatRequest.approvedBy = "Manager One";
     }
-    // return new floatRequests
-    // floatRequests.value 
   }
 
-  // reject float request and set status to rejected
-  function rejectFloatRequest(payload: any) {
-    const floatRequest = floatRequests.value.find((request) => request.id === payload.id);
+  // reject float request using passed in Id and set status to rejected
+  function rejectFloatRequest(requestId: any) {
+    const floatRequest = floatRequests.value.find((request) => request.id === requestId);
     if (floatRequest) {
       floatRequest.status = "Rejected";
-      floatRequest.approvedBy = "Manager One";
     }
-    // return new floatRequests
-    // floatRequests.value 
-  }
 
   return {
     transactions,

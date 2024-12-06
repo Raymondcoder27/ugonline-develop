@@ -7,16 +7,13 @@ import type { TotalBalance } from "@/domain/balance/types";
 export const useBalance = defineStore("balance", () => {
   // Dummy data for testing
 
-  const dummyTotalBalance: TotalBalance = 300000000; // Set a test value
+  // const dummyTotalBalance: Balance = 300000000; // Set a test value
 
   // the dummyTotalBalance should have a current value and a new value
-  // const dummyTotalBalance: TotalBalance = {
-  //   prev: 0,
-  //   current: 300000000
-  // };
-
-  // use the current value of the dummyTotalBalance
-  const totalBalance = ref<TotalBalance>(dummyTotalBalance); // Set a test value
+  const dummyTotalBalance: TotalBalance = {
+    prev: 0,
+    current: 300000000
+  };
 
   // use the current value of the dummyTotalBalance
 
@@ -36,11 +33,11 @@ export const useBalance = defineStore("balance", () => {
     // const response = await fetch(`/api/total-balance`);
     // const data = await response.json();
     // Use dummy data for now
-    totalBalance.value =  totalBalance.value + amount
-    // console.log("prev: ", totalBalance.value.prev, "current: ", totalBalance.value.current);
+    totalBalance.value = {
+      prev: totalBalance.value,
+      current: totalBalance.value + amount
+    };
   }
-
-
 
   // incase balance has been decreased
   async function decreaseTotalBalance(amount: number) {
@@ -48,7 +45,10 @@ export const useBalance = defineStore("balance", () => {
     // const response = await fetch(`/api/total-balance`);
     // const data = await response.json();
     // Use dummy data for now
-    totalBalance.value = totalBalance.value - amount;
+    totalBalance.value = {
+      prev: totalBalance.value,
+      current: totalBalance.value - amount
+    }
     // console.log(totalBalance.value);
   }
 
@@ -57,11 +57,12 @@ export const useBalance = defineStore("balance", () => {
     // const response = await fetch(`/api/total-balance`);
     // const data = await response.json();
     // Use dummy data for now
-    // totalBalance.value = dummyTotalBalance;
-    totalBalance.value = dummyTotalBalance;
-    // console.log(totalBalance.value
-
+    totalBalance.value = dummyTotalBalance.current;
   }
+
+
+  // use the current value of the dummyTotalBalance
+  const totalBalance = ref<TotalBalance>(dummyTotalBalance.current); // Set a test value
 
 
   return {

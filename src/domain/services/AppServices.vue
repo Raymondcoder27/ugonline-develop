@@ -415,7 +415,7 @@ onMounted(() => {
       </div>
 
       <!-- Service Cards Section -->
-      <div class="grid grid-cols-3 gap-3">
+      <div class="grid grid-cols-4 gap-3">
         <!-- v-if service has been subscribed, its removed from the array -->
         <div
           v-for="service in store.services"
@@ -437,7 +437,7 @@ onMounted(() => {
           <hr class="my-2" />
           <!-- <p class="font-bold text-gray-700 my-1">{{ service.name }}</p> -->
 
-          <div class="text-bold" v-if="service">
+          <div class="text-bold text-sm" v-if="service">
             {{ service.name }}
           </div>
           <div v-else>

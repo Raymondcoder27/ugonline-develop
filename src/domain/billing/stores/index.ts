@@ -166,10 +166,11 @@ export const useBilling = defineStore("billing", () => {
       date: new Date().toISOString(),
       // description: "Branch " + payload.branchId,
       description: payload.branchId,
-      amount: payload.amount,
+      amount: -payload.amount,
       balance: totalBalance.value + payload.amount,
     })
   }
+
 
   // const approveFloatRequest = (requestId: any) => {
   //   store.approveFloatRequest(requestId);

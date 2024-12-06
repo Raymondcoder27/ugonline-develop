@@ -64,7 +64,7 @@ function submit() {
   loading.value = true;
   store.allocateFloat(payload) // Simply add the branch
   balanceStore.decreaseTotalBalance(payload.amount);
-  billingStore.adjustFloat(payload);
+  billingStore.adjustFloatLedger(payload);
    notify.success(`Float allocated to ${form.branchId}.`)
   emit("floatAllocated");
   loading.value = false;

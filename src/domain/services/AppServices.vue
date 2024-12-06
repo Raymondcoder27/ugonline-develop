@@ -447,7 +447,7 @@ onMounted(() => {
           <!-- <table class="text-xs text-gray-400"> -->
             <!-- <tbody> -->
               <!-- <tr> -->
-                <div class="py-3">
+                <div class="my-1">
                 <span class=" text-xs text-gray-800">
                   {{ service.description }}
                 </span>
@@ -455,7 +455,7 @@ onMounted(() => {
               <!-- </tr> -->
             <!-- </tbody> -->
           <!-- </table> -->
-          <div class="mt-5">
+          <div class="my-3">
             <p
             class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
             @click="subscribe(service.id)"

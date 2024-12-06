@@ -152,7 +152,7 @@ onMounted(() => {
             <th class="t-header">Email</th>
             <th class="t-header">Phone</th>
             <th class="text-center">Branch</th>
-            <th class="text-center">Status</th>
+            <!-- <th class="text-center">Status</th> -->
             <!-- <th class="text-center">Activation</th> -->
             <th class="text-center">Date</th>
             <th class="t-header"></th>
@@ -187,10 +187,10 @@ onMounted(() => {
             <!-- <td class="text-center">
               {{ account.role }}
             </td> -->
-            <td class="text-center">
+            <!-- <td class="text-center">
               <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
               <label v-else class="text-green-600 font-bold">ACTIVE</label>
-            </td>
+            </td> -->
             <!-- <td class="text-center">
               <i v-if="account.activatedAt" class="fa-solid fa-check-square text-green-600"></i>
               <i v-else class="fa-solid fa-times-square text-red-600"></i>

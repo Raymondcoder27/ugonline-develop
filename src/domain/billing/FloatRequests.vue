@@ -5,6 +5,7 @@ import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 // import { request } from "http";
 // import { useDebounce } from "@vueuse/core";
+import moment from "moment/moment";
 
 const store = useBilling();
 const page = ref(1);
@@ -69,20 +70,10 @@ watch(
   { deep: true }
 );
 
-// float request approval or rejection
-// const activeServices = computed(() => {
-//   return store.subscribedServices.filter(
-//     (service) => service.status === "subscribed"
-//   );
-// });
+function convertDateTime(date: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
+}
 
-// const approveFloatRequest = (reject: any) => {
-//   store.approveFloatRequest(reject);
-// };
-
-// const rejectFloatRequest = (approve: any) => {
-//   store.rejectFloatRequest(approve);
-// };
 
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
@@ -144,7 +135,9 @@ onMounted(() => {
         <tbody>
           <tr class="text-right" v-for="(request, id) in store.floatRequests" :key="id">
             <!-- <td>{{ idx + 1 }}</td> -->
-            <td class="text-left">{{ request.date }}</td>
+            <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
+            <td class="text-left">{{  request.date }}</td>
+            <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount }}</td>
             <td class="text-right">

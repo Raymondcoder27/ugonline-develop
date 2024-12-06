@@ -194,7 +194,7 @@ watch(
               </td>
               <td class="text-left">
                 <label
-                  class="cursor-pointer font-bold hover:text-primary-700 mx-2"
+                  class="cursor-pointer hover:text-primary-700 mx-2"
                 >
                   <span class="hover:underline">{{
                     transaction.description

@@ -138,7 +138,7 @@ onMounted(() => {
             <!-- <th class="text-left">Name</th> -->
             <th class="text-left">Branch</th>
             <th class="text-left">Amount</th>
-            <th class="text-center">Actions</th>
+            <th class="text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -147,7 +147,7 @@ onMounted(() => {
             <td class="text-left">{{ request.date }}</td>
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount }}</td>
-            <td class="text-black-700 text-right">
+            <td class="text-right">
               <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">
                 <td>

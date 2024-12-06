@@ -10,6 +10,9 @@ import type {
   FloatManagement,
 } from "./types"; // Import billing types
 import moment from "moment/moment";
+import { useBalance } from "@/domain/balance/stores"; // Import the balance store
+
+const balanceStore = useBalance(); // Initialize the balance store
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
@@ -52,6 +55,7 @@ const filter = reactive({
 onMounted(() => {
   fetchTransactions();
   store.fetchFloatLedgers(); // Fetch float ledgers
+  balanceStore.fetchTotalBalance(); // Fetch total balance
 });
 
 function fetchTransactions() {
@@ -219,7 +223,7 @@ watch(
                 <span>{{ transaction.amount }}</span>
               </td>
               <td class="text-left text-gray-800">
-                <span>{{ transaction.balance }}</span>
+                <span>{{ balanceStore.totalBalance }}</span>
               </td>
             </tr>
           </tbody>

@@ -458,7 +458,7 @@ onMounted(() => {
             class="font-bold text-xs text-white bg-red-700 p-1 rounded-md w-2/5 text-center cursor-pointer hover:scale-105 hover:bg-red-800"
             @click="subscribe(service.id)"
           >
-            SUBSCRIBE
+            Subscribe
           </p>
         </div>
 

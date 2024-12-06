@@ -226,7 +226,7 @@ watch(
                 <span>{{ transaction.amount }}</span>
               </td>
               <td class="text-left text-gray-800">
-                <span>{{ balanceStore.totalBalance }}</span>
+                <span>{{ balanceStore.totalBalance.current }}</span>
               </td>
             </tr>
           </tbody>

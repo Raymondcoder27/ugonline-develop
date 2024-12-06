@@ -437,7 +437,7 @@ onMounted(() => {
           <hr class="my-2" />
           <!-- <p class="font-bold text-gray-700 my-1">{{ service.name }}</p> -->
 
-          <div class="text-bold text-sm" v-if="service">
+          <div class="text-bold text-sm font-bold" v-if="service">
             {{ service.name }}
           </div>
           <div v-else>
@@ -455,12 +455,14 @@ onMounted(() => {
               <!-- </tr> -->
             <!-- </tbody> -->
           <!-- </table> -->
-          <p
+          <div class="mt-5">
+            <p
             class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
             @click="subscribe(service.id)"
           >
             Subscribe
           </p>
+          </div>
         </div>
       </div>
     </div>

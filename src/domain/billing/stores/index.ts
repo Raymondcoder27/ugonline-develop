@@ -168,6 +168,15 @@ export const useBilling = defineStore("billing", () => {
   // };
 
   // approve float request using passed in Id and set status to approved
+  // function approveFloatRequest(requestId: any) {
+  //   const floatRequest = floatRequests.value.find((request) => request.id === requestId);
+  //   if (floatRequest) {
+  //     floatRequest.status = "Approved";
+  //     floatRequest.approvedBy = "Manager One";
+  //   }
+  // }
+
+    // approve float request using passed in Id and set status to approved and modify the floatrequests array
   function approveFloatRequest(requestId: any) {
     const floatRequest = floatRequests.value.find((request) => request.id === requestId);
     if (floatRequest) {

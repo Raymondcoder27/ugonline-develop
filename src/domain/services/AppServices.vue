@@ -488,7 +488,7 @@ onMounted(() => {
             placeholder="Search Subscribed Services"
             class="text-sm border-none outline-none bg-white"
           />
-          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+          <i class="fas fa-search cursor-pointer text-gray-500 text-lg"></i>
         </div>
         <hr class="mt-3 text-gray-100" />
       </div>

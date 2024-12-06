@@ -51,20 +51,6 @@ export const useBilling = defineStore("billing", () => {
     { id: 4, date: "2021-09-04", amount: 40000000, status: "Pending", branch: "Branch 4", approvedBy: null },
   ];
 
-    
-
-
-  // const dummyFloatLedgers: FloatLedger[] = [
-  //   { id: 1, name: "Sample FloatLedger 1", balance: 50000000 },
-  //   { id: 2, name: "Sample FloatLedger 2", balance: 12000000 },
-  //   { id: 3, name: "Sample FloatLedger 3", balance: 15000000 },
-  // ];
-
-  // <th class="t-header">Date</th>
-  // <th class="t-header">Description</th>
-  // <th class="text-right t-header">Amount</th>
-  // <th class="text-right t-header">Balance</th>
-
   const dummyFloatLedgers: FloatLedger[] = [
     { id: 1, date: "2021-09-01", description: "Float from Ministry of ICT", amount: 320000000, balance: 320000000 },
     { id: 2, date: "2021-09-02", description: "Float to Branch 1", amount: -20000000, balance: 300000000 },

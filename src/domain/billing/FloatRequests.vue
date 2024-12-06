@@ -92,10 +92,12 @@ watch(
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
   store.approveFloatRequest(requestId);
+  store.fetchFloatRequests();
 };
 
 const rejectFloatRequest = (requestId: any) => {
   store.rejectFloatRequest(requestId);
+  store.fetchFloatRequests();
 };
 
 

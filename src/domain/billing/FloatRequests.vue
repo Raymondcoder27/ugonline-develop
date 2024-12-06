@@ -169,7 +169,7 @@ onMounted(() => {
 
               <!-- Third Case: Fallback, no manager assigned -->
               <div v-else>
-                <td >
+                <td>
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
                     @click="approveFloatRequest(request.id)"

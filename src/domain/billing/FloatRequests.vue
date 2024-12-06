@@ -166,29 +166,33 @@ onMounted(() => {
             <td class="text-black-700">
               <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">
-                <label>
+                <td>
+                  <label>
                   <span
                     class="text-xs cursor-pointer rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
                     @click="open(request)"
                     >Approved</span
                   >
                 </label>
+                </td>
               </div>
 
               <!-- Second Case: Manager directly assigned to branch -->
               <div v-else-if="request.status === 'rejected'">
-                <label>
+                <td>
+                  <label>
                   <span
                     class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                     @click="open(request)"
                     >Rejected</span
                   >
                 </label>
+                </td>
               </div>
 
               <!-- Third Case: Fallback, no manager assigned -->
               <div v-else>
-                <td class="text-center">
+                <td class="text-right">
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
                     @click="approveFloatRequest(request.id)"

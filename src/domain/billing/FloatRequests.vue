@@ -147,9 +147,9 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(request, idx) in store.floatRequests" :key="idx">
+          <tr v-for="(request, id) in store.floatRequests" :key="id">
             <!-- <td>{{ idx + 1 }}</td> -->
-            <td class="text-left">{{ transaction.date }}</td>
+            <td class="text-left">{{ request.date }}</td>
             <!-- <td>
               <label class="font-bold py-1">{{
                 transaction.description

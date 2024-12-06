@@ -445,7 +445,7 @@ onMounted(() => {
   <p>Service not found.</p>
 </div>
 
-          <table class="text-xs text-gray-600">
+          <table class="text-xs text-gray-400">
             <tbody>
               <tr>
                 <td class="font-semibold hover:text-red-700">

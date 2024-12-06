@@ -149,7 +149,7 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">130,400,000/=</p> -->
-        <p class="text-xl font-bold py-2">{{ totalBalance }}/=</p>
+        <p class="text-xl font-bold py-2">{{ totalBalance.current }}/=</p>
         <p class="text-xs">Balance</p>
       </div>
     </div>

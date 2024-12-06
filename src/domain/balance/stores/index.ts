@@ -16,7 +16,7 @@ export const useBalance = defineStore("balance", () => {
   // };
 
   // use the current value of the dummyTotalBalance
-  const totalBalance = ref<TotalBalance>(dummyTotalBalance.current); // Set a test value
+  const totalBalance = ref<TotalBalance>(dummyTotalBalance); // Set a test value
 
   // use the current value of the dummyTotalBalance
 
@@ -57,6 +57,7 @@ export const useBalance = defineStore("balance", () => {
     // const response = await fetch(`/api/total-balance`);
     // const data = await response.json();
     // Use dummy data for now
+    // totalBalance.value = dummyTotalBalance;
     totalBalance.value = dummyTotalBalance;
     // console.log(totalBalance.value
 

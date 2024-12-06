@@ -147,7 +147,7 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(transaction, idx) in store.floatRequests" :key="idx">
+          <tr v-for="(request, idx) in store.floatRequests" :key="idx">
             <!-- <td>{{ idx + 1 }}</td> -->
             <td class="text-left">{{ transaction.date }}</td>
             <!-- <td>
@@ -155,8 +155,8 @@ onMounted(() => {
                 transaction.description
               }}</label>
             </td> -->
-            <td class="text-left">{{ transaction.branch }}</td>
-            <td class="text-left">{{ transaction.amount }}</td>
+            <td class="text-left">{{ request.branch }}</td>
+            <td class="text-left">{{ request.amount }}</td>
 
             <!-- approve or reject and make button either approved or rejected after click using v-if -->
             <!-- <td class="text-black-700">
@@ -175,22 +175,22 @@ onMounted(() => {
 
             <td class="text-black-700">
               <!-- First Case: float request approved -->
-              <div v-if="transaction.status === 'approved'">
+              <div v-if="request.status === 'approved'">
                 <label>
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
-                    @click="open(transaction)"
+                    @click="open(request)"
                     >Approved</span
                   >
                 </label>
               </div>
 
               <!-- Second Case: Manager directly assigned to branch -->
-              <div v-else-if="transaction.status === 'rejected'">
+              <div v-else-if="request.status === 'rejected'">
                 <label>
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
-                    @click="open(transaction)"
+                    @click="open(request)"
                     >Rejected</span
                   >
                 </label>
@@ -201,13 +201,13 @@ onMounted(() => {
                 <td class="text-center">
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
-                    @click="rejectFloatRequest(transaction.id)"
+                    @click="rejectFloatRequest(request.id)"
                     >Approve</span
                   >
 
                   <span
                     class="text-xs rounded-md p-1 mr-2 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
-                    @click="approveFloatRequest(transaction.id)"
+                    @click="approveFloatRequest(request.id)"
                     >Reject</span
                   >
                 </td>

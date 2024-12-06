@@ -438,14 +438,14 @@ onMounted(() => {
           <hr class="my-2" />
           <!-- <p class="font-bold text-gray-700 my-1">{{ service.name }}</p> -->
 
-          <div v-if="service">
+          <div class="text-bold" v-if="service">
   {{ service.name }}
 </div>
 <div v-else>
   <p>Service not found.</p>
 </div>
 
-          <table class="text-sm text-gray-600">
+          <table class="text-xs text-gray-600">
             <tbody>
               <tr>
                 <td class="font-semibold hover:text-red-700">

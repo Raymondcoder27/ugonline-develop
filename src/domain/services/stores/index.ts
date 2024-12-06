@@ -68,10 +68,8 @@ export const useServicesStore = defineStore("services", () => {
     {id: "6c", name: "Agricultural Research", description: "Request for Agricultural Research", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "6", providerName: "National Agricultural Research Organization", createdAt: {Time: "2021-09-02", Valid: true}, status: "subscribed", currentVersionId: "6"},
     {id: "1x", name: "Land Title Registration", description: "Apply for a Land Title", accessibilityTier: "Public", featureId: "4", requirements: ["National ID", "Passport"], providerId: "1", providerName: "Ministry of Lands and Urban Development", createdAt: {Time: "2021-09-04", Valid: true}, status: "listed", currentVersionId: "1"},
     {id: "3z", name: "Passport Application", description: "Apply for a Passport", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "3", providerName: "Ministry of Internal Affairs", createdAt: {Time: "2021-09-06", Valid: true}, status: "listed", currentVersionId: "3"},
-    {id: "4a", thumbnail: "./images/nira.png", name: "Driver's Permit Application", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
+    {id: "4a", thumbnail: require('@/assets/images/nira.png'), name: "Driver's Permit Application", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
     // with thumbnail image
-
-
   ];
 
   // const dummySubscribedServices: Ref<Service[]> = ref([]);

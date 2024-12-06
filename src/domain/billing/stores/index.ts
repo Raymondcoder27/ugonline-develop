@@ -52,8 +52,8 @@ export const useBilling = defineStore("billing", () => {
   ];
 
   const dummyFloatLedgers: FloatLedger[] = [
-    { id: 1, date: "2021-09-01", description: "Recharge", amount: 320000000, balance: 320000000 },
-    { id: 2, date: "2021-09-02", description: "Branch 1", amount: -20000000, balance: 300000000 },
+    { id: 1, date: "2021-09-01", description: "Recharge", amount: 300000000, balance: 300000000 },
+    // { id: 2, date: "2021-09-02", description: "Branch 1", amount: -20000000, balance: 300000000 },
   ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [

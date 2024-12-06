@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { onMounted, ref, reactive, watch } from "vue";
+import { onMounted, ref, reactive, watch, computed } from "vue";
 import { useBilling } from "@/domain/billing/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import type {
@@ -59,6 +59,22 @@ onMounted(() => {
   store.fetchFloatLedgers(); // Fetch float ledgers
   // balanceStore.fetchTotalBalance(); // Fetch total balance
   // balanceStore.increaseTotalBalance(); // Increase balance by 100
+});
+
+// Dynamically compute the balances for each transaction
+const computedTransactions = computed(() => {
+  let runningBalance = balanceStore.totalBalance.current; // Start with the current total balance
+  return store.floatLedgers
+    .slice() // Create a shallow copy to avoid mutation
+    .reverse() // Reverse to calculate balances in chronological order
+    .map((transaction) => {
+      runningBalance -= transaction.amount; // Adjust balance for each transaction
+      return {
+        ...transaction,
+        balance: runningBalance, // Attach the computed balance to each transaction
+      };
+    })
+    .reverse(); // Reverse back to preserve the original order
 });
 
 function fetchTransactions() {
@@ -133,14 +149,12 @@ watch(
   { deep: true }
 );
 
-
 watch(
   () => store.floatLedgers,
   (newLedgers) => {
     console.log("Float ledgers updated:", newLedgers);
   }
 );
-
 
 watch(
   computedTransactions,
@@ -149,7 +163,6 @@ watch(
   },
   { deep: true }
 );
-
 </script>
 
 
@@ -215,8 +228,13 @@ watch(
             </tr>
           </thead>
           <tbody>
-            <tr
+            <!-- <tr
               v-for="(transaction) in store.floatLedgers"
+              :key="transaction.id"
+              class="body-tr"
+            > -->
+            <tr
+              v-for="(transaction) in computedTransactions"
               :key="transaction.id"
               class="body-tr"
             >
@@ -227,9 +245,7 @@ watch(
                 }}</span>
               </td>
               <td class="text-left">
-                <label
-                  class="cursor-pointer hover:text-primary-700 mx-2"
-                >
+                <label class="cursor-pointer hover:text-primary-700 mx-2">
                   <span class="hover:underline">{{
                     transaction.description
                   }}</span>
@@ -252,7 +268,7 @@ watch(
                 <span>{{ transaction.amount }}</span>
               </td>
               <td class="text-left text-gray-800">
-                <span>{{ balanceStore.totalBalance.current }}</span>
+                <span>{{ transaction.balance }}</span>
               </td>
             </tr>
           </tbody>

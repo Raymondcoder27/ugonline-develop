@@ -159,6 +159,17 @@ export const useBilling = defineStore("billing", () => {
     })
   }
 
+  // allocate float allocation to float ledger array
+  function adjustFloatLedger(payload: AllocateFloat) {
+    floatLedgers.value.push({
+      id: floatLedgers.value.length + 1,
+      date: new Date().toISOString(),
+      description: "Branch " + payload.branchId,
+      amount: payload.amount,
+      balance: totalBalance.value + payload.amount,
+    })
+  }
+
   // const approveFloatRequest = (requestId: any) => {
   //   store.approveFloatRequest(requestId);
   // };

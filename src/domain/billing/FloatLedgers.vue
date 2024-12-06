@@ -88,24 +88,37 @@ const computedTransactions = computed(() => {
   let runningBalance = balanceStore.totalBalance.current;
 
   // Process the transactions in reverse order to calculate balances
+  const computedTransactions = computed(() => {
+  // Ensure there is a valid starting balance and transactions
+  if (store.floatLedgers.length === 0) {
+    return [];
+  }
+
+  // Start with the balance before any transactions
+  let runningBalance = balanceStore.totalBalance.current;
+
+  // Reverse the transactions to process them chronologically
   const transactionsWithBalances = store.floatLedgers
-    .slice() // Create a shallow copy to avoid mutation
-    .reverse() // Reverse to process from the most recent transaction
+    .slice()
+    .reverse()
     .map((transaction) => {
-      // Attach the current running balance to the transaction
-      const transactionBalance = runningBalance;
-      // Adjust the running balance by subtracting the transaction amount
-      runningBalance -= transaction.amount;
+      // If the transaction is a recharge, set the balance directly
+      if (transaction.description === "Recharge") {
+        runningBalance = transaction.amount;
+      } else {
+        runningBalance -= transaction.amount;
+      }
 
       return {
         ...transaction,
-        balance: transactionBalance,
+        balance: runningBalance,
       };
     })
-    .reverse(); // Reverse back to preserve chronological order
+    .reverse(); // Reverse back to display in the original order
 
   return transactionsWithBalances;
 });
+
 
 
 function fetchTransactions() {

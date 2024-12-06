@@ -74,7 +74,7 @@ export const useServicesStore = defineStore("services", () => {
   // const dummySubscribedServices: Ref<Service[]> = ref([]);
 
   const dummySubscribedServices: Service[] = [
-    {id: "2y", name: "Name Reservation", description: "Reserve a Business Name", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "2", providerName: "URSB", createdAt: {Time: "2021-09-05", Valid: true}, status: "listed", currentVersionId: "2"},
+    {id: "2y", name: "Company Name Reservation", description: "Reserve a Business Name", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "2", providerName: "URSB", createdAt: {Time: "2021-09-05", Valid: true}, status: "listed", currentVersionId: "2"},
     {id: "5b", name: "Post Office Account Creation", description: "Open a Post Office Account", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "5", providerName: "Posta Uganda", createdAt: {Time: "2021-09-01", Valid: true}, status: "subscribed", currentVersionId: "5"},
     {id: "7d", name: "National ID Registration", description: "Apply for a National ID", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "7", providerName: "National Identification & Registration Authority", createdAt: {Time: "2021-09-03", Valid: true}, status: "subscribed", currentVersionId: "7"},
   ];

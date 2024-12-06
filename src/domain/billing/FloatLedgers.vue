@@ -61,6 +61,10 @@ onMounted(() => {
   // balanceStore.increaseTotalBalance(); // Increase balance by 100
 });
 
+// function decreaseBalance() {
+//   balanceStore.decreaseTotalBalance(5000000); // Decrease by 5 million
+// }
+
 // Dynamically compute the balances for each transaction
 const computedTransactions = computed(() => {
   // Ensure there is a valid starting balance and transactions
@@ -173,6 +177,7 @@ watch(
   },
   { deep: true }
 );
+
 
 
 watch(
@@ -294,7 +299,8 @@ watch(
                 <span>{{ transaction.amount }}</span>
               </td>
               <td class="text-left text-gray-800">
-                <span>{{ transaction.balance }}</span>
+                <!-- <button @click="decreaseBalance">Decrease Balance</button> -->
+                <span>{{ balanceStore.totalBalance.current }}</span>
               </td>
             </tr>
           </tbody>

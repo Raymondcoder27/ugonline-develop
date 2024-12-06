@@ -50,7 +50,7 @@ export const useBalance = defineStore("balance", () => {
       prev: totalBalance.value,
       current: totalBalance.value - amount
     }
-    // console.log(totalBalance.value);
+    totalBalance.value = dummyTotalBalance.current;
   }
 
   async function fetchTotalBalance() {

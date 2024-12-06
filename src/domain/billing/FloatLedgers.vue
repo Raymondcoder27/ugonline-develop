@@ -79,16 +79,6 @@ onMounted(() => {
 
 
 const computedTransactions = computed(() => {
-  // Ensure we have a valid starting balance and transactions
-  if (!balanceStore.totalBalance.current || store.floatLedgers.length === 0) {
-    return [];
-  }
-
-  // Initialize the running balance from the total balance
-  let runningBalance = balanceStore.totalBalance.current;
-
-  // Process the transactions in reverse order to calculate balances
-  const computedTransactions = computed(() => {
   // Ensure there is a valid starting balance and transactions
   if (store.floatLedgers.length === 0) {
     return [];

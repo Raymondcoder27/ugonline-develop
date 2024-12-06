@@ -37,6 +37,7 @@ export const useBalance = defineStore("balance", () => {
       prev: totalBalance.value,
       current: totalBalance.value + amount
     };
+    totalBalance.value = dummyTotalBalance.current;
   }
 
   // incase balance has been decreased

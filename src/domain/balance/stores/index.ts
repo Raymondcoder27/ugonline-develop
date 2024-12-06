@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 
 export interface TotalBalance {
   prev: number;
@@ -19,7 +19,7 @@ export const useBalance = defineStore("balance", () => {
   });
 
   
-  
+
   // Reactive totalBalance state
   const totalBalance = ref<TotalBalance>({ ...dummyTotalBalance });
 

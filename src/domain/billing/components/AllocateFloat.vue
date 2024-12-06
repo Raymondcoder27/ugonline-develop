@@ -10,6 +10,7 @@ import { useBalance } from "@/domain/balance/stores";
 
 const branchStore = useBranchStore();
 const balanceStore = useBalance();
+const billingStore = useBilling();
 
 // allocate float form
 const form: AllocateFloat = reactive({

@@ -6,9 +6,6 @@ import type { IGoFilter } from "@/types";
 // import { request } from "http";
 // import { useDebounce } from "@vueuse/core";
 
-
-  
-
 const store = useBilling();
 const page = ref(1);
 const limit = ref(10);
@@ -41,8 +38,6 @@ const filter: IGoFilter = reactive({
     },
   ],
 });
-
-
 
 const next = () => {
   if (store.transactions.length >= store.limit) {
@@ -100,9 +95,6 @@ const rejectFloatRequest = (requestId: any) => {
   store.fetchFloatRequests();
 };
 
-
-
-
 onMounted(() => {
   store.fetchFloatRequests();
 });
@@ -150,11 +142,6 @@ onMounted(() => {
           <tr v-for="(request, id) in store.floatRequests" :key="id">
             <!-- <td>{{ idx + 1 }}</td> -->
             <td class="text-left">{{ request.date }}</td>
-            <!-- <td>
-              <label class="font-bold py-1">{{
-                transaction.description
-              }}</label>
-            </td> -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount }}</td>
 

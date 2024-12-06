@@ -61,6 +61,10 @@ export const useBalance = defineStore("balance", () => {
     console.log("Updated:", totalBalance.value);
   }
 
+  dummyTotalBalance.current = totalBalance.value.current;
+
+  totalBalance.value = { ...dummyTotalBalance };
+
   // Decrease balance
 // async function decreaseTotalBalance(amount: number) {
 //   totalBalance.value.prev = totalBalance.value.current;

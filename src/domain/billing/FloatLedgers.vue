@@ -300,7 +300,8 @@ watch(
               </td>
               <td class="text-left text-gray-800">
                 <!-- <button @click="decreaseBalance">Decrease Balance</button> -->
-                <span>{{ balanceStore.totalBalance.current }}</span>
+                <!-- <span>{{ balanceStore.totalBalance.current }}</span> -->
+                <span>{{ transaction.balance }}</span>
               </td>
             </tr>
           </tbody>

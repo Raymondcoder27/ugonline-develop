@@ -88,11 +88,13 @@ watch(
 const approveFloatRequest = (requestId: any) => {
   store.approveFloatRequest(requestId);
   store.fetchFloatRequests();
+  console.log("Float request approved");
 };
 
 const rejectFloatRequest = (requestId: any) => {
   store.rejectFloatRequest(requestId);
   store.fetchFloatRequests();
+  console.log("Float request rejected");
 };
 
 onMounted(() => {

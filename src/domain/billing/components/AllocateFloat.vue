@@ -6,8 +6,10 @@ import { useBilling } from "@/domain/billing/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { useBranchStore } from "@/domain/branches/stores"; 
 import type { AllocateFloat } from "@/types";
+import { useBalance } from "@/domain/balance/stores";
 
 const branchStore = useBranchStore();
+const balanceStore = useBalance();
 
 // allocate float form
 const form: AllocateFloat = reactive({
@@ -55,11 +57,12 @@ const store = useBilling()
 
 function submit() {
  let payload = {
-    amount: form.firstName,
+    amount: form.amount,
     branchId: form.branchId,
   };
   loading.value = true;
   store.allocateFloat(payload) // Simply add the branch
+
    notify.success(`Float allocated to ${form.branchId}.`)
   emit("floatAllocated");
   loading.value = false;
@@ -82,7 +85,7 @@ onMounted(() => {
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount (UGX)</label>
-          <input autocomplete="off" type="number" v-model="form.firstName" class="noFocus form-element e-input w-full"
+          <input autocomplete="off" type="number" v-model="form.amount" class="noFocus form-element e-input w-full"
             required />
         </div>
       </div>

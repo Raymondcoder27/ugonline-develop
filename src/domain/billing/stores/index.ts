@@ -167,7 +167,7 @@ export const useBilling = defineStore("billing", () => {
       // description: "Branch " + payload.branchId,
       description: payload.branchId,
       amount: -payload.amount,
-      balance: totalBalance.value + payload.amount,
+      balance: totalBalance.value - payload.amount,
     })
   }
 

@@ -444,15 +444,17 @@ onMounted(() => {
             <p>Service not found.</p>
           </div>
 
-          <table class="text-xs text-gray-400">
-            <tbody>
-              <tr>
-                <td class="font-semibold text-xs">
+          <!-- <table class="text-xs text-gray-400"> -->
+            <!-- <tbody> -->
+              <!-- <tr> -->
+                <div class="py-3">
+                <span class=" text-xs text-gray-800">
                   {{ service.description }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </span>
+              </div>
+              <!-- </tr> -->
+            <!-- </tbody> -->
+          <!-- </table> -->
           <p
             class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
             @click="subscribe(service.id)"

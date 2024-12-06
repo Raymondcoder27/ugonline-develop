@@ -157,7 +157,7 @@ onMounted(() => {
             <th>Till</th>
             <!-- <th>Transaction Type</th> -->
             <th>Fee</th>
-            <!-- <th>Status</th> -->
+            <th>Status</th>
             <th>Date</th>
             <!-- <th>Actions</th> -->
           </tr>
@@ -176,7 +176,7 @@ onMounted(() => {
             <td>{{ transaction.till }}</td>
             <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
             <td class="text-left">{{ transaction.fee }}</td>
-            <!-- <td class="text-left">{{ transaction.status }}</td> -->
+            <td class="text-left">{{ transaction.status }}</td>
             <td class="text-left">{{ convertDateTime(transaction.date) }}</td>
             <!-- <td class="text-left"> -->
             <!-- <button @click="openTransaction(transaction)">Edit</button> -->

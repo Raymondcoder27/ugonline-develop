@@ -3,6 +3,7 @@ import { useBilling } from "@/domain/billing/stores";
 import { onMounted, ref, reactive, watch } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
+import { request } from "http";
 // import { useDebounce } from "@vueuse/core";
 
 
@@ -80,12 +81,21 @@ watch(
 //   );
 // });
 
-const approveFloatRequest = (reject: any) => {
-  store.approveFloatRequest(reject);
+// const approveFloatRequest = (reject: any) => {
+//   store.approveFloatRequest(reject);
+// };
+
+// const rejectFloatRequest = (approve: any) => {
+//   store.rejectFloatRequest(approve);
+// };
+
+// pass in the requestId
+const approveFloatRequest = (requestId: any) => {
+  store.approveFloatRequest(requestId);
 };
 
-const rejectFloatRequest = (approve: any) => {
-  store.rejectFloatRequest(approve);
+const rejectFloatRequest = (requestId: any) => {
+  store.rejectFloatRequest(requestId);
 };
 
 
@@ -163,7 +173,7 @@ onMounted(() => {
 
             <td class="text-black-700">
               <!-- First Case: float request approved -->
-              <div v-if="floatRequest.status === 'approved'">
+              <div v-if="transaction.status === 'approved'">
                 <label>
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
@@ -174,7 +184,7 @@ onMounted(() => {
               </div>
 
               <!-- Second Case: Manager directly assigned to branch -->
-              <div v-else-if="floatRequest.status === 'rejected'">
+              <div v-else-if="transaction.status === 'rejected'">
                 <label>
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
@@ -189,13 +199,13 @@ onMounted(() => {
                 <td class="text-center">
                   <span
                     class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
-                    @click="rejectFloatRequest(approve)"
+                    @click="rejectFloatRequest(requestId)"
                     >Approve</span
                   >
 
                   <span
                     class="text-xs rounded-md p-1 mr-2 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
-                    @click="approveFloatRequest(reject)"
+                    @click="approveFloatRequest(requestId)"
                     >Reject</span
                   >
                 </td>

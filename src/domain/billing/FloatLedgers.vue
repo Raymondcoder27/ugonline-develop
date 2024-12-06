@@ -124,6 +124,32 @@ watch(
   () => updateFilter(),
   { deep: true }
 );
+
+watch(
+  () => balanceStore.totalBalance,
+  (newVal) => {
+    console.log("Balance updated:", newVal);
+  },
+  { deep: true }
+);
+
+
+watch(
+  () => store.floatLedgers,
+  (newLedgers) => {
+    console.log("Float ledgers updated:", newLedgers);
+  }
+);
+
+
+watch(
+  computedTransactions,
+  (transactions) => {
+    console.log("Computed transactions:", transactions);
+  },
+  { deep: true }
+);
+
 </script>
 
 

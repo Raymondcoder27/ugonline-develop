@@ -167,11 +167,11 @@ onMounted(() => {
               {{ provider.name }}
             </option>
           </select> -->
-          <select class="filter-element e-select" v-model="status">
+          <!-- <select class="filter-element e-select" v-model="status">
             <option :value="null">- Select Status -</option>
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
-          </select>
+          </select> -->
         </div>
       </div>
       <div class="flex">
@@ -190,9 +190,9 @@ onMounted(() => {
           <tr class="header-tr">
             <!-- <th class="t-header">#</th> -->
             <th class="t-header">Name</th>
-            <th class="t-header">Manager</th>
-            <th class="text-center">Date</th>
-            <th class="text-center">Actions</th>
+            <th class="text-center">Manager</th>
+            <th class="text-header">Date</th>
+            <!-- <th class="text-center">Actions</th> -->
             <th class="t-header"></th>
           </tr>
         </thead>
@@ -243,7 +243,7 @@ onMounted(() => {
               </div>
             </td> -->
 
-            <td class="text-black-700">
+            <td class="text-black-700 text-center">
               <!-- First Case: Manager linked via `getManagerByBranch()` -->
               <div v-if="getManagerByBranch(branch.name)">
                 <label>
@@ -289,7 +289,7 @@ onMounted(() => {
                 convertDateTime(branch.createdAt)
               }}</span>
             </td>
-            <td class="text-center">
+            <!-- <td class="text-center">
               <i
                 class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
                 @click="open(branch)"
@@ -298,17 +298,11 @@ onMounted(() => {
                 class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
                 @click="edit(branch)"
               ></i>
-              <!-- <i
-    class="fa-solid fa-sliders p-1 mx-1 text-primary-700 bg-primary-100 border border-primary-300 hover:text-primary-900"
-    @click="configure(branch)"
-  ></i> -->
-
-              <!-- delete branch -->
               <i
                 class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
                 @click="deleteBranch(branch.id)"
               ></i>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>

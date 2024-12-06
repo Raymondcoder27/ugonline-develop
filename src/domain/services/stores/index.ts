@@ -9,6 +9,7 @@ import naroThumbnail from '@/assets/images/naro.png';
 import ursbThumbnail from '@/assets/images/ursb.png';
 import ministryThumbnail from '@/assets/images/ministry.png';
 
+
 export const useServicesStore = defineStore("services", () => {
 
   const createService = async (payload:any) => {

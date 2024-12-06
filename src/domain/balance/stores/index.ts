@@ -61,7 +61,6 @@ export const useBalance = defineStore("balance", () => {
     totalBalance.value = dummyTotalBalance.current;
   }
 
-
   // use the current value of the dummyTotalBalance
   const totalBalance = ref<TotalBalance>(dummyTotalBalance.current); // Set a test value
 

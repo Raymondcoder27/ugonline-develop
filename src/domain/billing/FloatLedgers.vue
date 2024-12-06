@@ -62,22 +62,6 @@ onMounted(() => {
 });
 
 // Dynamically compute the balances for each transaction
-// const computedTransactions = computed(() => {
-//   let runningBalance = balanceStore.totalBalance.current; // Start with the current total balance
-//   return store.floatLedgers
-//     .slice() // Create a shallow copy to avoid mutation
-//     .reverse() // Reverse to calculate balances in chronological order
-//     .map((transaction) => {
-//       runningBalance -= transaction.amount; // Adjust balance for each transaction
-//       return {
-//         ...transaction,
-//         balance: runningBalance, // Attach the computed balance to each transaction
-//       };
-//     })
-//     .reverse(); // Reverse back to preserve the original order
-// });
-
-
 const computedTransactions = computed(() => {
   // Ensure there is a valid starting balance and transactions
   if (store.floatLedgers.length === 0) {
@@ -108,7 +92,6 @@ const computedTransactions = computed(() => {
 
   return transactionsWithBalances;
 });
-
 
 
 function fetchTransactions() {
@@ -175,13 +158,22 @@ watch(
   { deep: true }
 );
 
+// watch(
+//   () => balanceStore.totalBalance,
+//   (newVal) => {
+//     console.log("Balance updated:", newVal);
+//   },
+//   { deep: true }
+// );
+
 watch(
   () => balanceStore.totalBalance,
-  (newVal) => {
-    console.log("Balance updated:", newVal);
+  (newValue) => {
+    console.log("Total balance updated:", newValue);
   },
   { deep: true }
 );
+
 
 watch(
   () => store.floatLedgers,

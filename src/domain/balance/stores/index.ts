@@ -15,12 +15,6 @@ export const useBalance = defineStore("balance", () => {
     current: 300000000
   };
 
-
-  // State variables
-  // const totalBalance: Balance = ref(dummyTotalBalance); /// Set a test value
-
-  // const totalBalance = ref<Balance>(dummyTotalBalance); // Set a test value
-
   // use the current value of the dummyTotalBalance
   const totalBalance = ref<TotalBalance>(dummyTotalBalance.current); // Set a test value
 
@@ -46,7 +40,10 @@ export const useBalance = defineStore("balance", () => {
       prev: totalBalance.value,
       current: totalBalance.value + amount
     };
+    console.log("prev: ", totalBalance.value.prev, "current: ", totalBalance.value.current);
   }
+
+
 
   // incase balance has been decreased
   async function decreaseTotalBalance(amount: number) {
@@ -58,6 +55,8 @@ export const useBalance = defineStore("balance", () => {
       prev: totalBalance.value,
       current: totalBalance.value - amount
     }
+    console.log("prev: ", totalBalance.value.prev, "current: ", totalBalance.value.current);
+    // console.log(totalBalance.value);
   }
 
   async function fetchTotalBalance() {

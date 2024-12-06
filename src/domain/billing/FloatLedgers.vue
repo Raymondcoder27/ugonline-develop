@@ -56,6 +56,7 @@ onMounted(() => {
   fetchTransactions();
   store.fetchFloatLedgers(); // Fetch float ledgers
   balanceStore.fetchTotalBalance(); // Fetch total balance
+  balanceStore.increaseTotalBalance(); // Increase balance by 100
 });
 
 function fetchTransactions() {

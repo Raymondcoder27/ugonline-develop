@@ -180,7 +180,7 @@ export const useBilling = defineStore("billing", () => {
   function approveFloatRequest(requestId: any) {
     const floatRequest = floatRequests.value.find((request) => request.id === requestId);
     if (floatRequest) {
-      floatRequest.status = "Approved";
+      floatRequest.status = "approved";
       floatRequest.approvedBy = "Manager One";
     }
   }
@@ -189,7 +189,7 @@ export const useBilling = defineStore("billing", () => {
   function rejectFloatRequest(requestId: any) {
     const floatRequest = floatRequests.value.find((request) => request.id === requestId);
     if (floatRequest) {
-      floatRequest.status = "Rejected";
+      floatRequest.status = "rejected";
     }
   }
 

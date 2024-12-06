@@ -94,8 +94,8 @@ export const useBilling = defineStore("billing", () => {
     // const data = await response.json();
     // Use dummy data for now
     transactions.value = dummyTransactions;
-    totalAmount.value = 600;  // Set a test value
-    totalBalance.value = 3000; // Set a test value
+    // totalAmount.value = 600;  // Set a test value
+    // totalBalance.value = 300000000; // Set a test value
   }
 
   async function fetchFloatLedgers(filter: any) {
@@ -167,7 +167,7 @@ export const useBilling = defineStore("billing", () => {
       // description: "Branch " + payload.branchId,
       description: payload.branchId,
       amount: -payload.amount,
-      balance: totalBalance.value + payload.amount,
+      // balance: totalBalance.value + payload.amount,
     })
   }
 

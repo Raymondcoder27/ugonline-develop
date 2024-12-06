@@ -481,14 +481,14 @@ onMounted(() => {
         /> -->
 
         <div
-          class="mt-3 mx-2 bg-white rounded-full flex items-center justify-center border border-gray-50 focus:ring-2 focus:ring-red-500"
+          class="mt-3 mx-2 px-2 bg-white rounded-full flex items-center justify-between border border-gray-50 focus:ring-2 focus:ring-red-500"
         >
           <input
             type="text"
             placeholder="Search Subscribed Services"
             class="text-sm border-none outline-none bg-white"
           />
-          <i class="fas fa-search cursor-pointer text-gray-500 text-lg"></i>
+          <i class="fas fa-search py-2 cursor-pointer text-gray-500 text-lg"></i>
         </div>
         <hr class="mt-3 text-gray-100" />
       </div>

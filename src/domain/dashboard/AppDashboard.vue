@@ -36,7 +36,11 @@ balanceStore.fetchTotalBalance();
 
 const totalServiceSubscriptions = servicesStore.subscribedServices?.length || 0;
 
-const totalFloatRequests = billingStore.floatRequests?.length || 0;
+// const totalFloatRequests = billingStore.floatRequests?.length || 0;
+
+const pendingFloatRequests = billingStore.floatRequests?.filter(
+  (request) => request.status === "pending"
+)?.length || 0;
 
 const totalTransactions = billingStore.transactions?.length || 0;
 
@@ -127,7 +131,7 @@ const limit = ref(15);
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">4</p> -->
         <!-- <p class="text-xl font-bold py-2">{{ billingStore.floatRequests.length }}</p> -->
-        <p class="text-xl font-bold py-2">{{ totalFloatRequests }}</p>
+        <p class="text-xl font-bold py-2">{{ pendingFloatRequests }}</p>
         <p class="text-xs">Pending Float Requests</p>
       </div>
     </div>

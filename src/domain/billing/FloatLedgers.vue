@@ -14,7 +14,7 @@ import { useBalance } from "@/domain/balance/stores"; // Import the balance stor
 
 const balanceStore = useBalance(); // Initialize the balance store
 
-balanceStore.decreaseTotalBalance(); // Decrease balance by 100
+balanceStore.fetchTotalBalance(); // Decrease balance by 100
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
@@ -57,7 +57,7 @@ const filter = reactive({
 onMounted(() => {
   fetchTransactions();
   store.fetchFloatLedgers(); // Fetch float ledgers
-  balanceStore.fetchTotalBalance(); // Fetch total balance
+  // balanceStore.fetchTotalBalance(); // Fetch total balance
   // balanceStore.increaseTotalBalance(); // Increase balance by 100
 });
 
@@ -226,7 +226,7 @@ watch(
                 <span>{{ transaction.amount }}</span>
               </td>
               <td class="text-left text-gray-800">
-                <span>{{ balanceStore.totalBalance.prev }}</span>
+                <span>{{ balanceStore.totalBalance }}</span>
               </td>
             </tr>
           </tbody>

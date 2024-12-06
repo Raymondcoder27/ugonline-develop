@@ -1,77 +1,47 @@
-// domain/billing/stores.ts
-
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { TotalBalance } from "@/domain/balance/types";
+
+export interface TotalBalance {
+  prev: number;
+  current: number;
+}
 
 export const useBalance = defineStore("balance", () => {
-  // Dummy data for testing
-
-  // const dummyTotalBalance: Balance = 300000000; // Set a test value
-
-  // the dummyTotalBalance should have a current value and a new value
-  const dummyTotalBalance: TotalBalance = {
+  // Initial dummy data for total balance
+  const dummyTotalBalance = {
     prev: 0,
-    current: 300000000
+    current: 300000000, // Initial dummy balance
   };
 
-  // use the current value of the dummyTotalBalance
+  // Reactive totalBalance state
+  const totalBalance = ref<TotalBalance>({ ...dummyTotalBalance });
 
-
-  // incase balance has been increased
-  // async function increaseTotalBalance(amount: number) {
-  //   // Simulate API call
-  //   // const response = await fetch(`/api/total-balance`);
-  //   // const data = await response.json();
-  //   // Use dummy data for now
-  //   totalBalance.value = totalBalance.value + amount;
-  // }
-
-  // incase balance has been increased, update the current value of the dummyTotalBalance, but keep the prev value
-  async function increaseTotalBalance(amount: number) {
-    // Simulate API call
-    // const response = await fetch(`/api/total-balance`);
-    // const data = await response.json();
-    // Use dummy data for now
-    totalBalance.value = {
-      prev: totalBalance.value,
-      current: totalBalance.value + amount
-    };
-    dummyTotalBalance.current = totalBalance.value;
-  }
-
-  // incase balance has been decreased
-  async function decreaseTotalBalance(amount: number) {
-    // Simulate API call
-    // const response = await fetch(`/api/total-balance`);
-    // const data = await response.json();
-    // Use dummy data for now
-    totalBalance.value = {
-      prev: totalBalance.value,
-      current: totalBalance.value - amount
-    }
-    dummyTotalBalance.current = totalBalance.value;
-  }
-
+  // Fetch the total balance (dummy data for now)
   async function fetchTotalBalance() {
     // Simulate API call
-    // const response = await fetch(`/api/total-balance`);
-    // const data = await response.json();
-    // Use dummy data for now
-    totalBalance.value = dummyTotalBalance.current;
+    totalBalance.value = { ...dummyTotalBalance };
   }
 
-  // use the current value of the dummyTotalBalance
-  const totalBalance = ref<TotalBalance>(dummyTotalBalance.current); // Set a test value
+  // Increase the total balance and update the "prev" value
+  async function increaseTotalBalance(amount: number) {
+    totalBalance.value = {
+      prev: totalBalance.value.current,
+      current: totalBalance.value.current + amount,
+    };
+  }
 
-  // adjust the new total balance value
-  totalBalance.value = dummyTotalBalance.current;
-
+  // Decrease the total balance and update the "prev" value
+  async function decreaseTotalBalance(amount: number) {
+    totalBalance.value = {
+      prev: totalBalance.value.current,
+      current: totalBalance.value.current - amount,
+    };
+  }
 
   return {
     totalBalance,
     fetchTotalBalance,
     increaseTotalBalance,
-    decreaseTotalBalance
+    decreaseTotalBalance,
   };
 });

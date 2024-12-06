@@ -209,7 +209,6 @@ function unsubscribeFromService(serviceId: string) {
 
 // watch for changes in the subscription status and refetch services
 
-
 onMounted(() => {
   store.fetchServices();
   store.fetchSubscribedServices();
@@ -423,7 +422,7 @@ onMounted(() => {
           :key="service.id"
           class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
         >
-        <!-- <div
+          <!-- <div
           v-for="service in listedServices"
           :key="service.id"
           class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
@@ -439,16 +438,16 @@ onMounted(() => {
           <!-- <p class="font-bold text-gray-700 my-1">{{ service.name }}</p> -->
 
           <div class="text-bold" v-if="service">
-  {{ service.name }}
-</div>
-<div v-else>
-  <p>Service not found.</p>
-</div>
+            {{ service.name }}
+          </div>
+          <div v-else>
+            <p>Service not found.</p>
+          </div>
 
           <table class="text-xs text-gray-400">
             <tbody>
               <tr>
-                <td class="font-semibold hover:text-red-700">
+                <td class="font-semibold text-xs">
                   {{ service.description }}
                 </td>
               </tr>
@@ -461,14 +460,13 @@ onMounted(() => {
             Subscribe
           </p>
         </div>
-
-
-
       </div>
     </div>
 
-    <div class="bg-white text-xs rounded-md w-1/3 ml-3 text-center mb-2  h-[85vh]">
-      <div class="block mt-2 mb-4 ">
+    <div
+      class="bg-white text-xs rounded-md w-1/3 ml-3 text-center mb-2 h-[85vh]"
+    >
+      <div class="block mt-2 mb-4">
         <!-- <p class="text-lg mx-1">Subscriptions</p> -->
 
         <!-- <input
@@ -488,7 +486,9 @@ onMounted(() => {
             placeholder="Search Subscribed Services"
             class="text-sm border-none outline-none bg-white"
           />
-          <i class="fas fa-search py-2 cursor-pointer text-gray-500 text-lg"></i>
+          <i
+            class="fas fa-search py-2 cursor-pointer text-gray-500 text-lg"
+          ></i>
         </div>
         <hr class="mt-3 text-gray-100" />
       </div>
@@ -498,7 +498,7 @@ onMounted(() => {
         v-for="(subscribedService, id) in store.subscribedServices"
         :key="id"
       >
-      <!-- <div
+        <!-- <div
         class="flex flex-col justify-between mt-3 text-left"
         v-for="(subscribedService, id) in activeServices"
         :key="id"
@@ -522,10 +522,7 @@ onMounted(() => {
         </li>
       </div>
     </div>
-
-    
   </div>
-
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>

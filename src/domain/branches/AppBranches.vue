@@ -151,12 +151,12 @@ onMounted(() => {
     </div>
     <div class="flex justify-between my-1">
       <div class="flex flex-col">
-        <div class="grid grid-cols-5">
-          <input
+        <!-- <div class="grid grid-cols-5"> -->
+          <!-- <input
             class="filter-element e-input"
             type="text"
             placeholder="Search by Name"
-          />
+          /> -->
           <!-- <select class="filter-element e-select" v-model="providerId">
             <option :value="null">- Select Provider -</option>
             <option
@@ -172,6 +172,23 @@ onMounted(() => {
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </select> -->
+        <!-- </div> -->
+        <div
+          class="w-[50vw] bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+        >
+          <input
+            type="text"
+            placeholder="Search Managers"
+            class="w-full text-sm border-none outline-none bg-white"
+          />
+          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+
+          <!-- <button
+      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button> -->
         </div>
       </div>
       <div class="flex">

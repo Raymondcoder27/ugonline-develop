@@ -81,7 +81,7 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">79</p> -->
-        <p class="text-xl font-bold py-2">{{ totalServiceSubscriptions }}</p>
+        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalServiceSubscriptions }}</p>
         <!-- <p class="text-xl font-bold py-2">{{ servicesStore.servicesSubscribed?.length || 0 }}</p> -->
         <p class="text-xs">Service Subscriptions</p>
       </div>
@@ -90,7 +90,7 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">4</p> -->
-        <p class="text-xl font-bold py-2">{{ totalBranches }}</p>
+        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBranches }}</p>
 
         <p class="text-xs">Branches</p>
       </div>
@@ -100,7 +100,7 @@ onMounted(() => {
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">3</p> -->
         <!-- <p class="text-xl font-bold py-2">{{ accountStore.branchManagers.length }}</p> -->
-        <p class="text-xl font-bold py-2">{{ totalBranchManagers }}</p>
+        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBranchManagers }}</p>
         <p class="text-xs">Branch Managers</p>
       </div>
     </div>
@@ -108,14 +108,14 @@ onMounted(() => {
     <div class="w-full">
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">17</p> -->
-        <p class="text-xl font-bold py-2">{{ totalBackOfficeAccounts }}</p>
+        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBackOfficeAccounts }}</p>
         <p class="text-xs">BackOffice Accounts</p>
       </div>
     </div>
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">17</p>
+        <p class="text-xl font-bold py-2" style="font-size: 30px;">17</p>
         <!-- <p class="text-xl font-bold py-2">{{ store.tills }}</p> -->
         <p class="text-xs">Tills</p>
       </div>

@@ -6,7 +6,10 @@ import AllocateFloat from "@/domain/billing/components/AllocateFloat.vue";
 import { useDebounceFn } from "@vueuse/core";
 import type { IGoFilter } from "@/types";
 import moment from "moment";
-import type { IResendVerificationPayload, TAccountVerificationType } from "./types";
+import type {
+  IResendVerificationPayload,
+  TAccountVerificationType,
+} from "./types";
 
 const billingStore = useBilling();
 
@@ -22,26 +25,26 @@ const filter: IGoFilter = reactive({
   sort: [
     {
       field: "firstname",
-      order: "ASC"
-    }
+      order: "ASC",
+    },
   ],
   filter: [
     {
       field: "firstname",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "username",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "phone",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
-  ]
+  ],
 });
 
 onMounted(() => {
@@ -66,7 +69,7 @@ function close() {
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
-  username: ""
+  username: "",
 });
 
 const resend = (purpose: TAccountVerificationType, username: string) => {
@@ -121,7 +124,6 @@ watch(
 </script>
 
 <template>
-
   <!-- <h2>Transactions</h2>
     <ul>
       <li v-for="transaction in billingStore.transactions" :key="transaction.id">
@@ -131,12 +133,30 @@ watch(
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
-        <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Name" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Branch" />
-          <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
+        <div
+          class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+        >
+          <input
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[0].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Name"
+          />
+          <input
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[1].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Branch"
+          />
+          <button
+            @click="modalOpen = true"
+            class="button btn-sm my-auto"
+            type="button"
+          >
             <i class="px-1 fa-solid fa-plus"></i> Allocate Float
           </button>
         </div>
@@ -150,15 +170,17 @@ watch(
             <!-- <th class="t-header" width="30%">Names</th> -->
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
-            <th class=" text-center">Status</th>
+            <th class="text-center">Status</th>
             <th class="text-right">Date of Allocation</th>
             <!-- <th class="t-header">Actions</th> -->
             <th class="t-header"></th>
-
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(assignment, idx) in billingStore.floatAllocations" :key="idx">
+          <tr
+            v-for="(assignment, idx) in billingStore.floatAllocations"
+            :key="idx"
+          >
             <!-- <td>{{ idx + 1 }}</td> -->
             <!-- <td>
               <label class="font-bold py-1">{{
@@ -168,8 +190,9 @@ watch(
             <td class="text-left">{{ assignment.branch }}</td>
             <td class="text-left">{{ assignment.amount }}</td>
             <td class="text-left text-center">{{ assignment.status }}</td>
-            <td class="text-right">{{ convertDateTime(assignment.createdAt) }}</td>
-
+            <td class="text-right">
+              {{ convertDateTime(assignment.createdAt) }}
+            </td>
 
             <!-- <td class="text-left">
               <i
@@ -191,15 +214,33 @@ watch(
     </div>
     <div class="flex">
       <div class="w-full">
-        <div class="flex" v-if="limit == billingStore.backOfficeUsers?.length || page > 1">
-          <button v-if="page > 1" class="pagination-button" @click="previous"> <i class="fa-solid fa-arrow-left"></i></button>
-          <button v-else class="pagination-button-inert"><i class="fa-solid fa-arrow-left"></i></button>
+        <div
+          class="flex"
+          v-if="limit == billingStore.backOfficeUsers?.length || page > 1"
+        >
+          <button v-if="page > 1" class="pagination-button" @click="previous">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button v-else class="pagination-button-inert">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
           <div class="w-1/12 text-center my-auto">
-            <label class="rounded text-white bg-primary-700 px-3 py-1">{{page}}</label>
+            <label class="rounded text-white bg-primary-700 px-3 py-1">{{
+              page
+            }}</label>
           </div>
-          <button v-if="limit == billingStore.backOfficeUsers?.length - 1 || limit > billingStore.backOfficeUsers?.length" class="pagination-button-inert">
-            <i class="fa-solid fa-arrow-right"></i></button>
-          <button v-else class="pagination-button" @click="next"><i class="fa-solid fa-arrow-right"></i></button>
+          <button
+            v-if="
+              limit == billingStore.backOfficeUsers?.length - 1 ||
+              limit > billingStore.backOfficeUsers?.length
+            "
+            class="pagination-button-inert"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button v-else class="pagination-button" @click="next">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </div>
       </div>
     </div>

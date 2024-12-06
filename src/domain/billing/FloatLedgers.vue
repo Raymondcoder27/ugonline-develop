@@ -51,6 +51,7 @@ const filter = reactive({
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
   fetchTransactions();
+  store.fetchFloatLedgers(); // Fetch float ledgers
 });
 
 function fetchTransactions() {

@@ -9,7 +9,7 @@ export interface TotalBalance {
 export const useBalance = defineStore("balance", () => {
   // Initial dummy data for total balance
   const dummyTotalBalance = {
-    // prev: 0,
+    prev: 0,
     current: 300000000, // Initial dummy balance
   };
 

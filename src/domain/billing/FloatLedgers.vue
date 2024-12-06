@@ -62,20 +62,51 @@ onMounted(() => {
 });
 
 // Dynamically compute the balances for each transaction
+// const computedTransactions = computed(() => {
+//   let runningBalance = balanceStore.totalBalance.current; // Start with the current total balance
+//   return store.floatLedgers
+//     .slice() // Create a shallow copy to avoid mutation
+//     .reverse() // Reverse to calculate balances in chronological order
+//     .map((transaction) => {
+//       runningBalance -= transaction.amount; // Adjust balance for each transaction
+//       return {
+//         ...transaction,
+//         balance: runningBalance, // Attach the computed balance to each transaction
+//       };
+//     })
+//     .reverse(); // Reverse back to preserve the original order
+// });
+
+
 const computedTransactions = computed(() => {
-  let runningBalance = balanceStore.totalBalance.current; // Start with the current total balance
-  return store.floatLedgers
+  // Ensure we have a valid starting balance and transactions
+  if (!balanceStore.totalBalance.current || store.floatLedgers.length === 0) {
+    return [];
+  }
+
+  // Initialize the running balance from the total balance
+  let runningBalance = balanceStore.totalBalance.current;
+
+  // Process the transactions in reverse order to calculate balances
+  const transactionsWithBalances = store.floatLedgers
     .slice() // Create a shallow copy to avoid mutation
-    .reverse() // Reverse to calculate balances in chronological order
+    .reverse() // Reverse to process from the most recent transaction
     .map((transaction) => {
-      runningBalance -= transaction.amount; // Adjust balance for each transaction
+      // Attach the current running balance to the transaction
+      const transactionBalance = runningBalance;
+      // Adjust the running balance by subtracting the transaction amount
+      runningBalance -= transaction.amount;
+
       return {
         ...transaction,
-        balance: runningBalance, // Attach the computed balance to each transaction
+        balance: transactionBalance,
       };
     })
-    .reverse(); // Reverse back to preserve the original order
+    .reverse(); // Reverse back to preserve chronological order
+
+  return transactionsWithBalances;
 });
+
 
 function fetchTransactions() {
   filter.limit = limit.value;

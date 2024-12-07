@@ -152,7 +152,7 @@ onMounted(() => {
       <table class="table tr">
         <thead>
           <tr class="text-left">
-            <!-- <th>#</th> -->
+            <th>#</th>
             <th>Tracking Number</th>
             <th>Service</th>
             <th>Provider</th>

@@ -184,7 +184,7 @@ onMounted(() => {
             <td class="text-left">{{ transaction.provider }}</td>
             <td>{{ transaction.till }}</td>
             <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
-            <td class="text-left">{{ transaction.fee }}</td>
+            <td class="text-left">{{ transaction.fee.toLocaleString() }}</td>
             <td class="text-left">{{ transaction.status }}</td>
             <td class="text-left">{{ convertDateTime(transaction.date) }}</td>
             <!-- <td class="text-left"> -->

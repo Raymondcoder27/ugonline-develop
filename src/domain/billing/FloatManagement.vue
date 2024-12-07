@@ -188,7 +188,7 @@ watch(
               }}</label>
             </td> -->
             <td class="text-left">{{ assignment.branch }}</td>
-            <td class="text-left">{{ assignment.amount }}</td>
+            <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
             <td class="text-left text-center">{{ assignment.status }}</td>
             <td class="text-right">
               {{ convertDateTime(assignment.createdAt) }}

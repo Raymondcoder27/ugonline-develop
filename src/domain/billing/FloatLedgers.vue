@@ -242,7 +242,7 @@ watch(
         <table class="table w-full">
           <thead>
             <tr class="header-tr">
-              <!-- <th class="t-header">#</th> -->
+              <th class="t-header">#</th>
               <th class="t-header">Date</th>
               <th class="t-header">Description</th>
               <th class="text-right t-header">Amount</th>
@@ -272,12 +272,6 @@ watch(
             >
 
             <td class="text-left">
-                <span class="text-xs">{{
-                  convertDateTime(transaction.createdAt)
-                }}</span>
-              </td>
-
-            <td class="text-left">
                 <label class="cursor-pointer hover:text-primary-700 mx-2">
                   <span class="hover:underline">{{
                     transaction.id
@@ -286,7 +280,11 @@ watch(
               </td>
               <!-- <td class="text-left">{{ idx + 1 }}</td> -->
 
-             
+              <td class="text-left">
+                <span class="text-xs">{{
+                  convertDateTime(transaction.createdAt)
+                }}</span>
+              </td>
               <td class="text-left">
                 <label class="cursor-pointer hover:text-primary-700 mx-2">
                   <span class="hover:underline">{{

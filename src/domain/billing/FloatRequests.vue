@@ -140,7 +140,7 @@ onMounted(() => {
             <td class="text-left">{{  request.date }}</td>
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
-            <td class="text-left">{{ request.amount }}</td>
+            <td class="text-left">{{ request.amount.toLocaleString() }}</td>
             <td class="text-left">{{ request.status }}</td>
             <td class="text-right">
               <!-- First Case: float request approved -->

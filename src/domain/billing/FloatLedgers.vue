@@ -311,7 +311,7 @@ watch(
               <td class="text-left text-gray-800">
                 <!-- <button @click="decreaseBalance">Decrease Balance</button> -->
                 <!-- <span>{{ balanceStore.totalBalance.current }}</span> -->
-                <span>{{ transaction.balance }}</span>
+                <span>{{ transaction.balance.toLocaleString() }}</span>
               </td>
             </tr>
           </tbody>

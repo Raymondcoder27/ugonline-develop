@@ -272,6 +272,12 @@ watch(
             >
 
             <td class="text-left">
+                <span class="text-xs">{{
+                  convertDateTime(transaction.createdAt)
+                }}</span>
+              </td>
+
+            <td class="text-left">
                 <label class="cursor-pointer hover:text-primary-700 mx-2">
                   <span class="hover:underline">{{
                     transaction.id
@@ -280,11 +286,7 @@ watch(
               </td>
               <!-- <td class="text-left">{{ idx + 1 }}</td> -->
 
-              <td class="text-left">
-                <span class="text-xs">{{
-                  convertDateTime(transaction.createdAt)
-                }}</span>
-              </td>
+             
               <td class="text-left">
                 <label class="cursor-pointer hover:text-primary-700 mx-2">
                   <span class="hover:underline">{{

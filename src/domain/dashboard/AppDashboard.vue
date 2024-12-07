@@ -150,7 +150,7 @@ onMounted(() => {
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">130,400,000/=</p> -->
         <!-- <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBalance.current}}/=</p> -->
-        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBalance.current.toLocaleString()}}/=</p>
+        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBalance.current.toLocaleString() }}/=</p>
         
         <p class="text-xs">Balance</p>
       </div>

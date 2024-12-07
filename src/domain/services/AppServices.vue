@@ -209,10 +209,10 @@ function unsubscribeFromService(serviceId: string) {
 
 // watch for changes in the subscription status and refetch services
 
-onMounted(() => {
-  store.fetchServices();
-  store.fetchSubscribedServices();
-});
+// onMounted(() => {
+//   store.fetchServices();
+//   store.fetchSubscribedServices();
+// });
 </script>
 
 <template>

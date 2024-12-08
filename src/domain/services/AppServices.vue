@@ -447,8 +447,8 @@ function unsubscribeFromService(serviceId: string) {
           <!-- <table class="text-xs text-gray-400"> -->
             <!-- <tbody> -->
               <!-- <tr> -->
-          <div class="bg-green-200">
-            <div class="h-20 bg-red-100">
+          <div class="h-5 bg-green-200">
+            <div class="h-20 bg-green-100">
                 <span class=" text-xs text-gray-800 ">
                   {{ service.description }}
                 </span>

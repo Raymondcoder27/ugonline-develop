@@ -40,6 +40,7 @@ const appRoutes: RouteRecordRaw[] = [
     name: "app-home",
     component: MainLayout,
     meta: { requiresAuth: false },
+    redirect: "/agent-admin/dashboard",
     children: [
       {
         name: "app-dashboard",

@@ -36,6 +36,11 @@ const getManagerByBranch = (branchName) => {
   );
 };
 
+//Helper function to get manager by backoffice account
+const getBackOfficeAccount = (branchName) => {
+  return accountStore.backo
+}
+
 onMounted(() => {
   loading.value = true;
   fetchBranches();
@@ -134,6 +139,7 @@ const assignManagersToBranches = () => {
 onMounted(() => {
   accountStore.fetchManagerAccounts();
   branchStore.fetchBranches();
+  accountStore.fetchManagerAccounts();
   // allocateManager();
   assignManagersToBranches();
 });

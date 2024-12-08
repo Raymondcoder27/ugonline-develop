@@ -38,7 +38,7 @@ const getManagerByBranch = (branchName) => {
 
 //Helper function to get manager by backoffice account
 const getBackOfficeAccount = (branchName) => {
-  return accountStore.backo
+  return accountStore.
 }
 
 onMounted(() => {

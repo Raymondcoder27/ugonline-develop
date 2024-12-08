@@ -427,7 +427,7 @@ function unsubscribeFromService(serviceId: string) {
           :key="service.id"
           class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
         > -->
-          <div class="flex justify-between items-center">
+          <div class="flex justify-between items-center bg-reen-200">
             <img
               :src="service.thumbnail"
               alt=""

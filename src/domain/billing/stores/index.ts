@@ -57,9 +57,9 @@ export const useBilling = defineStore("billing", () => {
   ];
 
   const dummyBackofficeUsers: BackofficeUser[] = [
-    { id: 1, username: "admin1", fullName: "Admin User One", role: "Administrator", branch: "Branch 1", status: "Active" },
-    { id: 2, username: "manager1", fullName: "Manager User One", role: "Manager", branch: "Branch 2", status: "Active" },
-    { id: 3, username: "admin2", fullName: "Admin User Two", role: "Administrator", branch: "Branch 3", status: "Inactive" },
+    { id: 1, username: "admin1", fullName: "Jack Mwebe", role: "Administrator", branch: "Branch 1", status: "Active" },
+    { id: 2, username: "manager1", fullName: "Katamba Johnson", role: "Manager", branch: "Branch 2", status: "Active" },
+    { id: 3, username: "admin2", fullName: "Kasule Ronald", role: "Administrator", branch: "Branch 3", status: "Inactive" },
   ];
 
   // dummy branch manager data

@@ -445,26 +445,25 @@ function unsubscribeFromService(serviceId: string) {
           </div>
 
           <!-- <table class="text-xs text-gray-400"> -->
-            <!-- <tbody> -->
-              <!-- <tr> -->
+          <!-- <tbody> -->
+          <!-- <tr> -->
           <div class="bg-green-200">
             <div class="h-20 bg-green-100">
-                <span class=" text-xs text-gray-800 ">
-                  {{ service.description }}
-                </span>
-              </div>
-              <!-- </tr> -->
+              <span class="text-xs text-gray-800">
+                {{ service.description }}
+              </span>
+            </div>
+            <!-- </tr> -->
             <!-- </tbody> -->
-          <!-- </table> -->
-          <div class="-mb-1">
-            <p
-            class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
-            @click="subscribe(service.id)"
-          >
-            Subscribe
-          </p>
-          </div>
-          
+            <!-- </table> -->
+            <div class="-mb-1">
+              <p
+                class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
+                @click="subscribe(service.id)"
+              >
+                Subscribe
+              </p>
+            </div>
           </div>
         </div>
       </div>

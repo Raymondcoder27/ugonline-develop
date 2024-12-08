@@ -55,7 +55,7 @@ function submit() {
         >
           <option :value="null">-- Select Manager --</option>
           <option
-            v-for="(account, idx) in store.managerAccounts"
+            v-for="(account, idx) in store.backofficeAccounts"
             :key="idx"
             :value="account.managerId"
           >

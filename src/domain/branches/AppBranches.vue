@@ -37,11 +37,11 @@ const getManagerByBranch = (branchName) => {
 };
 
 //Helper function to get manager by backoffice account
-const getBackOfficeAccount = (branchName) => {
-  return accountStore.backofficeAccounts.find(
-    (backofficeAccount) => backofficeAccount.branch = branchName
-  );
-};
+// const getBackOfficeAccount = (branchName) => {
+//   return accountStore.backofficeAccounts.find(
+//     (backofficeAccount) => backofficeAccount.branch = branchName
+//   );
+// };
 
 onMounted(() => {
   loading.value = true;

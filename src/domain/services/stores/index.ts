@@ -91,8 +91,6 @@ export const useServicesStore = defineStore("services", () => {
   ];
 
 
-
-
     // const services: Ref<Service[] | undefined> = ref()
     const services: Ref<Service[] | undefined> = ref(dummyServices)
     const subscribedServices: Ref<Service[] | undefined> = ref(dummySubscribedServices)

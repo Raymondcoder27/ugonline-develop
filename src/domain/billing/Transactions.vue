@@ -160,24 +160,24 @@ onMounted(() => {
           <!-- <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button> -->
-          <div class="block space-x-2">
-          <div>
-            <label for="date-from" class="mr-2 text-sm text-gray-600"
+          <div class="flex space-x-2">
+          <div class="flex">
+            <label for="date-from" class="mr-1 text-sm text-gray-600"
               >From:</label
             >
             <input
               type="date"
               id="date-from"
-              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="border rounded-md px-1 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               v-model="filter.fromDate"
             />
           </div>
-          <div>
-            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
+          <div class="flex">
+            <label for="date-to" class="mr-1 text-sm text-gray-600">To:</label>
             <input
               type="date"
               id="date-to"
-              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="border rounded-md px-1 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               v-model="filter.toDate"
             />
           </div>

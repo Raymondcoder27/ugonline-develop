@@ -155,7 +155,7 @@ onMounted(() => {
             <!-- <th class="text-center">Status</th> -->
             <!-- <th class="text-center">Activation</th> -->
             <th class="text-center">Date</th>
-            <th class="t-header text-right">Actions</th>
+            <th class="text-right">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -196,8 +196,8 @@ onMounted(() => {
               <i v-else class="fa-solid fa-times-square text-red-600"></i>
             </td> -->
             <td class="text-center">{{ convertDate(account.createdAt) }}</td>
-            <td class="text-center">
-              <div class="flex flex-row space-x-2 w-full justify-center" v-if="!account.blockedAt">
+            <td class="text-right">
+              <div class="flex flex-row space-x-2 w-full text-right" v-if="!account.blockedAt">
                 <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i>
                 <!-- <i class="text-gray-600 fa-solid fa-reply px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"

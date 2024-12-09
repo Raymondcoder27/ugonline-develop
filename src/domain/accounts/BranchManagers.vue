@@ -155,7 +155,7 @@ onMounted(() => {
             <!-- <th class="text-center">Status</th> -->
             <!-- <th class="text-center">Activation</th> -->
             <th class="text-center">Date</th>
-            <th class="t-header"></th>
+            <th class="t-header text-right">Actions</th>
           </tr>
         </thead>
         <tbody>

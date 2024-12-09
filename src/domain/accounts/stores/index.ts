@@ -260,32 +260,11 @@ export const useAccounts = defineStore("user-management", () => {
   // };
 
   // assign manager to a branch
-  const assignManager = (userId: string) => {
-    console.log('User ID:', userId); // Debugging log
-
-    const user = backofficeAccounts.value?.find((account) => account.id === userId);  // Compare `userId` with `account.id`
-    
-    if (user) {
-      managerAccounts.value.push({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        phone: user.phone,
-        role: user.role,
-        status: user.status,
-        createdAt: new Date().toISOString(),
-        emailVerified: true,
-        phoneVerified: true,
-        activatedAt: new Date().toISOString(),
-      });
-    } else {
-      console.warn(`User with ID ${userId} not found.`);
-      alert(`User with ID ${userId} not found.`);
-    }
-  };
-
   // const assignManager = (userId: string) => {
-  //   const user = backofficeAccounts.value?.find((account) => account.id === userId);
+  //   console.log('User ID:', userId); // Debugging log
+
+  //   const user = backofficeAccounts.value?.find((account) => account.id === userId);  // Compare `userId` with `account.id`
+    
   //   if (user) {
   //     managerAccounts.value.push({
   //       firstName: user.firstName,
@@ -304,6 +283,34 @@ export const useAccounts = defineStore("user-management", () => {
   //     alert(`User with ID ${userId} not found.`);
   //   }
   // };
+
+  const assignManager = (userId: string, branchId: string) => {
+    console.log('User ID:', userId); // Debugging log
+    console.log('Branch ID:', branchId); // Debugging log
+  
+    const user = backofficeAccounts.value?.find((account) => account.id === userId); // Find user by `userId`
+  
+    if (user) {
+      managerAccounts.value.push({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+        status: user.status,
+        createdAt: new Date().toISOString(),
+        emailVerified: true,
+        phoneVerified: true,
+        activatedAt: new Date().toISOString(),
+        branchName: branchId.branchName, // Include branchId
+      });
+      console.log(`Manager assigned to branch ${branchId}`);
+    } else {
+      console.warn(`User with ID ${userId} not found.`);
+      alert(`User with ID ${userId} not found.`);
+    }
+  };
+  
   
   
   

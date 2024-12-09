@@ -18,7 +18,7 @@ const notify = useNotificationsStore();
 
 const form = reactive({
   userId: "",
-  // branchId: "",
+  branchId: "",
 });
 
 const emit = defineEmits(["cancel", "managerAssigned"]);
@@ -34,11 +34,11 @@ function submit(userId: string) {
   let payload = {
     // userId: form.userId,
     userId: userId,
-    // branchId: form.branchId,
+    branchId: form.branchId,
   };
   loading.value = true;
-  // store.assignManager(payload);
-  store.assignManager(userId); 
+  store.assignManager(payload.userId, payload.branchId);
+  // store.assignManager(userId); 
   // notify.success(`User successfully ${payload.userId} assigned to branch`);
   notify.success(`User successfully assigned to branch`);
   emit("managerAssigned");

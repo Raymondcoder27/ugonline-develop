@@ -61,13 +61,18 @@ export const useAccounts = defineStore("user-management", () => {
   ];
 
   const dummyBackofficeAccounts: Account[] = [
+    // {
+    //   firstName: "Jack", lastName: "Tumwine", middleNames: "B", username: "jacktumwine.user@example.com",
+    //   phone: "345-678-9012", role: "admin", createdAt: "2021-03-01",
+    //   emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01", email: "admin.user@example.com"
+    // },
     {
-      firstName: "Jack", lastName: "Tumwine", middleNames: "B", username: "jacktumwine.user@example.com",
+      firstName: "Jack", lastName: "Tumwine", username: "jacktumwine.user@example.com",
       phone: "345-678-9012", role: "admin", createdAt: "2021-03-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-03-01", email: "admin.user@example.com"
     },
     {
-      firstName: "Sarah", lastName: "Nambasa", middleNames: "C", username: "sarahnambasa.agent@example.com",
+      firstName: "Sarah", lastName: "Nambasa", username: "sarahnambasa.agent@example.com",
       phone: "456-789-0123", role: "admin", createdAt: "2021-04-01",
       emailVerified: true, phoneVerified: true, activatedAt: "2021-04-01", email: "support.agent@example.com"
     }

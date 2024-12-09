@@ -96,31 +96,30 @@ onMounted(() => {
   <div class="w-full shadow-lg bg-white rounded p-2 h-full">
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
-        <div class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down provider">
-            <option value="" disabled selected>Filter by Provider</option>
-            <option value="NIRA">NIRA</option>
-            <option value="URSB">URSB</option>
-            <!-- <option value="UMEME">UMEME</option> -->
-            <option value="NARO">Posta Uganda</option>
-          </select>
+        <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
             <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Search by Service">
-            <option value="" disabled selected>Filter by Service</option>
-            <option value="companyNameReservation">Company Name Reservation</option>
-            <option value="companyRegistration">Company Registration</option>
-            <option value="companyNameSearch">Company Name Search</option>
-            <option value="companyNameChange">Company Name Change</option>
+            <option value="" disabled selected>Filter by Branch</option>
+            <option value="Branch 1">Branch 1</option>
+            <option value="Branch 2">Branch 2</option>
+            <option value="Branch 3">Branch 3</option>
+          </select>
+          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Drop down provider">
+            <option value="" disabled selected>Filter by Amount</option>
+            <option value="NIRA"> &lt 10,000,000 </option>
+            <option value="URSB"> &lt 10,000,000 >= </option>
+            <!-- <option value="UMEME">UMEME</option> -->
+            <option value="NARO"> > 10,000,000 </option>
           </select>
           <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
             class="filter-element e-input" type="text" placeholder="Filter by Status">
             <option value="" disabled selected>Filter by Status</option>
             <option value="PENDING">PENDING</option>
-            <option value="COMPLETED">COMPLETED</option>
-            <option value="BLOCKED">BLOCKED</option>
+            <option value="COMPLETED">APPROVED</option>
+            <option value="BLOCKED">REJECTED</option>
           </select>
-          <div class="block">
+          <div class="flex">
             <label for="date-from" class="mr-2 text-sm text-gray-600"
               >From:</label
             >
@@ -131,7 +130,7 @@ onMounted(() => {
               v-model="filter.fromDate"
             />
           </div>
-          <div class="block">
+          <div class="flex">
             <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
             <input
               type="date"
@@ -142,30 +141,6 @@ onMounted(() => {
           </div>
         </div>
         
-      </div>
-    </div>
-    <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
-      <div class="flex space-x-4">
-        <div>
-          <label for="date-from" class="mr-2 text-sm text-gray-600"
-            >From:</label
-          >
-          <input
-            type="date"
-            id="date-from"
-            class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            v-model="filter.fromDate"
-          />
-        </div>
-        <div>
-          <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
-          <input
-            type="date"
-            id="date-to"
-            class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            v-model="filter.toDate"
-          />
-        </div>
       </div>
     </div>
     <div class="flex my-1">

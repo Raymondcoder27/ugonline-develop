@@ -7,7 +7,7 @@ import type { Branch } from "@/domain/branches/types"; // Assuming you have a Br
 import moment from "moment/moment";
 import router from "@/router";
 import { useProviderStore } from "@/domain/entities/stores";
-import AllocateBranchManager from "@/domain/branches/components/AllocateBranchManager.vue";
+import AssignBranchManager from "@/domain/branches/components/AssignBranchManager.vue";
 // import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
@@ -20,7 +20,7 @@ const branchStore = useBranchStore(); // Updated store
 const modalOpen: Ref<boolean> = ref(false);
 const categoryModalOpen: Ref<boolean> = ref(false);
 const editModalOpen: Ref<boolean> = ref(false);
-const allocateManagerModalOpen: Ref<boolean> = ref(false);
+const assignManagerModalOpen: Ref<boolean> = ref(false);
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(16);
 const loading: Ref<boolean> = ref(false);
@@ -90,11 +90,11 @@ function convertDateTime(date: string) {
 //     notify.success("Branch Deleted");
 //   }
 
-function allocateManager(branch: Branch) {
+function assignManager(branch: Branch) {
   // Logic to open the modal or start the process
   console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
-  allocateManagerModalOpen.value = true;
+  assignManagerModalOpen.value = true;
 }
 
 function deleteBranch(branchId: string) {
@@ -107,7 +107,7 @@ function deleteBranch(branchId: string) {
 function close() {
   modalOpen.value = false;
   editModalOpen.value = false;
-  allocateManagerModalOpen.value = false;
+  assignManagerModalOpen.value = false;
 }
 
 function next() {
@@ -288,7 +288,7 @@ onMounted(() => {
               <div v-else>
                 <button
                   class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
-                  @click="allocateManager(branch)"
+                  @click="assignManager(branch)"
                 >
                   Assign Manager
                 </button>
@@ -381,10 +381,10 @@ onMounted(() => {
   <!-- /Modal -->
 
   <!-- Assign Manager Modal -->
-  <AppModal v-model="allocateManagerModalOpen" xl2>
+  <AppModal v-model="assignManagerModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <AllocateBranchManager @managerAllocated="close" @cancel="close" />
+    <AssignBranchManager @managerAssigned="close" @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 </template>

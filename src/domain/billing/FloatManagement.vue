@@ -134,6 +134,61 @@ watch(
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div
+          class="flex justify-between gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+        >
+          <div class="flex">
+            <select
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[2].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Drop down provider"
+            >
+              <option value="" disabled selected>Filter by Description</option>
+              <option value="recharge">Recharge</option>
+              <option value="floatAllocation">Float Allocation</option>
+              <!-- <option value="UMEME">UMEME</option> -->
+            </select>
+            <div class="flex">
+              <div class="flex">
+                <label for="date-from" class="mr-2 text-sm text-gray-600"
+                  >From:</label
+                >
+                <input
+                  type="date"
+                  id="date-from"
+                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  v-model="filter.fromDate"
+                />
+              </div>
+              <div class="flex">
+                <label for="date-to" class="mr-2 text-sm text-gray-600"
+                  >To:</label
+                >
+                <input
+                  type="date"
+                  id="date-to"
+                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  v-model="filter.toDate"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            @click="modalOpen = true"
+            class="button btn-sm my-auto"
+            type="button"
+          >
+            <i class="px-1 fa-solid fa-plus"></i> Allocate Float
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex space-x-2 my-1 pt-1 pb-3">
+      <div class="flex-grow">
+        <div
           class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3 justify-between"
         >
           <!-- <input

@@ -17,8 +17,8 @@ const notify = useNotificationsStore();
 // };
 
 const form = reactive({
-  managerId: "",
-  branchId: "",
+  userId: "",
+  // branchId: "",
 });
 
 const emit = defineEmits(["cancel", "managerAssigned"]);
@@ -32,7 +32,7 @@ onMounted(() => {
 
 function submit() {
   let payload = {
-    managerId: form.managerId,
+    userId: form.userId,
     // branchId: form.branchId,
   };
   loading.value = true;

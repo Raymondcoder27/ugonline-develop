@@ -261,7 +261,8 @@ export const useAccounts = defineStore("user-management", () => {
 
   // assign manager to a branch
   const assignManager = (userId: string) => {
-    const user = userAccounts.value?.find(userId => user.id === userId.userId);
+    const user = userAccounts.value?.find((account) => account.username === userId);  // Use `account` instead of `user`
+    
     if (user) {
       managerAccounts.value.push({
         firstName: user.firstName,
@@ -279,7 +280,8 @@ export const useAccounts = defineStore("user-management", () => {
       console.warn(`Manager with ID ${userId} not found.`);
       alert(`Manager with ID ${userId} not found.`);
     }
-  }
+  };
+  
 
 
   // push new assigned manager managerAccounts array

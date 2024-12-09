@@ -138,7 +138,7 @@ const filteredManagers = computed(() => {
             class="text-xs body-tr border-b"
           > -->
           <tr
-            v-for="manager in store.managerAccounts"
+            v-for="manager in store.backofficeAccounts"
             :key="manager.id"
             class="text-xs body-tr border-b"
           >

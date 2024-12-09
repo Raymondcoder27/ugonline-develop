@@ -30,9 +30,10 @@ onMounted(() => {
 
 });
 
-function submit() {
+function submit(userId: string) {
   let payload = {
-    userId: form.userId,
+    // userId: form.userId,
+    userId: userId,
     // branchId: form.branchId,
   };
   loading.value = true;
@@ -140,18 +141,18 @@ const filteredManagers = computed(() => {
             class="text-xs body-tr border-b"
           > -->
           <tr
-            v-for="manager in store.backofficeAccounts"
-            :key="manager.id"
+            v-for="(user) in store.backofficeAccounts"
+            :key="user.id"
             class="text-xs body-tr border-b"
           >
             <td class="px-4 py-2">
-              {{ manager.firstName }} {{ manager.lastName }}
+              {{ user.firstName }} {{ user.lastName }}
             </td>
-            <td class="px-4 py-2">{{ manager.email }}</td>
-            <td class="px-4 py-2">{{ manager.phone }}</td>
+            <td class="px-4 py-2">{{ user.email }}</td>
+            <td class="px-4 py-2">{{ user.phone }}</td>
             <td class="px-4 py-2 text-center">
               <button
-                @click="submit(manager.id)"
+                @click="submit(user.id)"
                 :disabled="loading"
                 class="button btn-sm disabled:bg-gray-300"
               >

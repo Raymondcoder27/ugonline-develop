@@ -71,6 +71,17 @@ export const useBranchStore = defineStore("useBranch", () => {
     }
   };
   
+  // push new assigned manager managerAccounts array
+  // const assignManager = (payload: AssignManager) => {
+  //   managerAssignments.value.push({
+  //     branchId: payload.branchId,
+  //     managerId: payload.managerId,
+  //   });
+  // }
+
+  //update managerAccounts array with this new manager
+  // const assignManager = (payload: AssignManager) => {
+  //   managerAccounts
 
 
    // Delete branch from the store

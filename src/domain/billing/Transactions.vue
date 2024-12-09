@@ -299,7 +299,7 @@ onMounted(() => {
               <div v-else>
                 <!-- <td> -->
                 <span
-                  class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
+                  class="text-xs rounded-md p-1 font-semibold text-green-600 bg-blue-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
                   >Success</span
                 >
               </div>

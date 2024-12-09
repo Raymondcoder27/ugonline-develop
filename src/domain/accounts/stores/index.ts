@@ -237,6 +237,7 @@ export const useAccounts = defineStore("user-management", () => {
       phoneVerified: true, 
       activatedAt: new Date().toISOString(),
     });
+  }
 
 
 

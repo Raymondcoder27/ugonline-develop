@@ -261,7 +261,7 @@ export const useAccounts = defineStore("user-management", () => {
 
   // assign manager to a branch
   const assignManager = (userId: string) => {
-    const user = userAccounts.value?.find((account) => account.id === userId);  // Compare `userId` with `account.id`
+    const user = backofficeAccounts.value?.find((account) => account.id === userId);  // Compare `userId` with `account.id`
     
     if (user) {
       managerAccounts.value.push({

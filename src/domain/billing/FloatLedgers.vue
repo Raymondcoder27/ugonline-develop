@@ -202,16 +202,67 @@ watch(
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white">
       
-      <!-- <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
-        <div>
-          <label for="date-range" class="mr-2 text-sm text-gray-600 justify-end">Date Range:</label>
-          <input
-            type="date"
-            id="date-range"
-            class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+      <div class="flex space-x-2 my-1 pt-1 pb-3">
+      <div class="flex-grow">
+        <div class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
+          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
+            class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
+            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
+            class="filter-element e-input" type="text" placeholder="Filter by Status">
+            <option value="" disabled selected>Filter by Status</option>
+            <option value="PENDING">PENDING</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="BLOCKED">BLOCKED</option>
+          </select>
+          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Drop down provider">
+            <option value="" disabled selected>Filter by Provider</option>
+            <option value="NIRA">NIRA</option>
+            <option value="URSB">URSB</option>
+            <!-- <option value="UMEME">UMEME</option> -->
+            <option value="NARO">Posta Uganda</option>
+          </select>
+            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Search by Service">
+            <option value="" disabled selected>Filter by Service</option>
+            <option value="companyNameReservation">Company Name Reservation</option>
+            <option value="companyRegistration">Company Registration</option>
+            <option value="companyNameSearch">Company Name Search</option>
+            <option value="companyNameChange">Company Name Change</option>
+          </select>
+          <!-- <select class="filter-element e-select">
+            <option :value="null">- Select Status -</option>
+            <option value="pending">Pending</option>
+            <option value="active">Active</option>
+            <option value="blocked">Blocked</option>
+          </select> -->
+          <div class="block">
+            <label for="date-from" class="mr-2 text-sm text-gray-600"
+              >From:</label
+            >
+            <input
+              type="date"
+              id="date-from"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.fromDate"
+            />
+          </div>
+          <div class="block">
+            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
+            <input
+              type="date"
+              id="date-to"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.toDate"
+            />
+          </div>
         </div>
-      </div> -->
+        
+      </div>
+    </div>
+
+
+    
       <div class="flex items-center justify-between border-b pb-4 mb-4 mt-3">
         <div class="flex space-x-2 my-2 space-y-3">
       <!-- <div class="flex-grow"></div> -->

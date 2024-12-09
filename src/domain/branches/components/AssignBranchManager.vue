@@ -37,7 +37,8 @@ function submit(userId: string) {
     // branchId: form.branchId,
   };
   loading.value = true;
-  store.assignManager(payload); // Simply add the branch
+  // store.assignManager(payload);
+  store.assignManager(userId); 
   notify.success(`Manager ${payload.userId} assigned to branch`);
   emit("managerAssigned");
   loading.value = false;

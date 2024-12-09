@@ -37,7 +37,7 @@ function submit() {
   };
   loading.value = true;
   branchStore.assignManager(payload); // Simply add the branch
-  notify.success("Manager assigned to branch");
+  notify.success(`Manager ${payload.userId.toLowerCase()} assigned to branch`);
   emit("managerAssigned");
   loading.value = false;
 }

@@ -1,5 +1,10 @@
 import { defineStore } from "pinia";
 import { reactive } from "vue";
+// Pinia store
+import { watchEffect } from "vue";
+
+
+
 
 export interface TotalBalance {
   prev: number;
@@ -13,29 +18,37 @@ export const useBalance = defineStore("balance", () => {
     current: 300000000, // Initial current balance
   });
 
-  // Fetch the total balance (simulate an API call or real data fetching)
+  watchEffect(() => {
+    console.log("Total balance changed:", totalBalance);
+  });
+
+  // Simulate fetching the balance from an API
   // async function fetchTotalBalance() {
-  //   // Simulate fetching balance from an API and updating state
+  //   // Simulate fetching data (replace with actual API call)
   //   const fetchedBalance = {
-  //     prev: totalBalance.current, // For now, use current as previous
-  //     current: 300000000, // Replace with actual fetched balance
+  //     prev: totalBalance.current, // Setting previous balance to the current value
+  //     current: 400000000, // Example of updating balance to a new value
   //   };
+    
+  //   // Update totalBalance reactive state
   //   totalBalance.prev = fetchedBalance.prev;
   //   totalBalance.current = fetchedBalance.current;
   // }
 
-    // Simulate fetching the balance from an API
-    async function fetchTotalBalance() {
-      // Simulate fetching data (replace with actual API call)
-      const fetchedBalance = {
-        prev: totalBalance.current, // Setting previous balance to the current value
-        current: 400000000, // Example of updating balance to a new value
-      };
-      
-      // Update totalBalance reactive state
-      totalBalance.prev = fetchedBalance.prev;
-      totalBalance.current = fetchedBalance.current;
-    }
+  // Pinia Store (balance store)
+async function fetchTotalBalance() {
+  console.log("Fetching balance...");
+  const fetchedBalance = {
+    prev: totalBalance.current, // Setting previous balance to the current value
+    current: 400000000, // Example of updating balance to a new value
+  };
+
+  console.log("Fetched balance:", fetchedBalance); // Debugging
+  totalBalance.prev = fetchedBalance.prev;
+  totalBalance.current = fetchedBalance.current;
+  console.log("Updated balance in store:", totalBalance); // Debugging
+}
+
 
   // Increase the total balance and update "prev"
   function increaseTotalBalance(amount: number) {

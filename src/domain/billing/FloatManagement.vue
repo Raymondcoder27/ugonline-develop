@@ -191,7 +191,7 @@ watch(
             <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
             <!-- <td class="text-left text-center">{{ assignment.status }}</td> -->
             <!-- use v-if, v-else-if and v-else to allocate depending on whether it was allocated, pending or failed -->
-            <td class="text-right">
+            <td class="text-center">
               <!-- First Case: float request approved -->
               <div v-if="assignment.status === 'pending'">
                 <!-- <td> -->

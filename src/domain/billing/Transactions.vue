@@ -161,7 +161,7 @@ onMounted(() => {
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button> -->
           <div class="flex space-x-2">
-          <div class="flex">
+          <div class="flex items-center">
             <label for="date-from" class="mr-1 text-sm text-gray-600"
               >From:</label
             >
@@ -172,7 +172,7 @@ onMounted(() => {
               v-model="filter.fromDate"
             />
           </div>
-          <div class="flex">
+          <div class="flex items-center">
             <label for="date-to" class="mr-1 text-sm text-gray-600">To:</label>
             <input
               type="date"

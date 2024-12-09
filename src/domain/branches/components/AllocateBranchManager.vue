@@ -127,8 +127,13 @@ const filteredManagers = computed(() => {
           </tr>
 
           <!-- Managers List -->
-          <tr
+          <!-- <tr
             v-for="manager in filteredManagers"
+            :key="manager.id"
+            class="border-b hover:bg-gray-50"
+          > -->
+          <tr
+            v-for="manager in store.backofficeAccounts"
             :key="manager.id"
             class="border-b hover:bg-gray-50"
           >
@@ -141,7 +146,7 @@ const filteredManagers = computed(() => {
               <button
                 @click="submit(manager.id)"
                 :disabled="loading"
-                class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 disabled:bg-gray-300"
+                class="px-4 py-2 bg-red-700 text-white text-sm rounded hover:bg-red-600 disabled:bg-gray-300"
               >
                 Assign
               </button>

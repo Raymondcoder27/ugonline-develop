@@ -75,10 +75,14 @@ const limit = ref(15);
 //   console.log("Balance after fetching:", balanceStore.totalBalance);
 // });
 
+const forceUpdate = ref(0);
+
 // Call the fetch function on mounted
 onMounted(async () => {
   await balanceStore.fetchTotalBalance();
-  console.log("Balance after fetching:", balanceStore.totalBalance); // Debugging
+  // console.log("Balance after fetching:", balanceStore.totalBalance); // Debugging
+  forceUpdate.value += 1; // Trigger re-render
+  console.log("Balance after fetching:", balanceStore.totalBalance);
 });
 </script>
 

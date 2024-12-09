@@ -35,20 +35,6 @@ export const useBalance = defineStore("balance", () => {
   //   totalBalance.current = fetchedBalance.current;
   // }
 
-  // Pinia Store (balance store)
-async function fetchTotalBalance() {
-  console.log("Fetching balance...");
-  const fetchedBalance = {
-    prev: totalBalance.current, // Setting previous balance to the current value
-    current: 400000000, // Example of updating balance to a new value
-  };
-
-  console.log("Fetched balance:", fetchedBalance); // Debugging
-  totalBalance.prev = fetchedBalance.prev;
-  totalBalance.current = fetchedBalance.current;
-  console.log("Updated balance in store:", totalBalance); // Debugging
-}
-
 
   // Increase the total balance and update "prev"
   function increaseTotalBalance(amount: number) {
@@ -61,6 +47,20 @@ async function fetchTotalBalance() {
     totalBalance.prev = totalBalance.current;
     totalBalance.current -= amount;
   }
+
+    // Pinia Store (balance store)
+async function fetchTotalBalance() {
+  console.log("Fetching balance...");
+  const fetchedBalance = {
+    prev: totalBalance.prev, // Setting previous balance to the current value
+    current: totalBalance.current, // Example of updating balance to a new value
+  };
+
+  console.log("Fetched balance:", fetchedBalance); // Debugging
+  totalBalance.prev = fetchedBalance.prev;
+  totalBalance.current = fetchedBalance.current;
+  console.log("Updated balance in store:", totalBalance); // Debugging
+}
 
   return {
     totalBalance,

@@ -117,8 +117,13 @@ onMounted(() => {
             <option value="BLOCKED">BLOCKED</option>
           </select>
           
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down provider" />
+          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Drop down provider">
+            <option value="" disabled selected>Filter by Status</option>
+            <option value="PENDING">PENDING</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="BLOCKED">BLOCKED</option>
+          </select>
             <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Drop down service" />
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">

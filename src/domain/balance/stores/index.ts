@@ -52,14 +52,23 @@ export const useBalance = defineStore("balance", () => {
   //   };
   // }
 
+  // async function decreaseTotalBalance(amount: number) {
+  //   console.log("Previous:", totalBalance.value.prev, "Current:", totalBalance.value.current);
+  //   totalBalance.value = {
+  //     prev: totalBalance.value.current,
+  //     current: totalBalance.value.current - amount,
+  //   };
+  //   console.log("Updated:", totalBalance.value);
+  // }
   async function decreaseTotalBalance(amount: number) {
-    console.log("Previous:", totalBalance.value.prev, "Current:", totalBalance.value.current);
+    console.log("Decreasing balance by:", amount);
     totalBalance.value = {
       prev: totalBalance.value.current,
       current: totalBalance.value.current - amount,
     };
-    console.log("Updated:", totalBalance.value);
+    console.log("Updated balance:", totalBalance.value);
   }
+  
 
   dummyTotalBalance.current = totalBalance.value.current;
 

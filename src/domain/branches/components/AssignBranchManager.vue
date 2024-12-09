@@ -5,6 +5,7 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { defineEmits } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
+import { useBranchStore } from "@/domain/branches/stores";
 
 const branchStore = useBranchStore();
 const store = useAccounts();
@@ -37,7 +38,7 @@ function submit(userId: string) {
     // branchId: form.branchId,
   };
   loading.value = true;
-  branchStore.assignManager(payload); // Simply add the branch
+  store.assignManager(payload); // Simply add the branch
   notify.success(`Manager ${payload.userId} assigned to branch`);
   emit("managerAssigned");
   loading.value = false;

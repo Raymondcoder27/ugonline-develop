@@ -70,9 +70,15 @@ const limit = ref(15);
 //   }
 // });
 
-onMounted(() => {
-  // fetch();
-  balanceStore.fetchTotalBalance();
+// onMounted(() => {
+//   balanceStore.fetchTotalBalance();
+//   console.log("Balance after fetching:", balanceStore.totalBalance);
+// });
+
+// Call the fetch function on mounted
+onMounted(async () => {
+  await balanceStore.fetchTotalBalance();
+  console.log("Balance after fetching:", balanceStore.totalBalance); // Debugging
 });
 </script>
 

@@ -74,7 +74,9 @@ export const useServicesStore = defineStore("services", () => {
      
     {id: "7d", thumbnail: niraThumbnail, name: "Death Certificate Application", description: "Application for Death Certificate", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "7", providerName: "National Identification & Registration Authority", createdAt: {Time: "2021-09-03", Valid: true}, status: "subscribed", currentVersionId: "7"},
     {id: "6c", thumbnail: niraThumbnail, name: "Birth Certificate Application", description: "Application for Birth Certificate", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "6", providerName: "National Identification & Registration Authority", createdAt: {Time: "2021-09-02", Valid: true}, status: "subscribed", currentVersionId: "6"},
-
+    {id: "4a", thumbnail: niraThumbnail, name: "Driver's Permit Application", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
+    {id: "4a", thumbnail: niraThumbnail, name: "Change of Particulars", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
+    {id: "2y", thumbnail: epostaThumbnail, name: "Renew Postal Address", description: "Application to renew postal address", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "2", providerName: "Posta Uganda", createdAt: {Time: "2021-09-05", Valid: true}, status: "listed", currentVersionId: "2"},
   ];
 
   // const dummySubscribedServices: Ref<Service[]> = ref([]);
@@ -87,9 +89,7 @@ export const useServicesStore = defineStore("services", () => {
     {id: "3z", thumbnail: niraThumbnail, name: "Passport Application", description: "Apply for a Passport", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "3", providerName: "Ministry of Internal Affairs", createdAt: {Time: "2021-09-06", Valid: true}, status: "listed", currentVersionId: "3"},
 
     {id: "6c", thumbnail: naroThumbnail, name: "Agricultural Research", description: "Request for Agricultural Research", accessibilityTier: "Public", featureId: "6", requirements: ["National ID", "Passport"], providerId: "6", providerName: "National Agricultural Research Organization", createdAt: {Time: "2021-09-02", Valid: true}, status: "subscribed", currentVersionId: "6"},
-    {id: "4a", thumbnail: niraThumbnail, name: "Driver's Permit Application", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
-    {id: "4a", thumbnail: niraThumbnail, name: "Change of Particulars", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
-    {id: "2y", thumbnail: epostaThumbnail, name: "Renew Postal Address", description: "Application to renew postal address", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "2", providerName: "Posta Uganda", createdAt: {Time: "2021-09-05", Valid: true}, status: "listed", currentVersionId: "2"},
+
      ];
 
 

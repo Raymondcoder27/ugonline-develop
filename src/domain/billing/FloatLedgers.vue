@@ -212,11 +212,11 @@ watch(
           />
         </div>
       </div> -->
-      <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
-        <div class="flex space-x-2 my-1 pt-1 pb-3">
-      <div class="flex-grow"></div>
+      <div class="flex items-center justify-between border-b pb-4 mb-4 mt-3">
+        <div class="flex space-x-2 my-2 space-y-3">
+      <!-- <div class="flex-grow"></div> -->
       <div class="flex-grow">
-        <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
+        <!-- <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"> -->
           <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Drop down provider">
             <option value="" disabled selected>Filter by Description</option>
@@ -226,7 +226,7 @@ watch(
             <option value="NARO">Posta Uganda</option>
           </select>
 
-        </div>
+        <!-- </div> -->
       </div>
     </div>
 

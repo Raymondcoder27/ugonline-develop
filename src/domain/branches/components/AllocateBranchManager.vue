@@ -132,11 +132,16 @@ const filteredManagers = computed(() => {
             :key="manager.id"
             class="border-b hover:bg-gray-50"
           > -->
-          <tr
+          <!-- <tr
             v-for="manager in store.backofficeAccounts"
             :key="manager.id"
             class="text-xs body-tr border-b"
-          >
+          > -->
+          <tr
+            v-for="manager in store.managerAccounts"
+            :key="manager.id"
+            class="text-xs body-tr border-b"
+          ></tr>
             <td class="px-4 py-2">
               {{ manager.firstName }} {{ manager.lastName }}
             </td>

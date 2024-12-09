@@ -196,7 +196,7 @@ watch(
             <!-- <th class="t-header" width="30%">Names</th> -->
             <th class="t-header">Branch</th>
             <th class="t-header">Amount(UGX)</th>
-            <th class="text-center">Status</th>
+            <th class="text-left">Status</th>
             <th class="text-right">Date of Allocation</th>
             <!-- <th class="t-header">Actions</th> -->
             <th class="t-header"></th>

@@ -72,8 +72,8 @@ export const useBilling = defineStore("billing", () => {
   // dummy float assignment data
   const dummyFloatAllocations: FloatAllocation[] = [
     { id: 1, dateAssigned: "2021-09-01", amount: 20000000, status: "Allocated", branch: "Branch 1" },
-    // { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "Allocated", branch: "Branch 2" },
-    // { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "Allocated", branch: "Branch 3" },
+    { id: 2, dateAssigned: "2021-09-02", amount: 21000000, status: "pending", branch: "Branch 2" },
+    { id: 3, dateAssigned: "2021-09-03", amount: 37000000, status: "failed", branch: "Branch 3" },
   ];
 
 

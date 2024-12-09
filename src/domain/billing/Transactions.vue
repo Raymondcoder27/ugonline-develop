@@ -72,8 +72,7 @@ const close = () => {
 
 const transactionDetailsModalOpen: Ref<boolean> = ref(false);
 
-
-  function transactionDetails(id: string) {
+function transactionDetails(id: string) {
   // Logic to open the modal or start the process
   // console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
@@ -96,7 +95,7 @@ onMounted(() => {
   fetch();
   billingStore.fetchFloatAllocations(); // Fetch transactions when the component mounts
   // billingStore.fetchFloatLedgers(); // Fetch float ledgers
-  billingStore.fetchTransactions
+  billingStore.fetchTransactions;
 });
 </script>
 
@@ -133,6 +132,7 @@ onMounted(() => {
             <option value="companyNameSearch">Company Name Search</option>
             <option value="companyNameChange">Company Name Change</option>
           </select>
+        </div>
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button>

@@ -190,6 +190,43 @@ watch(
             <td class="text-left">{{ assignment.branch }}</td>
             <td class="text-left">{{ assignment.amount.toLocaleString() }}</td>
             <td class="text-left text-center">{{ assignment.status }}</td>
+            <!-- use v-if, v-else-if and v-else to allocate depending on whether it was allocated, pending or failed -->
+            <td class="text-right">
+              <!-- First Case: float request approved -->
+              <div v-if="assignment.status === 'pending'">
+                <!-- <td> -->
+                <!-- <label> -->
+                <span
+                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-100 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
+                  @click="open(assignment)"
+                  >Pending</span
+                >
+                <!-- </label> -->
+                <!-- </td> -->
+              </div>
+
+              <!-- Second Case: Manager directly assigned to branch -->
+              <div v-else-if="assignment.status === 'failed'">
+                <!-- <td> -->
+                <label>
+                  <span
+                    class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
+                    @click="open(assignment)"
+                    >Failed</span
+                  >
+                </label>
+                <!-- </td> -->
+              </div>
+
+              <!-- Third Case: Fallback, no manager assigned -->
+              <div v-else>
+                <!-- <td> -->
+                <span
+                  class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
+                  >Allocated</span
+                >
+              </div>
+            </td>
             <td class="text-right">
               {{ convertDateTime(assignment.createdAt) }}
             </td>

@@ -461,6 +461,7 @@ function unsubscribeFromService(serviceId: string) {
                 class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
                 @click="subscribe(service.id)"
               >
+              <i class="fa fa-check-square"></i>
                 Subscribe
               </p>
             </div>

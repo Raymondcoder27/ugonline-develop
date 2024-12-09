@@ -223,7 +223,7 @@ watch(
                 <!-- <td> -->
                 <!-- <label> -->
                 <span
-                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-100 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
+                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
                   @click="open(assignment)"
                   >Pending</span
                 >

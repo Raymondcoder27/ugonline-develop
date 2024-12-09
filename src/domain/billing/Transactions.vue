@@ -8,7 +8,7 @@ import type { IGoFilter } from "@/types";
 import TransactionDetails from "@/domain/billing/components/TransactionDetails.vue";
 import { useNotificationsStore } from "@/stores/notifications";
 
-const notify = useNotificationsStore()
+const notify = useNotificationsStore();
 
 const billingStore = useBilling();
 
@@ -130,29 +130,57 @@ onMounted(() => {
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow"></div>
       <div class="flex-grow">
-        <div class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
-          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Filter by Status">
+        <div
+          class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+        >
+          <input
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[0].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Tracking Number"
+          />
+          <select
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[1].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Filter by Status"
+          >
             <option value="" disabled selected>Filter by Status</option>
             <option value="PENDING">PENDING</option>
             <option value="COMPLETED">COMPLETED</option>
             <option value="BLOCKED">BLOCKED</option>
           </select>
-          
-          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down provider">
+
+          <select
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[2].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Drop down provider"
+          >
             <option value="" disabled selected>Filter by Provider</option>
             <option value="NIRA">NIRA</option>
             <option value="URSB">URSB</option>
             <!-- <option value="UMEME">UMEME</option> -->
             <option value="NARO">Posta Uganda</option>
           </select>
-            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Service">
+          <select
+            v-if="filter.filter !== undefined"
+            input-type="text"
+            v-model="filter.filter[2].operand"
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Service"
+          >
             <option value="" disabled selected>Filter by Service</option>
-            <option value="companyNameReservation">Company Name Reservation</option>
+            <option value="companyNameReservation">
+              Company Name Reservation
+            </option>
             <option value="companyRegistration">Company Registration</option>
             <option value="companyNameSearch">Company Name Search</option>
             <option value="companyNameChange">Company Name Change</option>
@@ -161,32 +189,32 @@ onMounted(() => {
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button> -->
           <div class="flex space-x-2">
-          <div class="flex items-center">
-            <label for="date-from" class="mr-1 text-sm text-gray-600"
-              >From:</label
-            >
-            <input
-              type="date"
-              id="date-from"
-              class="border rounded-md py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              v-model="filter.fromDate"
-            />
+            <div class="flex items-center">
+              <label for="date-from" class="mr-1 text-sm text-gray-600"
+                >From:</label
+              >
+              <input
+                type="date"
+                id="date-from"
+                class="border rounded-md py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                v-model="filter.fromDate"
+              />
+            </div>
+            <div class="flex items-center">
+              <label for="date-to" class="mr-1 text-sm text-gray-600"
+                >To:</label
+              >
+              <input
+                type="date"
+                id="date-to"
+                class="border rounded-md py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                v-model="filter.toDate"
+              />
+            </div>
           </div>
-          <div class="flex items-center">
-            <label for="date-to" class="mr-1 text-sm text-gray-600">To:</label>
-            <input
-              type="date"
-              id="date-to"
-              class="border rounded-md py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              v-model="filter.toDate"
-            />
-          </div>
-        </div>
         </div>
       </div>
     </div>
-
-
 
     <div class="flex my-1">
       <table class="table tr">
@@ -211,24 +239,35 @@ onMounted(() => {
             :key="idx"
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >
-          <td class="text-left">
-                <label class="cursor-pointer hover:text-primary-700 mx-2">
-                  <span class="hover:underline">{{
-                    transaction.id
-                  }}</span>
-                </label>
-              </td>
+            <td class="text-left">
+              <label class="cursor-pointer hover:text-primary-700 mx-2">
+                <span class="hover:underline">{{ transaction.id }}</span>
+              </label>
+            </td>
             <!-- <td>{{ idx + 1 }}</td> -->
             <td class="rounded-md font-semibold text-red-700">
-              <span class="hover:underline" @click="transactionDetails(transaction.id)">{{ transaction.trackingNumber }}</span>
-              <i @click="copyToClipboard(transaction.trackingNumber)" class="fa-regular ml-4 fa-copy mx-1 hover:text-gray-800"></i>
+              <span
+                class="hover:underline"
+                @click="transactionDetails(transaction.id)"
+                >{{ transaction.trackingNumber }}</span
+              >
+              <i
+                @click="copyToClipboard(transaction.trackingNumber)"
+                class="fa-regular ml-4 fa-copy mx-1 hover:text-gray-800"
+              ></i>
             </td>
             <td>{{ transaction.service }}</td>
             <td class="text-left">{{ transaction.provider }}</td>
             <td>{{ transaction.till }}</td>
             <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
             <td class="text-left">{{ transaction.fee.toLocaleString() }}</td>
-            <td class="text-left">{{ transaction.status }}</td>
+            <td class="text-left">
+              <span
+                class="bg-green-100 text-green-600 border-green-200 rounded-md"
+              >
+                {{ transaction.status }}
+              </span>
+            </td>
             <td class="text-left">{{ convertDateTime(transaction.date) }}</td>
             <!-- <td class="text-left"> -->
             <!-- <button @click="openTransaction(transaction)">Edit</button> -->
@@ -268,7 +307,7 @@ onMounted(() => {
   </AppModal>
   <!-- /Modal -->
 
-   <!-- Tracking Number Modal to show transaction details -->
+  <!-- Tracking Number Modal to show transaction details -->
   <AppModal v-model="transactionDetailsModalOpen" xl2>
     <TransactionDetails @transactionViewed="close" @cancel="close" />
   </AppModal>

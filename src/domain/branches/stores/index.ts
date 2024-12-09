@@ -2,7 +2,7 @@ import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 import api from "@/config/api";
 import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
-import type { AllocateManager } from "@/types";
+import type { AssignManager } from "@/types";
 
 export const useBranchStore = defineStore("useBranch", () => {
 
@@ -36,7 +36,7 @@ export const useBranchStore = defineStore("useBranch", () => {
   const branches: Ref<Branch[] | undefined> = ref(dummyBranches);
   const branch: Ref<Branch | undefined> = ref();
   const isLoading: Ref<boolean> = ref(false);
-  const managerAllocations: Ref<AllocateManager[]> = ref([]);
+  const managerAssignments: Ref<AssignManager[]> = ref([]);
 
   const addBranch = (newBranch: Branch) => {
     branches.value?.push({
@@ -62,7 +62,7 @@ export const useBranchStore = defineStore("useBranch", () => {
   //   }
   // };
 
-  const allocateManager = (payload: AllocateManager) => {
+  const assignManager = (payload: AssignManager) => {
     const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
     if (branchToUpdate) {
       branchToUpdate.manager = payload.managerId;
@@ -117,9 +117,9 @@ export const useBranchStore = defineStore("useBranch", () => {
   return {
     branches,
     branch,
-    managerAllocations,
+    managerAssignments,
     fetchBranches,
-    allocateManager,
+    assignManager,
     addBranch,
     deleteBranch,
   };

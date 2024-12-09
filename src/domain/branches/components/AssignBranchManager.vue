@@ -21,7 +21,7 @@ const form = reactive({
   branchId: "",
 });
 
-const emit = defineEmits(["cancel", "managerAllocated"]);
+const emit = defineEmits(["cancel", "managerAssigned"]);
 
 onMounted(() => {
   loading.value = true;
@@ -36,8 +36,8 @@ function submit() {
     branchId: form.branchId,
   };
   loading.value = true;
-  branchStore.allocateManager(payload); // Simply add the branch
-  notify.success("Manager allocated to branch");
+  branchStore.assignManager(payload); // Simply add the branch
+  notify.success("Manager assigned to branch");
   emit("managerAllocated");
   loading.value = false;
 }

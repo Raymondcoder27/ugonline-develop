@@ -238,6 +238,28 @@ export const useAccounts = defineStore("user-management", () => {
 
   //use the manager id to assign a manager to a branch
   // const assignManager = (payload: AssignManager) => {
+  // const assignManager = (userId: string) => {
+  //   const user = userAccounts.value?.find(userId => user.id === userId.userId);
+  //   if (user) {
+  //     managerAccounts.value.push({
+  //       firstName: user.firstName,
+  //       lastName: user.lastName,
+  //       email: user.email,
+  //       phone: user.phone,
+  //       role: user.role,
+  //       status: user.status,
+  //       createdAt: new Date().toISOString(),
+  //       emailVerified: true,
+  //       phoneVerified: true,
+  //       activatedAt: new Date().toISOString(),
+  //     });
+  //   } else {
+  //     console.warn(`Manager with ID ${payload.userId} not found.`);
+  //     alert(`Manager with ID ${payload.userId} not found.`);
+  //   }
+  // };
+
+  // assign manager to a branch
   const assignManager = (userId: string) => {
     const user = userAccounts.value?.find(userId => user.id === userId.userId);
     if (user) {
@@ -254,10 +276,10 @@ export const useAccounts = defineStore("user-management", () => {
         activatedAt: new Date().toISOString(),
       });
     } else {
-      console.warn(`Manager with ID ${payload.userId} not found.`);
-      alert(`Manager with ID ${payload.userId} not found.`);
+      console.warn(`Manager with ID ${userId} not found.`);
+      alert(`Manager with ID ${userId} not found.`);
     }
-  };
+  }
 
 
 

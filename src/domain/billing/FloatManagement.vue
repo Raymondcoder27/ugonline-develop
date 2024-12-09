@@ -134,7 +134,7 @@ watch(
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow">
         <div
-          class="flex justify-between gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+          class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
         >
           <div class="flex">
             <select
@@ -151,7 +151,7 @@ watch(
               <!-- <option value="UMEME">UMEME</option> -->
             </select>
             <div class="flex">
-              <div class="flex">
+              <div class="flex align-center">
                 <label for="date-from" class="mr-2 text-sm text-gray-600"
                   >From:</label
                 >
@@ -162,7 +162,7 @@ watch(
                   v-model="filter.fromDate"
                 />
               </div>
-              <div class="flex">
+              <div class="flex align-center">
                 <label for="date-to" class="mr-2 text-sm text-gray-600"
                   >To:</label
                 >
@@ -175,13 +175,15 @@ watch(
               </div>
             </div>
           </div>
+         <div class="">
           <button
             @click="modalOpen = true"
-            class="button btn-sm my-auto"
+            class="button btn-sm"
             type="button"
           >
             <i class="px-1 fa-solid fa-plus"></i> Allocate Float
           </button>
+         </div>
         </div>
       </div>
     </div>

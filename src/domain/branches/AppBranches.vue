@@ -182,14 +182,14 @@ onMounted(() => {
           </select> -->
         <!-- </div> -->
         <div
-          class="w-[50vw] bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+          class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-100 px-4 focus:ring-2 focus:ring-red-500"
         >
           <input
             type="text"
             placeholder="Search Managers"
             class="w-full text-sm border-none outline-none bg-white"
           />
-          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+          <i class="fas fa-search p-2 cursor-pointer text-gray-300 text-lg"></i>
 
           <!-- <button
       class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"

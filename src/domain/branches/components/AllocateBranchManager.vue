@@ -112,10 +112,10 @@ const filteredManagers = computed(() => {
       <table class="min-w-full bg-white border border-gray-200 rounded-lg">
         <thead>
           <tr class="bg-gray-100 border-b">
-            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Name</th>
-            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Email</th>
-            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Phone</th>
-            <th class="px-4 py-2 text-center text-sm font-medium text-gray-600"></th>
+            <th class="px-4 py-2 text-left text-sm font-medium">Name</th>
+            <th class="px-4 py-2 text-left text-sm font-medium">Email</th>
+            <th class="px-4 py-2 text-left text-sm font-medium">Phone</th>
+            <th class="px-4 py-2 text-center text-sm font-medium"></th>
           </tr>
         </thead>
         <tbody>

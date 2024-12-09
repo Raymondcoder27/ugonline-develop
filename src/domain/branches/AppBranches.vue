@@ -1,139 +1,392 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, computed, type Ref } from "vue";
-import { useBranchStore } from "@/domain/branches/stores";
+import AppModal from "@/components/AppModal.vue";
+import { onMounted, ref, type Ref, watch } from "vue";
+import CreateBranch from "@/domain/branches/components/CreateBranch.vue";
+import { useBranchStore } from "@/domain/branches/stores"; // Updated import
+import type { Branch } from "@/domain/branches/types"; // Assuming you have a Branch type
+import moment from "moment/moment";
+import router from "@/router";
+import { useProviderStore } from "@/domain/entities/stores";
+import AllocateBranchManager from "@/domain/branches/components/AllocateBranchManager.vue";
+// import CategorySelector from "@/domain/settings/components/CategorySelector.vue";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useAccounts } from "@/domain/accounts/stores";
+import type { ApiError } from "@/types";
+import { useAccountStore } from "../auth/stores";
+// import TableLoader from "@/components/TableLoader.vue";
 
-const branchStore = useBranchStore();
-const store = useAccounts();
+import { useAccounts } from "@/domain/accounts/stores";
+const accountStore = useAccounts();
+const branchStore = useBranchStore(); // Updated store
+const modalOpen: Ref<boolean> = ref(false);
+const categoryModalOpen: Ref<boolean> = ref(false);
+const editModalOpen: Ref<boolean> = ref(false);
+const allocateManagerModalOpen: Ref<boolean> = ref(false);
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(16);
 const loading: Ref<boolean> = ref(false);
+const selectedBranch: Ref<string> = ref("");
+// let providerId = ref("");
+let status = ref("");
 const notify = useNotificationsStore();
 
-const form = reactive({
-  managerId: "",
-  branchId: "",
-});
+// Helper function to get manager by branch
+const getManagerByBranch = (branchName) => {
+  return accountStore.managerAccounts.find(
+    (manager) => manager.branch === branchName
+  );
+};
 
-const emit = defineEmits(["cancel", "managerAllocated"]);
+//Helper function to get manager by backoffice account
+// const getBackOfficeAccount = (branchName) => {
+//   return accountStore.backofficeAccounts.find(
+//     (backofficeAccount) => backofficeAccount.branch = branchName
+//   );
+// };
 
 onMounted(() => {
   loading.value = true;
-  Promise.all([
-    branchStore.fetchBranches(),
-    branchStore.fetchManagers(), // Fetch branch managers
-    store.fetchBackofficeAccounts(), // Fetch back office accounts
-  ]).finally(() => {
-    loading.value = false;
-  });
+  fetchBranches();
 });
 
-// Merge branch managers and back office accounts into a single dataset
-const allManagers = computed(() => {
-  const managersFromBranchStore = branchStore.managers || [];
-  const backofficeAccounts = store.backofficeAccounts || [];
-  return [...managersFromBranchStore, ...backofficeAccounts];
-});
-
-// Search and filter functionality
-const searchQuery = ref("");
-const filteredManagers = computed(() => {
-  if (!searchQuery.value.trim()) {
-    return allManagers.value;
-  }
-  return allManagers.value.filter((manager) =>
-    `${manager.firstName} ${manager.lastName}`
-      .toLowerCase()
-      .includes(searchQuery.value.trim().toLowerCase())
-  );
-});
-
-function submit(managerId: string) {
-  const payload = {
-    managerId,
-    branchId: form.branchId,
-  };
-  loading.value = true;
+function fetchBranches() {
   branchStore
-    .allocateManager(payload)
-    .then(() => {
-      notify.success("Manager allocated to branch successfully.");
-      form.managerId = "";
-      form.branchId = "";
-    })
-    .finally(() => {
+    .fetchBranches(page.value, limit.value)
+    .then(() => (loading.value = false))
+    .catch((error: ApiError) => {
       loading.value = false;
+      notify.error(error.response.data.message);
     });
 }
+
+function open(branch: Branch) {
+  router.push({ name: "branch-details", params: { id: branch.id } });
+}
+
+// edit branch
+function edit(branch: Branch) {
+  localStorage.setItem("branch", JSON.stringify(branch));
+  editModalOpen.value = true;
+}
+
+//configure branch
+function configure(branch: Branch) {
+  localStorage.setItem("branch", JSON.stringify(branch));
+  router.push({ name: "branch-configuration", params: { id: branch.id } });
+}
+
+function convertDateTime(date: string) {
+  return moment(date).format("DD-MM-YYYY HH:mm:ss");
+}
+
+// function deleteBranch(branch: Branch) {
+//   branchStore.deleteBranch(branch.id);
+//   notify.success("Branch Deleted");
+//   fetchBranches();
+// }
+
+// function deleteBranch(branch: Branch) {
+//     branchStore.deleteBranch(branch.id);
+//     fetchBranches();  // Refetch the branches after deleting
+//     notify.success("Branch Deleted");
+//   }
+
+function allocateManager(branch: Branch) {
+  // Logic to open the modal or start the process
+  console.log(`Assigning manager for branch: ${branch.name}`);
+  // Example: modalOpen.value = true;
+  allocateManagerModalOpen.value = true;
+}
+
+function deleteBranch(branchId: string) {
+  branchStore.deleteBranch(branchId); // Assuming this is a mutation to remove the branch
+  // branchStore.branches = branchStore.branches.filter((b) => b.id !== branchId); // Manually update the store
+  // fetchBranches(); // Refetch the branches after deleting, if needed
+  notify.success("Branch Deleted");
+}
+
+function close() {
+  modalOpen.value = false;
+  editModalOpen.value = false;
+  allocateManagerModalOpen.value = false;
+}
+
+function next() {
+  page.value += 1;
+  fetchBranches();
+}
+
+function previous() {
+  page.value -= 1;
+  fetchBranches();
+}
+
+watch(
+  () => modalOpen.value,
+  (isOpen: boolean) => {
+    if (!isOpen) {
+    }
+  }
+);
+
+// Helper function to assign managers to branches
+const assignManagersToBranches = () => {
+  branchStore.branches.forEach((branch) => {
+    const manager = getManagerByBranch(branch.name);
+    if (manager) {
+      branch.manager = manager;
+    }
+  });
+};
+
+onMounted(() => {
+  accountStore.fetchManagerAccounts();
+  branchStore.fetchBranches();
+  accountStore.fetchManagerAccounts();
+  // allocateManager();
+  assignManagersToBranches();
+});
 </script>
 
 <template>
-  <div class="bg-white p-6 shadow-md rounded-lg">
-    <p class="text-xl font-bold mb-2">Assign Manager</p>
-    <p class="text-sm text-gray-500 mb-4">
-      Select a manager from the table to assign them to a branch.
-    </p>
-
-    <!-- Search Box -->
-    <div class="mb-4">
-      <input
-        type="text"
-        v-model="searchQuery"
-        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
-        placeholder="Search managers by name..."
-      />
+  <div class="w-full shadow-lg bg-white rounded p-2">
+    <div class="flex">
+      <div class="w-full py-1 text-primary-700">
+        <i
+          class="bg-primary-100 border border-primary-200 p-2 rounded-full fa-solid fa-code-branch"
+        ></i>
+        <label class="text-lg mx-1">Branches</label>
+      </div>
     </div>
+    <div class="flex justify-between my-1">
+      <div class="flex flex-col">
+        <!-- <div class="grid grid-cols-5"> -->
+          <!-- <input
+            class="filter-element e-input"
+            type="text"
+            placeholder="Search by Name"
+          /> -->
+          <!-- <select class="filter-element e-select" v-model="providerId">
+            <option :value="null">- Select Provider -</option>
+            <option
+              v-for="(provider, idx) in providerStore.providers"
+              :key="idx"
+              :value="provider.id"
+            >
+              {{ provider.name }}
+            </option>
+          </select> -->
+          <!-- <select class="filter-element e-select" v-model="status">
+            <option :value="null">- Select Status -</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+          </select> -->
+        <!-- </div> -->
+        <div
+          class="w-[50vw] bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+        >
+          <input
+            type="text"
+            placeholder="Search Managers"
+            class="w-full text-sm border-none outline-none bg-white"
+          />
+          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
 
-    <!-- Manager Table -->
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+          <!-- <button
+      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button> -->
+        </div>
+      </div>
+      <div class="flex">
+        <button
+          @click="modalOpen = true"
+          class="button btn-sm my-auto"
+          type="button"
+        >
+          <i class="px-1 fa-solid fa-plus"></i> Add Branch
+        </button>
+      </div>
+    </div>
+    <div class="flex my-1">
+      <table class="table">
         <thead>
-          <tr class="bg-gray-100 border-b">
-            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Name</th>
-            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Email</th>
-            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Phone</th>
-            <th class="px-4 py-2 text-center text-sm font-medium text-gray-600"></th>
+          <tr class="header-tr">
+            <!-- <th class="t-header">#</th> -->
+            <th class="t-header">Name</th>
+            <th class="text-center">Manager</th>
+            <th class="text-header">Date</th>
+            <!-- <th class="text-center">Actions</th> -->
+            <th class="t-header"></th>
+          </tr>
+        </thead>
+        <thead v-if="loading">
+          <tr>
+            <th colspan="12" style="padding: 0">
+              <div
+                class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"
+              ></div>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <!-- Loading Indicator -->
-          <tr v-if="loading">
-            <td colspan="4" class="px-4 py-4 text-center">
-              <div class="animate-pulse bg-blue-300 h-4 w-full rounded"></div>
-            </td>
-          </tr>
-
-          <!-- Managers List -->
           <tr
-            v-for="manager in filteredManagers"
-            :key="manager.id"
-            class="border-b hover:bg-gray-50"
+            class="body-tr"
+            v-for="(branch, idx) in branchStore.branches"
+            :key="idx"
           >
-            <td class="px-4 py-2">
-              {{ manager.firstName }} {{ manager.lastName }}
-            </td>
-            <td class="px-4 py-2">{{ manager.email }}</td>
-            <td class="px-4 py-2">{{ manager.phone }}</td>
-            <td class="px-4 py-2 text-center">
-              <button
-                @click="submit(manager.id)"
-                :disabled="loading"
-                class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 disabled:bg-gray-300"
+            <!-- <td width="10px">{{ idx + 1 }}.</td> -->
+            <td>
+              <label
+                class="cursor-pointer font-bold hover:text-primary-700 mx-2"
               >
-                Assign
-              </button>
+                <span class="hover:underline" @click="open(branch)">
+                  {{ branch.name }}
+                </span>
+                <!-- <i
+                  class="fa-solid fa-link p-1 mx-1 text-gray-600 bg-gray-50 hover:text-primary-700"
+                  @click="tag(branch)"
+                ></i> -->
+              </label>
             </td>
-          </tr>
 
-          <!-- No Results Found -->
-          <tr v-if="!filteredManagers.length && !loading">
-            <td colspan="4" class="px-4 py-4 text-center text-gray-500">
-              No managers found
+            <!-- <td class="text-black-700">
+              <div v-if="getManagerByBranch(branch.name)">
+                <label
+                  >{{ getManagerByBranch(branch.name).firstName }}
+                  {{ getManagerByBranch(branch.name).lastName }}</label
+                >
+              </div>
+              <div v-else>
+                <button
+                  class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                  @click="allocateManager(branch)"
+                >
+                  Allocate Manager
+                </button>
+              </div>
+            </td> -->
+
+            <td class="text-black-700 text-center">
+              <!-- First Case: Manager linked via `getManagerByBranch()` -->
+              <div v-if="getManagerByBranch(branch.name)">
+                <label>
+                  {{ getManagerByBranch(branch.name).firstName }}
+                  {{ getManagerByBranch(branch.name).lastName }}
+                </label>
+              </div>
+
+              <!-- Second Case: Manager directly assigned to branch -->
+              <div v-else-if="branch.manager">
+                <label>
+                  {{ branch.manager.firstName }} {{ branch.manager.lastName }}
+                </label>
+              </div>
+
+              <!-- Third Case: Fallback, no manager assigned -->
+              <div v-else>
+                <button
+                  class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                  @click="allocateManager(branch)"
+                >
+                  Assign Manager
+                </button>
+              </div>
             </td>
+
+            <!-- <td class="text-center">
+              <i
+                :class="
+                  branch.isActive
+                    ? 'text-green-600 fa-solid fa-check'
+                    : 'text-red-600 fa-solid fa-times'
+                "
+              ></i>
+            </td> -->
+
+            <!-- 
+            <td class="text-center">
+  <span>{{ branch.status }}</span>
+</td> -->
+            <td class="text-center">
+              <span class="text-xs">{{
+                convertDateTime(branch.createdAt)
+              }}</span>
+            </td>
+            <!-- <td class="text-center">
+              <i
+                class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+                @click="open(branch)"
+              ></i>
+              <i
+                class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
+                @click="edit(branch)"
+              ></i>
+              <i
+                class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
+                @click="deleteBranch(branch.id)"
+              ></i>
+            </td> -->
           </tr>
         </tbody>
       </table>
     </div>
+    <div class="flex">
+      <div class="w-full">
+        <!-- <div class="flex" v-if="limit == branchStore.branches.length || page > 1"> -->
+        <div
+          class="flex"
+          v-if="limit == (branchStore.branches?.length || 0) || page > 1"
+        >
+          <button v-if="page > 1" class="pagination-button" @click="previous">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button v-else class="pagination-button-inert">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <div class="w-1/12 text-center my-auto">
+            <label class="rounded text-white bg-primary-700 px-3 py-1">{{
+              page
+            }}</label>
+          </div>
+          <button
+            v-if="limit == branchStore.branches.length ?? 1 - 1"
+            class="pagination-button"
+            @click="next"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button v-else class="pagination-button-inert">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Modal -->
+  <AppModal v-model="modalOpen" xl2>
+    <!-- Put here whatever makes you smile -->
+    <!-- Chances are high that you're starting with a form -->
+    <CreateBranch @branchCreated="close" @cancel="close" />
+    <!-- That's also okay -->
+  </AppModal>
+
+  <AppModal v-model="editModalOpen" xl2>
+    <!-- Put here whatever makes you smile -->
+    <EditService @cancel="close" />
+    <!-- That's also okay -->
+  </AppModal>
+  <!-- /Modal -->
+
+  <!-- Assign Manager Modal -->
+  <AppModal v-model="allocateManagerModalOpen" xl2>
+    <!-- Put here whatever makes you smile -->
+    <!-- Chances are high that you're starting with a form -->
+    <AllocateBranchManager @managerAllocated="close" @cancel="close" />
+    <!-- That's also okay -->
+  </AppModal>
 </template>
 
 <style scoped>

@@ -91,7 +91,7 @@ const filteredManagers = computed(() => {
   </div> -->
 
 
-  <div class="bg-white p-6 shadow-md rounded-lg">
+  <div class="bg-white p-6 rounded-lg">
     <p class="text-xl font-bold mb-2">Assign Manager</p>
     <p class="text-sm text-gray-500 mb-4">
       Select a manager from the table to assign them to a branch.
@@ -135,7 +135,7 @@ const filteredManagers = computed(() => {
           <tr
             v-for="manager in store.backofficeAccounts"
             :key="manager.id"
-            class="border-b hover:bg-gray-50"
+            class="border-b hover:bg-gray-50 text-xs"
           >
             <td class="px-4 py-2">
               {{ manager.firstName }} {{ manager.lastName }}

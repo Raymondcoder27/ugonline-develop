@@ -125,8 +125,14 @@ onMounted(() => {
             <!-- <option value="UMEME">UMEME</option> -->
             <option value="NARO">Posta Uganda</option>
           </select>
-            <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down service" />
+            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Search by Service">
+            <option value="" disabled selected>Filter by Service</option>
+            <option value="companyNameReservation">Company Name Reservation</option>
+            <option value="companyRegistration">Company Registration</option>
+            <option value="companyNameSearch">Company Name Search</option>
+            <option value="companyNameChange">Company Name Change</option>
+          </select>
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button>

@@ -110,7 +110,7 @@ onMounted(() => {
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
             class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
           <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down status">
+            class="filter-element e-input" type="text" placeholder="Filter by Status">
             <option value="PENDING">PENDING</option>
             <option value="COMPLETED">COMPLETED</option>
             <option value="BLOCKED">BLOCKED</option>

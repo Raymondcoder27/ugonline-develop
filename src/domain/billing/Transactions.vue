@@ -130,7 +130,7 @@ onMounted(() => {
     <div class="flex space-x-2 my-1 pt-1 pb-3">
       <div class="flex-grow"></div>
       <div class="flex-grow">
-        <div class="grid grid-cols-4 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
+        <div class="grid grid-cols-6 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
             class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
           <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
@@ -160,6 +160,28 @@ onMounted(() => {
           <!-- <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button> -->
+          <div class="block space-x-2">
+          <div>
+            <label for="date-from" class="mr-2 text-sm text-gray-600"
+              >From:</label
+            >
+            <input
+              type="date"
+              id="date-from"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.fromDate"
+            />
+          </div>
+          <div>
+            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
+            <input
+              type="date"
+              id="date-to"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.toDate"
+            />
+          </div>
+        </div>
         </div>
       </div>
     </div>

@@ -277,8 +277,8 @@ export const useAccounts = defineStore("user-management", () => {
         activatedAt: new Date().toISOString(),
       });
     } else {
-      console.warn(`Manager with ID ${userId} not found.`);
-      alert(`Manager with ID ${userId} not found.`);
+      console.warn(`User with ID ${userId} not found.`);
+      alert(`User with ID ${userId} not found.`);
     }
   };
   

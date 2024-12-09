@@ -66,38 +66,59 @@ onMounted(() => {
 // }
 
 // Dynamically compute the balances for each transaction
+// const computedTransactions = computed(() => {
+//   // Ensure there is a valid starting balance and transactions
+//   if (store.floatLedgers.length === 0) {
+//     return [];
+//   }
+
+//   // Start with the balance before any transactions
+//   let runningBalance = balanceStore.totalBalance.current;
+
+//   // Reverse the transactions to process them chronologically
+//   const transactionsWithBalances = store.floatLedgers
+//   .slice()
+//   .reverse()
+//   .map((transaction) => {
+//     if (transaction.description === "Recharge") {
+//       // Set balance directly for recharge transactions
+//       runningBalance = transaction.amount;
+//     } else {
+//       // Adjust balance correctly for other transactions
+//       runningBalance += transaction.amount;
+//     }
+
+//     return {
+//       ...transaction,
+//       balance: runningBalance,
+//     };
+//   })
+//   .reverse(); // Reverse back to display in the original order
+//  // Reverse back to display in the original order
+
+//   return transactionsWithBalances;
+// });
+
 const computedTransactions = computed(() => {
-  // Ensure there is a valid starting balance and transactions
   if (store.floatLedgers.length === 0) {
     return [];
   }
 
-  // Start with the balance before any transactions
+  // Start with the balance from the store
   let runningBalance = balanceStore.totalBalance.current;
 
-  // Reverse the transactions to process them chronologically
-  const transactionsWithBalances = store.floatLedgers
-  .slice()
-  .reverse()
-  .map((transaction) => {
-    if (transaction.description === "Recharge") {
-      // Set balance directly for recharge transactions
-      runningBalance = transaction.amount;
-    } else {
-      // Adjust balance correctly for other transactions
-      runningBalance += transaction.amount;
-    }
+  // Process transactions chronologically
+  return store.floatLedgers.map((transaction) => {
+    // Adjust the running balance based on transaction amount
+    runningBalance += transaction.amount;
 
     return {
       ...transaction,
-      balance: runningBalance,
+      balance: runningBalance, // Attach the calculated balance
     };
-  })
-  .reverse(); // Reverse back to display in the original order
- // Reverse back to display in the original order
-
-  return transactionsWithBalances;
+  });
 });
+
 
 function fetchTransactions() {
   filter.limit = limit.value;

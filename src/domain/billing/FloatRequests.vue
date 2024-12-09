@@ -119,7 +119,7 @@ onMounted(() => {
             <option value="COMPLETED">APPROVED</option>
             <option value="BLOCKED">REJECTED</option>
           </select>
-          <div class="flex">
+          <div class="flex items-center">
             <label for="date-from" class="mr-2 text-sm text-gray-600"
               >From:</label
             >
@@ -130,7 +130,7 @@ onMounted(() => {
               v-model="filter.fromDate"
             />
           </div>
-          <div class="flex">
+          <div class="flex items-center">
             <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
             <input
               type="date"

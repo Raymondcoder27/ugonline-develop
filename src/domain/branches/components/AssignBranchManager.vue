@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, computed, type Ref } from "vue";
+import { onMounted, reactive, ref, computed, defineProps, type Ref } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
@@ -16,10 +16,14 @@ const notify = useNotificationsStore();
 //   name: string;
 // };
 
-const form = reactive({
-  userId: "",
-  branchId: "",
+// Define props
+const { branchId } = defineProps({
+  branchId: {
+    type: String,
+    required: true,
+  },
 });
+
 
 const emit = defineEmits(["cancel", "managerAssigned"]);
 
@@ -34,7 +38,7 @@ function submit(userId: string) {
   let payload = {
     // userId: form.userId,
     userId: userId,
-    branchId: form.branchId,
+    branchId: branchId,
   };
   loading.value = true;
   store.assignManager(payload.userId, payload.branchId);
@@ -44,6 +48,7 @@ function submit(userId: string) {
   emit("managerAssigned");
   loading.value = false;
 }
+
 
 // Search and filter functionality
 const searchQuery = ref("");

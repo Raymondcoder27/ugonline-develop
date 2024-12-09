@@ -93,6 +93,7 @@ function convertDateTime(date: string) {
 function assignManager(branch: Branch) {
   // Logic to open the modal or start the process
   console.log(`Assigning manager for branch: ${branch.name}`);
+  selectedBranch.value = branch.id;
   // Example: modalOpen.value = true;
   assignManagerModalOpen.value = true;
 }
@@ -384,7 +385,7 @@ onMounted(() => {
   <AppModal v-model="assignManagerModalOpen" xl2>
     <!-- Put here whatever makes you smile -->
     <!-- Chances are high that you're starting with a form -->
-    <AssignBranchManager @managerAssigned="close" @cancel="close" />
+    <AssignBranchManager :branchId="selectedBranch" @managerAssigned="close" @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
 </template>

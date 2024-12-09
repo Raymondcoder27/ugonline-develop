@@ -122,8 +122,8 @@ onMounted(() => {
             <option value="" disabled selected>Filter by Provider</option>
             <option value="NIRA">NIRA</option>
             <option value="URSB">URSB</option>
-            <option value="UMEME">UMEME</option>
-            <option value="NARO">NARO</option>
+            <!-- <option value="UMEME">UMEME</option> -->
+            <option value="NARO">Posta Uganda</option>
           </select>
             <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Drop down service" />

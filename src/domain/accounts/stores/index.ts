@@ -257,6 +257,7 @@ export const useAccounts = defineStore("user-management", () => {
      });
    } else {  
      console.warn(`Manager with ID ${payload.userId} not found.`);
+     alert(`Manager with ID ${payload.userId} not found.`);
    }
   };
 

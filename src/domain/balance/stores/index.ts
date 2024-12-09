@@ -18,6 +18,10 @@ export const useBalance = defineStore("balance", () => {
     current: 300000000, // Initial dummy balance
   });
 
+  // const totalBalance = reactive<TotalBalance>({
+  //   prev: 0,
+  //   current: 15000000, // Initial balance
+  // });
   
 
   // Reactive totalBalance state

@@ -211,7 +211,6 @@ watch(
             <option value="recharge">Recharge</option>
             <option value="floatAllocation">Float Allocation</option>
             <!-- <option value="UMEME">UMEME</option> -->
-            <option value="NARO">Posta Uganda</option>
           </select>
           <!-- <select class="filter-element e-select">
             <option :value="null">- Select Status -</option>

@@ -6,6 +6,9 @@ import { useDebounceFn } from "@vueuse/core";
 import moment from "moment";
 import type { IGoFilter } from "@/types";
 import TransactionDetails from "@/domain/billing/components/TransactionDetails.vue";
+import { useNotificationsStore } from "@/stores/notifications";
+
+const notify = useNotificationsStore()
 
 const billingStore = useBilling();
 
@@ -86,6 +89,28 @@ watch(
     if (!isOpen) fetch(); // Re-fetch transactions when modal closes
   }
 );
+
+// Ref to track if content was copied
+const copied = ref(false);
+
+const copyToClipboard = async () => {
+  try {
+    // You can replace this with any string you want to copy
+    const textToCopy = "Text to copy to clipboard";
+
+    // Using the Clipboard API
+    await navigator.clipboard.writeText(textToCopy);
+
+    // Show "Copied!" for 2 seconds
+    copied.value = true;
+    setTimeout(() => {
+      copied.value = false;
+    }, 2000);
+    notify.success("Copied to clipboard");
+  } catch (error) {
+    console.error("Failed to copy text: ", error);
+  }
+};
 
 watch(() => filter, updateFilter, { deep: true });
 

@@ -261,6 +261,8 @@ export const useAccounts = defineStore("user-management", () => {
 
   // assign manager to a branch
   const assignManager = (userId: string) => {
+    console.log('User ID:', userId); // Debugging log
+
     const user = backofficeAccounts.value?.find((account) => account.id === userId);  // Compare `userId` with `account.id`
     
     if (user) {
@@ -281,6 +283,28 @@ export const useAccounts = defineStore("user-management", () => {
       alert(`User with ID ${userId} not found.`);
     }
   };
+
+  // const assignManager = (userId: string) => {
+  //   const user = backofficeAccounts.value?.find((account) => account.id === userId);
+  //   if (user) {
+  //     managerAccounts.value.push({
+  //       firstName: user.firstName,
+  //       lastName: user.lastName,
+  //       email: user.email,
+  //       phone: user.phone,
+  //       role: user.role,
+  //       status: user.status,
+  //       createdAt: new Date().toISOString(),
+  //       emailVerified: true,
+  //       phoneVerified: true,
+  //       activatedAt: new Date().toISOString(),
+  //     });
+  //   } else {
+  //     console.warn(`User with ID ${userId} not found.`);
+  //     alert(`User with ID ${userId} not found.`);
+  //   }
+  // };
+  
   
   
 

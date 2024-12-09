@@ -56,19 +56,31 @@ const store = useBilling()
 // }
 
 
+// function submit() {
+//  let payload = {
+//     amount: form.amount,
+//     branchId: form.branchId,
+//   };
+//   loading.value = true;
+//   store.allocateFloat(payload) // Simply add the branch
+//   billingStore.adjustFloatLedger(payload);
+//   balanceStore.decreaseTotalBalance(payload.amount);
+//    notify.success(`Float allocated to ${form.branchId}.`)
+//   emit("floatAllocated");
+//   loading.value = false;
+// }
+
 function submit() {
- let payload = {
+   let payload = {
     amount: form.amount,
     branchId: form.branchId,
   };
-  loading.value = true;
-  store.allocateFloat(payload) // Simply add the branch
-  billingStore.adjustFloatLedger(payload);
+  console.log("Payload:", payload);
+  console.log("Initial balance:", balanceStore.totalBalance.value);
   balanceStore.decreaseTotalBalance(payload.amount);
-   notify.success(`Float allocated to ${form.branchId}.`)
-  emit("floatAllocated");
-  loading.value = false;
+  console.log("Updated balance:", balanceStore.totalBalance.value);
 }
+
 
 onMounted(() => {
   // loading.value = true;

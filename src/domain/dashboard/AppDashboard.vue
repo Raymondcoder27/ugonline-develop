@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref } from "vue";
 import { useBranchStore } from "@/domain/branches/stores";
 import { useBilling } from "@/domain/billing/stores";
 import { useServicesStore } from "@/domain/services/stores";
@@ -44,27 +44,7 @@ const pendingFloatRequests = billingStore.floatRequests?.filter(
 
 const totalTransactions = billingStore.transactions?.length || 0;
 
-// const totalBalance = balanceStore.totalBalance;
-
-const computedBalance = computed(() => {
-  if (billingStore.floatLedgers.length === 0) {
-    return [];
-  }
-
-  // Start with the balance from the store
-  let runningBalance = 0;
-
-  // Process transactions chronologically
-  return store.floatLedgers.map((transaction) => {
-    // Adjust the running balance based on transaction amount
-    runningBalance += transaction.amount;
-
-    return {
-      ...transaction,
-      balance: runningBalance, // Attach the calculated balance
-    };
-  });
-});
+const totalBalance = balanceStore.totalBalance;
 
 const totalBranches = branchStore.branches?.length || 0;
 
@@ -170,7 +150,7 @@ onMounted(() => {
       <div class="w-12/12 count">
         <!-- <p class="text-xl font-bold py-2">130,400,000/=</p> -->
         <!-- <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBalance.current}}/=</p> -->
-        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ computedBalance.current.toLocaleString() }}/=</p>
+        <p class="text-xl font-bold py-2" style="font-size: 30px;">{{ totalBalance.current.toLocaleString() }}/=</p>
         
         <p class="text-xs">Balance</p>
       </div>

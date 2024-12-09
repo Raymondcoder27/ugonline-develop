@@ -39,6 +39,19 @@ function submit() {
   emit("managerAllocated");
   loading.value = false;
 }
+
+// Search and filter functionality
+const searchQuery = ref("");
+const filteredManagers = computed(() => {
+  if (!searchQuery.value.trim()) {
+    return branchStore.managers; // Assuming managers are loaded into branchStore
+  }
+  return branchStore.managers.filter((manager) =>
+    `${manager.firstName} ${manager.lastName}`
+      .toLowerCase()
+      .includes(searchQuery.value.trim().toLowerCase())
+  );
+});
 </script>
 
 <template>

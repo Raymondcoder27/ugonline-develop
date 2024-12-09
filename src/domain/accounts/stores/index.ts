@@ -227,7 +227,8 @@ export const useAccounts = defineStore("user-management", () => {
   // push new assigned manager managerAccounts array
   const assignManager = (payload: AssignManager) => {
     managerAccounts.value.push({
-      name: payload.name,
+      firstName: payload.firstName,
+      lastName: payload.lastName,
       email: payload.email,
       phone: payload.phone,  
       role: payload.role,

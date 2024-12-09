@@ -261,12 +261,48 @@ onMounted(() => {
             <td>{{ transaction.till }}</td>
             <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
             <td class="text-left">{{ transaction.fee.toLocaleString() }}</td>
-            <td class="text-left">
+            <!-- <td class="text-left">
               <span
                 class="bg-green-100 text-green-600 p-1 border border-green-200 rounded-md"
               >
                 {{ transaction.status }}
               </span>
+            </td> -->
+            <td class="text-left">
+              <!-- First Case: float request approved -->
+              <div v-if="transaction.status === 'pending'">
+                <!-- <td> -->
+                <!-- <label> -->
+                <span
+                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-100 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
+                  @click="open(transaction)"
+                  >Pending</span
+                >
+                <!-- </label> -->
+                <!-- </td> -->
+              </div>
+
+              <!-- Second Case: Manager directly assigned to branch -->
+              <div v-else-if="transaction.status === 'failed'">
+                <!-- <td> -->
+                <label>
+                  <span
+                    class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
+                    @click="open(transaction)"
+                    >Failed</span
+                  >
+                </label>
+                <!-- </td> -->
+              </div>
+
+              <!-- Third Case: Fallback, no manager assigned -->
+              <div v-else>
+                <!-- <td> -->
+                <span
+                  class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
+                  >Success</span
+                >
+              </div>
             </td>
             <td class="text-left">{{ convertDateTime(transaction.date) }}</td>
             <!-- <td class="text-left"> -->

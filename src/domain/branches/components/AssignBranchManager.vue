@@ -5,7 +5,6 @@ import { useNotificationsStore } from "@/stores/notifications";
 import type { ApiError } from "@/types";
 import { defineEmits } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
-import { useBranchStore } from "@/domain/branches/stores";
 
 const branchStore = useBranchStore();
 const store = useAccounts();

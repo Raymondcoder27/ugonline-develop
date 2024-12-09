@@ -25,7 +25,9 @@ const emit = defineEmits(["cancel", "managerAllocated"]);
 
 onMounted(() => {
   loading.value = true;
+  store.fetchBackofficeAccounts();
   branchStore.fetchBranches().finally(() => (loading.value = false));
+
 });
 
 function submit() {

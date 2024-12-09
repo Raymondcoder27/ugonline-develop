@@ -151,7 +151,7 @@ watch(
               <!-- <option value="UMEME">UMEME</option> -->
             </select>
             <div class="flex">
-              <div class="flex align-center">
+              <div class="flex items-center mr-2">
                 <label for="date-from" class="mr-2 text-sm text-gray-600"
                   >From:</label
                 >
@@ -162,8 +162,8 @@ watch(
                   v-model="filter.fromDate"
                 />
               </div>
-              <div class="flex align-center">
-                <label for="date-to" class="mr-2 text-sm align-center text-gray-600"
+              <div class="flex items-center mr-2">
+                <label for="date-to" class="mr-2 text-sm text-gray-600"
                   >To:</label
                 >
                 <input

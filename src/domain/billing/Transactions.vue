@@ -109,8 +109,9 @@ onMounted(() => {
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
             class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
+          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
             class="filter-element e-input" type="text" placeholder="Drop down status" />
+            
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Drop down provider" />
             <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"

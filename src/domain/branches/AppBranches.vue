@@ -215,7 +215,7 @@ onMounted(() => {
           <tr class="header-tr">
             <!-- <th class="t-header">#</th> -->
             <th class="t-header">Name</th>
-            <th class="text-center">Manager</th>
+            <th class="text-left">Manager</th>
             <th class="text-header">Date</th>
             <!-- <th class="text-center">Actions</th> -->
             <th class="t-header"></th>
@@ -268,7 +268,7 @@ onMounted(() => {
               </div>
             </td> -->
 
-            <td class="text-black-700 text-center">
+            <td class="text-black-700 text-left">
               <!-- First Case: Manager linked via `getManagerByBranch()` -->
               <div v-if="getManagerByBranch(branch.name)">
                 <label>

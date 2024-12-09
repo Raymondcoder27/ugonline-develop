@@ -38,7 +38,7 @@ function submit() {
   loading.value = true;
   branchStore.assignManager(payload); // Simply add the branch
   notify.success("Manager assigned to branch");
-  emit("managerAllocated");
+  emit("managerAssigned");
   loading.value = false;
 }
 

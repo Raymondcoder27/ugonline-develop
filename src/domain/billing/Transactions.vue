@@ -263,7 +263,7 @@ onMounted(() => {
             <td class="text-left">{{ transaction.fee.toLocaleString() }}</td>
             <td class="text-left">
               <span
-                class="bg-green-100 text-green-600 border-green-200 rounded-md"
+                class="bg-green-100 text-green-600 p-1 border border-green-200 rounded-md"
               >
                 {{ transaction.status }}
               </span>

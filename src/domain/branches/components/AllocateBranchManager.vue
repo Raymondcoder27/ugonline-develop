@@ -42,7 +42,7 @@ function submit() {
 </script>
 
 <template>
-  <div class="bg-white py-5">
+  <!-- <div class="bg-white py-5">
     <p class="text-xl font-bold">Assign Manager</p>
     <p class="text-sm text-gray-500">
         The individual responsible for overseeing branch operations, managing staff, and ensuring smooth service delivery to agents and the public.
@@ -75,6 +75,75 @@ function submit() {
         </div>
       </div>
     </form>
+  </div> -->
+
+
+  <div class="bg-white p-6 shadow-md rounded-lg">
+    <p class="text-xl font-bold mb-2">Assign Manager</p>
+    <p class="text-sm text-gray-500 mb-4">
+      Select a manager from the table to assign them to a branch.
+    </p>
+
+    <!-- Search Box -->
+    <div class="mb-4">
+      <input
+        type="text"
+        v-model="searchQuery"
+        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"
+        placeholder="Search managers by name..."
+      />
+    </div>
+
+    <!-- Manager Table -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+        <thead>
+          <tr class="bg-gray-100 border-b">
+            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Name</th>
+            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Email</th>
+            <th class="px-4 py-2 text-left text-sm font-medium text-gray-600">Phone</th>
+            <th class="px-4 py-2 text-center text-sm font-medium text-gray-600"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loading Indicator -->
+          <tr v-if="loading">
+            <td colspan="4" class="px-4 py-4 text-center">
+              <div class="animate-pulse bg-blue-300 h-4 w-full rounded"></div>
+            </td>
+          </tr>
+
+          <!-- Managers List -->
+          <tr
+            v-for="manager in filteredManagers"
+            :key="manager.id"
+            class="border-b hover:bg-gray-50"
+          >
+            <td class="px-4 py-2">
+              {{ manager.firstName }} {{ manager.lastName }}
+            </td>
+            <td class="px-4 py-2">{{ manager.email }}</td>
+            <td class="px-4 py-2">{{ manager.phone }}</td>
+            <td class="px-4 py-2 text-center">
+              <button
+                @click="submit(manager.id)"
+                :disabled="loading"
+                class="px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 disabled:bg-gray-300"
+              >
+                Assign
+              </button>
+            </td>
+          </tr>
+
+          <!-- No Results Found -->
+          <tr v-if="!filteredManagers.length && !loading">
+            <td colspan="4" class="px-4 py-4 text-center text-gray-500">
+              No managers found
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 

@@ -70,9 +70,9 @@ export const useBalance = defineStore("balance", () => {
   }
   
 
-  dummyTotalBalance.current = totalBalance.value.current;
+  // dummyTotalBalance.current = totalBalance.value.current;
 
-  totalBalance.value = { ...dummyTotalBalance };
+  // totalBalance.value = { ...dummyTotalBalance };
 
   // Decrease balance
 // async function decreaseTotalBalance(amount: number) {

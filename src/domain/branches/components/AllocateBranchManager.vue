@@ -108,8 +108,8 @@ const filteredManagers = computed(() => {
     </div>
 
     <!-- Manager Table -->
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+    <div class="overflow-x-auto my-1">
+      <table class="table min-w-full bg-white border border-gray-200 rounded-lg">
         <thead>
           <tr class="header-tr border-b">
             <th class="px-4 py-2 text-left text-sm font-medium">Name</th>

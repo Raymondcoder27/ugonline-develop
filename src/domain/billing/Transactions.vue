@@ -132,7 +132,6 @@ onMounted(() => {
             <option value="companyNameSearch">Company Name Search</option>
             <option value="companyNameChange">Company Name Change</option>
           </select>
-        </div>
           <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
           </button>

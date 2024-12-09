@@ -47,7 +47,7 @@ const totalTransactions = billingStore.transactions?.length || 0;
 // const totalBalance = balanceStore.totalBalance;
 
 const computedBalance = computed(() => {
-  if (store.floatLedgers.length === 0) {
+  if (billingStore.floatLedgers.length === 0) {
     return [];
   }
 

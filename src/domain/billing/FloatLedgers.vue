@@ -77,22 +77,24 @@ const computedTransactions = computed(() => {
 
   // Reverse the transactions to process them chronologically
   const transactionsWithBalances = store.floatLedgers
-    .slice()
-    .reverse()
-    .map((transaction) => {
-      // If the transaction is a recharge, set the balance directly
-      if (transaction.description === "Recharge") {
-        runningBalance = transaction.amount;
-      } else {
-        runningBalance -= transaction.amount;
-      }
+  .slice()
+  .reverse()
+  .map((transaction) => {
+    if (transaction.description === "Recharge") {
+      // Set balance directly for recharge transactions
+      runningBalance = transaction.amount;
+    } else {
+      // Adjust balance correctly for other transactions
+      runningBalance += transaction.amount;
+    }
 
-      return {
-        ...transaction,
-        balance: runningBalance,
-      };
-    })
-    .reverse(); // Reverse back to display in the original order
+    return {
+      ...transaction,
+      balance: runningBalance,
+    };
+  })
+  .reverse(); // Reverse back to display in the original order
+ // Reverse back to display in the original order
 
   return transactionsWithBalances;
 });

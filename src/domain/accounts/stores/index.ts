@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager, AssignManager } from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager, AssignManager} from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
@@ -7,8 +7,10 @@ import { useNotificationsStore } from "@/stores/notifications";
 import { useCommonsStore } from "../../../stores/commons";
 import { AxiosError } from "axios";
 import type { AccountResponseInterface, AccountsData, IResendVerificationPayload } from "@/domain/accounts/types";
+import type { Branch } from "@/domain/branches/types";
+import { useBranchStore } from "@/domain/branches/stores";
 
-
+  const branchStore = useBranchStore();
 
 export const useAccounts = defineStore("user-management", () => {
 
@@ -289,6 +291,8 @@ export const useAccounts = defineStore("user-management", () => {
     console.log('Branch ID:', branchId); // Debugging log
   
     const user = backofficeAccounts.value?.find((account) => account.id === userId); // Find user by `userId`
+
+    const branch = branchStore.branches.find((branch: Branch) => branch.id === branchId); 
   
     if (user) {
       managerAccounts.value.push({
@@ -302,7 +306,7 @@ export const useAccounts = defineStore("user-management", () => {
         emailVerified: true,
         phoneVerified: true,
         activatedAt: new Date().toISOString(),
-        branchName: branchId.branchName, // Include branchId
+        branch: branch.name, // Include branchId
       });
       console.log(`Manager assigned to branch ${branchId}`);
     } else {

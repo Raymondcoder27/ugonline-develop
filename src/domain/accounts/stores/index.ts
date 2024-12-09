@@ -224,21 +224,57 @@ export const useAccounts = defineStore("user-management", () => {
   //   }
   // };
 
-  // push new assigned manager managerAccounts array
+  // function submit() {
+  //   let payload = {
+  //     managerId: form.managerId,
+  //     // branchId: form.branchId,
+  //   };
+  //   loading.value = true;
+  //   branchStore.assignManager(payload); // Simply add the branch
+  //   notify.success("Manager assigned to branch");
+  //   emit("managerAssigned");
+  //   loading.value = false;
+  // }
+
+  //use the manager id to assign a manager to a branch
   const assignManager = (payload: AssignManager) => {
-    managerAccounts.value.push({
-      firstName: payload.firstName,
-      lastName: payload.lastName,
-      email: payload.email,
-      phone: payload.phone,  
-      role: payload.role,
-      status: payload.status,
-      createdAt: new Date().toISOString(),
-      emailVerified: true,
-      phoneVerified: true, 
-      activatedAt: new Date().toISOString(),
-    });
-  }
+   const manager = managerAccounts.value?.find(manager => manager.id === payload.managerId);
+   if (manager) {
+     managerAccounts.value.push({
+       firstName: manager.firstName,
+       lastName: manager.lastName,
+       email: manager.email,
+       phone: manager.phone,
+       role: manager.role,
+       status: manager.status,
+       createdAt: new Date().toISOString(),
+       emailVerified: true,
+       phoneVerified: true,
+       activatedAt: new Date().toISOString(),
+     });
+   } else {  
+     console.warn(`Manager with ID ${payload.managerId} not found.`);
+   }
+  };
+
+
+  
+
+  // push new assigned manager managerAccounts array
+  // const assignManager = (payload: AssignManager) => {
+  //   managerAccounts.value.push({
+  //     firstName: payload.firstName,
+  //     lastName: payload.lastName,
+  //     email: payload.email,
+  //     phone: payload.phone,  
+  //     role: payload.role,
+  //     status: payload.status,
+  //     createdAt: new Date().toISOString(),
+  //     emailVerified: true,
+  //     phoneVerified: true, 
+  //     activatedAt: new Date().toISOString(),
+  //   });
+  // }
 
 
 
@@ -248,6 +284,7 @@ export const useAccounts = defineStore("user-management", () => {
     backofficeAccounts,
     managerAccounts,
     managerAllocations,
+    assignManager,
     createAccount,
     fetchBackofficeAccounts,
     fetchUserAccounts,

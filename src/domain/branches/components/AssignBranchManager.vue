@@ -33,7 +33,7 @@ onMounted(() => {
 function submit() {
   let payload = {
     managerId: form.managerId,
-    branchId: form.branchId,
+    // branchId: form.branchId,
   };
   loading.value = true;
   branchStore.assignManager(payload); // Simply add the branch

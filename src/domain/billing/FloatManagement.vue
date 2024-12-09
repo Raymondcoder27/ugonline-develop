@@ -163,7 +163,7 @@ watch(
                 />
               </div>
               <div class="flex align-center">
-                <label for="date-to" class="mr-2 text-sm text-gray-600"
+                <label for="date-to" class="mr-2 text-sm align-center text-gray-600"
                   >To:</label
                 >
                 <input

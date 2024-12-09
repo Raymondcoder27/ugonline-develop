@@ -149,11 +149,11 @@ const filteredManagers = computed(() => {
           </tr>
 
           <!-- No Results Found -->
-          <tr v-if="!filteredManagers.length && !loading">
+          <!-- <tr v-if="!filteredManagers.length && !loading">
             <td colspan="4" class="px-4 py-4 text-center text-gray-500">
               No managers found
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>

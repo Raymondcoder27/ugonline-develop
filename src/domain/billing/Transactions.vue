@@ -223,7 +223,7 @@ onMounted(() => {
             <!-- <td>{{ idx + 1 }}</td> -->
             <td class="rounded-md font-semibold text-red-700">
               <span class="hover:underline" @click="transactionDetails(transaction.id)">{{ transaction.trackingNumber }}</span>
-              <i @click="copyToClipboard" class="fa-regular ml-4 fa-copy mx-1 hover:text-gray-800"></i>
+              <i @click="copyToClipboard(transaction.trackingNumber)" class="fa-regular ml-4 fa-copy mx-1 hover:text-gray-800"></i>
             </td>
             <td>{{ transaction.service }}</td>
             <td class="text-left">{{ transaction.provider }}</td>

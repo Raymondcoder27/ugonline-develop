@@ -137,9 +137,9 @@ onMounted(() => {
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
-          <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
+          <!-- <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Manager
-          </button>
+          </button> -->
         </div>
       </div>
     </div>

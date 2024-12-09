@@ -1,4 +1,4 @@
-import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager } from "@/types";
+import type { Account, AccountResponse, IGoFilter, IErrorResponse, ManagerAccount, BackOfficeAccount, AllocateManager, AssignManager } from "@/types";
 import { defineStore } from "pinia";
 import type { Ref } from "vue";
 import { ref } from "vue";
@@ -156,6 +156,8 @@ export const useAccounts = defineStore("user-management", () => {
     );
   }
 
+
+
   // add backoffice account, push to the backoffice account array
   const addBackOfficeAccount = (newBackoffice: BackOfficeAccount) => {
     backofficeAccounts.value.push(
@@ -212,6 +214,29 @@ export const useAccounts = defineStore("user-management", () => {
       resolve();
     });
   }
+
+  // const assignManager = (payload: AssignManager) => {
+  //   const branchToUpdate = branches.value?.find(branch => branch.id === payload.branchId);
+  //   if (branchToUpdate) {
+  //     branchToUpdate.manager = payload.managerId;
+  //   } else {
+  //     console.warn(`Branch with ID ${payload.branchId} not found.`);
+  //   }
+  // };
+
+  // push new assigned manager managerAccounts array
+  const assignManager = (payload: AssignManager) => {
+    managerAccounts.value.push({
+      name: payload.name,
+      email: payload.email,
+      phone: payload.phone,  
+      role: payload.role,
+      status: payload.status,
+      createdAt: new Date().toISOString(),
+      emailVerified: true,
+      phoneVerified: true, 
+      activatedAt: new Date().toISOString(),
+    });
 
 
 

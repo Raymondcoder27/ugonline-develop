@@ -105,7 +105,7 @@ const computedTransactions = computed(() => {
   }
 
   // Start with the balance from the store
-  let runningBalance = balanceStore.totalBalance.current;
+  let runningBalance = 0;
 
   // Process transactions chronologically
   return store.floatLedgers.map((transaction) => {

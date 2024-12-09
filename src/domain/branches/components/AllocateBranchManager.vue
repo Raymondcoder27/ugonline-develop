@@ -111,7 +111,7 @@ const filteredManagers = computed(() => {
     <div class="overflow-x-auto">
       <table class="min-w-full bg-white border border-gray-200 rounded-lg">
         <thead>
-          <tr class="bg-gray-100 border-b">
+          <tr class="header-tr border-b">
             <th class="px-4 py-2 text-left text-sm font-medium">Name</th>
             <th class="px-4 py-2 text-left text-sm font-medium">Email</th>
             <th class="px-4 py-2 text-left text-sm font-medium">Phone</th>

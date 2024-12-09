@@ -74,7 +74,6 @@ function convertDateTime(date: string) {
   return moment(date).format("DD-MM-YYYY HH:mm:ss");
 }
 
-
 // pass in the requestId
 const approveFloatRequest = (requestId: any) => {
   store.approveFloatRequest(requestId);
@@ -85,8 +84,7 @@ const approveFloatRequest = (requestId: any) => {
 const rejectFloatRequest = (requestId: any) => {
   store.rejectFloatRequest(requestId);
   store.fetchFloatRequests();
-  console.log (`float request with id ${requestId} rejected`);
- 
+  console.log(`float request with id ${requestId} rejected`);
 };
 
 onMounted(() => {
@@ -134,10 +132,14 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr class="text-right" v-for="(request, id) in store.floatRequests" :key="id">
+          <tr
+            class="text-right"
+            v-for="(request, id) in store.floatRequests"
+            :key="id"
+          >
             <!-- <td>{{ idx + 1 }}</td> -->
             <!-- <td class="text-left">{{  convertDateTime(request.date) }}</td> -->
-            <td class="text-left">{{  request.date }}</td>
+            <td class="text-left">{{ request.date }}</td>
             <!-- convertDateTime(request.createdAt) -->
             <td class="text-left">{{ request.branch }}</td>
             <td class="text-left">{{ request.amount.toLocaleString() }}</td>
@@ -146,12 +148,12 @@ onMounted(() => {
               <!-- First Case: float request approved -->
               <div v-if="request.status === 'approved'">
                 <!-- <td> -->
-                  <!-- <label> -->
-                  <span
-                    class="text-xs cursor-pointer rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
-                    @click="open(request)"
-                    >Approved</span
-                  >
+                <!-- <label> -->
+                <span
+                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
+                  @click="open(request)"
+                  >Approved</span
+                >
                 <!-- </label> -->
                 <!-- </td> -->
               </div>
@@ -159,7 +161,7 @@ onMounted(() => {
               <!-- Second Case: Manager directly assigned to branch -->
               <div v-else-if="request.status === 'rejected'">
                 <!-- <td> -->
-                  <label>
+                <label>
                   <span
                     class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                     @click="open(request)"
@@ -172,17 +174,17 @@ onMounted(() => {
               <!-- Third Case: Fallback, no manager assigned -->
               <div v-else>
                 <!-- <td> -->
-                  <span
-                    class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
-                    @click="approveFloatRequest(request.id)"
-                    >Approve</span
-                  >
+                <span
+                  class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
+                  @click="approveFloatRequest(request.id)"
+                  >Approve</span
+                >
 
-                  <span
-                    class="text-xs rounded-md p-1 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
-                    @click="rejectFloatRequest(request.id)"
-                    >Reject</span
-                  >
+                <span
+                  class="text-xs rounded-md p-1 ml-3 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
+                  @click="rejectFloatRequest(request.id)"
+                  >Reject</span
+                >
                 <!-- </td> -->
               </div>
             </td>

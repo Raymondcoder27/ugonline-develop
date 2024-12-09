@@ -97,7 +97,6 @@ const computedTransactions = computed(() => {
   return transactionsWithBalances;
 });
 
-
 function fetchTransactions() {
   filter.limit = limit.value;
   filter.page = page.value;
@@ -178,8 +177,6 @@ watch(
   { deep: true }
 );
 
-
-
 watch(
   () => store.floatLedgers,
   (newLedgers) => {
@@ -201,49 +198,57 @@ watch(
   <div class="">
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white">
-      
       <div class="flex space-x-2 my-1 pt-1 pb-3">
-      <div class="flex-grow">
-        <div class="flex justify-between gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
-          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Drop down provider">
-            <option value="" disabled selected>Filter by Description</option>
-            <option value="recharge">Recharge</option>
-            <option value="floatAllocation">Float Allocation</option>
-            <!-- <option value="UMEME">UMEME</option> -->
-          </select>
-          <!-- <select class="filter-element e-select">
+        <div class="flex-grow">
+          <div
+            class="flex justify-between gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3"
+          >
+            <select
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[2].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Drop down provider"
+            >
+              <option value="" disabled selected>Filter by Description</option>
+              <option value="recharge">Recharge</option>
+              <option value="floatAllocation">Float Allocation</option>
+              <!-- <option value="UMEME">UMEME</option> -->
+            </select>
+            <!-- <select class="filter-element e-select">
             <option :value="null">- Select Status -</option>
             <option value="pending">Pending</option>
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
-         <div class="flex">
-          <div class="block">
-            <label for="date-from" class="mr-2 text-sm text-gray-600"
-              >From:</label
-            >
-            <input
-              type="date"
-              id="date-from"
-              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              v-model="filter.fromDate"
-            />
+            <div class="flex">
+              <div class="block">
+                <label for="date-from" class="mr-2 text-sm text-gray-600"
+                  >From:</label
+                >
+                <input
+                  type="date"
+                  id="date-from"
+                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  v-model="filter.fromDate"
+                />
+              </div>
+              <div class="block">
+                <label for="date-to" class="mr-2 text-sm text-gray-600"
+                  >To:</label
+                >
+                <input
+                  type="date"
+                  id="date-to"
+                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  v-model="filter.toDate"
+                />
+              </div>
+            </div>
           </div>
-          <div class="block">
-            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
-            <input
-              type="date"
-              id="date-to"
-              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              v-model="filter.toDate"
-            />
-          </div>
-         </div>
         </div>
-        
       </div>
-    </div>
 
       <!-- Table -->
       <!-- Table -->
@@ -273,18 +278,15 @@ watch(
               :key="transaction.id"
               class="body-tr"
             > -->
-            
+
             <tr
-              v-for="(transaction) in computedTransactions"
+              v-for="transaction in computedTransactions"
               :key="transaction.id"
               class="body-tr"
             >
-
-            <td class="text-left">
+              <td class="text-left">
                 <label class="cursor-pointer hover:text-primary-700 mx-2">
-                  <span class="hover:underline">{{
-                    transaction.id
-                  }}</span>
+                  <span class="hover:underline">{{ transaction.id }}</span>
                 </label>
               </td>
               <!-- <td class="text-left">{{ idx + 1 }}</td> -->

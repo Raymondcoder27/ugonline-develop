@@ -14,11 +14,13 @@ const notify = useNotificationsStore();
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(16);
 const loading: Ref<boolean> = ref(false);
+const services: Ref<any[]> = ref([]); // Will hold the paginated services
+
 // const selectedService: Ref<string> = ref("");
 // let providerId = ref("");
 // let status = ref("");
 
-const services: Ref<any[]> = ref([]); // Will be passed as a prop
+// const services: Ref<any[]> = ref([]); // Will be passed as a prop
 // const subscribe = (serviceId: string) => {
 // Add subscription logic or emit an event
 // };
@@ -48,9 +50,10 @@ const subscribe = (serviceId: string) => {
   store.subscribeToService(serviceId); // Calls the store action to update the state
 };
 
+
 onMounted(() => {
-  store.fetchServices();
-  //   store.fetchSubscribedServices();
+  store.fetchServices(); // Fetch services from the store
+  fetch(); // Fetch the initial page of services
 });
 </script>
   
@@ -68,13 +71,6 @@ onMounted(() => {
             class="w-full text-sm border-none outline-none bg-white"
           />
           <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
-
-          <!-- <button
-      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
-      @click="search"
-    >
-      Search
-    </button> -->
         </div>
       </div>
 

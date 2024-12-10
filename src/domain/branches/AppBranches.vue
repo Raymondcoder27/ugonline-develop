@@ -219,7 +219,7 @@ onMounted(() => {
             <th class="text-left">Manager</th>
             <th class="text-header">Date</th>
             <!-- <th class="text-center">Actions</th> -->
-            <th class="t-header"></th>
+            <!-- <th class="t-header"></th> -->
           </tr>
         </thead>
         <thead v-if="loading">

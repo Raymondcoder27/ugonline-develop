@@ -424,6 +424,31 @@ function unsubscribeFromService(serviceId: string) {
       <!-- Service Cards Section -->
       <div class="grid grid-cols-4 gap-3">
         <!-- v-if service has been subscribed, its removed from the array -->
+        <div class="flex justify-center items-center mt-4">
+  <!-- Previous Button -->
+  <button
+    class="px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+    :class="{'opacity-50 cursor-not-allowed': page <= 1}"
+    :disabled="page <= 1"
+    @click="previous"
+  >
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- Page Number Display -->
+  <span class="mx-4 text-lg font-semibold text-gray-700">{{ page }}</span>
+
+  <!-- Next Button -->
+  <button
+    class="px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+    :class="{'opacity-50 cursor-not-allowed': store.services.length < limit}"
+    :disabled="store.services.length < limit"
+    @click="next"
+  >
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+</div>
+
         <div
           v-for="service in store.services"
           :key="service.id"
@@ -454,8 +479,8 @@ function unsubscribeFromService(serviceId: string) {
           <!-- <table class="text-xs text-gray-400"> -->
           <!-- <tbody> -->
           <!-- <tr> -->
-          <div class="bg-green-200">
-            <div class="h-20 bg-green-100">
+          <div class="">
+            <div class="h-20 ">
               <span class="text-xs text-gray-800">
                 {{ service.description }}
               </span>

@@ -204,6 +204,7 @@ export const useServicesStore = defineStore("services", () => {
       service.status = "subscribed";
       subscribedServices.value?.push(service);
       services.value = services.value?.filter((s) => s.id !== serviceId);
+      // Remove from services (reactive way)
     } else {
       console.error(`Service with ID ${serviceId} not found for subscription.`);
     }

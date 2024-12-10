@@ -1,6 +1,6 @@
   <script setup lang="ts">
 import type { Ref } from "vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useServicesStore } from "@/domain/services/stores";
 import type { Service } from "@/domain/services/types";
 // import { useProviderStore } from "@/domain/entities/stores";
@@ -49,6 +49,13 @@ function previous() {
 const subscribe = (serviceId: string) => {
   store.subscribeToService(serviceId); // Calls the store action to update the state
 };
+
+const paginatedServices = computed(() => {
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return store.services.slice(start, end);  // Adjust according to your page & limit
+});
+
 
 
 onMounted(() => {
@@ -107,7 +114,7 @@ onMounted(() => {
     <!-- Service Tile -->
 
     <div
-      v-for="service in store.services"
+      v-for="service in paginatedServices"
       :key="service.id"
       class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 flex flex-col justify-between"
     >

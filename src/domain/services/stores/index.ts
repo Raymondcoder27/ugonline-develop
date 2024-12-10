@@ -81,6 +81,7 @@ export const useServicesStore = defineStore("services", () => {
     {id: "9d", thumbnail: ursbThumbnail, name: "Patent Application", description: "Application for a Patent", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "7", providerName: "URSB", createdAt: {Time: "2021-09-03", Valid: true}, status: "listed", currentVersionId: "7"},
     {id: "7f", thumbnail: ministryThumbnail, name: "Visa Application", description: "Application for a Visa", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "7", providerName: "Ministry of Internal Affairs", createdAt: {Time: "2021-09-03", Valid: true}, status: "listed", currentVersionId: "7"},
     {id: "4a", thumbnail: niraThumbnail, name: "Driver's Permit Application", description: "Apply for a Driver's Permit", accessibilityTier: "Public", featureId: "7", requirements: ["National ID", "Passport"], providerId: "4", providerName: "Ministry of Works and Transport", createdAt: {Time: "2021-09-07", Valid: true}, status: "listed", currentVersionId: "4"},
+    {id: "8d", thumbnail: epostaThumbnail, name: "Postal Address Change", description: "Change Postal Address", accessibilityTier: "Public", featureId: "5", requirements: ["National ID", "Passport"], providerId: "5", providerName: "Posta Uganda", createdAt: {Time: "2021-09-03", Valid: true}, status: "listed", currentVersionId: "5"},
     // ministry of internal affairs work permit application
   ];
 

@@ -46,7 +46,7 @@ onMounted(() => {
   <div class="grid grid-cols-4 gap-3">
     <!-- Service Tile -->
     <div
-      v-for="service in services"
+      v-for="service in store.services"
       :key="service.id"
       class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 flex flex-col justify-between"
     >

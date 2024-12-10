@@ -294,7 +294,7 @@ function unsubscribeFromService(serviceId: string) {
       </div>
 
       <!-- Service Cards Section -->
-      <div class="block w-2/3">
+      <div class="block">
       <!-- Service Cards Area -->
       <ServiceCards :services="store.services" @subscribe="subscribe" />
     </div>

@@ -94,7 +94,8 @@ function submit() {
     // .then(() => {
       billingStore.adjustFloatLedger(payload); // Adjust ledger
       balanceStore.decreaseTotalBalance(payload.amount); // Update balance
-      notify.success(`Float allocated to branch: ${form.branchId}`);
+      // notify.success(`Float allocated to branch: ${form.branchId}`);
+      notify.success(`Float allocated to ${form.branchId}`);
       emit("floatAllocated");
     // })
     // .catch((err) => {

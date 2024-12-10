@@ -471,7 +471,7 @@ function unsubscribeFromService(serviceId: string) {
       <div v-else>
         <p>Service not found.</p>
       </div>
-      <div class="h-10 overflow-hidden">
+      <div class="h-15 overflow-hidden">
         <span class="text-xs text-gray-800">
           {{ service.description }}
         </span>

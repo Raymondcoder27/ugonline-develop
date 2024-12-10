@@ -420,7 +420,7 @@ function unsubscribeFromService(serviceId: string) {
     </button> -->
         </div>
       </div>
-      <div class="flex justify-end items-center mt-4 mb-2">
+      <div class="flex justify-end items-center mt-2 mb-2">
         <!-- Previous Button -->
         <button
           class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -482,7 +482,7 @@ function unsubscribeFromService(serviceId: string) {
           <!-- <tbody> -->
           <!-- <tr> -->
           <div class="">
-            <div class="h-20">
+            <div class="h-10">
               <span class="text-xs text-gray-800">
                 {{ service.description }}
               </span>

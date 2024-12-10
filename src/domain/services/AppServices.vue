@@ -420,36 +420,37 @@ function unsubscribeFromService(serviceId: string) {
     </button> -->
         </div>
       </div>
-      <div class="flex justify-end items-center mt-4">
-  <!-- Previous Button -->
-  <button
-    class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-    :class="{'opacity-50 cursor-not-allowed': page <= 1}"
-    :disabled="page <= 1"
-    @click="previous"
-  >
-    <i class="fa-solid fa-arrow-left"></i>
-  </button>
+      <div class="flex justify-end items-center mt-4 mb-2">
+        <!-- Previous Button -->
+        <button
+          class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+          :disabled="page <= 1"
+          @click="previous"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
 
-  <!-- Page Number Display -->
-  <span class="mx-4 text-lg font-semibold text-gray-700">{{ page }}</span>
+        <!-- Page Number Display -->
+        <span class="mx-4 text-lg font-semibold text-gray-700">{{ page }}</span>
 
-  <!-- Next Button -->
-  <button
-    class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
-    :class="{'opacity-50 cursor-not-allowed': store.services.length < limit}"
-    :disabled="store.services.length < limit"
-    @click="next"
-  >
-    <i class="fa-solid fa-arrow-right"></i>
-  </button>
-</div>
-
+        <!-- Next Button -->
+        <button
+          class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          :class="{
+            'opacity-50 cursor-not-allowed': store.services.length < limit,
+          }"
+          :disabled="store.services.length < limit"
+          @click="next"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
 
       <!-- Service Cards Section -->
       <div class="grid grid-cols-4 gap-3">
         <!-- v-if service has been subscribed, its removed from the array -->
-         
+
         <div
           v-for="service in store.services"
           :key="service.id"
@@ -481,7 +482,7 @@ function unsubscribeFromService(serviceId: string) {
           <!-- <tbody> -->
           <!-- <tr> -->
           <div class="">
-            <div class="h-20 ">
+            <div class="h-20">
               <span class="text-xs text-gray-800">
                 {{ service.description }}
               </span>
@@ -494,7 +495,7 @@ function unsubscribeFromService(serviceId: string) {
                 class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
                 @click="subscribe(service.id)"
               >
-              <i class="fa fa-check-square"></i>
+                <i class="fa fa-check-square"></i>
                 Subscribe
               </p>
             </div>

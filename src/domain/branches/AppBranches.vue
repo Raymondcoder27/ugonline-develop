@@ -213,18 +213,18 @@ onMounted(() => {
     <div class="flex my-1">
       <table class="table">
         <thead>
-          <tr class="header-tr">
+          <tr class="">
             <!-- <th class="t-header">#</th> -->
             <th class="t-header">Name</th>
             <th class="text-left">Manager</th>
-            <th class="text-header">Date</th>
+            <th class="text-center">Date</th>
             <!-- <th class="text-center">Actions</th> -->
             <!-- <th class="t-header"></th> -->
           </tr>
         </thead>
         <thead v-if="loading">
           <tr>
-            <th colspan="12" style="padding: 0">
+            <th colspan="" style="padding: 0">
               <div
                 class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"
               ></div>

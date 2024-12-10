@@ -1,4 +1,19 @@
-<template>
+ 
+  <script setup lang="ts">
+  import type { Ref } from "vue";
+  import { ref } from "vue";
+  
+  const subscribedServices: Ref<any[]> = ref([]); // Will be passed as a prop
+  const unsubscribe = (serviceId: string) => {
+    // Add unsubscribe logic or emit an event
+  };
+  const open = (service: any) => {
+    // Add navigation logic to open service details
+  };
+  </script>
+  
+  
+  <template>
     <div class="flex flex-col justify-between mt-3 text-left">
       <div
         v-for="(subscribedService, id) in subscribedServices"
@@ -22,17 +37,4 @@
       </div>
     </div>
   </template>
-  
-  <script setup lang="ts">
-  import type { Ref } from "vue";
-  import { ref } from "vue";
-  
-  const subscribedServices: Ref<any[]> = ref([]); // Will be passed as a prop
-  const unsubscribe = (serviceId: string) => {
-    // Add unsubscribe logic or emit an event
-  };
-  const open = (service: any) => {
-    // Add navigation logic to open service details
-  };
-  </script>
-  
+ 

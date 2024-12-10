@@ -20,35 +20,79 @@ let status = ref("");
 
 const services: Ref<any[]> = ref([]); // Will be passed as a prop
 // const subscribe = (serviceId: string) => {
-  // Add subscription logic or emit an event
+// Add subscription logic or emit an event
 // };
 
-// onMounted(() => {
-//   loading.value = true;
-//   fetch();
-//   if (providerStore.providers == undefined) {
-//     providerStore
-//       .fetchProviders(1, 35)
-//       .then(() => (loading.value = false))
-//       .catch(() => {
-//         loading.value = false;
-//       });
-//   }
-// });
+function next() {
+  page.value += 1;
+  fetch();
+}
+
+function previous() {
+  page.value -= 1;
+  fetch();
+}
+
 const subscribe = (serviceId: string) => {
   store.subscribeToService(serviceId); // Calls the store action to update the state
 };
 
 onMounted(() => {
   store.fetchServices();
-//   store.fetchSubscribedServices();
+  //   store.fetchSubscribedServices();
 });
 </script>
   
 
 <template>
+  <div
+    class="w-full bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 mb-3 py-2"
+  >
+    <input
+      type="text"
+      placeholder="Search Services provided by Ministries, Departments and Agencies"
+      class="w-full text-sm border-none outline-none bg-white"
+    />
+    <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+
+    <!-- <button
+      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button> -->
+  </div>
+
+  <div class="flex justify-end items-center mt-2 mb-2">
+    <!-- Previous Button -->
+    <button
+      class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+      :disabled="page <= 1"
+      @click="previous"
+    >
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
+    <!-- Page Number Display -->
+    <span class="mx-4 text-lg font-semibold text-gray-700">{{ page }}</span>
+
+    <!-- Next Button -->
+    <button
+      class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+      :class="{
+        'opacity-50 cursor-not-allowed': store.services.length < limit,
+      }"
+      :disabled="store.services.length < limit"
+      @click="next"
+    >
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+
   <div class="grid grid-cols-4 gap-3">
     <!-- Service Tile -->
+
     <div
       v-for="service in store.services"
       :key="service.id"

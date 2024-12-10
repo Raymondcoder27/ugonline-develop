@@ -27,9 +27,24 @@ const open = (service: any) => {
   <!-- <div class="flex flex-col justify-between mt-3 text-left"> -->
   <div>
     <div
+          class="mt-3 mx-2 px-2 bg-white rounded-md flex items-center justify-between border border-gray-50 focus:ring-2 focus:ring-red-500"
+        >
+          <input
+            type="text"
+            placeholder="Search Subscribed Services"
+            class="text-sm border-none outline-none bg-white"
+          />
+          <i
+            class="fas fa-search py-2 cursor-pointer text-gray-500 text-lg"
+          ></i>
+        </div>
+        <hr class="mt-3 text-gray-100" />
+      <!-- </div> -->
+    
+    <div
       v-for="(subscribedService, id) in store.subscribedServices"
       :key="id"
-      class="list-none flex justify-between mx-3"
+      class="list-none flex justify-between mx-3 py-2"
     >
       <span
         class="hover:underline cursor-pointer font-semibold text-gray-700"

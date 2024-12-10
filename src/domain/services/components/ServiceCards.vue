@@ -19,9 +19,9 @@ let providerId = ref("");
 let status = ref("");
 
 const services: Ref<any[]> = ref([]); // Will be passed as a prop
-const subscribe = (serviceId: string) => {
+// const subscribe = (serviceId: string) => {
   // Add subscription logic or emit an event
-};
+// };
 
 // onMounted(() => {
 //   loading.value = true;
@@ -35,6 +35,10 @@ const subscribe = (serviceId: string) => {
 //       });
 //   }
 // });
+const subscribe = (serviceId: string) => {
+  store.subscribeToService(serviceId); // Calls the store action to update the state
+};
+
 onMounted(() => {
   store.fetchServices();
 //   store.fetchSubscribedServices();

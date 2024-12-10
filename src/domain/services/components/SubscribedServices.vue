@@ -2,11 +2,21 @@
   <script setup lang="ts">
 import type { Ref } from "vue";
 import { ref } from "vue";
+import { useServicesStore } from "@/domain/services/stores";
 
-const subscribedServices: Ref<any[]> = ref([]); // Will be passed as a prop
+// const { subscribedServices, unsubscribe, open } = useSubscribedServices();
+
+const store = useServicesStore();
+
+// const subscribedServices: Ref<any[]> = ref([]); // Will be passed as a prop
+// const unsubscribe = (serviceId: string) => {
+//   // Add unsubscribe logic or emit an event
+// };
+
 const unsubscribe = (serviceId: string) => {
-  // Add unsubscribe logic or emit an event
+  store.unsubscribeFromService(serviceId); // Calls the store action to update the state
 };
+
 const open = (service: any) => {
   // Add navigation logic to open service details
 };
@@ -17,7 +27,7 @@ const open = (service: any) => {
   <!-- <div class="flex flex-col justify-between mt-3 text-left"> -->
   <div>
     <div
-      v-for="(subscribedService, id) in subscribedServices"
+      v-for="(subscribedService, id) in store.subscribedServices"
       :key="id"
       class="list-none flex justify-between mx-3"
     >

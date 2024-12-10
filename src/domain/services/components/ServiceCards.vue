@@ -3,13 +3,13 @@ import type { Ref } from "vue";
 import { ref, onMounted } from "vue";
 import { useServicesStore } from "@/domain/services/stores";
 import type { Service } from "@/domain/services/types";
-import { useProviderStore } from "@/domain/entities/stores";
+// import { useProviderStore } from "@/domain/entities/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 
 const store = useServicesStore();
 const notify = useNotificationsStore();
 
-const providerStore = useProviderStore();
+// const providerStore = useProviderStore();
 
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(16);

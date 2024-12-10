@@ -331,34 +331,14 @@ function unsubscribeFromService(serviceId: string) {
         <hr class="mt-3 text-gray-100" />
       </div>
       <!-- all services subscribed looped from subscribedServices store -->
-      <div
-        class="flex flex-col justify-between mt-3 text-left"
-        v-for="(subscribedService, id) in store.subscribedServices"
-        :key="id"
-      >
-        <!-- <div
-        class="flex flex-col justify-between mt-3 text-left"
-        v-for="(subscribedService, id) in activeServices"
-        :key="id"
-      > -->
-        <!-- <li width="10px">{{ idx + 1 }}</li> -->
-        <li class="list-none flex justify-between mx-3">
-          <span
-            class="hover:underline cursor-pointer font-semibold text-gray-700"
-            @click="open(service)"
-          >
-            {{ subscribedService.name }}
-          </span>
-
-          <!-- Unsubscribe button -->
-          <button
-            class="text-xs rounded-md p-1 font-semibold text-black-600 bg-gray-100 border border-gray-200 hover:text-red-700 hover:bg-red-300"
-            @click="unsubscribeFromService(subscribedService.id)"
-          >
-            Unsubscribe
-          </button>
-        </li>
-      </div>
+      <div class="w-1/3 ml-3 bg-white text-xs rounded-md text-center mb-2 h-[86vh]">
+      <!-- Subscribed Services Area -->
+      <SubscribedServices
+        :subscribedServices="store.subscribedServices"
+        @unsubscribe="unsubscribeFromService"
+        @open="open"
+      />
+    </div>
     </div>
   </div>
 

@@ -14,9 +14,9 @@ const providerStore = useProviderStore();
 const page: Ref<number> = ref(1);
 const limit: Ref<number> = ref(16);
 const loading: Ref<boolean> = ref(false);
-const selectedService: Ref<string> = ref("");
-let providerId = ref("");
-let status = ref("");
+// const selectedService: Ref<string> = ref("");
+// let providerId = ref("");
+// let status = ref("");
 
 const services: Ref<any[]> = ref([]); // Will be passed as a prop
 // const subscribe = (serviceId: string) => {

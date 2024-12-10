@@ -274,7 +274,7 @@ onMounted(() => {
                 <!-- <td> -->
                 <!-- <label> -->
                 <span
-                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
                   @click="open(transaction)"
                   >Pending</span
                 >
@@ -287,7 +287,7 @@ onMounted(() => {
                 <!-- <td> -->
                 <label>
                   <span
-                    class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                     @click="open(transaction)"
                     >Failed</span
                   >
@@ -299,7 +299,7 @@ onMounted(() => {
               <div v-else>
                 <!-- <td> -->
                 <span
-                  class="text-xs rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
+                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
                   >Success</span
                 >
               </div>

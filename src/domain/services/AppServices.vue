@@ -449,59 +449,48 @@ function unsubscribeFromService(serviceId: string) {
 
       <!-- Service Cards Section -->
       <div class="grid grid-cols-4 gap-3">
-        <!-- v-if service has been subscribed, its removed from the array -->
-
-        <div
-          v-for="service in store.services"
-          :key="service.id"
-          class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
-        >
-          <!-- <div
-          v-for="service in listedServices"
-          :key="service.id"
-          class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
-        > -->
-          <div class="flex justify-between items-center">
-            <img
-              :src="service.thumbnail"
-              alt=""
-              class="w-10 h-10 object-cover"
-            />
-          </div>
-          <hr class="my-2" />
-          <!-- <p class="font-bold text-gray-700 my-1">{{ service.name }}</p> -->
-
-          <div class="text-bold text-sm font-bold" v-if="service">
-            {{ service.name }}
-          </div>
-          <div v-else>
-            <p>Service not found.</p>
-          </div>
-
-          <!-- <table class="text-xs text-gray-400"> -->
-          <!-- <tbody> -->
-          <!-- <tr> -->
-          <div class="">
-            <div class="h-15">
-              <span class="text-xs text-gray-800">
-                {{ service.description }}
-              </span>
-            </div>
-            <!-- </tr> -->
-            <!-- </tbody> -->
-            <!-- </table> -->
-            <div class="-mb-1">
-              <p
-                class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
-                @click="subscribe(service.id)"
-              >
-                <i class="fa fa-check-square"></i>
-                Subscribe
-              </p>
-            </div>
-          </div>
-        </div>
+  <!-- Service Tile -->
+  <div
+    v-for="service in store.services"
+    :key="service.id"
+    class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 flex flex-col justify-between"
+  >
+    <!-- Top Section -->
+    <div>
+      <div class="flex justify-between items-center">
+        <img
+          :src="service.thumbnail"
+          alt=""
+          class="w-10 h-10 object-cover"
+        />
       </div>
+      <hr class="my-2" />
+      <div class="text-bold text-sm font-bold" v-if="service">
+        {{ service.name }}
+      </div>
+      <div v-else>
+        <p>Service not found.</p>
+      </div>
+      <div class="h-10 overflow-hidden">
+        <span class="text-xs text-gray-800">
+          {{ service.description }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="mt-4">
+      <p
+        class="font-bold text-xs w-full text-white bg-red-700 p-1 rounded-md text-center cursor-pointer hover:scale-105 hover:bg-red-800"
+        @click="subscribe(service.id)"
+      >
+        <i class="fa fa-check-square"></i>
+        Subscribe
+      </p>
+    </div>
+  </div>
+</div>
+
     </div>
 
     <div

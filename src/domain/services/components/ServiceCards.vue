@@ -1,17 +1,27 @@
-<script setup lang="ts">
+  <script setup lang="ts">
 import type { Ref } from "vue";
 import { ref, onMounted } from "vue";
 import { useServicesStore } from "@/domain/services/stores";
+import type { Service } from "@/domain/services/types";
+import { useProviderStore } from "@/domain/entities/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 
 const store = useServicesStore();
 const notify = useNotificationsStore();
 
-const page: Ref<number> = ref(1); // Current page
-const limit: Ref<number> = ref(8); // Limit per page (8 services per page)
-const loading: Ref<boolean> = ref(false);
-const services: Ref<any[]> = ref([]); // Will hold the paginated services
+const providerStore = useProviderStore();
 
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(16);
+const loading: Ref<boolean> = ref(false);
+const selectedService: Ref<string> = ref("");
+let providerId = ref("");
+let status = ref("");
+
+const services: Ref<any[]> = ref([]); // Will be passed as a prop
+// const subscribe = (serviceId: string) => {
+// Add subscription logic or emit an event
+// };
 // Fetches the services for the current page
 function fetch() {
   loading.value = true;
@@ -39,25 +49,36 @@ const subscribe = (serviceId: string) => {
 };
 
 onMounted(() => {
-  store.fetchServices(); // Fetch services from the store
-  fetch(); // Fetch the initial page of services
+  store.fetchServices();
+  //   store.fetchSubscribedServices();
 });
 </script>
+  
 
 <template>
-  <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-1">
-    <div class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500">
-      <input
-        type="text"
-        placeholder="Search Services provided by Ministries, Departments and Agencies"
-        class="w-full text-sm border-none outline-none bg-white"
-      />
-      <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
-    </div>
-  </div>
+  <div
+        class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-2"
+      >
+        <div
+          class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+        >
+          <input
+            type="text"
+            placeholder="Search Services provided by Ministries, Departments and Agencies"
+            class="w-full text-sm border-none outline-none bg-white"
+          />
+          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
 
-  <!-- <hr class="mt-2 text-gray-100" /> -->
+          <!-- <button
+      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button> -->
+        </div>
+      </div>
 
+  
   <!-- Pagination Controls -->
   <div class="flex justify-end items-center mb-1">
     <!-- Previous Button -->
@@ -67,7 +88,7 @@ onMounted(() => {
       :disabled="page <= 1"
       @click="previous"
     >
-      <i class="fa-solid fa-arrow-left text-xs"></i>
+      <i class="fa-solid fa-arrow-left"></i>
     </button>
 
     <!-- Page Number Display -->
@@ -82,14 +103,15 @@ onMounted(() => {
       :disabled="services.length < limit"
       @click="next"
     >
-      <i class="fa-solid fa-arrow-right text-xs"></i>
+      <i class="fa-solid fa-arrow-right"></i>
     </button>
   </div>
 
-  <!-- Service Cards -->
   <div class="grid grid-cols-4 gap-3">
+    <!-- Service Tile -->
+
     <div
-      v-for="service in services"
+      v-for="service in store.services"
       :key="service.id"
       class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 flex flex-col justify-between"
     >

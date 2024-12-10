@@ -482,7 +482,7 @@ function unsubscribeFromService(serviceId: string) {
           <!-- <tbody> -->
           <!-- <tr> -->
           <div class="">
-            <div class="h-10">
+            <div class="h-15">
               <span class="text-xs text-gray-800">
                 {{ service.description }}
               </span>

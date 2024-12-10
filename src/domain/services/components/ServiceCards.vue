@@ -1,33 +1,34 @@
-  <script setup lang="ts">
+<script setup lang="ts">
 import type { Ref } from "vue";
 import { ref, onMounted } from "vue";
 import { useServicesStore } from "@/domain/services/stores";
-import type { Service } from "@/domain/services/types";
-import { useProviderStore } from "@/domain/entities/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 
 const store = useServicesStore();
 const notify = useNotificationsStore();
 
-const providerStore = useProviderStore();
-
-const page: Ref<number> = ref(1);
-const limit: Ref<number> = ref(16);
+const page: Ref<number> = ref(1); // Current page
+const limit: Ref<number> = ref(8); // Limit per page (8 services per page)
 const loading: Ref<boolean> = ref(false);
-const selectedService: Ref<string> = ref("");
-let providerId = ref("");
-let status = ref("");
+const services: Ref<any[]> = ref([]); // Will hold the paginated services
 
-const services: Ref<any[]> = ref([]); // Will be passed as a prop
-// const subscribe = (serviceId: string) => {
-// Add subscription logic or emit an event
-// };
+// Fetches the services for the current page
+function fetch() {
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  services.value = store.services.slice(startIndex, endIndex);
+  loading.value = false;
+}
 
+// Go to the next page
 function next() {
   page.value += 1;
   fetch();
 }
 
+// Go to the previous page
 function previous() {
   page.value -= 1;
   fetch();
@@ -38,35 +39,26 @@ const subscribe = (serviceId: string) => {
 };
 
 onMounted(() => {
-  store.fetchServices();
-  //   store.fetchSubscribedServices();
+  store.fetchServices(); // Fetch services from the store
+  fetch(); // Fetch the initial page of services
 });
 </script>
-  
 
 <template>
-  <div
-        class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-1"
-      >
-        <div
-          class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
-        >
-          <input
-            type="text"
-            placeholder="Search Services provided by Ministries, Departments and Agencies"
-            class="w-full text-sm border-none outline-none bg-white"
-          />
-          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+  <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-1">
+    <div class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500">
+      <input
+        type="text"
+        placeholder="Search Services provided by Ministries, Departments and Agencies"
+        class="w-full text-sm border-none outline-none bg-white"
+      />
+      <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+    </div>
+  </div>
 
-          <!-- <button
-      class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
-      @click="search"
-    >
-      Search
-    </button> -->
-        </div>
-      </div>
+  <!-- <hr class="mt-2 text-gray-100" /> -->
 
+  <!-- Pagination Controls -->
   <div class="flex justify-end items-center mb-1">
     <!-- Previous Button -->
     <button
@@ -75,7 +67,7 @@ onMounted(() => {
       :disabled="page <= 1"
       @click="previous"
     >
-      <i class="fa-solid fa-arrow-left"></i>
+      <i class="fa-solid fa-arrow-left text-xs"></i>
     </button>
 
     <!-- Page Number Display -->
@@ -85,20 +77,19 @@ onMounted(() => {
     <button
       class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
       :class="{
-        'opacity-50 cursor-not-allowed': store.services.length < limit,
+        'opacity-50 cursor-not-allowed': services.length < limit
       }"
-      :disabled="store.services.length < limit"
+      :disabled="services.length < limit"
       @click="next"
     >
-      <i class="fa-solid fa-arrow-right"></i>
+      <i class="fa-solid fa-arrow-right text-xs"></i>
     </button>
   </div>
 
+  <!-- Service Cards -->
   <div class="grid grid-cols-4 gap-3">
-    <!-- Service Tile -->
-
     <div
-      v-for="service in store.services"
+      v-for="service in services"
       :key="service.id"
       class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 flex flex-col justify-between"
     >

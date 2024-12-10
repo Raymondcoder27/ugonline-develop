@@ -223,7 +223,7 @@ watch(
                 <!-- <td> -->
                 <!-- <label> -->
                 <span
-                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-green-200"
                   @click="open(assignment)"
                   >Pending</span
                 >
@@ -236,7 +236,7 @@ watch(
                 <!-- <td> -->
                 <label>
                   <span
-                    class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
+                    class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                     @click="open(assignment)"
                     >Failed</span
                   >
@@ -248,7 +248,7 @@ watch(
               <div v-else>
                 <!-- <td> -->
                 <span
-                  class="text-xs rounded-md p-1 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
+                  class="text-xs rounded-md px-1 py-0.5 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
                   >Allocated</span
                 >
               </div>
@@ -256,21 +256,6 @@ watch(
             <td class="text-right">
               {{ convertDateTime(assignment.createdAt) }}
             </td>
-
-            <!-- <td class="text-left">
-              <i
-                class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
-                @click="open(assignment)"
-              ></i>
-              <i
-                class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
-                @click="edit(assignment)"
-              ></i>
-              <i
-                class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
-                @click="deleteRequest(transaction)"
-              ></i>
-            </td> -->
           </tr>
         </tbody>
       </table>

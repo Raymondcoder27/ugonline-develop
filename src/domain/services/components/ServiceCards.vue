@@ -51,11 +51,10 @@ const subscribe = (serviceId: string) => {
 };
 
 const paginatedServices = computed(() => {
-  const start = (currentPage - 1) * itemsPerPage;
-  const end = start + itemsPerPage;
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
   return store.services.slice(start, end);  // Adjust according to your page & limit
 });
-
 
 
 onMounted(() => {

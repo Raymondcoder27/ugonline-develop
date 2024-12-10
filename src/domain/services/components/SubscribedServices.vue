@@ -40,7 +40,7 @@ const open = (service: any) => {
     <!-- </div> -->
 
     <!-- Scrollable container for the list -->
-    <div class="max-h-[300px] overflow-y-auto mt-3 mx-2">
+    <div class="max-h-[80vh] overflow-y-auto mt-3 mx-2">
       <div
         v-for="(subscribedService, id) in store.subscribedServices"
         :key="id"

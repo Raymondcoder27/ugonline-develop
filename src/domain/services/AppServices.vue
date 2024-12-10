@@ -31,19 +31,19 @@ let providerId = ref("");
 let status = ref("");
 const notify = useNotificationsStore();
 
-const providerStore = useProviderStore();
-onMounted(() => {
-  loading.value = true;
-  fetch();
-  if (providerStore.providers == undefined) {
-    providerStore
-      .fetchProviders(1, 35)
-      .then(() => (loading.value = false))
-      .catch(() => {
-        loading.value = false;
-      });
-  }
-});
+// const providerStore = useProviderStore();
+// onMounted(() => {
+//   loading.value = true;
+//   fetch();
+//   if (providerStore.providers == undefined) {
+//     providerStore
+//       .fetchProviders(1, 35)
+//       .then(() => (loading.value = false))
+//       .catch(() => {
+//         loading.value = false;
+//       });
+//   }
+// });
 
 // function fetch() {
 //   store

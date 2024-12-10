@@ -1,11 +1,44 @@
   <script setup lang="ts">
 import type { Ref } from "vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useServicesStore } from "@/domain/services/stores";
+import type { Service } from "@/domain/services/types";
+import { useProviderStore } from "@/domain/entities/stores";
+import { useNotificationsStore } from "@/stores/notifications";
+
+const store = useServicesStore();
+const notify = useNotificationsStore();
+
+const providerStore = useProviderStore();
+
+const page: Ref<number> = ref(1);
+const limit: Ref<number> = ref(16);
+const loading: Ref<boolean> = ref(false);
+const selectedService: Ref<string> = ref("");
+let providerId = ref("");
+let status = ref("");
 
 const services: Ref<any[]> = ref([]); // Will be passed as a prop
 const subscribe = (serviceId: string) => {
   // Add subscription logic or emit an event
 };
+
+// onMounted(() => {
+//   loading.value = true;
+//   fetch();
+//   if (providerStore.providers == undefined) {
+//     providerStore
+//       .fetchProviders(1, 35)
+//       .then(() => (loading.value = false))
+//       .catch(() => {
+//         loading.value = false;
+//       });
+//   }
+// });
+onMounted(() => {
+  store.fetchServices();
+//   store.fetchSubscribedServices();
+});
 </script>
   
 

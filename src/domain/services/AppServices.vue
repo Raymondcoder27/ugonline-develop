@@ -172,10 +172,17 @@ watch(
 // });
 
 // fetch services
+// function fetchServices() {
+//   filter.limit = limit.value;
+//   filter.page = page.value;
+//   store.fetchServices(filter);
+// }
+
 function fetchServices() {
+  filter.offset = (page.value - 1) * limit.value; // Update offset
   filter.limit = limit.value;
-  filter.page = page.value;
-  store.fetchServices(filter);
+  filter.page = page.value; // Ensure pagination is aligned
+  store.fetchServices(filter); // Fetch services
 }
 
 // function subscribe(serviceId: string) {

@@ -10,7 +10,6 @@ import type { AccountResponseInterface, AccountsData, IResendVerificationPayload
 import type { Branch } from "@/domain/branches/types";
 import { useBranchStore } from "@/domain/branches/stores";
 
-  const branchStore = useBranchStore();
 
 export const useAccounts = defineStore("user-management", () => {
 
@@ -18,6 +17,7 @@ export const useAccounts = defineStore("user-management", () => {
   const notify = useNotificationsStore();
   const commons = useCommonsStore();
 
+  const branchStore = useBranchStore();
 
   // Dummy Data for testing
   const dummyUserAccounts: Account[] = [

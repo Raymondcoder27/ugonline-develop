@@ -59,9 +59,9 @@ function submit() {
     <p class="text-sm text-gray-500">Administrators who will manage this portal and handle providers and services</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="">
-        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+        <!-- <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
           >Select Branch</label
-        >
+        > -->
        
       <div class="flex">
         <div class="cell-full">

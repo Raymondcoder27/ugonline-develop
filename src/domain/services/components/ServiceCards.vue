@@ -46,24 +46,28 @@ onMounted(() => {
 
 <template>
   <div
-    class="w-full bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 mb-3 py-2"
-  >
-    <input
-      type="text"
-      placeholder="Search Services provided by Ministries, Departments and Agencies"
-      class="w-full text-sm border-none outline-none bg-white"
-    />
-    <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+        class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-1"
+      >
+        <div
+          class="w-[50vw] bg-white rounded-md flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+        >
+          <input
+            type="text"
+            placeholder="Search Services provided by Ministries, Departments and Agencies"
+            class="w-full text-sm border-none outline-none bg-white"
+          />
+          <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
 
-    <!-- <button
+          <!-- <button
       class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
       @click="search"
     >
       Search
     </button> -->
-  </div>
+        </div>
+      </div>
 
-  <div class="flex justify-end items-center mt-2 mb-2">
+  <div class="flex justify-end items-center mb-1">
     <!-- Previous Button -->
     <button
       class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"

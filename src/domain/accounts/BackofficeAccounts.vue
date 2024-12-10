@@ -187,9 +187,9 @@ watch(
                   @click="open()"></i>
                 <i class="text-gray-600 fa-solid fa-reply px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
                   @click="open()"></i>
-                <i v-if="account.phoneVerified && !account.activatedAt"
+                <!-- <i v-if="account.phoneVerified && !account.activatedAt"
                   class="text-gray-600 fa-solid fa-unlock-keyhole px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
-                  @click="resend('change-password', account.username)" title="Change Password"></i>
+                  @click="resend('change-password', account.username)" title="Change Password"></i> -->
               </div>
             </td>
           </tr>

@@ -291,7 +291,7 @@ onMounted(() => {
                   class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
                   @click="assignManager(branch)"
                 >
-                  Assign Manager
+                  ASSIGN MANAGER
                 </button>
               </div>
             </td>

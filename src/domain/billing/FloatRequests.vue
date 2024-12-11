@@ -175,7 +175,7 @@ onMounted(() => {
                 <!-- <td> -->
                 <!-- <label> -->
                 <span
-                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
+                  class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
                   @click="open(request)"
                   >APPROVED</span
                 >

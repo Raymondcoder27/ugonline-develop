@@ -8,10 +8,10 @@ export const useBranchStore = defineStore("useBranch", () => {
 
   // Dummy data for testing purposes
   const dummyBranches: Branch[] = [
-    { id: 1, name: "Branch 1", location: "Location 1", manager: "", status: "Active" },
-    { id: 2, name: "Branch 2", location: "Location 2", manager: "", status: "Inactive" },
-    { id: 3, name: "Branch 3", location: "Location 3", manager: "", status: "Active" },
-    { id: 4, name: "Branch 4", location: "Location 4", manager: "", status: "Inactive" },
+    { id: 1, name: "Branch 1", location: "Location 1", manager: "", status: "ACTIVE" },
+    { id: 2, name: "Branch 2", location: "Location 2", manager: "", status: "INACTIVE" },
+    { id: 3, name: "Branch 3", location: "Location 3", manager: "", status: "ACTIVE" },
+    { id: 4, name: "Branch 4", location: "Location 4", manager: "", status: "INACTIVE" },
   ];
 
   // Add new branch to the store

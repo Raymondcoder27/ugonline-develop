@@ -22,7 +22,7 @@ const form: AllocateFloat = reactive({
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(['cancel', 'floatAllocated'])
-const store = useBilling()
+// const store = useBilling()
 // function submit() {
 //   loading.value = true
 //   store.createAccount(form)
@@ -90,7 +90,7 @@ function submit() {
   console.log("Submitting payload:", payload);
 
   loading.value = true;
-  store.allocateFloat(payload) // API call to allocate float
+    billingStore.allocateFloat(payload) // API call to allocate float
     // .then(() => {
       billingStore.adjustFloatLedger(payload); // Adjust ledger
       balanceStore.decreaseTotalBalance(payload.amount); // Update balance

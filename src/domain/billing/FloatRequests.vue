@@ -177,7 +177,7 @@ onMounted(() => {
                 <span
                   class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
                   @click="open(request)"
-                  >Approved</span
+                  >APPROVED</span
                 >
                 <!-- </label> -->
                 <!-- </td> -->
@@ -190,7 +190,7 @@ onMounted(() => {
                   <span
                     class="text-xs cursor-pointer rounded-md px-1 py-0.5 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
                     @click="open(request)"
-                    >Rejected</span
+                    >REJECTED</span
                   >
                 </label>
                 <!-- </td> -->
@@ -202,7 +202,7 @@ onMounted(() => {
                 <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
                   @click="approveFloatRequest(request.id)"
-                  >Approve</span
+                  >APPROVE</span
                 >
 
                 <span

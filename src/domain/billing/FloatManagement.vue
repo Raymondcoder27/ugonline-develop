@@ -249,7 +249,7 @@ watch(
                 <!-- <td> -->
                 <span
                   class="text-xs rounded-md px-1 py-0.5 font-semibold text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700 hover:bg-blue-200"
-                  >Allocated</span
+                  >ALLOCATED</span
                 >
               </div>
             </td>

@@ -234,7 +234,7 @@ watch(
               type="text"
               placeholder="Drop down provider"
             >
-              <option value="" disabled selected>Filter by Description</option>
+              <option value="" disabled selected>--Filter by Description--</option>
               <option value="recharge">Recharge</option>
               <option value="floatAllocation">Float Allocation</option>
               <!-- <option value="UMEME">UMEME</option> -->

@@ -99,14 +99,14 @@ onMounted(() => {
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
             <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Search by Service">
-            <option value="" disabled selected>Filter by Branch</option>
+            <option value="" disabled selected>--Filter by Branch--</option>
             <option value="Branch 1">Branch 1</option>
             <option value="Branch 2">Branch 2</option>
             <option value="Branch 3">Branch 3</option>
           </select>
           <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Drop down provider">
-            <option value="" disabled selected>Filter by Amount</option>
+            <option value="" disabled selected>--Filter by Amount--</option>
             <option value="NIRA"> &lt 10,000,000 </option>
             <option value="URSB"> &lt 10,000,000 >= </option>
             <!-- <option value="UMEME">UMEME</option> -->
@@ -114,7 +114,7 @@ onMounted(() => {
           </select>
           <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
             class="filter-element e-input" type="text" placeholder="Filter by Status">
-            <option value="" disabled selected>Filter by Status</option>
+            <option value="" disabled selected>--Filter by Status--</option>
             <option value="PENDING">PENDING</option>
             <option value="COMPLETED">APPROVED</option>
             <option value="BLOCKED">REJECTED</option>

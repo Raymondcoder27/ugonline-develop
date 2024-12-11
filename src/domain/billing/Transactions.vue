@@ -149,7 +149,7 @@ onMounted(() => {
             type="text"
             placeholder="Filter by Status"
           >
-            <option value="" disabled selected>Filter by Status</option>
+            <option value="" disabled selected>--Filter by Status--</option>
             <option value="PENDING">PENDING</option>
             <option value="COMPLETED">COMPLETED</option>
             <option value="BLOCKED">BLOCKED</option>
@@ -163,7 +163,7 @@ onMounted(() => {
             type="text"
             placeholder="Drop down provider"
           >
-            <option value="" disabled selected>Filter by Provider</option>
+            <option value="" disabled selected>--Filter by Provider--</option>
             <option value="NIRA">NIRA</option>
             <option value="URSB">URSB</option>
             <!-- <option value="UMEME">UMEME</option> -->
@@ -177,7 +177,7 @@ onMounted(() => {
             type="text"
             placeholder="Search by Service"
           >
-            <option value="" disabled selected>Filter by Service</option>
+            <option value="" disabled selected>--Filter by Service--</option>
             <option value="companyNameReservation">
               Company Name Reservation
             </option>
